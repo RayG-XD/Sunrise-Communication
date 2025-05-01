@@ -4911,7 +4911,7 @@
 				'<div class="fancybox-share">' +
 					'<h1>{{SHARE}}</h1>' +
 					'<p class="fancybox-share__links">' +
-						'<a class="fancybox-share__button fancybox-share__button--fb" href="https://www.facebook.com/sharer/sharer.php?u={{url}}">' +
+						'<a class="fancybox-share__button fancybox-share__button--fb" href="https://www.facebook.com/profile.php?id=100094409709475sharer/sharer.php?u={{url}}">' +
 							'<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m287 456v-299c0-21 6-35 35-35h38v-63c-7-1-29-3-55-3-54 0-91 33-91 94v306m143-254h-205v72h196" /></svg>' +
 							'<span>Facebook</span>' +
 						'</a>' +
