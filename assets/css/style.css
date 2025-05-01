@@ -5979,3 +5979,10 @@
 	max-width:100%;
 	padding-left:30px;	
 }
+
+.social-box li a.fa-whatsapp {
+    background-color: #25D366;
+}
+.social-box li a.fa-whatsapp:hover {
+    background-color: #128C7E;
+}
