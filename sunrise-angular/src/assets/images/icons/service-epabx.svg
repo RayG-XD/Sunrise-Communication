@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="epabx-red" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e8383b"/>
+      <stop offset="100%" stop-color="#c5221f"/>
+    </linearGradient>
+    <linearGradient id="epabx-navy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1c2d6b"/>
+      <stop offset="100%" stop-color="#0e1738"/>
+    </linearGradient>
+  </defs>
+  <!-- Console Base Body -->
+  <rect x="8" y="16" width="48" height="40" rx="6" fill="url(#epabx-navy)" stroke="#0e1738" stroke-width="2"/>
+  <!-- Digital Screen Display -->
+  <rect x="24" y="22" width="26" height="12" rx="2" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+  <line x1="28" y1="26" x2="42" y2="26" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+  <line x1="28" y1="30" x2="36" y2="30" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Intercom Keypad Buttons Grid -->
+  <circle cx="28" cy="40" r="2.5" fill="#ffffff" opacity="0.9"/>
+  <circle cx="37" cy="40" r="2.5" fill="#ffffff" opacity="0.9"/>
+  <circle cx="46" cy="40" r="2.5" fill="#ffffff" opacity="0.9"/>
+  <circle cx="28" cy="48" r="2.5" fill="#ffffff" opacity="0.9"/>
+  <circle cx="37" cy="48" r="2.5" fill="#ffffff" opacity="0.9"/>
+  <circle cx="46" cy="48" r="2.5" fill="url(#epabx-red)"/>
+  <!-- Handset Cradle & Corded Handset -->
+  <rect x="12" y="12" width="8" height="42" rx="4" fill="url(#epabx-red)"/>
+  <circle cx="16" cy="18" r="3" fill="#ffffff" opacity="0.9"/>
+  <circle cx="16" cy="48" r="3" fill="#ffffff" opacity="0.9"/>
+  <!-- Curly Intercom Cord -->
+  <path d="M 12 46 C 8 48, 6 52, 10 54 C 14 56, 18 54, 20 50" fill="none" stroke="#e8383b" stroke-width="2" stroke-linecap="round"/>
+</svg>

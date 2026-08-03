@@ -1,0 +1,191 @@
+<app-page-title title="About Sunrise Communication" breadcrumb="About Us" bgImage="assets/images/background/about-banner.jpg"></app-page-title>
+
+<!-- Network Section / Style Two -->
+<section class="network-section style-two">
+  <div class="auto-container">
+    <div class="inner-container">
+      <div class="row clearfix">
+
+        <!-- Image Column with Animated Showcase Slider -->
+        <div class="images-column col-lg-7 col-md-12 col-sm-12" data-aos="fade-right" data-aos-duration="1200">
+          <div class="about-animated-showcase" (mouseenter)="stopAutoplay()" (mouseleave)="startAutoplay()">
+            
+            <!-- Slides Viewport -->
+            <div class="slides-viewport">
+              @for (slide of slides; track $index) {
+                <div 
+                  class="slide-item" 
+                  [class.active]="$index === activeIndex()"
+                >
+                  <img [src]="slide.image" [alt]="slide.title" loading="lazy" />
+                  <div class="slide-overlay">
+                    <span class="slide-badge">0{{ $index + 1 }} / 0{{ slides.length }}</span>
+                    <h4 class="slide-title">{{ slide.title }}</h4>
+                    <p class="slide-desc">{{ slide.description }}</p>
+                  </div>
+                </div>
+              }
+            </div>
+
+            <!-- Showcase Navigation & Indicators -->
+            <div class="showcase-controls">
+              <button class="nav-btn prev-btn" (click)="prevSlide()" aria-label="Previous Slide">
+                <span class="arrow lnr lnr-arrow-left"></span>
+              </button>
+
+              <div class="indicators">
+                @for (slide of slides; track $index) {
+                  <button 
+                    class="dot" 
+                    [class.active]="$index === activeIndex()"
+                    (click)="setActiveSlide($index)"
+                    [attr.aria-label]="'Go to slide ' + ($index + 1)"
+                  ></button>
+                }
+              </div>
+
+              <button class="nav-btn next-btn" (click)="nextSlide()" aria-label="Next Slide">
+                <span class="arrow lnr lnr-arrow-right"></span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Content Column -->
+        <div class="content-column col-lg-5 col-md-12 col-sm-12">
+          <div class="inner-column">
+            <div class="sec-title" data-aos="fade-up">
+              <div class="separator"></div>
+              <h2>We Provide Best Services For You.</h2>
+              <div class="text">Sunrise Communication, your trusted source for comprehensive solutions in EPABX Systems, Intercom Systems, CCTV Cameras, NVR, DVR, Biometrics, Projectors, Telephones, Telecommunication, and all types of Network & Telecom Wire and Cables. We specialize in providing high-quality sales and service for a wide range of cutting-edge communication and security systems. Our team of experienced professionals is dedicated to understanding your unique needs and providing tailored solutions to meet your requirements.</div>
+            </div>
+            <!-- Network List -->
+            <ul class="network-list" data-aos="fade-up" data-aos-delay="200">
+              <li>
+                <span class="icon flaticon-tick-1"></span>
+                <strong>Exceptional Expertise</strong>
+                Our team consists of highly skilled professionals who have extensive knowledge and expertise in the field. We stay up-to-date with the latest industry trends and technologies to ensure that we offer the most innovative solutions and services to our customers.
+              </li>
+              <li>
+                <span class="icon flaticon-tick-1"></span>
+                <strong>Reliable and Timely Service</strong>
+                We value our customers' time and strive to provide prompt and reliable service. From initial consultation to installation, maintenance, and support, we ensure that our services are delivered efficiently and within the agreed-upon timelines.
+              </li>
+              <li>
+                <span class="icon flaticon-tick-1"></span>
+                <strong>Customer Satisfaction</strong>
+                Customer satisfaction is at the core of our business philosophy. We go above and beyond to ensure that our customers are happy and satisfied with our services.
+              </li>
+            </ul>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Network Section / Style Two -->
+
+
+<!-- Services Section Three -->
+<section class="services-section-three" style="background-image: url('assets/images/background/pattern-6.png')">
+  <div class="auto-container">
+    <div class="sec-title clearfix" data-aos="fade-up">
+      <div class="pull-left">
+        <div class="separator"></div>
+        <h2>Few Great Reasons Make <br> You Choice us</h2>
+      </div>
+      <div class="pull-right">
+        <a routerLink="/services" class="theme-btn btn-style-four"><span class="txt">View Services <i class="lnr lnr-arrow-right"></i></span></a>
+      </div>
+    </div>
+    <div class="row clearfix">
+
+      <!-- Facility Block -->
+      <div class="facility-block col-lg-3 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="0">
+        <div class="inner-box">
+          <div class="pattern-layer" style="background-image: url('assets/images/background/pattern-14.png')"></div>
+          <div class="icon-box flaticon-swimming-pool"></div>
+          <h5><a routerLink="/services-detail">Expertise and Experience</a></h5>
+          <div class="text">With years of experience in the industry, our company brings extensive knowledge and expertise to every project. We have a deep understanding ensuring that we can provide accurate recommendations and solutions tailored to our customers' specific needs.</div>
+        </div>
+      </div>
+
+      <!-- Facility Block -->
+      <div class="facility-block col-lg-3 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="100">
+        <div class="inner-box">
+          <div class="pattern-layer" style="background-image: url('assets/images/background/pattern-14.png')"></div>
+          <div class="icon-box flaticon-5g"></div>
+          <h5><a routerLink="/services-detail">High-Quality Products</a></h5>
+          <div class="text">We pride ourselves on offering top-of-the-line products from reputable manufacturers. Our commitment to quality ensures that our customers receive reliable and durable systems that meet the highest industry standards.</div>
+        </div>
+      </div>
+
+      <!-- Facility Block -->
+      <div class="facility-block col-lg-3 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="200">
+        <div class="inner-box">
+          <div class="pattern-layer" style="background-image: url('assets/images/background/pattern-14.png')"></div>
+          <div class="icon-box flaticon-8k"></div>
+          <h5><a routerLink="/services-detail">Customized Solutions</a></h5>
+          <div class="text">We understand that every business or individual has unique requirements. That's why we take a personalized approach to provide customized solutions that address your specific communication and security needs.</div>
+        </div>
+      </div>
+
+      <!-- Facility Block -->
+      <div class="facility-block col-lg-3 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="300">
+        <div class="inner-box">
+          <div class="pattern-layer" style="background-image: url('assets/images/background/pattern-14.png')"></div>
+          <div class="icon-box flaticon-customer-service"></div>
+          <h5><a routerLink="/services-detail">Professional Installation and Service</a></h5>
+          <div class="text">Our team of skilled technicians is trained to provide efficient and professional installations. We take care of every aspect, ensuring that your systems are set up correctly and function optimally.</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- End Services Section Three -->
+
+<!-- Team Section -->
+<section class="team-section">
+  <div class="auto-container">
+
+    <!-- Sec Title -->
+    <div class="sec-title centered" data-aos="fade-up">
+      <div class="separator"></div>
+      <h2>Meet Our Experts</h2>
+    </div>
+    <!-- End Sec Title -->
+
+    <div class="row justify-content-center clearfix">
+      <div class="team-block col-lg-4 col-md-6 col-sm-12" data-aos="fade-up">
+        <div class="inner-box">
+          <div class="image">
+            <img loading="lazy" src="assets/images/resource/team-placeholder.png" alt="Tanaji Pol - Proprietor, Sunrise Communication Thane" />
+            <div class="overlay-box">
+              <h6>Tanaji Pol</h6>
+              <div class="designation">Proprietor, Sunrise Communication</div>
+            </div>
+            <div class="overlay-box-two">
+              <h6>Tanaji Pol</h6>
+              <div class="designation">Proprietor, Sunrise Communication</div>
+              <div class="text">Proprietor</div>
+              <!-- Social Box -->
+              <ul class="social-box">
+                <li><a aria-label="Facebook Profile" [href]="siteData.social.facebook" class="fa fa-facebook-f" target="_blank"></a></li>
+                <li><a aria-label="LinkedIn Profile" [href]="siteData.social.linkedin" class="fa fa-linkedin" target="_blank"></a></li>
+                <li><a aria-label="WhatsApp Contact" [href]="siteData.social.whatsapp" class="fa fa-whatsapp" target="_blank"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- End Team Section -->
+<!-- End Team Section -->

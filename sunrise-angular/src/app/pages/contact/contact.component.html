@@ -1,0 +1,111 @@
+<app-page-title title="Contact Us for Security Solutions" breadcrumb="Contact us" bgImage="assets/images/background/10.jpg"></app-page-title>
+
+<!-- Contact Page Section -->
+<section class="contact-page-section">
+  <div class="auto-container">
+    <div class="row clearfix">
+
+      <!-- Info Column -->
+      <div class="info-column col-lg-5 col-md-12 col-sm-12" data-aos="fade-right">
+        <div class="inner-column">
+          <div class="title-box">
+            <h4>Contact Details</h4>
+          </div>
+          <div class="lower-box">
+            <ul class="info-list">
+              <li>
+                <span class="icon flaticon-map"></span>
+                {{ siteData.contact.address }}
+              </li>
+              <li>
+                <span class="icon flaticon-call"></span>
+                <a [href]="'tel:' + siteData.contact.primaryPhone">{{ siteData.contact.primaryPhone }}</a><br>
+                <a [href]="'tel:' + siteData.contact.secondaryPhone">{{ siteData.contact.secondaryPhone }}</a>
+              </li>
+              <li>
+                <span class="icon flaticon-email-1"></span>
+                <a [href]="'mailto:' + siteData.contact.email">{{ siteData.contact.email }}</a><br>
+                <a [href]="'https://' + siteData.contact.website" target="_blank">{{ siteData.contact.website }}</a>
+              </li>
+            </ul>
+            <div class="timing">Working hours 09:00 - 21:00</div>
+
+            <!-- Social Box -->
+            <ul class="social-box">
+              <li><a aria-label="Facebook Profile" [href]="siteData.social.facebook" class="fa fa-facebook-f" target="_blank"></a></li>
+              <li><a aria-label="LinkedIn Profile" [href]="siteData.social.linkedin" class="fa fa-linkedin" target="_blank"></a></li>
+              <li><a aria-label="WhatsApp Contact" [href]="siteData.social.whatsapp" class="fa fa-whatsapp" target="_blank"></a></li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Map Column -->
+      <div class="map-column col-lg-7 col-md-12 col-sm-12" data-aos="fade-left">
+        <div class="inner-column">
+          <!--Map Outer-->
+          <div class="map-outer">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d235.49947738884177!2d72.9744403558198!3d19.195567565228195!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b9054e8ac5dd%3A0x6404487c9e4db3ec!2sSunrise%20Communication!5e0!3m2!1sen!2sus!4v1685973441825!5m2!1sen!2sus"
+              allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Contact Form Box -->
+    <div class="contact-form-box" data-aos="fade-up">
+      <!-- Form Title Box -->
+      <div class="form-title-box">
+        <h3>Send a Message</h3>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" id="contact-form">
+          <div class="row clearfix">
+
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+              <input type="text" formControlName="username" placeholder="Name" [class.error]="contactForm.get('username')?.invalid && contactForm.get('username')?.touched">
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+              <input type="email" formControlName="email" placeholder="Email Address" [class.error]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+              <input type="text" formControlName="company" placeholder="Company">
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+              <input type="text" formControlName="phone" placeholder="Phone" [class.error]="contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched">
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+              <textarea formControlName="message" placeholder="Write Your Message..." [class.error]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"></textarea>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 form-group text-center">
+              <button class="theme-btn btn-style-four" type="submit" [disabled]="isSubmitting()">
+                <span class="txt">{{ isSubmitting() ? 'Sending...' : 'Submit Now' }}</span>
+              </button>
+            </div>
+            
+            @if(successMessage()) {
+              <div class="col-lg-12 col-md-12 col-sm-12 form-group text-center mt-3">
+                <div class="alert alert-success">{{ successMessage() }}</div>
+              </div>
+            }
+
+          </div>
+        </form>
+      </div>
+
+    </div>
+    <!-- End Contact Form Box -->
+
+  </div>
+</section>
+<!-- End Contact Page Section -->

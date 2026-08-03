@@ -1,0 +1,198 @@
+<app-page-title title="CCTV & Security System Installations" breadcrumb="CCTV & Security Systems" bgImage="assets/images/background/10.jpg"></app-page-title>
+
+<!-- Sidebar Page Container -->
+<section class="sidebar-page-container">
+  <div class="auto-container">
+    <div class="row clearfix">
+
+      <!-- Content Side -->
+      <div class="content-side col-lg-8 col-md-12 col-sm-12">
+        <div class="service-detail">
+          <div class="inner-box">
+            <div class="image" data-aos="fade-up">
+              <img loading="lazy" src="assets/images/resource/service-2.jpg" alt="CCTV and EPABX Security Services Mumbai" />
+            </div>
+            <div class="lower-content">
+              <h3 data-aos="fade-up">CCTV & Security Systems</h3>
+              <p data-aos="fade-up">At Sunrise Communication, we offer comprehensive CCTV and security surveillance solutions for businesses and homes. Our cutting-edge camera systems provide exceptional video quality, reliable performance, and user-friendly monitoring interfaces to ensure your premises remain secure 24/7.</p>
+              <blockquote data-aos="fade-up">Security is not just about installing cameras - it's about creating a comprehensive surveillance solution that protects your assets, deters potential threats, and provides peace of mind through reliable, high-quality monitoring.
+              </blockquote>
+              <p data-aos="fade-up">Our team of experienced technicians works closely with each client to assess security needs, recommend appropriate equipment, and implement customized solutions that address specific security challenges. From basic surveillance setups to advanced multi-camera networks with remote monitoring capabilities, we have the expertise to deliver systems that meet your exact requirements.</p>
+              <div class="two-column">
+                <div class="row clearfix">
+                  <!-- Column -->
+                  <div class="column col-lg-6 col-md-6 col-sm-12">
+                    <div class="lower-image" data-aos="fade-right">
+                      <img loading="lazy" src="assets/images/resource/service-3.png" alt="CCTV and EPABX Security Services Mumbai" />
+                    </div>
+                  </div>
+                  <!-- Column -->
+                  <div class="column col-lg-6 col-md-6 col-sm-12" data-aos="fade-left">
+                    <h4>Benefits of Our CCTV Systems</h4>
+                    <p>Our security solutions provide numerous advantages for businesses and homeowners looking to enhance their security infrastructure.</p>
+                    <ul class="list-style-two">
+                      <li>Crime Deterrence & Prevention</li>
+                      <li>24/7 Surveillance Coverage</li>
+                      <li>Remote Monitoring Capabilities</li>
+                      <li>High-Definition Video Quality</li>
+                      <li>Scalable System Architecture</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Accordian Outer -->
+              <div class="accordion-outer" data-aos="fade-up">
+                <h4>What’s included</h4>
+
+                <!-- Accordian Box / Style Two -->
+                <ul class="accordion-box style-two">
+
+                  <!--Block 1-->
+                  <li class="accordion block" [class.active-block]="activeFaq === 1">
+                    <div class="acc-btn" [class.active]="activeFaq === 1" (click)="toggleFaq(1)">
+                      <div class="icon-outer">
+                        <span class="icon icon-plus fa fa-plus"></span> 
+                        <span class="icon icon-minus fa fa-minus"></span>
+                      </div>
+                      Professional Installation Services
+                    </div>
+                    @if(activeFaq === 1) {
+                      <div class="acc-content current">
+                        <div class="content">
+                          <div class="text">Our team of certified technicians handles the entire installation process with precision and care. We assess your location, plan camera placement for optimal coverage, handle all wiring and mounting, and configure your system for peak performance. Our professional installation ensures that your security system operates flawlessly from day one.</div>
+                        </div>
+                      </div>
+                    }
+                  </li>
+
+                  <!--Block 2-->
+                  <li class="accordion block" [class.active-block]="activeFaq === 2">
+                    <div class="acc-btn" [class.active]="activeFaq === 2" (click)="toggleFaq(2)">
+                      <div class="icon-outer">
+                        <span class="icon icon-plus fa fa-plus"></span> 
+                        <span class="icon icon-minus fa fa-minus"></span>
+                      </div>
+                      Advanced Camera Technologies
+                    </div>
+                    @if(activeFaq === 2) {
+                      <div class="acc-content current">
+                        <div class="content">
+                          <div class="text">We offer a range of camera technologies to suit different security needs - from standard HD cameras to advanced 4K ultra-high-definition systems. Our cameras feature night vision capabilities, motion detection, wide-angle lenses, and weatherproof housing for outdoor applications. We help you select the right technology to address your specific security requirements.</div>
+                        </div>
+                      </div>
+                    }
+                  </li>
+
+                  <!--Block 3-->
+                  <li class="accordion block" [class.active-block]="activeFaq === 3">
+                    <div class="acc-btn" [class.active]="activeFaq === 3" (click)="toggleFaq(3)">
+                      <div class="icon-outer">
+                        <span class="icon icon-plus fa fa-plus"></span> 
+                        <span class="icon icon-minus fa fa-minus"></span>
+                      </div>
+                      Recording & Storage Solutions
+                    </div>
+                    @if(activeFaq === 3) {
+                      <div class="acc-content current">
+                        <div class="content">
+                          <div class="text">Our CCTV systems include reliable recording and storage solutions to maintain your surveillance footage. We offer digital video recorders (DVRs) and network video recorders (NVRs) with various storage capacities to meet your retention requirements. Our systems support continuous recording, motion-activated recording, and scheduled recording to maximize storage efficiency while ensuring critical events are captured.</div>
+                        </div>
+                      </div>
+                    }
+                  </li>
+
+                  <!--Block 4-->
+                  <li class="accordion block" [class.active-block]="activeFaq === 4">
+                    <div class="acc-btn" [class.active]="activeFaq === 4" (click)="toggleFaq(4)">
+                      <div class="icon-outer">
+                        <span class="icon icon-plus fa fa-plus"></span> 
+                        <span class="icon icon-minus fa fa-minus"></span>
+                      </div>
+                      Maintenance & Support Services
+                    </div>
+                    @if(activeFaq === 4) {
+                      <div class="acc-content current">
+                        <div class="content">
+                          <div class="text">We provide comprehensive maintenance and support for all installed systems. Our service plans include regular system checks, firmware updates, camera cleaning, and prompt troubleshooting assistance. With our ongoing support, your security system remains in optimal condition, minimizing downtime and ensuring your premises stay protected.</div>
+                        </div>
+                      </div>
+                    }
+                  </li>
+
+                </ul>
+
+              </div>
+              <!-- End Accordian Outer -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar Side -->
+      <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
+        <aside class="sidebar sticky-top" data-aos="fade-left">
+
+          <!-- Services Widget -->
+          <div class="sidebar-widget services-widget">
+            <div class="widget-content">
+              <div class="sidebar-title">
+                <h5>Our Services</h5>
+              </div>
+              <ul class="service-list">
+                <li><a routerLink="/services/detail">CCTV, NVR & DVR</a></li>
+                <li><a routerLink="/services/detail">EPABX Systems</a></li>
+                <li><a routerLink="/services/detail">Intercom Systems</a></li>
+                <li><a routerLink="/services/detail">Telephones & Telecom</a></li>
+                <li><a routerLink="/services/detail">Access Control Systems</a></li>
+                <li><a routerLink="/services/detail">Biometrics</a></li>
+                <li><a routerLink="/services/detail">Projectors</a></li>
+                <li><a routerLink="/services/detail">Network & Telecom Cables</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Broucher Widget -->
+          <div class="sidebar-widget broucher-widget">
+            <div class="widget-content">
+              <div class="sidebar-title">
+                <h5>Our Company Brochure</h5>
+              </div>
+              <div class="text">Download our detailed product catalog to explore our complete range of security and communication solutions. Our brochure provides specifications, features, and applications for all our products.</div>
+              <a href="javascript:void(0)" class="theme-btn btn-style-four"><span class="txt">Download PDF</span></a>
+            </div>
+          </div>
+
+          <!-- Contact Widget -->
+          <div class="sidebar-widget contact-widget">
+            <div class="widget-content">
+              <div class="sidebar-title">
+                <h5>Contact Us</h5>
+              </div>
+              <ul class="contact-info-widget">
+                <li>
+                  <span class="icon flaticon-map"></span>
+                  {{ siteData.contact.address }}
+                </li>
+                <li>
+                  <span class="icon flaticon-call"></span>
+                  <a [href]="'tel:' + siteData.contact.primaryPhone">{{ siteData.contact.primaryPhone }}</a><br>
+                  <a [href]="'tel:' + siteData.contact.secondaryPhone">{{ siteData.contact.secondaryPhone }}</a>
+                </li>
+                <li>
+                  <span class="icon flaticon-email-1"></span>
+                  <a [href]="'mailto:' + siteData.contact.email">{{ siteData.contact.email }}</a><br>
+                  <a [href]="'https://' + siteData.contact.website" target="_blank">{{ siteData.contact.website }}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </aside>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- End Sidebar Page Container -->

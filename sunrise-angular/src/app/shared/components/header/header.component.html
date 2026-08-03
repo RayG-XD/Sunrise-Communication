@@ -1,0 +1,206 @@
+<header class="main-header" [class.fixed-header]="isSticky()">
+
+  <!-- Header Top -->
+  <div class="header-top">
+    <div class="auto-container clearfix">
+
+      <div class="pull-left">
+        <ul class="info">
+          <li><a [href]="'tel:' + siteData.contact.secondaryPhone"><span class="icon flaticon-maps-and-flags"></span>Call:
+              {{ siteData.contact.secondaryPhone }}</a></li>
+          <li><a [href]="'mailto:' + siteData.contact.email"><span
+                class="icon flaticon-email-2"></span>{{ siteData.contact.email }}</a></li>
+        </ul>
+      </div>
+
+      <div class="pull-right clearfix">
+        <!-- Social Box -->
+        <ul class="social-box">
+          <li><a aria-label="Facebook Profile" [href]="siteData.social.facebook" class="fa fa-facebook-f" target="_blank"></a></li>
+          <li><a aria-label="Twitter Profile" [href]="siteData.social.twitter" class="fa fa-twitter" target="_blank"></a></li>
+          <li><a aria-label="LinkedIn Profile" [href]="siteData.social.linkedin" class="fa fa-linkedin" target="_blank"></a></li>
+          <li><a aria-label="WhatsApp Contact" [href]="siteData.social.whatsapp" class="fa fa-whatsapp" target="_blank"></a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Header Lower -->
+  <div class="header-lower">
+
+    <div class="auto-container clearfix">
+      <div class="inner-container clearfix">
+
+        <div class="pull-left logo-box">
+          <div class="logo"><a routerLink="/"><img src="assets/images/logo.png" alt="Sunrise Communication Logo" title=""></a></div>
+        </div>
+        <div class="nav-outer clearfix">
+
+          <!-- Mobile Navigation Toggler -->
+          <div class="mobile-nav-toggler" (click)="toggleMobileMenu()"><span class="icon flaticon-menu"></span></div>
+          
+          <!-- Main Menu -->
+          <nav class="main-menu show navbar-expand-md">
+            <div class="navbar-header">
+              <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation" (click)="toggleMobileMenu()">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+
+            <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+              <ul class="navigation clearfix">
+                <li routerLinkActive="current" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/">Home</a></li>
+                <li routerLinkActive="current"><a routerLink="/about">About</a></li>
+                <li class="dropdown" [class.open]="isServicesDropdownOpen()">
+                  <a href="javascript:void(0)" (click)="toggleServicesDropdown($event)">Services</a>
+                  <ul [style.display]="isServicesDropdownOpen() ? 'block' : ''">
+                    <li routerLinkActive="current"><a routerLink="/services" (click)="closeAllMenus()">Services</a></li>
+                    <li routerLinkActive="current"><a routerLink="/services/detail" (click)="closeAllMenus()">Services Detail</a></li>
+                  </ul>
+                </li>
+                <li routerLinkActive="current"><a routerLink="/contact">Contact us</a></li>
+              </ul>
+            </div>
+
+          </nav>
+          <!-- Main Menu End-->
+
+          <!-- Outer Box -->
+          <div class="outer-box clearfix">
+
+            <!-- Nav Btn -->
+            <div class="nav-btn navSidebar-button" (click)="toggleSidebar()"><span class="icon flaticon-dots-menu"></span>
+            </div>
+
+          </div>
+          <!-- End Outer Box -->
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- End Header Lower -->
+
+  <!-- Sticky Header  -->
+  <div class="sticky-header" [class.animated]="isSticky()" [class.slideInDown]="isSticky()">
+    <div class="auto-container clearfix">
+      <!-- Logo -->
+      <div class="logo pull-left">
+        <a routerLink="/" title=""><img src="assets/images/logo-small.png" alt="Sunrise Communication Logo" title=""></a>
+      </div>
+
+      <!--Right Col-->
+      <div class="pull-right">
+        <!-- Main Menu -->
+        <nav class="main-menu">
+          <!-- Replicated Menu for Sticky Header -->
+          <ul class="navigation clearfix">
+            <li routerLinkActive="current" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/">Home</a></li>
+            <li routerLinkActive="current"><a routerLink="/about">About</a></li>
+            <li class="dropdown" [class.open]="isServicesDropdownOpen()">
+              <a href="javascript:void(0)" (click)="toggleServicesDropdown($event)">Services</a>
+              <ul [style.display]="isServicesDropdownOpen() ? 'block' : ''">
+                <li routerLinkActive="current"><a routerLink="/services" (click)="closeAllMenus()">Services</a></li>
+                <li routerLinkActive="current"><a routerLink="/services/detail" (click)="closeAllMenus()">Services Detail</a></li>
+              </ul>
+            </li>
+            <li routerLinkActive="current"><a routerLink="/contact">Contact us</a></li>
+          </ul>
+        </nav><!-- Main Menu End-->
+
+        <!-- Outer Box -->
+        <div class="outer-box clearfix">
+          <!-- Nav Btn -->
+          <div class="nav-btn navSidebar-button" (click)="toggleSidebar()"><span class="icon flaticon-dots-menu"></span></div>
+        </div>
+        <!-- End Outer Box -->
+
+      </div>
+    </div>
+  </div><!-- End Sticky Menu -->
+
+  <!-- Mobile Menu  -->
+  <div class="mobile-menu">
+    <div class="menu-backdrop" (click)="toggleMobileMenu()"></div>
+    <div class="close-btn" (click)="toggleMobileMenu()"><span class="icon flaticon-multiply"></span></div>
+
+    <nav class="menu-box">
+      <div class="nav-logo"><a routerLink="/"><img src="assets/images/logo.png" alt="Sunrise Communication Logo" title=""></a></div>
+      <div class="menu-outer">
+        <!-- Replicated Menu for Mobile -->
+        <div class="navbar-collapse collapse clearfix show">
+          <ul class="navigation clearfix">
+            <li routerLinkActive="current" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/" (click)="toggleMobileMenu()">Home</a></li>
+            <li routerLinkActive="current"><a routerLink="/about" (click)="toggleMobileMenu()">About</a></li>
+            <li class="dropdown" [class.open]="isServicesDropdownOpen()">
+              <a href="javascript:void(0)" (click)="toggleServicesDropdown($event)">Services</a>
+              <div class="dropdown-btn" [class.open]="isServicesDropdownOpen()" (click)="toggleServicesDropdown($event)">
+                <span class="fa fa-angle-down"></span>
+              </div>
+              <ul [style.display]="isServicesDropdownOpen() ? 'block' : 'none'">
+                <li routerLinkActive="current"><a routerLink="/services" (click)="closeAllMenus()">Services</a></li>
+                <li routerLinkActive="current"><a routerLink="/services/detail" (click)="closeAllMenus()">Services Detail</a></li>
+              </ul>
+            </li>
+            <li routerLinkActive="current"><a routerLink="/contact" (click)="toggleMobileMenu()">Contact us</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div><!-- End Mobile Menu -->
+
+</header>
+
+<!-- Sidebar Cart Item / Sidebar Widget -->
+<div class="xs-sidebar-group info-group" [class.isActive]="isSidebarOpen()">
+  <div class="xs-overlay xs-bg-black" (click)="toggleSidebar()"></div>
+  <div class="xs-sidebar-widget">
+    <div class="sidebar-widget-container">
+      <div class="widget-heading">
+        <a href="javascript:void(0)" class="close-side-widget" (click)="toggleSidebar()">
+          X
+        </a>
+      </div>
+      <div class="sidebar-textwidget">
+
+        <!-- Sidebar Info Content -->
+        <div class="sidebar-info-contents">
+          <div class="content-inner">
+            <div class="logo">
+              <a routerLink="/"><img src="assets/images/logo-2.png" alt="Sunrise Communication Logo" /></a>
+            </div>
+            <div class="content-box">
+              <h5>About Us</h5>
+              <p class="text">Contact us today to learn more about how we can fulfill your communication and security needs.</p>
+              <a routerLink="/contact" class="theme-btn btn-style-one" (click)="toggleSidebar()"><span class="txt">Contact Us</span></a>
+            </div>
+            <div class="contact-info">
+              <h5>Contact Info</h5>
+              <ul class="list-style-one">
+                <li><span class="icon fa fa-location-arrow"></span>{{ siteData.contact.address }}</li>
+                <li><span class="icon fa fa-phone"></span>{{ siteData.contact.primaryPhone }}</li>
+                <li><span class="icon fa fa-envelope"></span>{{ siteData.contact.email }}</li>
+                <li><span class="icon fa fa-clock-o"></span>{{ siteData.contact.workingHours }}</li>
+              </ul>
+            </div>
+            <!-- Social Box -->
+            <ul class="social-box">
+              <li><a aria-label="Facebook Profile" [href]="siteData.social.facebook" class="fa fa-facebook-f" target="_blank"></a></li>
+              <li><a aria-label="LinkedIn Profile" [href]="siteData.social.linkedin" class="fa fa-linkedin" target="_blank"></a></li>
+              <li><a aria-label="Instagram Profile" [href]="siteData.social.instagram" class="fa fa-instagram" target="_blank"></a></li>
+              <li><a aria-label="Twitter Profile" [href]="siteData.social.twitter" class="fa fa-twitter" target="_blank"></a></li>
+              <li><a aria-label="WhatsApp Contact" [href]="siteData.social.whatsapp" class="fa fa-whatsapp" target="_blank"></a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
