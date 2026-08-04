@@ -56,6 +56,7 @@
               <ul class="navigation clearfix">
                 <li routerLinkActive="current" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/">Home</a></li>
                 <li routerLinkActive="current"><a routerLink="/about">About</a></li>
+                <li routerLinkActive="current"><a routerLink="/products">Products</a></li>
                 <li class="dropdown" [class.open]="isServicesDropdownOpen()">
                   <a href="javascript:void(0)" (click)="toggleServicesDropdown($event)">Services</a>
                   <ul [style.display]="isServicesDropdownOpen() ? 'block' : ''">
@@ -103,6 +104,7 @@
           <ul class="navigation clearfix">
             <li routerLinkActive="current" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/">Home</a></li>
             <li routerLinkActive="current"><a routerLink="/about">About</a></li>
+            <li routerLinkActive="current"><a routerLink="/products">Products</a></li>
             <li class="dropdown" [class.open]="isServicesDropdownOpen()">
               <a href="javascript:void(0)" (click)="toggleServicesDropdown($event)">Services</a>
               <ul [style.display]="isServicesDropdownOpen() ? 'block' : ''">
@@ -138,6 +140,7 @@
           <ul class="navigation clearfix">
             <li routerLinkActive="current" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/" (click)="toggleMobileMenu()">Home</a></li>
             <li routerLinkActive="current"><a routerLink="/about" (click)="toggleMobileMenu()">About</a></li>
+            <li routerLinkActive="current"><a routerLink="/products" (click)="toggleMobileMenu()">Products</a></li>
             <li class="dropdown" [class.open]="isServicesDropdownOpen()">
               <a href="javascript:void(0)" (click)="toggleServicesDropdown($event)">Services</a>
               <div class="dropdown-btn" [class.open]="isServicesDropdownOpen()" (click)="toggleServicesDropdown($event)">

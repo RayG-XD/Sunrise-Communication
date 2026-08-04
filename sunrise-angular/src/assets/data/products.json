@@ -1,0 +1,262 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "model_number": "CP-UNC-EE61L2C-VMD-Q",
+      "slug": "cp-unc-ee61l2c-vmd-q-6mp-network-ir-fisheye-camera",
+      "name": "6MP Network IR Fisheye Camera",
+      "brand": "CP Plus",
+      "brand_logo_url": "",
+      "category": "Network Camera",
+      "category_slug": "network-camera",
+      "category_description": "Advanced IP cameras delivering high-resolution video, seamless connectivity, and intelligent analytics for robust surveillance solutions.",
+      "sub_category": "6 MP",
+      "sub_category_slug": "6-mp",
+      "image_url": "",
+      "short_description": "Enterprise-grade 6MP 360-degree panoramic Fisheye Network Camera with smart IR, heat mapping, and built-in mic.",
+      "specs": [
+        { "key": "Resolution", "value": "6MP (3072 x 2048)" },
+        { "key": "Field of View", "value": "360° Panoramic Fisheye" },
+        { "key": "IR Range", "value": "15 Meters Smart IR" },
+        { "key": "Audio", "value": "Built-in Mic & Speaker (2-Way)" },
+        { "key": "Compression", "value": "H.265+ / H.265 Dual Stream" }
+      ],
+      "services_offered": ["Sales", "Installation", "AMC", "Repair"]
+    },
+    {
+      "id": "2",
+      "model_number": "CP-UNC-BE51E-VMD-Q",
+      "slug": "cp-unc-be51e-vmd-q-5mp-network-box-camera",
+      "name": "5MP Network Box Camera",
+      "brand": "CP Plus",
+      "brand_logo_url": "",
+      "category": "Network Camera",
+      "category_slug": "network-camera",
+      "category_description": "Advanced IP cameras delivering high-resolution video, seamless connectivity, and intelligent analytics for robust surveillance solutions.",
+      "sub_category": "5 MP",
+      "sub_category_slug": "5-mp",
+      "image_url": "",
+      "short_description": "High-precision 5MP Box Network Camera with C/CS lens mount and True WDR for critical perimeter monitoring.",
+      "specs": [
+        { "key": "Resolution", "value": "5MP (2592 x 1944)" },
+        { "key": "Lens Mount", "value": "C/CS Mount (Auto Iris)" },
+        { "key": "WDR", "value": "120dB True WDR" },
+        { "key": "Analytics", "value": "Line Crossing & Intrusion Detection" }
+      ],
+      "services_offered": ["Sales", "Installation", "AMC"]
+    },
+    {
+      "id": "3",
+      "model_number": "CP-UNC-DA41L3C-D-LQ2",
+      "slug": "cp-unc-da41l3c-d-lq2-4mp-dual-light-dome-camera",
+      "name": "4MP Dual Light Dome Camera - 30Mtr.",
+      "brand": "CP Plus",
+      "brand_logo_url": "",
+      "category": "Network Camera",
+      "category_slug": "network-camera",
+      "category_description": "Advanced IP cameras delivering high-resolution video, seamless connectivity, and intelligent analytics for robust surveillance solutions.",
+      "sub_category": "4 MP",
+      "sub_category_slug": "4-mp",
+      "image_url": "",
+      "short_description": "4MP Full HD dual-light network dome camera featuring full-color night vision and IP67 weather resistance.",
+      "specs": [
+        { "key": "Resolution", "value": "4MP (2560 x 1440)" },
+        { "key": "Night Vision", "value": "Smart Dual Light (30m)" },
+        { "key": "Lens", "value": "2.8mm / 3.6mm Fixed" },
+        { "key": "Audio", "value": "Built-in Microphone" }
+      ],
+      "services_offered": ["Sales", "Installation", "AMC", "Repair"]
+    },
+    {
+      "id": "4",
+      "model_number": "CP-UNC-DA41L3C-D-Q2",
+      "slug": "cp-unc-da41l3c-d-q2-4mp-network-ir-dome-camera",
+      "name": "4MP Network IR Dome Camera - 30Mtr.",
+      "brand": "CP Plus",
+      "brand_logo_url": "",
+      "category": "Network Camera",
+      "category_slug": "network-camera",
+      "category_description": "Advanced IP cameras delivering high-resolution video, seamless connectivity, and intelligent analytics for robust surveillance solutions.",
+      "sub_category": "4 MP",
+      "sub_category_slug": "4-mp",
+      "image_url": "",
+      "short_description": "Vandal-resistant 4MP IP Network Dome Camera with smart IR LEDs for 24/7 security monitoring.",
+      "specs": [
+        { "key": "Resolution", "value": "4MP (2560 x 1440)" },
+        { "key": "IR Distance", "value": "30 Meters Smart IR" },
+        { "key": "Protection", "value": "IP67 Weatherproof / IK10 Vandal" }
+      ],
+      "services_offered": ["Sales", "Installation", "AMC"]
+    },
+    {
+      "id": "5",
+      "model_number": "CP-UNC-TA41L3C-D-Q2",
+      "slug": "cp-unc-ta41l3c-d-q2-4mp-ir-network-bullet-camera",
+      "name": "4MP IR Network Bullet Camera - 30Mtr.",
+      "brand": "CP Plus",
+      "brand_logo_url": "",
+      "category": "Network Camera",
+      "category_slug": "network-camera",
+      "category_description": "Advanced IP cameras delivering high-resolution video, seamless connectivity, and intelligent analytics for robust surveillance solutions.",
+      "sub_category": "4 MP",
+      "sub_category_slug": "4-mp",
+      "image_url": "",
+      "short_description": "Heavy-duty outdoor 4MP IP bullet camera with long-range IR LEDs and PoE power.",
+      "specs": [
+        { "key": "Resolution", "value": "4MP (2560 x 1440)" },
+        { "key": "IR Range", "value": "30 Meters Smart IR" },
+        { "key": "Housing", "value": "Metal IP67 Weatherproof" }
+      ],
+      "services_offered": ["Sales", "Installation", "AMC", "Repair"]
+    },
+    {
+      "id": "6",
+      "model_number": "CP-UNC-DA21L3C-Q",
+      "slug": "cp-unc-da21l3c-q-2mp-network-ir-dome-camera",
+      "name": "2MP Network IR Dome Camera - 30Mtr.",
+      "brand": "CP Plus",
+      "brand_logo_url": "",
+      "category": "Network Camera",
+      "category_slug": "network-camera",
+      "category_description": "Advanced IP cameras delivering high-resolution video, seamless connectivity, and intelligent analytics for robust surveillance solutions.",
+      "sub_category": "2 MP",
+      "sub_category_slug": "2-mp",
+      "image_url": "",
+      "short_description": "Compact 2MP Full HD IP dome camera optimized for commercial offices and retail spaces.",
+      "specs": [
+        { "key": "Resolution", "value": "2MP (1920 x 1080) Full HD" },
+        { "key": "IR Distance", "value": "30 Meters IR" },
+        { "key": "Lens", "value": "3.6mm Fixed Lens" }
+      ],
+      "services_offered": ["Sales", "Installation", "AMC"]
+    },
+    {
+      "id": "7",
+      "model_number": "CP-UNC-TA21L3C-Q",
+      "slug": "cp-unc-ta21l3c-q-2mp-network-ir-bullet-camera",
+      "name": "2MP Network IR Bullet Camera - 30Mtr.",
+      "brand": "CP Plus",
+      "brand_logo_url": "",
+      "category": "Network Camera",
+      "category_slug": "network-camera",
+      "category_description": "Advanced IP cameras delivering high-resolution video, seamless connectivity, and intelligent analytics for robust surveillance solutions.",
+      "sub_category": "2 MP",
+      "sub_category_slug": "2-mp",
+      "image_url": "",
+      "short_description": "Entry-level 2MP Full HD outdoor bullet camera with 30m IR range and PoE support.",
+      "specs": [
+        { "key": "Resolution", "value": "2MP (1920 x 1080)" },
+        { "key": "IR Range", "value": "30 Meters" },
+        { "key": "PoE Support", "value": "IEEE 802.3af PoE" }
+      ],
+      "services_offered": ["Sales", "Installation", "AMC", "Repair"]
+    },
+    {
+      "id": "8",
+      "model_number": "CP-UNC-VC81ZL5C-VMD-Q",
+      "slug": "cp-unc-vc81zl5c-vmd-q-8mp-network-ir-vandal-dome",
+      "name": "8MP Network IR Vandal Dome Camera - 50Mtr.",
+      "brand": "CP Plus",
+      "brand_logo_url": "",
+      "category": "Network Camera",
+      "category_slug": "network-camera",
+      "category_description": "Advanced IP cameras delivering high-resolution video, seamless connectivity, and intelligent analytics for robust surveillance solutions.",
+      "sub_category": "8 MP",
+      "sub_category_slug": "8-mp",
+      "image_url": "",
+      "short_description": "Ultra HD 4K 8MP motorized varifocal vandal dome camera with 50m Smart IR.",
+      "specs": [
+        { "key": "Resolution", "value": "8MP 4K Ultra HD" },
+        { "key": "Lens", "value": "2.7-13.5mm Motorized Varifocal" },
+        { "key": "IR Distance", "value": "50 Meters Smart IR" },
+        { "key": "Vandal Rating", "value": "IK10 Impact Resistant" }
+      ],
+      "services_offered": ["Sales", "Installation", "AMC", "Repair"]
+    },
+    {
+      "id": "9",
+      "model_number": "CP-UNR-408T2",
+      "slug": "cp-unr-408t2-8-channel-4k-nvr",
+      "name": "8 Channel 4K H.265+ Network Video Recorder",
+      "brand": "CP Plus",
+      "brand_logo_url": "",
+      "category": "Network Video Recorder (NVR)",
+      "category_slug": "nvr",
+      "category_description": "High-capacity network video recorders supporting multi-channel 4K video recording, AI video analytics, and massive SATA storage.",
+      "sub_category": "8 Ch.",
+      "sub_category_slug": "8-ch",
+      "image_url": "",
+      "short_description": "8 Channel 4K H.265+ NVR supporting up to 12MP IP camera decoding and 2 SATA HDDs.",
+      "specs": [
+        { "key": "Channels", "value": "8 IP Camera Channels" },
+        { "key": "Recording Resolution", "value": "Up to 12MP 4K Recording" },
+        { "key": "Decoding Capacity", "value": "H.265+ / H.264 Dual Stream" },
+        { "key": "Storage", "value": "2 SATA Ports up to 20TB" }
+      ],
+      "services_offered": ["Sales", "Installation", "AMC"]
+    },
+    {
+      "id": "10",
+      "model_number": "CP-UNR-416T2",
+      "slug": "cp-unr-416t2-16-channel-4k-nvr",
+      "name": "16 Channel 4K H.265+ Network Video Recorder",
+      "brand": "CP Plus",
+      "brand_logo_url": "",
+      "category": "Network Video Recorder (NVR)",
+      "category_slug": "nvr",
+      "category_description": "High-capacity network video recorders supporting multi-channel 4K video recording, AI video analytics, and massive SATA storage.",
+      "sub_category": "16 Ch.",
+      "sub_category_slug": "16-ch",
+      "image_url": "",
+      "short_description": "Enterprise 16 Channel 4K NVR with 16 PoE ports, face recognition, and dual HDMI display.",
+      "specs": [
+        { "key": "Channels", "value": "16 IP Camera Channels" },
+        { "key": "PoE Ports", "value": "16 Independent PoE Ports" },
+        { "key": "Video Output", "value": "Dual HDMI (4K) + VGA" }
+      ],
+      "services_offered": ["Sales", "Installation", "AMC", "Repair"]
+    },
+    {
+      "id": "11",
+      "model_number": "ETERNITY GENX12S",
+      "slug": "eternity-genx12s-hybrid-epabx-system",
+      "name": "Matrix ETERNITY GENX12S Hybrid EPABX System",
+      "brand": "Matrix",
+      "brand_logo_url": "",
+      "category": "EPABX & Intercom",
+      "category_slug": "epabx",
+      "category_description": "Enterprise telecommunication platforms and IP-PBX systems engineered for seamless voice connectivity, auto-attendants, and extensions.",
+      "sub_category": "Analog & IP PBX",
+      "sub_category_slug": "analog-ip-pbx",
+      "image_url": "",
+      "short_description": "Universal hybrid IP-PBX communication platform designed for SMEs and enterprise offices.",
+      "specs": [
+        { "key": "System Type", "value": "Hybrid IP & Analog PBX" },
+        { "key": "IP Users", "value": "Up to 99 IP Extensions" },
+        { "key": "Analog Extensions", "value": "Up to 16 SLT Ports" }
+      ],
+      "services_offered": ["Sales", "Installation", "AMC", "Repair"]
+    },
+    {
+      "id": "12",
+      "model_number": "Essl X990",
+      "slug": "essl-x990-fingerprint-attendance-system",
+      "name": "Essl X990 Biometric Fingerprint Attendance Terminal",
+      "brand": "Essl",
+      "brand_logo_url": "",
+      "category": "Biometrics & Access Control",
+      "category_slug": "biometrics",
+      "category_description": "Next-generation biometric time attendance and access control systems with high-speed fingerprint, facial, and RFID validation.",
+      "sub_category": "Fingerprint Terminal",
+      "sub_category_slug": "fingerprint-terminal",
+      "image_url": "",
+      "short_description": "Standalone biometric time attendance and door access control system with optical fingerprint sensor.",
+      "specs": [
+        { "key": "Fingerprint Capacity", "value": "10,000 Templates" },
+        { "key": "Transaction Logs", "value": "1,00,000 Records" },
+        { "key": "Communication", "value": "TCP/IP, USB-Host, Wi-Fi" }
+      ],
+      "services_offered": ["Sales", "Installation", "AMC", "Repair"]
+    }
+  ]
+}

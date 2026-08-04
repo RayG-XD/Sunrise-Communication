@@ -30,6 +30,11 @@ export const PAGE_SEO_DATA: Record<string, Partial<SeoMetaData>> = {
     title: 'Service Details | Sunrise Communication',
     description: 'Detailed insights into our security and telecommunication services, tailored for residential and commercial establishments.',
   },
+  '/products': {
+    title: 'Products & Solutions Catalog | CCTV, EPABX, Biometrics - Sunrise Communication',
+    description: 'Browse our complete catalog of CCTV cameras, EPABX systems, biometric devices, and more. Sales, installation, and AMC services available across Mumbai, Thane, and Navi Mumbai.',
+    keywords: 'CCTV products, EPABX systems, Biometric devices, CP Plus, Hikvision, Matrix, Essl, security products Thane'
+  },
   '/contact': {
     title: 'Contact Us | Sunrise Communication',
     description: 'Get in touch with Sunrise Communication in Thane for all your security camera, access control, and telecom wiring needs. Call us at +91-9987555399.',

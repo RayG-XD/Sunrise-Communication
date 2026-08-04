@@ -12,6 +12,10 @@ export const routes: Routes = [
     title: 'About Sunrise Communication'
   },
   {
+    path: 'products',
+    loadChildren: () => import('./pages/products/products.routes').then(m => m.PRODUCT_ROUTES)
+  },
+  {
     path: 'services',
     loadComponent: () => import('./pages/services/services.component').then(m => m.ServicesComponent),
     title: 'Our Security & Telecommunication Services'

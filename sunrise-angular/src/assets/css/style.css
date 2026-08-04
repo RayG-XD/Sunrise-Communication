@@ -3156,7 +3156,7 @@
 .page-title{
 	position:relative;
 	overflow:hidden;
-	padding:140px 0px;
+	padding:40px 0px 28px;
 	background-size:cover;
 }
 
@@ -3176,7 +3176,10 @@
 .page-title h1,
 .page-title h2{
 	color:var(--white-color);
-	padding-bottom:var(--padding-bottom-15);
+	font-size: 28px;
+	font-weight: 700;
+	padding-bottom: 8px;
+	margin-bottom: 0;
 }
 
 .page-title .bread-crumb{

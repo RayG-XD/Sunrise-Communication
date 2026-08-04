@@ -1,0 +1,144 @@
+@if (product(); as prod) {
+  <section class="page-title product-detail-banner">
+    <div class="auto-container">
+      <h1>{{ prod.name }}</h1>
+      <ul class="bread-crumb clearfix">
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/products">Products</a></li>
+        <li>
+          <a [routerLink]="['/products']" [queryParams]="{ category: prod.category }">
+            {{ prod.category }}
+          </a>
+        </li>
+        @if (prod.sub_category) {
+          <li>
+            <a [routerLink]="['/products']" [queryParams]="{ category: prod.category, sub_category: prod.sub_category }">
+              {{ prod.sub_category }}
+            </a>
+          </li>
+        }
+        <li class="active">{{ prod.model_number || prod.name }}</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Detail Content Section -->
+  <section class="product-detail-section">
+    <div class="auto-container">
+      <div class="row clearfix">
+        
+        <!-- Left Column: Product Image Preview -->
+        <div class="col-lg-6 col-md-12 col-sm-12 media-column">
+          <div class="media-container-inner">
+            
+            <div class="main-image-container">
+              @if (prod.image_url) {
+                <img [ngSrc]="prod.image_url" [alt]="prod.name" width="600" height="400" priority />
+              } @else {
+                <!-- CSS Gradient Placeholder (No AI Images) -->
+                <div class="detail-css-placeholder" [class]="'cat-' + prod.category_slug">
+                  <div class="placeholder-icon-circle">
+                    <span class="icon" [class]="getCategoryIcon(prod.category_slug)"></span>
+                  </div>
+                  <span class="placeholder-brand">{{ prod.brand }}</span>
+                  <span class="placeholder-subcat">{{ prod.sub_category }}</span>
+                </div>
+              }
+            </div>
+
+            <!-- Service Badges Highlight Strip -->
+            <div class="services-offered-strip">
+              <span class="strip-label"><i class="fa fa-cogs"></i> Sunrise Services:</span>
+              <div class="services-pills">
+                @for (service of prod.services_offered; track service) {
+                  <span class="service-pill">
+                    <i class="fa fa-check"></i> {{ service }}
+                  </span>
+                }
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right Column: Specs & WhatsApp CTA -->
+        <div class="col-lg-6 col-md-12 col-sm-12 info-column">
+          <div class="info-container-inner">
+            
+            <!-- Category & Brand Header Bar -->
+            <div class="meta-header-bar">
+              <span class="category-context-badge">
+                <i class="fa fa-folder-open"></i> {{ prod.category }} &rsaquo; {{ prod.sub_category }}
+              </span>
+              @if (prod.brand_logo_url) {
+                <img [src]="prod.brand_logo_url" [alt]="prod.brand" class="brand-logo-detail" />
+              } @else {
+                <span class="brand-badge-detail">{{ prod.brand }}</span>
+              }
+            </div>
+
+            <!-- Product Title -->
+            <h1 class="detail-product-title">{{ prod.name }}</h1>
+
+            <!-- Short Description -->
+            <p class="short-desc-text">{{ prod.short_description }}</p>
+
+            <!-- Technical Specifications Table (Centered & Structured) -->
+            <div class="specs-table-wrapper">
+              <h3 class="specs-section-title">
+                <i class="fa fa-list-alt"></i> Technical Specifications
+              </h3>
+              <table class="table specs-table">
+                <tbody>
+                  @for (spec of prod.specs; track spec.key) {
+                    <tr>
+                      <th scope="row" class="spec-key-col">{{ spec.key }}</th>
+                      <td class="spec-val-col">{{ spec.value }}</td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+
+            <!-- WhatsApp Lead Generation Primary CTA -->
+            <div class="whatsapp-cta-card">
+              <div class="whatsapp-cta-inner">
+                <div class="cta-text-content">
+                  <h4>Inquire For Sales, Installation & AMC</h4>
+                  <p>Get pricing, site survey, and technical assistance directly from Sunrise Communication experts.</p>
+                </div>
+                <a 
+                  [href]="whatsappUrl()" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="whatsapp-btn"
+                >
+                  <i class="fa fa-whatsapp"></i> Inquire on WhatsApp
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+} @else if (!loading()) {
+  <!-- Fallback: Product Not Found -->
+  <section class="product-not-found-section">
+    <div class="auto-container text-center">
+      <div class="not-found-card">
+        <div class="icon-box">
+          <i class="fa fa-exclamation-circle"></i>
+        </div>
+        <h2>Product Not Found</h2>
+        <p>The product specified could not be found or has been moved in our catalog.</p>
+        <a routerLink="/products" class="theme-btn btn-style-one">
+          <span class="txt">Return to Products Catalog</span>
+        </a>
+      </div>
+    </div>
+  </section>
+}

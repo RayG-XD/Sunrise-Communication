@@ -1,0 +1,43 @@
+<div class="product-card-inner" data-aos="fade-up">
+  <!-- Card Header & Media Area -->
+  <a [routerLink]="['/products', product().category_slug, product().slug]" class="card-media-link">
+    <div class="card-media-wrapper">
+      @if (product().image_url) {
+        <div class="product-image-box">
+          <img [ngSrc]="product().image_url" [alt]="product().name" width="300" height="180" priority />
+        </div>
+      } @else {
+        <!-- CSS Gradient Placeholder (No AI Image Files) -->
+        <div class="product-css-placeholder" [class]="'cat-' + product().category_slug">
+          <div class="icon-circle">
+            <span class="icon" [class]="getCategoryIcon(product().category_slug)"></span>
+          </div>
+        </div>
+      }
+    </div>
+  </a>
+
+  <!-- Card Body Content (Minimal & Sleek) -->
+  <div class="card-body-content">
+    <div class="brand-row">
+      <span class="brand-badge-pill">{{ product().brand }}</span>
+
+      @if (product().model_number) {
+        <span class="model-number-badge">{{ product().model_number }}</span>
+      }
+    </div>
+
+    <h3 class="product-title">
+      <a [routerLink]="['/products', product().category_slug, product().slug]">
+        {{ product().name }}
+      </a>
+    </h3>
+
+    <!-- Action Link -->
+    <div class="card-action-link">
+      <a [routerLink]="['/products', product().category_slug, product().slug]" class="view-details-link">
+        View Details <i class="fa fa-angle-right"></i>
+      </a>
+    </div>
+  </div>
+</div>
