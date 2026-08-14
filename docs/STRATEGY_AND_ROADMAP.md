@@ -58,12 +58,12 @@ To position **Sunrise Communication** (`https://sunrisecommunication.in`) as the
 ### Pillar 3: AEO (Answer Engine & Zero-Click Snippets)
 - [x] **Voice-Ready Quick Fact Spec Strips:** Live on all 4 Service Cluster hubs (*Timeline: 2–5 Days | 5.0★ Google Rating | 24/7 Breakdown SLA | 1–3 Yrs Warranty*).
 - [x] **Step-by-Step `HowTo` Schema:** 4-stage deployment lifecycle schema live in `SeoService` & templates (*1. Site Audit & BOQ Design → 2. Concealed Cable Laying → 3. Mounting & Configuration → 4. Testing & App Handover*).
-- [ ] **Top-Query Specific Troubleshooting Answer Blocks:** Expand answer blocks for specific niche queries (*"How to fix housing society EPBX line static?"*, *"How to reset DVR/NVR admin password?"*).
+- [x] **Top-Query Specific Troubleshooting Answer Blocks:** Deployed across all 4 service clusters (*"How to fix housing society EPBX static?"*, *"How to reset DVR/NVR admin password?"*, *"Maharashtra society lift CCTV bylaws"*).
 
 ### Pillar 4: GEO (Generative Engine Optimization & Citation Authority)
 - [x] **Verifiable Social Proof for LLM RAG Citations:** 5.0-star rating + 93 reviews + 1999 founding date exposed in `/llms.txt` and `/llms.json` for AI engines (Perplexity, ChatGPT Search, Gemini, Claude).
 - [x] **GEO Decision Comparison Matrices:** Live comparative tables (IP vs Analog, Cat6 vs Cat6A, AI Face vs Fingerprint, Traditional Intercom vs IP-PBX).
-- [ ] **Expanded Case Studies Hub:** Documented project case studies (e.g. *"500-Flat Cooperative Housing Society Intercom Migration in Thane"*).
+- [x] **Expanded Case Studies Hub:** Documented project case studies deployed with challenge-solution metrics across all 4 service cluster hubs (*480-Flat CHS Intercom Migration, 32-Cam 4K ColorVu Compound, 160-Node Cat6A Server Dressing, Multi-Door AI Face Entry*).
 
 ### Pillar 5: AAO / B2A (Autonomous Agent Discovery)
 - [x] **Structured `/llms.json` Standard:** Machine-readable JSON manifest deployed at `public/llms.json`.
@@ -78,4 +78,4 @@ To position **Sunrise Communication** (`https://sunrisecommunication.in`) as the
 
 ### Pillar 7: SEO (Technical Infrastructure & Image Search)
 - [x] **Canonical Service Cluster URLs:** 4 dedicated hubs with `<link rel="canonical">` and `sitemap.xml` priority 0.95.
-- [ ] **Image-Enriched `sitemap.xml`:** Include images of CP Plus 5MP cameras, Matrix EPABX racks, and cabling jobs with geographical meta tags.
+- [x] **Image-Enriched `sitemap.xml`:** Deployed with Google Image Sitemap schema (`xmlns:image`), geo-tags, and equipment descriptions.

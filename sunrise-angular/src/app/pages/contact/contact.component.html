@@ -25,10 +25,26 @@
               <li>
                 <span class="icon flaticon-email-1"></span>
                 <a [href]="'mailto:' + siteData.contact.email">{{ siteData.contact.email }}</a><br>
-                <a [href]="'https://' + siteData.contact.website" target="_blank">{{ siteData.contact.website }}</a>
+                <a [href]="siteData.contact.website" target="_blank">{{ siteData.contact.website }}</a>
               </li>
             </ul>
-            <div class="timing">Working hours 09:00 - 21:00</div>
+            <div class="timing">
+              <strong>Open 24 Hours (Mon – Sun)</strong> • Emergency Breakdown Support
+            </div>
+
+            <!-- Google Reputation & Review Link -->
+            <div class="google-contact-card my-3 p-3 bg-light rounded border">
+              <div class="stars-gold text-warning">⭐⭐⭐⭐⭐</div>
+              <strong class="d-block text-dark">5.0 / 5.0 Stars (93+ Reviews)</strong>
+              <div class="d-flex gap-2 mt-2 flex-wrap">
+                <a [href]="siteData.gbp.mapsUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">
+                  <i class="fa fa-map-marker"></i> Get Directions
+                </a>
+                <a [href]="siteData.gbp.reviewUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline-danger btn-sm">
+                  <i class="fa fa-google"></i> Review Us
+                </a>
+              </div>
+            </div>
 
             <!-- Social Box -->
             <ul class="social-box">

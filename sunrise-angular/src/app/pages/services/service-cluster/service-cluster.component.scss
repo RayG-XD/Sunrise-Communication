@@ -175,6 +175,129 @@
   }
 }
 
+/* Featured Case Study Cards */
+.case-study-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 16px rgba(1, 12, 58, 0.04);
+  transition: all 0.25s ease;
+
+  &:hover {
+    border-color: #010c3a;
+    box-shadow: 0 10px 24px rgba(1, 12, 58, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .case-header {
+    margin-bottom: 16px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 14px;
+
+    .case-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+
+      .premise-badge {
+        background: #f1f5f9;
+        color: #010c3a;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 3px 8px;
+        border-radius: 4px;
+      }
+
+      .location-badge {
+        background: #fff1f2;
+        color: #df0303;
+        font-size: 11px;
+        font-weight: 600;
+        padding: 3px 8px;
+        border-radius: 4px;
+      }
+    }
+
+    .case-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #010c3a;
+      line-height: 1.35;
+      margin: 0;
+    }
+  }
+
+  .case-body {
+    flex-grow: 1;
+
+    .challenge-block, .solution-block {
+      margin-bottom: 12px;
+
+      strong {
+        display: block;
+        font-size: 12px;
+        margin-bottom: 3px;
+      }
+
+      p {
+        font-size: 12.5px;
+        color: #475569;
+        line-height: 1.45;
+        margin: 0;
+      }
+    }
+
+    .hardware-chips-strip {
+      margin-top: 14px;
+      margin-bottom: 16px;
+
+      .chips-label {
+        display: block;
+        font-size: 11px;
+        font-weight: 700;
+        color: #64748b;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+
+      .hw-chip {
+        display: inline-block;
+        background: #f8fafc;
+        border: 1px solid #cbd5e1;
+        color: #334155;
+        font-size: 11px;
+        font-weight: 600;
+        padding: 3px 8px;
+        border-radius: 4px;
+        margin-right: 6px;
+        margin-bottom: 6px;
+      }
+    }
+  }
+
+  .case-footer {
+    border-top: 1px solid #f1f5f9;
+    padding-top: 12px;
+
+    .result-metric {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: #065f46;
+      background: #ecfdf5;
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #a7f3d0;
+    }
+  }
+}
+
 /* Google Reviews Showcase Card */
 .google-reviews-showcase-card {
   background: linear-gradient(135deg, rgba(1, 12, 58, 0.04) 0%, rgba(223, 3, 3, 0.05) 100%);

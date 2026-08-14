@@ -143,7 +143,58 @@
         </div>
       </div>
 
-      <!-- 5. GEO TECHNICAL DECISION COMPARISON MATRIX -->
+      <!-- 5. PROVEN PROJECT CASE STUDIES & DEPLOYMENTS (GEO & AI Citation Engine) -->
+      <div class="case-studies-section mb-5">
+        <div class="section-title-wrapper text-center mb-4">
+          <span class="sub-title">Proven Deployments</span>
+          <h2 class="section-heading">Featured {{ cluster.name }} Case Studies</h2>
+          <p class="section-desc">Real-world technical challenges solved for housing societies and corporate offices across Thane and Mumbai.</p>
+        </div>
+
+        <div class="row clearfix">
+          @for (study of cluster.caseStudies; track study.title) {
+            <div class="col-lg-6 col-md-12 col-sm-12 mb-4">
+              <div class="case-study-card">
+                <div class="case-header">
+                  <div class="case-meta">
+                    <span class="premise-badge"><i class="fa fa-building"></i> {{ study.premiseType }}</span>
+                    <span class="location-badge"><i class="fa fa-map-marker text-danger"></i> {{ study.location }}</span>
+                  </div>
+                  <h3 class="case-title">{{ study.title }}</h3>
+                </div>
+                
+                <div class="case-body">
+                  <div class="challenge-block">
+                    <strong><i class="fa fa-exclamation-circle text-warning"></i> Challenge:</strong>
+                    <p>{{ study.challenge }}</p>
+                  </div>
+                  
+                  <div class="solution-block">
+                    <strong><i class="fa fa-check-circle text-success"></i> Engineered Solution:</strong>
+                    <p>{{ study.solution }}</p>
+                  </div>
+
+                  <div class="hardware-chips-strip">
+                    <span class="chips-label">Hardware Deployed:</span>
+                    @for (hw of study.hardwareDeployed; track hw) {
+                      <span class="hw-chip">{{ hw }}</span>
+                    }
+                  </div>
+                </div>
+
+                <div class="case-footer">
+                  <div class="result-metric">
+                    <i class="fa fa-trophy text-warning"></i>
+                    <span><strong>Measurable Result:</strong> {{ study.resultMetrics }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- 6. GEO TECHNICAL DECISION COMPARISON MATRIX -->
       <div class="geo-comparison-section mb-5">
         <div class="section-title-wrapper text-center mb-4">
           <span class="sub-title">Technical Architecture & Engineering</span>

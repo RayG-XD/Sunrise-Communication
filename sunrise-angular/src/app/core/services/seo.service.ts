@@ -247,6 +247,28 @@ export class SeoService {
       priceRange: '₹₹',
       paymentAccepted: 'Cash, UPI, Cheque, Bank Transfer, NEFT/RTGS',
       currenciesAccepted: 'INR',
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          telephone: SITE_DATA.contact.primaryPhone,
+          contactType: 'customer service',
+          areaServed: 'IN',
+          availableLanguage: ['English', 'Hindi', 'Marathi'],
+          hoursAvailable: {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            opens: '00:00',
+            closes: '23:59'
+          }
+        },
+        {
+          '@type': 'ContactPoint',
+          telephone: SITE_DATA.contact.secondaryPhone,
+          contactType: 'technical support',
+          areaServed: 'IN',
+          availableLanguage: ['English', 'Hindi', 'Marathi']
+        }
+      ],
       aggregateRating: {
         '@type': 'AggregateRating',
         ratingValue: '5.0',

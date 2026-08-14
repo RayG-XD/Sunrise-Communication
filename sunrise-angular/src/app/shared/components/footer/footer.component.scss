@@ -1,0 +1,54 @@
+.footer-review-badge {
+  display: flex;
+  justify-content: center;
+  margin: 25px 0 15px;
+
+  .google-review-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    padding: 8px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    transition: all 0.25s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: #df0303;
+      transform: translateY(-2px);
+    }
+
+    .stars {
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    .score {
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 500;
+    }
+
+    .btn-text {
+      color: #df0303;
+      font-weight: 700;
+      font-size: 12px;
+      margin-left: 4px;
+
+      i {
+        font-size: 10px;
+      }
+    }
+
+    @media (max-width: 575px) {
+      flex-direction: column;
+      gap: 6px;
+      text-align: center;
+      border-radius: 12px;
+      padding: 10px 16px;
+    }
+  }
+}

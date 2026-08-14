@@ -6,7 +6,8 @@ import { SITE_DATA } from '../../../core/constants/site-data';
   selector: 'app-footer',
   standalone: true,
   imports: [RouterLink],
-  templateUrl: './footer.component.html'
+  templateUrl: './footer.component.html',
+  styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
   currentYear = 2026;
