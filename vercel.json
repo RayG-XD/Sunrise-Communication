@@ -3,10 +3,13 @@
   "buildCommand": "cd sunrise-angular && npm install && npm run build",
   "outputDirectory": "sunrise-angular/dist/sunrise-angular/browser",
   "cleanUrls": true,
-  "rewrites": [
+  "routes": [
     {
-      "source": "/((?!assets/|favicon.ico|robots.txt|sitemap.xml|llms.txt|llms-full.txt|llms.json).*)",
-      "destination": "/index.html"
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ],
   "headers": [
