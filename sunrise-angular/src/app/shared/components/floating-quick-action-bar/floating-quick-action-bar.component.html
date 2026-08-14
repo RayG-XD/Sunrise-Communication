@@ -1,0 +1,23 @@
+<div class="mobile-floating-action-bar" [class.show]="isVisible()">
+  <div class="bar-inner-container">
+    
+    <!-- Direct Call Button -->
+    <a [href]="callUrl" class="action-btn call-btn" aria-label="Call Sunrise Communication 24/7">
+      <i class="fa fa-phone"></i>
+      <span>Call 24/7</span>
+    </a>
+
+    <!-- Direct WhatsApp Button -->
+    <a [href]="whatsappGeneralUrl" target="_blank" rel="noopener noreferrer" class="action-btn whatsapp-btn" aria-label="Chat on WhatsApp">
+      <i class="fa fa-whatsapp"></i>
+      <span>WhatsApp</span>
+    </a>
+
+    <!-- Google 5.0 Star Badge / Review CTA -->
+    <a [href]="siteData.gbp.reviewUrl" target="_blank" rel="noopener noreferrer" class="action-btn review-badge-btn" aria-label="Google 5.0 Star Rating">
+      <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+      <span class="review-label">5.0 (93 Reviews)</span>
+    </a>
+
+  </div>
+</div>

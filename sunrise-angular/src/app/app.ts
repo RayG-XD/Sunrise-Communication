@@ -8,11 +8,19 @@ import { PreloaderComponent } from './shared/components/preloader.component';
 import { ScrollToTopComponent } from './shared/components/scroll-to-top.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { FloatingQuickActionBarComponent } from './shared/components/floating-quick-action-bar/floating-quick-action-bar.component';
 import { SeoService } from './core/services/seo.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, PreloaderComponent, ScrollToTopComponent, HeaderComponent, FooterComponent],
+  imports: [
+    RouterOutlet,
+    PreloaderComponent,
+    ScrollToTopComponent,
+    HeaderComponent,
+    FooterComponent,
+    FloatingQuickActionBarComponent
+  ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

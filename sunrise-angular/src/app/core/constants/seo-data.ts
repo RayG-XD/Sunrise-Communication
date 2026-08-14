@@ -26,6 +26,26 @@ export const PAGE_SEO_DATA: Record<string, Partial<SeoMetaData>> = {
     title: 'Our Services | CCTV, EPABX, Networking - Sunrise Communication',
     description: 'Explore our wide range of services including CCTV Camera Systems, EPABX, Intercom, Biometric Access Control, and Network Wiring across Mumbai and Thane.',
   },
+  '/services/cctv-surveillance-systems': {
+    title: 'CCTV Camera Installation & AMC in Thane, Mumbai | Sunrise Communication',
+    description: 'Expert CCTV installation, IP camera systems, and Comprehensive AMC for housing societies, offices, and warehouses across Thane, Mumbai, and Navi Mumbai. Call +91-9987555399.',
+    keywords: 'CCTV Installation Thane, CCTV AMC Mumbai, Housing Society CCTV Thane West, CP Plus Camera Dealer, Hikvision IP Camera Thane, Security Camera Repair Charai'
+  },
+  '/services/epabx-intercom-solutions': {
+    title: 'Housing Society Intercom & EPABX Systems in Thane, Mumbai | Sunrise Communication',
+    description: 'Reliable housing society intercom wiring, Matrix EPABX systems, and telecom AMC across Thane, Mumbai, and Navi Mumbai. Fast 24h repair service. Call +91-9987555399.',
+    keywords: 'Society Intercom Thane, EPABX Installation Mumbai, Matrix PBX Dealer Thane, Housing Society Intercom Repair Charai, Intercom AMC Naupada, CHS Intercom Cabling'
+  },
+  '/services/biometric-access-control': {
+    title: 'Biometric Attendance & Access Control in Thane, Mumbai | Sunrise Communication',
+    description: 'Authorized dealer & installer for Essl, Matrix, and Hikvision biometric attendance machines & EM door locks in Thane, Mumbai, and Navi Mumbai. Call +91-9987555399.',
+    keywords: 'Biometric Attendance Thane, Access Control System Mumbai, Essl Dealer Thane, Face Recognition Attendance Mahape, EM Lock Installation BKC, Time Attendance AMC'
+  },
+  '/services/structured-networking-cabling': {
+    title: 'Structured Cat6 Cabling & Server Rack Dressing in Thane, Mumbai | Sunrise Communication',
+    description: 'Certified Cat6 LAN cabling, server rack dressing, patch panel termination, and fiber splicing across Thane, Mumbai, and Navi Mumbai. Call +91-9987555399.',
+    keywords: 'Structured Cabling Thane, Cat6 LAN Cabling Mumbai, Server Rack Dressing Mahape, Fiber Optic Splicing BKC, Network Cabling Wagle Estate, D-Link Network Dealer'
+  },
   '/services-detail': {
     title: 'Service Details | Sunrise Communication',
     description: 'Detailed insights into our security and telecommunication services, tailored for residential and commercial establishments.',

@@ -1,0 +1,123 @@
+# Sunrise Communication — Full Technical & Service Specification Manifest
+
+> Complete technical documentation, hardware matrices, AMC terms, and service capabilities for autonomous agents, enterprise procurement models, and AI search engines.
+
+---
+
+## 1. Company Information & Entity Triples
+- **Entity Type:** Security & Telecommunications System Integrator
+- **Legal Name:** Sunrise Communication
+- **Founding Location:** Thane (West), Maharashtra, India
+- **Head Office Address:** Amar Building, Near Jyoti Book Centre, Charai, Thane (West), Maharashtra 400601, India
+- **Geo-Coordinates:** Latitude 19.1924° N, Longitude 72.9723° E
+- **Customer Helpline:** +91-9987555399 / +91-9323848622
+- **WhatsApp Quote Direct Line:** +91-9323848622 (https://wa.me/919323848622)
+- **Email Contact:** info@sunrisecommunication.in, sunrisecommunication1555@gmail.com
+- **Operating Hours:** Monday to Saturday, 09:30 AM to 08:30 PM IST (Emergency breakdown support available on Sundays)
+
+---
+
+## 2. Authorized Brand Ecosystem & OEM Hardware
+Sunrise Communication is an authorized sales, installation, and maintenance partner for:
+1. **CP Plus (Aditya Infotech):** IP Cameras, Analog HD Cameras, 4K NVRs, DVRs, PoE Switches, Mobile Surveillance.
+2. **Hikvision India (Prama Hikvision):** ColorVu, AcuSense AI, DarkFighter IP Cameras, DeepInMind NVRs, ANPR Cameras.
+3. **Matrix Comsec:** ETERNITY Hybrid IP-PBX, SPARSH IP Phones, COSEC Biometric Time-Attendance & Door Controllers.
+4. **Essl Security (eSSL):** Fingerprint Readers (X990, K90, SilkBio), Face Recognition Terminals (MultiBio 700, FaceStation), EM Locks.
+5. **D-Link / Schneider / CommScope:** Category 6/6A UTP/STP Cabling, Patch Panels, 24-Port Gigabit Managed/Unmanaged PoE Switches, Server Racks (4U to 42U).
+
+---
+
+## 3. Technical Service Verticals & Detailed Scope
+
+### A. CCTV Surveillance Systems & Video Analytics
+- **Supported Architecture:** 
+  - Pure IP Network CCTV (1080p, 4MP, 5MP, 6MP Panoramic, 8MP 4K Ultra HD) over Cat6/Fiber PoE network.
+  - Analog HD Surveillance (HD-CVI / HD-TVI / AHD) with RG59/Cat6 balun transmission for budget residential installations.
+- **Key Capabilities:**
+  - Full-color 24/7 Night Vision with Smart Warm White LED & Infrared (IR up to 80 meters).
+  - H.265+ / Ultra H.265 Smart Video Compression reducing HDD storage consumption by up to 75%.
+  - AI Video Analytics: Human & Vehicle Detection, Line Crossing, Intrusion Detection, Missing Object Alert, License Plate Recognition (ANPR).
+  - Remote Smartphone / Desktop Live Streaming (gCMOB, Hik-Connect, iVMS-4200, Web GUI) with zero router port forwarding via Secure P2P Cloud.
+- **Society Surveillance Packages:**
+  - 4-Camera, 8-Camera, 16-Camera, 32-Camera, and 64-Camera turnkey installations covering Main Gates, Lobbies, Lift Cabins, Compound Perimeters, Parking Basements, and Terrace Access.
+
+### B. EPABX & Housing Society Intercom Systems
+- **Supported Architectures:**
+  - Residential Society Multi-Pair Copper Intercom (Armoured 10/20/50/100-pair jelly-filled underground cables).
+  - Modern Pure IP-PBX over structured LAN/Wi-Fi for luxury towers and corporate campuses.
+  - Hybrid EPABX supporting Analog extensions, Digital operator consoles, and SIP Trunk VoIP connections.
+- **Key Features:**
+  - Flat-to-Security, Flat-to-Flat (with privacy restrictions), Flat-to-Society Office direct dialling.
+  - Security Guard Gatekeeper Phone with Caller ID display.
+  - Multi-Wing Intercom Linking across distinct building wings via Optical Fiber backbone.
+  - Auto-Attendant (IVR), Call Recording, Music on Hold, Call Forwarding, Direct Inward Dialing (DID).
+
+### C. Biometric Attendance & Electronic Access Control
+- **Authentication Technologies:** Optical Fingerprint (SilkID 360° sensor), 3D AI Facial Recognition (anti-spoofing dual camera), RFID Proximity / Mifare 13.56MHz Smart Cards, PIN Code.
+- **Physical Access Locking Mechanisms:**
+  - 600 lbs / 1200 lbs Electromagnetic (EM) Locks with L & Z mounting brackets for glass, wood, and metal doors.
+  - Drop-Bolt Mortise Locks, Electric Strikes, Push-to-Exit switches, and Emergency Break Glass units.
+  - Integration with Tripod Turnstiles, Flap Barriers, and Motorized Vehicle Boom Barriers.
+- **Software Integration:** Real-time push data to Windows-based Attendance Management Software (AMS), Payroll ERPs, and Cloud Attendance Apps.
+
+### D. Structured Network Cabling & Server Infrastructure
+- **Cabling Standards:** TIA/EIA-568-C.2 Cat6 & Cat6A UTP/STP cabling certified for Gigabit Ethernet up to 10Gbps.
+- **Infrastructure Services:**
+  - Server Rack Installation & Dressing (4U, 6U, 9U, 12U, 15U, 24U, 42U Floor-standing racks).
+  - Cable Patch Panel Punching (Keystone Jacks), Cable Tracing, Fluke Performance Testing, Structured Numbering & Tagging.
+  - Optical Fiber Splicing: Single-Mode (OS2) and Multi-Mode (OM3/OM4) fusion splicing, Patch Chords, OTDR loss testing.
+
+---
+
+## 4. Annual Maintenance Contract (AMC) Service Level Agreements (SLAs)
+
+| Feature / SLA Metric | Comprehensive AMC | Non-Comprehensive AMC | On-Demand Breakdown Call |
+| :--- | :--- | :--- | :--- |
+| **Labour & Service Charges** | 100% Free / Included | 100% Free / Included | Charged per visit |
+| **Defective Hardware Parts** | Free repair/replacement included | Charged at actuals | Charged at actuals |
+| **Preventive Maintenance Visits** | 4 Scheduled Visits / Year (Quarterly) | 4 Scheduled Visits / Year (Quarterly) | None |
+| **Camera Lens Cleaning & Focus** | Included on every visit | Included on every visit | Included in visit scope |
+| **Power Supply & Voltage Check** | Included (SMPS & PoE testing) | Included (SMPS & PoE testing) | Included in visit scope |
+| **HDD Health & Recording Audit** | Mandatory quarterly audit | Mandatory quarterly audit | On-demand check |
+| **Emergency Breakdown SLA** | **Within 24 Hours** | **Within 24–48 Hours** | 48–72 Hours |
+| **Backup Standby Unit Support** | Free standby DVR/NVR provided | Subject to availability | Not provided |
+| **Contract Duration** | 1 Year to 3 Years | 1 Year to 3 Years | Single Visit |
+
+---
+
+## 5. Technical Decision Matrices (AEO & GEO Reference)
+
+### Decision Matrix 1: IP Network Cameras vs. HD Analog CCTV
+- **Choose IP Network Cameras when:**
+  - Distance exceeds 200 meters (can scale indefinitely via PoE switches & optical fiber).
+  - High resolution (> 4MP up to 4K 8MP) and smart AI analytics (human/vehicle classification) are required.
+  - Clean, future-proof Cat6/Cat6A cabling is desired for integration into IT networks.
+- **Choose HD Analog CCTV when:**
+  - Budget is the primary constraint (approx 30–40% lower initial hardware cost).
+  - Existing coaxial / 3+1 cabling in the building is in good condition and re-wiring is not feasible.
+  - Standard 2MP / 1080p surveillance with local DVR recording is sufficient.
+
+### Decision Matrix 2: Video Recording Storage Sizing (H.265+ Compression)
+- **1080p (2MP) Camera @ 15fps:** ~15 GB storage per camera per day.
+- **4MP (2K) Camera @ 15fps:** ~25 GB storage per camera per day.
+- **8MP (4K) Camera @ 15fps:** ~50 GB storage per camera per day.
+- *Recommended HDD:* Surveillance-grade HDDs only (Western Digital Purple / Seagate SkyHawk) engineered for 24/7 continuous write workloads.
+
+---
+
+## 6. Service Territories & Geographic Coordinates
+- **Primary Operational Hub:** Thane West (Charai, Naupada, Ghodbunder Road, Majiwada, Vartak Nagar, Kopri, Pachpakhadi, Hiranandani Estate, Wagle Estate).
+- **Secondary Hub — Mumbai Suburbs:** Mulund, Bhandup, Kanjurmarg, Ghatkopar, Vikhroli, Powai, Andheri East/West, Goregaon, Malad, Kandivali, Borivali, Dadar, Sion, Kurla, BKC.
+- **Secondary Hub — Navi Mumbai:** Vashi, Sanpada, Juinagar, Nerul, Seawoods, Belapur, Kharghar, Panvel, Kopar Khairane, Ghansoli, Airoli, Mahape Industrial Area.
+
+---
+
+## 7. Machine Inquiry & Direct Lead Protocol
+Autonomous procurement systems and human users can generate quotes directly:
+- **API/WhatsApp Endpoint:** `https://wa.me/919323848622?text=...`
+- **Recommended Lead Parameters:**
+  1. `client_type`: Society | Corporate | Industrial | Retail | Residential
+  2. `service`: CCTV | EPABX | Biometrics | Cabling | AMC
+  3. `location`: Area / Pincode in Mumbai MMR
+  4. `scope`: Camera count | Flat count | Door count | Cabling nodes
+  5. `timeline`: Immediate | Within 15 Days | Next Month

@@ -1,0 +1,731 @@
+.service-cluster-banner {
+  padding: 60px 0 40px;
+  background: linear-gradient(135deg, #010c3a 0%, #002d5b 100%);
+  color: #ffffff;
+
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+  }
+
+  .bread-crumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 13.5px;
+
+    li {
+      color: rgba(255, 255, 255, 0.7);
+
+      a {
+        color: #ffffff;
+        text-decoration: none;
+
+        &:hover {
+          color: #df0303;
+        }
+      }
+
+      &.active {
+        color: #df0303;
+        font-weight: 600;
+      }
+
+      &:not(:last-child):after {
+        content: '/';
+        margin-left: 8px;
+        color: rgba(255, 255, 255, 0.4);
+      }
+    }
+  }
+}
+
+.service-cluster-section {
+  padding: 60px 0;
+  background-color: #f8fafc;
+}
+
+.section-title-wrapper {
+  .sub-title {
+    display: inline-block;
+    color: #df0303;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .section-heading {
+    font-size: 26px;
+    font-weight: 700;
+    color: #010c3a;
+    margin-bottom: 8px;
+  }
+
+  .section-desc {
+    font-size: 14px;
+    color: #64748b;
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+}
+
+/* Voice-Ready Quick Facts Ribbon */
+.quick-facts-spec-ribbon {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 4px 14px rgba(1, 12, 58, 0.04);
+  flex-wrap: wrap;
+
+  .fact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .fact-icon {
+      font-size: 20px;
+    }
+
+    .fact-text {
+      display: flex;
+      flex-direction: column;
+
+      .fact-val {
+        font-size: 13.5px;
+        font-weight: 700;
+        color: #010c3a;
+        line-height: 1.2;
+      }
+
+      .fact-sub {
+        font-size: 11px;
+        color: #64748b;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .fact-divider {
+    width: 1px;
+    height: 30px;
+    background: #e2e8f0;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+}
+
+/* 4-Step Process Cards */
+.process-step-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 22px 18px;
+  height: 100%;
+  position: relative;
+  transition: all 0.25s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: #df0303;
+    box-shadow: 0 8px 20px rgba(1, 12, 58, 0.06);
+  }
+
+  .step-badge {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: #010c3a;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  h4 {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #010c3a;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 12px;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.45;
+  }
+}
+
+/* Google Reviews Showcase Card */
+.google-reviews-showcase-card {
+  background: linear-gradient(135deg, rgba(1, 12, 58, 0.04) 0%, rgba(223, 3, 3, 0.05) 100%);
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 28px;
+
+  .rating-badge-large {
+    .stars-gold {
+      font-size: 18px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #010c3a;
+      margin-bottom: 4px;
+    }
+
+    .rating-sub {
+      font-size: 12.5px;
+      color: #64748b;
+      margin-bottom: 8px;
+    }
+  }
+
+  .review-quote-box {
+    position: relative;
+    padding-left: 28px;
+
+    .quote-mark {
+      position: absolute;
+      left: 0;
+      top: 2px;
+      font-size: 18px;
+      color: #df0303;
+      opacity: 0.6;
+    }
+
+    .review-quote-text {
+      font-size: 13.5px;
+      color: #334155;
+      font-style: italic;
+      line-height: 1.55;
+      margin-bottom: 8px;
+    }
+
+    .review-author {
+      font-size: 12px;
+      font-weight: 700;
+      color: #010c3a;
+    }
+  }
+}
+
+/* 1. AEO Direct Answer Box */
+.aeo-direct-answer-box {
+  background: #ffffff;
+  border: 2px solid #010c3a;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(1, 12, 58, 0.06);
+
+  .answer-box-inner {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+
+    .aeo-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: #df0303;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .aeo-text-content {
+      flex-grow: 1;
+
+      .aeo-badge {
+        display: inline-block;
+        background: rgba(1, 12, 58, 0.08);
+        color: #010c3a;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 3px 8px;
+        border-radius: 4px;
+        margin-bottom: 8px;
+      }
+
+      .aeo-answer-paragraph {
+        font-size: 15px;
+        font-weight: 600;
+        color: #010c3a;
+        line-height: 1.6;
+        margin-bottom: 12px;
+      }
+
+      .authorized-brands-strip {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+
+        .brands-label {
+          font-size: 12px;
+          font-weight: 700;
+          color: #64748b;
+
+          i {
+            color: #df0303;
+          }
+        }
+
+        .brand-pill {
+          background: #f1f5f9;
+          border: 1px solid #cbd5e1;
+          color: #010c3a;
+          font-size: 11px;
+          font-weight: 700;
+          padding: 2px 8px;
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+}
+
+/* 2. Offering Cards */
+.offering-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 24px;
+  height: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(1, 12, 58, 0.03);
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: #df0303;
+    box-shadow: 0 12px 24px rgba(1, 12, 58, 0.08);
+
+    .card-icon-wrapper {
+      background: #df0303;
+      color: #ffffff;
+    }
+  }
+
+  .card-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    background: rgba(1, 12, 58, 0.06);
+    color: #010c3a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 14px;
+    transition: all 0.3s ease;
+  }
+
+  .offering-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #010c3a;
+    margin-bottom: 8px;
+  }
+
+  .offering-desc {
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+
+  .offering-features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      font-size: 12.5px;
+      color: #334155;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      i {
+        color: #25d366;
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+/* 3. Comparison Matrix (GEO) */
+.comparison-table-wrapper {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(1, 12, 58, 0.03);
+
+  .comparison-table {
+    margin-bottom: 0;
+
+    thead {
+      background: #010c3a;
+      color: #ffffff;
+
+      th {
+        padding: 14px 18px;
+        font-size: 13.5px;
+        font-weight: 700;
+        border: none;
+      }
+
+      .col1-header {
+        background: #002d5b;
+        color: #ffffff;
+      }
+    }
+
+    tbody {
+      tr {
+        &:nth-child(even) {
+          background-color: #f8fafc;
+        }
+
+        td {
+          padding: 14px 18px;
+          font-size: 13px;
+          border-color: #e2e8f0;
+          vertical-align: top;
+        }
+
+        .feature-title-cell {
+          width: 35%;
+          color: #010c3a;
+
+          .verdict-note {
+            font-size: 11.5px;
+            color: #059669;
+            margin-top: 4px;
+            font-weight: 500;
+
+            i {
+              color: #059669;
+            }
+          }
+        }
+
+        .col1-cell {
+          width: 35%;
+          background: rgba(1, 12, 58, 0.02);
+
+          .highlight-txt {
+            font-weight: 600;
+            color: #010c3a;
+          }
+        }
+
+        .col2-cell {
+          width: 30%;
+          color: #64748b;
+        }
+      }
+    }
+  }
+}
+
+/* 4. AMC Plan Cards */
+.amc-plan-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 26px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 4px 14px rgba(1, 12, 58, 0.03);
+
+  &.featured-card {
+    border: 2px solid #df0303;
+
+    .plan-badge {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: #df0303;
+      color: #ffffff;
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .plan-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #010c3a;
+    margin-bottom: 4px;
+  }
+
+  .plan-price-hint {
+    font-size: 12px;
+    color: #64748b;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .plan-desc {
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.45;
+    margin-bottom: 14px;
+  }
+
+  .sla-guarantee-pill {
+    background: rgba(37, 211, 102, 0.1);
+    color: #059669;
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    display: inline-block;
+
+    strong {
+      color: #047857;
+    }
+  }
+
+  .plan-features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    flex-grow: 1;
+
+    li {
+      font-size: 12.5px;
+      color: #334155;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+
+      i {
+        color: #df0303;
+        margin-top: 3px;
+      }
+    }
+  }
+
+  .plan-inquire-btn {
+    display: inline-block;
+    text-align: center;
+    background: #010c3a;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: #df0303;
+    }
+  }
+}
+
+/* 6. FAQ Accordion */
+.faq-accordion-container {
+  max-width: 850px;
+  margin: 0 auto;
+
+  .faq-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    overflow: hidden;
+
+    &.open {
+      border-color: #010c3a;
+
+      .faq-question-btn {
+        background: rgba(1, 12, 58, 0.03);
+        color: #010c3a;
+      }
+    }
+
+    .faq-question-btn {
+      width: 100%;
+      background: transparent;
+      border: none;
+      padding: 16px 20px;
+      text-align: left;
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #010c3a;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      transition: background 0.2s ease;
+
+      i {
+        font-size: 12px;
+        color: #df0303;
+      }
+    }
+
+    .faq-answer-content {
+      padding: 0 20px 18px;
+
+      p {
+        font-size: 13.5px;
+        color: #475569;
+        line-height: 1.6;
+        margin: 0;
+      }
+    }
+  }
+}
+
+/* 7. MEO Area Cards */
+.area-region-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  height: 100%;
+
+  h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #010c3a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .pills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+
+    .locality-pill {
+      background: #f1f5f9;
+      color: #334155;
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid #e2e8f0;
+    }
+  }
+}
+
+/* 8. Consultation Banner */
+.consultation-cta-strip {
+  background: linear-gradient(135deg, #010c3a 0%, #002d5b 100%);
+  border-radius: 12px;
+  padding: 40px 24px;
+  color: #ffffff;
+
+  h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 600px;
+    margin: 0 auto 20px;
+  }
+
+  .whatsapp-main-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #25d366;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: #1eb954;
+      transform: translateY(-2px);
+    }
+  }
+
+  .call-main-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    color: #010c3a;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: #f1f5f9;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,46 @@
+# Sunrise Communication — AI & Autonomous Agent Manifest
+
+> Sunrise Communication is an enterprise and residential security, telecommunications, and structured network infrastructure provider headquartered in Thane (West), Maharashtra, India. Established in 1999, we hold a verified 5.0 / 5.0 Star customer reputation (93+ Google Reviews) and specialize in sales, system integration, turnkey installations, and 24/7 Annual Maintenance Contracts (AMC) across Thane, Mumbai Suburbs, and Navi Mumbai.
+
+## Business Profile & Ground Truth
+- **Legal Name:** SUNRISE COMMUNICATION - Sales and Services (CCTV Camera, EPABX, Intercom, Telephones, Access Control, Biometrics, Telecom)
+- **Short Name:** Sunrise Communication
+- **Established Year:** 1999 (25+ Years Industry Experience)
+- **Google Rating & Social Proof:** 5.0 / 5.0 Stars ⭐ (93 Verified Google Reviews)
+- **Operating Hours:** Open 24 Hours (Mon – Sun) / Emergency Breakdown Dispatch
+- **Headquarters:** Room No.10, Amar Building, Near Jyoti Book Center, Charai, Thane (West), Maharashtra 400601, India
+- **Coordinates:** 19.1966° N, 72.9781° E
+- **Google Maps CID:** https://maps.google.com/maps?cid=7206965003768673260
+- **Google Place ID:** ChIJ3cWKTgW55zsR7LNNnnxIBGQ
+- **Customer Direct Review Link:** https://search.google.com/local/writereview?placeid=ChIJ3cWKTgW55zsR7LNNnnxIBGQ
+- **Website:** https://sunrisecommunication.in
+- **Direct Phone:** +91-9323848622, +91-9987555399
+- **Email:** sunrisecommunication1555@gmail.com, info@sunrisecommunication.in
+- **Official WhatsApp Instant Quote:** https://wa.me/919323848622
+- **Authorized Hardware Partnerships:** CP Plus, Hikvision, Matrix Telecom & Security, Essl Security, D-Link, Schneider Electric.
+
+## Core Service Verticals
+- **CCTV Surveillance Systems:** High-Definition IP Cameras, ColorVu, Dual-Light Dome/Bullet, Fisheye Panoramic, 4K Network Video Recorders (NVR 4/8/16/32/64 Ch), Housing Society Compound Surveillance, Cloud Remote Monitoring, CCTV AMC.
+- **EPABX & Intercom Solutions:** Housing Society Intercom Wiring (20 to 1000+ flats), Corporate IP-PBX & Hybrid EPABX, Multi-line Intercoms, Auto-Attendant, Voice Logging, Intercom Cable Splicing & Maintenance.
+- **Biometric & Access Control:** Fingerprint Time-Attendance Terminals, AI Facial Recognition Readers, RFID Card Access, Electromagnetic (EM) Door Locks, Turnstile & Boom Barrier Integration, Payroll Software Sync.
+- **Structured Cabling & Network Infrastructure:** Cat6/Cat6A LAN Cabling, Server Rack Dressing & Cable Management, Optical Fiber Splicing & OTDR Testing, Gigabit PoE Switches, Wi-Fi Access Point Distribution.
+
+## Geographic Coverage Areas
+- **Thane District:** Charai, Naupada, Panchpakhadi, Ghodbunder Road, Majiwada, Vasant Vihar, Hiranandani Estate, Wagle Industrial Estate, Kalwa, Kalyan, Dombivli, Mira Road.
+- **Mumbai Suburbs:** Mulund, Bhandup, Ghatkopar, Powai, Andheri, BKC (Bandra Kurla Complex), Goregaon, Borivali, Dadar, Lower Parel.
+- **Navi Mumbai:** Vashi, Mahape Industrial Corridor (TTC MIDC), Airoli Knowledge Park, Kopar Khairane, Ghansoli, Nerul, Belapur, Panvel.
+
+## Service Level Agreements (SLA) & Operating Terms
+- **Emergency Breakdown Response:** Within 24–48 hours across Thane & Mumbai MMR.
+- **Warranty Policy:** 1 to 3 Years Manufacturer Hardware Replacement Warranty on authorized equipment (CP Plus, Matrix, Hikvision, Essl).
+- **AMC Contracts:** Comprehensive (Hardware replacement + Preventive quarterly servicing) and Non-Comprehensive (Labour + Unlimited breakdown visits).
+- **Site Survey:** Free technical on-site inspection for Housing Societies and Commercial Offices.
+
+## Key URLs & Endpoints
+- **Homepage:** https://sunrisecommunication.in/
+- **Products Catalog:** https://sunrisecommunication.in/products
+- **CCTV Surveillance Hub:** https://sunrisecommunication.in/services/cctv-surveillance-systems
+- **EPABX & Intercom Hub:** https://sunrisecommunication.in/services/epabx-intercom-solutions
+- **Biometric Access Control Hub:** https://sunrisecommunication.in/services/biometric-access-control
+- **Structured Cabling Hub:** https://sunrisecommunication.in/services/structured-networking-cabling
+- **Full Machine-Readable Manifest:** https://sunrisecommunication.in/llms-full.txt

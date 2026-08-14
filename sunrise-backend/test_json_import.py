@@ -5,15 +5,17 @@ import os
 os.environ['DJANGO_SETTINGS_MODULE'] = 'config.settings'
 django.setup()
 
-from products.models import Product, Category, Brand, ProductSpec
+from products.models import Product, Category, SubCategory, Brand, ProductSpec
 
 test_data = [
     {
+        "model_number": "TEST-CAM-01",
         "name": "Test Enterprise Security Camera",
         "brand": "CP Plus",
-        "category": "CCTV Camera Systems",
-        "category_slug": "cctv",
-        "sub_category": "Test Camera",
+        "category": "Network Camera",
+        "category_slug": "network-camera",
+        "sub_category": "4 MP",
+        "sub_category_slug": "4-mp",
         "short_description": "Verification test product payload for JSON bulk import feature.",
         "services_offered": ["Sales", "Installation", "AMC"],
         "specs": [
@@ -25,16 +27,19 @@ test_data = [
 
 # Simulate JSON import processing logic
 cat_name = test_data[0]['category']
-category, _ = Category.objects.get_or_create(slug='cctv', defaults={'name': cat_name})
+category, _ = Category.objects.get_or_create(slug='network-camera', defaults={'name': cat_name})
+sub_category, _ = SubCategory.objects.get_or_create(category=category, slug='4-mp', defaults={'name': '4 MP'})
 brand, _ = Brand.objects.get_or_create(name='CP Plus', defaults={'slug': 'cp-plus'})
 
 product, created = Product.objects.update_or_create(
     slug='test-enterprise-security-camera',
     defaults={
+        'model_number': test_data[0]['model_number'],
         'name': test_data[0]['name'],
         'brand': brand,
         'category': category,
-        'sub_category': test_data[0]['sub_category'],
+        'sub_category': sub_category,
+        'sub_category_name': '4 MP',
         'short_description': test_data[0]['short_description'],
         'services_offered': test_data[0]['services_offered'],
     }
@@ -46,7 +51,7 @@ for spec in test_data[0]['specs']:
 
 # Verify lookup in DB
 fetched = Product.objects.get(slug='test-enterprise-security-camera')
-print(f"VERIFICATION SUCCESS: Product '{fetched.name}' has {fetched.specs.count()} specs and brand '{fetched.brand.name}'")
+print(f"VERIFICATION SUCCESS: Product '{fetched.name}' [{fetched.model_number}] has {fetched.specs.count()} specs, subcategory '{fetched.sub_category.name}', and brand '{fetched.brand.name}'")
 
 # Clean up test product
 fetched.delete()

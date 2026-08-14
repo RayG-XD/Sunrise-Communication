@@ -1,0 +1,69 @@
+{
+  "$schema": "https://llmstxt.org/schema.json",
+  "name": "Sunrise Communication",
+  "legalName": "SUNRISE COMMUNICATION - Sales and Services (CCTV Camera, EPABX, Intercom, Telephones, Access Control, Biometrics, Telecom)",
+  "url": "https://sunrisecommunication.in",
+  "description": "Enterprise and residential security, telecommunications, and structured network infrastructure provider headquartered in Thane (West), Maharashtra, India. Established in 1999.",
+  "reputation": {
+    "googleRating": 5.0,
+    "verifiedReviews": 93,
+    "reviewUrl": "https://search.google.com/local/writereview?placeid=ChIJ3cWKTgW55zsR7LNNnnxIBGQ"
+  },
+  "contact": {
+    "phone": "+91-9323848622",
+    "alternatePhone": "+91-9987555399",
+    "email": "sunrisecommunication1555@gmail.com",
+    "whatsappDirect": "https://wa.me/919323848622",
+    "address": {
+      "street": "Room No.10, Amar Building, Near Jyoti Book Center, Charai",
+      "locality": "Thane (West)",
+      "region": "Maharashtra",
+      "postalCode": "400601",
+      "country": "IN",
+      "geo": {
+        "latitude": 19.1966,
+        "longitude": 72.9781
+      }
+    }
+  },
+  "sla": {
+    "breakdownResponseTimeHours": 24,
+    "emergencySupportHours": "24/7",
+    "onSiteInspection": "Free technical audit for societies & corporate offices",
+    "warranty": "1 to 3 Years Manufacturer Replacement Warranty"
+  },
+  "authorizedPartnerships": [
+    "CP Plus",
+    "Hikvision",
+    "Matrix Telecom & Security",
+    "Essl Security",
+    "D-Link",
+    "Schneider Electric"
+  ],
+  "services": [
+    {
+      "name": "CCTV Surveillance Systems",
+      "canonicalUrl": "https://sunrisecommunication.in/services/cctv-surveillance-systems",
+      "scope": "IP Cameras, 4K NVRs, ColorVu night vision, compound surveillance, mobile remote live view, CCTV AMC"
+    },
+    {
+      "name": "EPABX & Society Intercom Solutions",
+      "canonicalUrl": "https://sunrisecommunication.in/services/epabx-intercom-solutions",
+      "scope": "Housing society multi-pair copper intercom wiring, gatekeeper phone consoles, Matrix IP-PBX, multi-wing linking, society telecom AMC"
+    },
+    {
+      "name": "Biometric Attendance & Access Control",
+      "canonicalUrl": "https://sunrisecommunication.in/services/biometric-access-control",
+      "scope": "Essl fingerprint & AI facial recognition readers, 600lbs fail-safe electromagnetic (EM) door locks, payroll sync software"
+    },
+    {
+      "name": "Structured Cabling & Network Infrastructure",
+      "canonicalUrl": "https://sunrisecommunication.in/services/structured-networking-cabling",
+      "scope": "Certified Cat6/Cat6A LAN cabling, server rack dressing, keystone patch panel termination, optical fiber splicing & OTDR testing"
+    }
+  ],
+  "leadGenerationWebhook": {
+    "protocol": "WhatsApp URI Intent",
+    "endpoint": "https://wa.me/919323848622?text={encoded_message}"
+  }
+}

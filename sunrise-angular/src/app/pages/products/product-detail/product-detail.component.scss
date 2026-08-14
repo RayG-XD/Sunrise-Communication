@@ -91,7 +91,9 @@
   text-align: center;
   padding: 20px;
 
-  &.cat-cctv {
+  &.cat-network-camera,
+  &.cat-cctv,
+  &.cat-nvr {
     background: linear-gradient(135deg, #010c3a 0%, #002d5b 100%);
   }
 

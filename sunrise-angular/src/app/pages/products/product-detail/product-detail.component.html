@@ -125,7 +125,18 @@
     </div>
   </section>
 
-} @else if (!loading()) {
+} @else if (loading()) {
+  <!-- Loading State -->
+  <section class="product-loading-section py-5 text-center">
+    <div class="auto-container">
+      <div class="spinner-border text-danger" role="status">
+        <span class="sr-only">Loading product details...</span>
+      </div>
+      <p class="mt-3 text-muted">Loading technical specifications...</p>
+    </div>
+  </section>
+
+} @else {
   <!-- Fallback: Product Not Found -->
   <section class="product-not-found-section">
     <div class="auto-container text-center">

@@ -1,0 +1,61 @@
+{
+  "businessName": "SUNRISE COMMUNICATION - Sales and Services (CCTV Camera, EPABX, Intercom, Telephones, Access Control, Biometrics, Telecom)",
+  "shortName": "Sunrise Communication",
+  "placeId": "ChIJ3cWKTgW55zsR7LNNnnxIBGQ",
+  "cid": "7206965003768673260",
+  "mapsUrl": "https://maps.google.com/maps?cid=7206965003768673260",
+  "reviewUrl": "https://search.google.com/local/writereview?placeid=ChIJ3cWKTgW55zsR7LNNnnxIBGQ",
+  "website": "https://sunrisecommunication.in/",
+  "phone": {
+    "primary": "+919323848622",
+    "secondary": "+919987555399"
+  },
+  "address": {
+    "street": "Room No.10, Amar Building, Near Jyoti Book Center, Charai",
+    "city": "Thane (West)",
+    "state": "Maharashtra",
+    "postalCode": "400601",
+    "country": "IN"
+  },
+  "geo": {
+    "latitude": 19.1966,
+    "longitude": 72.9781
+  },
+  "establishedYear": 1999,
+  "operatingHours": "Open 24 Hours (Mon – Sun)",
+  "reputation": {
+    "ratingValue": 5.0,
+    "reviewCount": 93,
+    "bestRating": 5,
+    "worstRating": 1,
+    "highlights": "High customer satisfaction regarding prompt installation, cabling, and servicing for CCTV cameras and residential society intercom networks."
+  },
+  "primaryCategory": "Telecommunications service provider",
+  "additionalCategories": [
+    "Security system supplier",
+    "Closed circuit television",
+    "Security system installation service",
+    "Telecommunications engineer",
+    "Telecommunications contractor",
+    "Telecommunications equipment supplier"
+  ],
+  "serviceAreas": [
+    "Thane",
+    "Mumbai",
+    "Navi Mumbai",
+    "Kalyan",
+    "Vashi",
+    "Panvel",
+    "Pune"
+  ],
+  "performanceInsights": {
+    "monthlyImpressions": 1796,
+    "mobileSearchShare": "69.8%",
+    "topSearchKeywords": [
+      "Intercom / Intercom Systems (400+ views)",
+      "EPABX / EPBX Systems & Troubleshooting (350+ views)",
+      "CCTV Camera Repair & Society Security Setups",
+      "CP Plus 5MP High-Definition Cameras"
+    ]
+  }
+}
