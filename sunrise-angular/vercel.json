@@ -1,14 +1,10 @@
 {
   "version": 2,
-  "cleanUrls": true,
   "outputDirectory": "dist/sunrise-angular/browser",
-  "routes": [
+  "rewrites": [
     {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/:path*",
+      "destination": "/index.html"
     }
   ],
   "headers": [
