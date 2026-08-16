@@ -7,17 +7,19 @@ export const SITE_DATA = {
     placeId: 'ChIJ3cWKTgW55zsR7LNNnnxIBGQ',
     cid: '7206965003768673260',
     mapsUrl: 'https://maps.google.com/maps?cid=7206965003768673260',
-    reviewUrl: 'https://search.google.com/local/writereview?placeid=ChIJ3cWKTgW55zsR7LNNnnxIBGQ'
+    reviewUrl: 'https://search.google.com/local/writereview?placeid=ChIJ3cWKTgW55zsR7LNNnnxIBGQ',
+    rating: 5,
+    reviewCount: 93
   },
   contact: {
-    address: 'Room No.10, Amar Building, Near Jyoti Book Center, Charai, Thane (W) 400601',
+    address: 'Room No.10, Amar Building, Near Jyoti Book Center, Charai, Thane (West) 400601',
     addressUrl: 'https://maps.google.com/maps?cid=7206965003768673260',
-    primaryPhone: '+91-9323848622',
-    secondaryPhone: '+91-9987555399',
+    primaryPhone: '+919323848622',
+    secondaryPhone: '+919987555399',
     email: 'sunrisecommunication1555@gmail.com',
     secondaryEmail: 'info@sunrisecommunication.in',
     website: 'https://sunrisecommunication.in',
-    workingHours: 'EveryDay: 09:00 to 21:00'
+    workingHours: 'Open 24 Hours (Mon – Sun)'
   },
   social: {
     facebook: 'https://www.facebook.com/sunrisecommunication1555/',
