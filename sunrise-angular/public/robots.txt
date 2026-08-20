@@ -1,9 +1,42 @@
-# Allow standard search engines
+# ==========================================
+# Sunrise Communication - Robots.txt
+# Domain: https://sunrisecommunication.in
+# ==========================================
+
+# Default rule for all web search crawlers
 User-agent: *
 Allow: /
 
-# Allow modern AI and LLM search agents
+# Explicit rules for major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+# Explicit permission for Generative AI & LLM Search Agents
 User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
 Allow: /
 
 User-agent: PerplexityBot
@@ -12,10 +45,16 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: Claude-Web
+Allow: /
+
 User-agent: anthropic-ai
 Allow: /
 
 User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
 Allow: /
 
 User-agent: Applebot-Extended
@@ -24,7 +63,23 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-# Sitemaps & LLM Manifests
-Sitemap: https://www.sunrisecommunication.in/sitemap.xml
-# LLM Manifest: https://www.sunrisecommunication.in/llms.txt
-# Full LLM Documentation: https://www.sunrisecommunication.in/llms-full.txt
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# Sitemaps & Machine Discovery Endpoints
+Sitemap: https://sunrisecommunication.in/sitemap.xml
+# LLM Discovery Manifest: https://sunrisecommunication.in/llms.txt
+# Extended LLM Documentation: https://sunrisecommunication.in/llms-full.txt
+# JSON Discovery Schema: https://sunrisecommunication.in/llms.json

@@ -7,6 +7,7 @@
     "build": "ng build",
     "postbuild": "node build-routes.js",
     "sync:gbp": "node scripts/sync-gbp.js",
+    "indexnow": "node scripts/ping-indexnow.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:sunrise-angular": "node dist/sunrise-angular/server/server.mjs"

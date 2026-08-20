@@ -5,6 +5,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://sunrisecommunication.in/</loc>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -18,6 +19,7 @@
   <!-- Products Catalog -->
   <url>
     <loc>https://sunrisecommunication.in/products</loc>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
     <image:image>
@@ -31,24 +33,26 @@
   <!-- All Services Overview -->
   <url>
     <loc>https://sunrisecommunication.in/services</loc>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
     <image:image>
       <image:loc>https://sunrisecommunication.in/assets/images/icons/service-cctv.svg</image:loc>
-      <image:title>CCTV &amp; Security Services Overview</image:title>
-      <image:caption>Turnkey security and telecommunications solutions across Mumbai MMR.</image:caption>
+      <image:title>Security &amp; Telecom Services Overview</image:title>
+      <image:caption>Turnkey security, intercom, and telecommunications solutions across Mumbai MMR.</image:caption>
     </image:image>
   </url>
 
   <!-- CCTV Surveillance Systems Hub -->
   <url>
     <loc>https://sunrisecommunication.in/services/cctv-surveillance-systems</loc>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
       <image:loc>https://sunrisecommunication.in/assets/images/icons/service-cctv.svg</image:loc>
       <image:title>CCTV Camera Installation &amp; NVR Setup Thane</image:title>
-      <image:caption>High-Definition 4K IP camera installation and comprehensive AMC for housing societies in Thane and Mumbai.</image:caption>
+      <image:caption>High-Definition IP camera installation and dedicated AMC maintenance for housing societies in Thane and Mumbai.</image:caption>
       <image:geo_location>Thane, Mumbai, Maharashtra</image:geo_location>
     </image:image>
   </url>
@@ -56,12 +60,13 @@
   <!-- EPABX & Society Intercom Solutions Hub -->
   <url>
     <loc>https://sunrisecommunication.in/services/epabx-intercom-solutions</loc>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
       <image:loc>https://sunrisecommunication.in/assets/images/icons/service-epabx.svg</image:loc>
       <image:title>Housing Society Intercom &amp; Matrix EPABX Systems</image:title>
-      <image:caption>Multi-pair copper cabling, gatekeeper phones, and Matrix IP-PBX systems for housing societies in Thane.</image:caption>
+      <image:caption>Multi-pair copper cabling, gatekeeper phones, and Matrix EPABX systems for housing societies in Thane.</image:caption>
       <image:geo_location>Thane, Mumbai, Maharashtra</image:geo_location>
     </image:image>
   </url>
@@ -69,25 +74,27 @@
   <!-- Biometric Attendance & Access Control Hub -->
   <url>
     <loc>https://sunrisecommunication.in/services/biometric-access-control</loc>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
       <image:loc>https://sunrisecommunication.in/assets/images/icons/service-biometrics.svg</image:loc>
       <image:title>Biometric Access Control &amp; EM Door Locks</image:title>
-      <image:caption>Essl AI facial recognition, fingerprint attendance, and 600lbs fail-safe EM lock installations in Thane and Mumbai.</image:caption>
+      <image:caption>Essl AI facial recognition, fingerprint attendance, and EM lock installations in Thane and Mumbai.</image:caption>
       <image:geo_location>Thane, Navi Mumbai, Maharashtra</image:geo_location>
     </image:image>
   </url>
 
-  <!-- Structured Cabling & Networking Hub -->
+  <!-- Security & Telecom Structured Cabling Hub -->
   <url>
     <loc>https://sunrisecommunication.in/services/structured-networking-cabling</loc>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
       <image:loc>https://sunrisecommunication.in/assets/images/icons/service-cables.svg</image:loc>
-      <image:title>Structured Cat6 LAN Cabling &amp; Server Rack Dressing</image:title>
-      <image:caption>Certified Cat6/Cat6A I/O termination, patch panel dressing, and fiber optic splicing in Thane and Mahape MIDC.</image:caption>
+      <image:title>CCTV, Intercom &amp; Security Structured Cabling</image:title>
+      <image:caption>Certified Cat6 PoE cabling, society intercom multi-pair telephone wiring, and security rack dressing in Thane and Mumbai.</image:caption>
       <image:geo_location>Thane, Navi Mumbai, Maharashtra</image:geo_location>
     </image:image>
   </url>
@@ -95,6 +102,7 @@
   <!-- About Us -->
   <url>
     <loc>https://sunrisecommunication.in/about</loc>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
@@ -102,6 +110,7 @@
   <!-- Contact Us -->
   <url>
     <loc>https://sunrisecommunication.in/contact</loc>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
