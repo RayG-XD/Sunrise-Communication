@@ -70,87 +70,87 @@ export const SERVICE_CLUSTERS_DATA: Record<string, ServiceClusterData> = {
     slug: 'cctv-surveillance-systems',
     name: 'CCTV Surveillance Systems',
     heroTitle: 'CCTV Camera Sales, Installation & AMC Services in Thane & Mumbai',
-    tagline: 'Enterprise-grade 4K IP, HD Analog, and Turnkey Surveillance Solutions',
-    directAnswerAeo: 'Sunrise Communication provides professional CCTV camera installation, 4K NVR/DVR setup, and comprehensive Annual Maintenance Contracts (AMC) across Thane, Mumbai, and Navi Mumbai. We supply CP Plus, Hikvision, and Dahua systems with 24/7 emergency repair support.',
+    tagline: 'Reliable HD IP, Analog HD, and Turnkey Surveillance Solutions',
+    directAnswerAeo: 'Sunrise Communication provides professional CCTV camera installation, NVR/DVR setup, and customized Annual Maintenance Contracts (AMC) across Thane, Mumbai, and Navi Mumbai. We supply CP Plus, Hikvision, and Dahua systems with prompt on-call technical support.',
     categoryIcon: 'flaticon-cctv',
-    shortDescription: 'Protect your residential society, corporate office, or industrial warehouse with high-definition surveillance, intelligent ColorVu night vision, and cloud remote viewing.',
+    shortDescription: 'Protect your residential society, commercial office, or warehouse with high-definition surveillance, night vision, and remote mobile viewing capabilities.',
     authorizedBrands: ['CP Plus', 'Hikvision', 'Dahua', 'Matrix', 'Seagate SkyHawk', 'WD Purple'],
     offerings: [
       {
         title: 'Housing Society CCTV Surveillance',
-        description: 'Comprehensive perimeter, lobby, parking, and lift cabin camera installations designed for residential housing societies.',
+        description: 'Perimeter, lobby, parking, and lift cabin camera installations designed for residential housing societies.',
         icon: 'fa-building',
         features: [
-          'Full HD & 4K Ultra-HD Network Cameras',
-          'Vandal-proof Dome cameras for lifts and staircases',
-          '30 to 60 Days Continuous Video Retention',
-          'Mobile App Access for Society Managing Committee'
+          'Full HD & Ultra-HD Network Cameras',
+          'Vandal-resistant Dome cameras for lobbies & lifts',
+          'Multi-week Continuous Video Retention',
+          'Mobile App Access for Authorized Committee Members'
         ]
       },
       {
         title: 'Commercial & Office Security',
-        description: 'Tailored surveillance setups for corporate offices, IT parks, retail showrooms, and banks.',
+        description: 'Tailored surveillance setups for corporate offices, retail spaces, and commercial facilities.',
         icon: 'fa-briefcase',
         features: [
-          'AI-powered Human & Vehicle Detection',
-          'Microphone Audio Recording cameras',
+          'Motion Detection & Human/Vehicle Filtering',
+          'Audio-enabled Recording Cameras',
           'Centralized Multi-Location Monitoring Room Setup',
-          'Integration with Access Control & Fire Alarms'
+          'Integration with Access Control Systems'
         ]
       },
       {
         title: 'Industrial & Warehouse Monitoring',
-        description: 'Heavy-duty long-range bullet cameras, PTZ (Pan-Tilt-Zoom) tracking, and optical fiber backbone for large yards.',
+        description: 'Long-range bullet cameras, PTZ tracking, and optical fiber options for large industrial yards.',
         icon: 'fa-industry',
         features: [
-          'Up to 150m Smart IR / ColorVu Night Vision',
-          'Weatherproof IP67 Metal Enclosures',
-          'Optical Fiber Network Cabling for Long Distances',
+          'Long-Range Smart IR / Night Vision Cameras',
+          'Weather-resistant IP66/IP67 Metal Enclosures',
+          'Optical Fiber Network Cabling for Extended Distances',
           'PoE (Power over Ethernet) Switch Infrastructure'
         ]
       },
       {
         title: 'CCTV Annual Maintenance Contracts (AMC)',
-        description: 'Guaranteed 24-48h breakdown support, quarterly preventive maintenance, lens cleaning, and standby unit replacement.',
+        description: 'Preventive maintenance checkups, lens cleaning, wiring inspection, and breakdown troubleshooting support.',
         icon: 'fa-shield',
         features: [
           'Comprehensive & Non-Comprehensive AMC Options',
-          'Quarterly Cable & Power Voltage Testing',
-          'Firmware Updates & Storage Health Checks',
-          'Dedicated On-Call Technician in Thane'
+          'Quarterly Cable & Power Supply Testing',
+          'Storage & Recording Health Inspections',
+          'Dedicated On-Call Technician Support in Thane'
         ]
       }
     ],
     caseStudies: [
       {
-        title: '32-Camera 4K ColorVu Compound Surveillance',
+        title: 'Compound Surveillance Setup for High-Rise Society',
         location: 'Hiranandani Estate, Thane (West)',
         premiseType: 'Residential Cooperative Housing Society (CHS)',
-        challenge: 'A 24-story residential society had severe blind spots at vehicular gates, visitor parking, and unlit perimeter boundaries.',
-        solution: 'Engineered a 32-camera IP network utilizing CP Plus 4K ColorVu bullet cameras, 32-channel NVR, and Cat6 armoured cabling.',
-        hardwareDeployed: ['32x CP Plus 4K IP ColorVu Cameras', '1x 32-Ch 4K H.265+ NVR', '2x 8TB WD Purple HDDs', '4x D-Link Gigabit PoE Switches'],
-        resultMetrics: '100% perimeter coverage with full-color night vision and 45 days continuous backup.'
+        challenge: 'A multi-story residential society required surveillance for main vehicular gates, visitor parking, and unlit perimeter areas.',
+        solution: 'Installed an IP camera network utilizing CP Plus high-definition bullet cameras, multi-channel NVR, and armored cabling.',
+        hardwareDeployed: ['CP Plus IP Cameras', '32-Ch H.265+ NVR', 'Surveillance-grade HDDs', 'Gigabit PoE Switches'],
+        resultMetrics: 'Comprehensive perimeter monitoring with clear night vision and reliable multi-week video backup.'
       },
       {
-        title: '24-Channel Industrial Warehouse Surveillance',
+        title: 'Commercial Warehouse Facility Surveillance',
         location: 'Wagle Industrial Estate, Thane',
         premiseType: 'Manufacturing Plant & Logistics Hub',
-        challenge: 'Large 40,000 sq.ft facility required centralized monitoring for loading bays, machinery floors, and inventory storage.',
-        solution: 'Deployed long-range smart IR bullet cameras connected via an optical fiber backbone and centralized control room rack.',
-        hardwareDeployed: ['24x Hikvision 5MP IP Bullet Cameras', '1x 32-Ch Enterprise NVR', 'Fiber Media Converters', 'Server Rack Dressing'],
-        resultMetrics: 'Zero signal latency over 300m distances with 24/7 multi-screen control room monitoring.'
+        challenge: 'A large logistics facility required centralized monitoring across loading bays, machinery floors, and entry points.',
+        solution: 'Deployed long-range smart IR bullet cameras connected via dedicated data cabling to a central control room setup.',
+        hardwareDeployed: ['Hikvision IP Bullet Cameras', 'Enterprise NVR', 'PoE Switches', 'Rack Organization'],
+        resultMetrics: 'Smooth multi-screen monitoring across storage and dispatch areas with centralized recording.'
       }
     ],
     comparisonMatrix: {
       title: 'IP Camera Systems vs Analog HD Systems',
-      subtitle: 'Technical decision matrix to help housing societies and businesses choose the right architecture.',
-      headers: ['Feature / Architecture', 'IP Network Surveillance (Recommended)', 'Analog HD Surveillance (Legacy)'],
+      subtitle: 'A standard comparison matrix to help societies and businesses choose the right setup.',
+      headers: ['Feature / Architecture', 'IP Network Surveillance (Recommended)', 'Analog HD Surveillance'],
       rows: [
         {
           feature: 'Resolution & Clarity',
-          col1: 'Up to 4K (8MP / 12MP) with digital zoom without pixelation',
-          col2: 'Standard 2MP (1080p) to 5MP, blurred digital zoom',
-          verdict: 'IP systems deliver 3x sharper license plate and facial detail.'
+          col1: 'High-definition (2MP up to 4K) with clear digital zoom',
+          col2: 'Standard 2MP (1080p) to 5MP resolution',
+          verdict: 'IP systems provide higher clarity for facial and vehicle detail.'
         },
         {
           feature: 'Cabling & Infrastructure',
@@ -160,73 +160,73 @@ export const SERVICE_CLUSTERS_DATA: Record<string, ServiceClusterData> = {
         },
         {
           feature: 'Transmission Range',
-          col1: 'Up to 100m on Cat6; unlimited distance via Optical Fiber & PoE extenders',
-          col2: 'Signal degrades beyond 70-80m on analog copper cable',
-          verdict: 'IP is mandatory for multi-wing buildings and large premises.'
+          col1: 'Up to 100m on Cat6; expandable with switches or fiber links',
+          col2: 'Standard copper transmission over coaxial runs',
+          verdict: 'IP is well suited for multi-wing buildings and large premises.'
         },
         {
           feature: 'Storage Efficiency',
-          col1: 'H.265+ smart video compression (50-70% less HDD space needed)',
-          col2: 'Older H.264 compression requiring larger hard drives',
-          verdict: 'H.265+ doubles recording retention days on the same HDD size.'
+          col1: 'H.265+ smart video compression to optimize hard drive space',
+          col2: 'Standard H.264 compression',
+          verdict: 'H.265+ delivers longer recording retention on the same HDD size.'
         },
         {
-          feature: 'Future Expandability',
-          col1: 'Easily add cameras by adding a PoE switch without rewiring NVR',
-          col2: 'Requires dedicated physical port on DVR and new cable run to recorder',
-          verdict: 'IP architecture is modular and future-proof for 10+ years.'
+          feature: 'Scalability',
+          col1: 'Modular addition of cameras via network PoE switches',
+          col2: 'Direct physical port connection to DVR recorder required',
+          verdict: 'IP architecture offers convenient future expansion.'
         }
       ]
     },
     amcPlans: [
       {
         title: 'Non-Comprehensive AMC',
-        priceHint: 'Best for newer systems under manufacturer warranty',
-        description: 'Covers routine servicing, unlimited emergency breakdown visits, and camera health checkups.',
+        priceHint: 'Standard maintenance for existing working setups',
+        description: 'Covers scheduled preventive checkups, routine servicing visits, and camera health inspections.',
         features: [
           '4 Scheduled Quarterly Preventive Visits',
-          'Unlimited Emergency Breakdown Calls',
+          'On-Call Breakdown Troubleshooting Support',
           'Lens Cleaning & Camera Angle Alignment',
-          'NVR/DVR Firmware & Storage Optimization',
-          'Guaranteed 24-48 Hour Technician Dispatch'
+          'NVR/DVR Recording & Storage Checks',
+          'Prompt Technician Support as per AMC Terms'
         ],
-        sla: '24-48 Hours'
+        sla: 'Prompt On-Call'
       },
       {
         title: 'Comprehensive AMC',
-        badge: 'Most Popular for Societies',
-        priceHint: 'Complete peace of mind with hardware parts included',
-        description: 'Full coverage including labour, breakdown visits, and free replacement/repair of faulty cameras, power supplies, and switches.',
+        badge: 'Popular for Societies',
+        priceHint: 'Extended coverage including parts as per contract',
+        description: 'Full maintenance coverage including routine labour, service visits, and parts repair/replacement assistance per agreed terms.',
         features: [
           'Everything in Non-Comprehensive Plan',
-          'Free Replacement of Faulty Power Supplies / SMPS',
-          'Standby Replacement Camera during Repairs',
-          'Free BNC / RJ45 Connector Replacements',
-          'Priority Emergency 24-Hour Dispatch'
+          'Parts Repair / Replacement covered as per AMC terms',
+          'Routine Power Supply & Connector Checks',
+          'Standby Replacement Support during Major Repairs',
+          'Priority Response for Active Maintenance Clients'
         ],
-        sla: 'Within 24 Hours'
+        sla: 'Priority Service'
       }
     ],
     faqs: [
       {
-        question: 'How many CCTV cameras are required for a typical 7-story housing society in Thane?',
-        answer: 'A standard 7-story, single-wing cooperative housing society typically requires 12 to 16 cameras: 2 for main entrance/exit gates, 4 to 6 for ground compound/parking areas, 1 for the main lobby, 1 for each elevator cabin, and 1 for the terrace/water pump room.'
+        question: 'How many CCTV cameras are typically needed for a 7-story housing society in Thane?',
+        answer: 'A standard 7-story single-wing housing society typically installs 10 to 16 cameras covering main entrance/exit gates, parking areas, the ground lobby, elevator cabins, and common compound sections. Exact requirements are finalized during a site survey.'
       },
       {
-        question: 'How many days of video recording backup will an 8-camera or 16-camera system store?',
-        answer: 'With modern H.265+ video compression at 1080p/2MP resolution, each camera consumes approximately 18-20 GB per day. A 4TB surveillance hard drive (WD Purple / Seagate SkyHawk) will store approximately 25 to 30 days of continuous recording for 8 cameras, and 14 to 16 days for 16 cameras.'
+        question: 'How many days of video recording backup will a CCTV system store?',
+        answer: 'Recording duration depends on the number of cameras, resolution, frame rate, and compression (such as H.265+). A 4TB surveillance hard drive typically provides 20 to 30 days of continuous recording for an 8-camera setup, and approximately 12 to 16 days for a 16-camera setup.'
       },
       {
         question: 'How do we reset forgotten admin passwords on CP Plus or Hikvision DVR/NVR?',
-        answer: 'For CP Plus and Hikvision recorders, password reset requires either: (1) Exporting the encrypted XML key file via SADP / Config Tool and submitting to authorized dealer Sunrise Communication for manufacturer unlock, (2) Answering predefined security questions, or (3) Dynamic QR code scanning linked to the registered recovery email.'
+        answer: 'Password reset for CP Plus and Hikvision recorders is performed through authorized tools, security question verification, or manufacturer QR code reset procedures handled by an authorized technician.'
       },
       {
-        question: 'What are the legal society bylaws for installing lift cabin CCTV cameras in Maharashtra?',
-        answer: 'Under Maharashtra Co-operative Societies (MCS) guidelines, CCTV installation in lift cabins requires a General Body (GBM) or Managing Committee resolution. Lift cameras must use flexible travelling cables (flat lift CCTV cables) to prevent snapping during elevator movement, and notice boards informing residents of 24/7 CCTV surveillance must be displayed.'
+        question: 'What are the general recommendations for installing lift cabin CCTV cameras in housing societies?',
+        answer: 'Housing societies generally pass a managing committee resolution prior to installing lift cameras. Specialized elevator-rated flexible travelling cables are used to prevent wear during lift movement, along with standard notice signage informing residents of surveillance.'
       },
       {
-        question: 'What is the response time for CCTV breakdown repair in Thane, Mumbai, and Navi Mumbai?',
-        answer: 'Sunrise Communication provides guaranteed 24 to 48-hour technician on-site response for breakdown complaints under AMC across Thane West, Mulund, Bhandup, Ghatkopar, Vashi, and Mahape.'
+        question: 'What is the response time for CCTV service in Thane, Mumbai, and Navi Mumbai?',
+        answer: 'Sunrise Communication provides prompt on-call technician support for active AMC clients across Thane West, Mulund, Bhandup, Ghatkopar, Vashi, and surrounding areas.'
       }
     ],
     serviceAreasThane: ['Charai', 'Naupada', 'Panchpakhadi', 'Ghodbunder Road', 'Majiwada', 'Vasant Vihar', 'Hiranandani Estate', 'Wagle Industrial Estate', 'Kalwa', 'Kalyan', 'Dombivli'],
@@ -234,7 +234,7 @@ export const SERVICE_CLUSTERS_DATA: Record<string, ServiceClusterData> = {
     serviceAreasNaviMumbai: ['Vashi', 'Mahape (TTC MIDC)', 'Airoli Knowledge Park', 'Kopar Khairane', 'Ghansoli', 'Nerul', 'Belapur', 'Panvel'],
     seo: {
       title: 'CCTV Camera Installation & AMC in Thane, Mumbai | Sunrise Communication',
-      description: 'Expert CCTV installation, IP camera systems, and Comprehensive AMC for housing societies, offices, and warehouses across Thane, Mumbai, and Navi Mumbai. Call +91-9323848622.',
+      description: 'Professional CCTV installation, IP camera systems, and AMC maintenance for housing societies, offices, and warehouses in Thane, Mumbai, and Navi Mumbai. Call +91-9323848622.',
       keywords: 'CCTV Installation Thane, CCTV AMC Mumbai, Housing Society CCTV Thane West, CP Plus Camera Dealer, Hikvision IP Camera Thane, Security Camera Repair Charai'
     }
   },
@@ -243,152 +243,152 @@ export const SERVICE_CLUSTERS_DATA: Record<string, ServiceClusterData> = {
     slug: 'epabx-intercom-solutions',
     name: 'EPABX & Society Intercom Solutions',
     heroTitle: 'Housing Society Intercom & Corporate EPABX Systems in Thane & Mumbai',
-    tagline: 'Reliable Multi-Line Society Intercoms, IP-PBX, and Voice Cabling Infrastructure',
-    directAnswerAeo: 'Sunrise Communication installs, repairs, and maintains EPABX and housing society intercom networks across Thane, Mumbai, and Navi Mumbai. We specialize in Matrix Telecom systems, multi-pair copper cabling, security gatekeeper phones, and society telecom AMC.',
+    tagline: 'Reliable Multi-Line Society Intercoms, PBX Systems, and Voice Cabling',
+    directAnswerAeo: 'Sunrise Communication installs, repairs, and maintains EPABX and housing society intercom networks across Thane, Mumbai, and Navi Mumbai. We supply Matrix Telecom and Beetel systems, multi-pair copper cabling, security gatekeeper phones, and society telecom AMC.',
     categoryIcon: 'flaticon-telephone',
-    shortDescription: 'Seamless flat-to-gate, flat-to-flat, and corporate internal communication with crisp audio, robust copper cabling, and digital PBX switching.',
+    shortDescription: 'Reliable flat-to-gate, flat-to-flat, and corporate internal communication with clear audio, durable copper cabling, and PBX switching.',
     authorizedBrands: ['Matrix Telecom', 'Syntel', 'Beetel', 'Panasonic', 'D-Link', 'Finolex'],
     offerings: [
       {
-        title: 'Cooperative Housing Society (CHS) Intercoms',
-        description: 'Complete intercom systems linking 20 to 1000+ residential flats with the security gatekeeper and management office.',
-        icon: 'fa-phone',
+        title: 'Residential Society Intercom Systems',
+        description: 'Complete multi-flat intercom infrastructure connecting security guard cabins, individual flats, and secretary offices.',
+        icon: 'fa-phone-square',
         features: [
-          'Security Gatekeeper Console with Caller ID',
-          'Flat-to-Flat & Flat-to-Gate Calling Modes',
-          'Jelly-Filled Armoured Copper Multi-Pair Cabling',
-          'Krone Connector Tag Block Distribution Frames'
+          'Scalable from 16 to 500+ Flat Extensions',
+          'Security Gatekeeper Console with Direct Calling',
+          'Flat-to-Flat & Flat-to-Gate Communication',
+          'Concealed Armoured Telecom Cable Laying'
         ]
       },
       {
-        title: 'Corporate EPABX & Hybrid IP-PBX Systems',
-        description: 'Advanced telephony infrastructure for corporate offices, call centers, clinics, and educational institutions.',
-        icon: 'fa-exchange',
+        title: 'Corporate EPABX & IP-PBX Systems',
+        description: 'Feature-rich office PBX systems supporting multi-line trunks, auto-attendant IVR, and call routing.',
+        icon: 'fa-sitemap',
         features: [
-          'VoIP / SIP Trunk & Hybrid PRI Line Integration',
-          'Auto-Attendant & Interactive Voice Response (IVR)',
-          'Call Recording & Detailed Call Detail Records (CDR)',
-          'Extension Mobility on Smartphones'
+          'Interactive Voice Response (IVR) Auto-Attendant',
+          'Call Forwarding, Transfer, and Conferencing',
+          'VoIP & IP-PBX Integration for Remote Offices',
+          'Direct Inward Dialing (DID) Extensions'
         ]
       },
       {
-        title: 'Intercom Cable Splicing & Fault Finding',
-        description: 'Rapid diagnostic and rectification of static noise, cross-talk, cut cables, and dead telephone extension lines.',
+        title: 'Intercom Wiring & DP Box Dressing',
+        description: 'Rewiring degraded building telephone cables, floor junction box jumpering, and tag-block organization.',
+        icon: 'fa-random',
+        features: [
+          'High-grade 0.5mm Solid Copper Telephone Cable',
+          'Krone Distribution Frame (MDF / DP) Tagging',
+          'Shaft Cable Relaying & Moisture Protection',
+          'Noise & Hum Reduction Troubleshooting'
+        ]
+      },
+      {
+        title: 'Society Telecom AMC & On-Call Repair',
+        description: 'Annual Maintenance Contracts ensuring flat extension fault resolution, wiring repairs, and gatekeeper maintenance.',
         icon: 'fa-wrench',
         features: [
-          'Tone Generator & Cable Fault Locating',
-          'Waterproof Joint Enclosure Splicing',
-          'Junction Box (DP Box) Rewiring & Number Tagging',
-          'Underground Armoured Cable Laying'
-        ]
-      },
-      {
-        title: 'Society Intercom Annual Maintenance (AMC)',
-        description: 'Turnkey maintenance contract ensuring uninterrupted gatekeeper communication with quarterly line checkups.',
-        icon: 'fa-shield',
-        features: [
-          'Unlimited Breakdown Visits for Line Faults',
-          'Free Krone Tagging & Jumper Wire Replacements',
-          'Annual PBX System Voltage & Battery Health Audit',
-          '24-Hour Emergency Ticket Dispatch'
+          'Quarterly Building Main DP Box Checks',
+          'Extension Line Testing & Fault Jumpering',
+          'Gatekeeper Unit & Power Supply Servicing',
+          'Prompt On-Call Assistance for Society Complaints'
         ]
       }
     ],
     caseStudies: [
       {
-        title: '480-Flat Multi-Wing Housing Society Intercom Migration',
-        location: 'Charai / Naupada, Thane (West)',
-        premiseType: 'Large Cooperative Housing Society (4 Wings)',
-        challenge: 'Aging 15-year-old copper wiring caused severe humming noise, cross-talk, and failed calls between security gate and upper floors.',
-        solution: 'Replaced corroded junction boxes with Krone tag blocks, laid jelly-filled armoured 50-pair cables, and installed a Matrix ETERNITY Hybrid PBX.',
-        hardwareDeployed: ['1x Matrix ETERNITY Expandable IP-PBX', '12x 50-Pair Krone Distribution Boxes', '1,200m Armoured Telecom Cable', '2x Gatekeeper Consoles'],
-        resultMetrics: '100% crystal-clear flat-to-gate audio across all 480 flats with zero cross-talk complaints.'
+        title: 'Multi-Wing Society Intercom Modernization',
+        location: 'Charai, Thane (West)',
+        premiseType: 'Residential Cooperative Housing Society',
+        challenge: 'An older housing society suffered from line static, dead extensions, and unlabelled wiring junction boxes across its wings.',
+        solution: 'Replaced corroded floor distribution boxes with Krone modules, re-tagged all flat pairs, and installed a Matrix PBX system.',
+        hardwareDeployed: ['Matrix Intercom System', 'Krone Tag Blocks', 'Multi-Pair Armoured Cable', 'Guard Intercom Console'],
+        resultMetrics: 'Clear voice audio across all resident extensions and reliable flat-to-gate security verification.'
       },
       {
-        title: '64-Line Corporate Hybrid IP-PBX Integration',
-        location: 'Bandra Kurla Complex (BKC), Mumbai',
-        premiseType: 'Corporate Financial Office',
-        challenge: 'Multi-department firm needed automated call routing, IVR attendant, and mobile extension forwarding for hybrid remote staff.',
-        solution: 'Deployed Matrix Hybrid IP-PBX with SIP trunk integration, digital operator console, and automated call recording software.',
-        hardwareDeployed: ['Matrix ETERNITY IP-PBX', '24x Digital Key Telephones', 'Call Recording Server', 'SIP Trunk Gateway'],
-        resultMetrics: 'Reduced telecom operational costs by 35% while enabling seamless extension mobility.'
+        title: 'Corporate Office EPABX & Call Routing Setup',
+        location: 'Wagle Industrial Estate, Thane',
+        premiseType: 'Corporate Headquarters',
+        challenge: 'A multi-department enterprise needed auto-attendant call routing and extension transfers between sales and accounts.',
+        solution: 'Deployed a hybrid PBX system with multi-trunk support, welcome IVR greetings, and digital operator consoles.',
+        hardwareDeployed: ['Hybrid EPABX System', 'Digital Key Telephones', 'Structured Voice Cabling', 'MDF Panel'],
+        resultMetrics: 'Streamlined incoming client call transfers with smooth departmental routing.'
       }
     ],
     comparisonMatrix: {
-      title: 'Traditional Multi-Core Intercom vs Modern IP-PBX',
-      subtitle: 'Compare traditional copper telecom infrastructure with modern VoIP/IP intercom systems.',
-      headers: ['Capability', 'Traditional Copper EPABX (Matrix/Syntel)', 'Modern Hybrid IP-PBX Systems'],
+      title: 'Traditional Copper Intercom vs IP-PBX Systems',
+      subtitle: 'Choosing the right intercom technology for your residential building or enterprise.',
+      headers: ['Feature', 'Dedicated Copper Intercom (Traditional)', 'IP-PBX / Cloud Intercom'],
       rows: [
         {
-          feature: 'Best Suited For',
-          col1: 'Residential Housing Societies (CHS) & mid-size offices',
-          col2: 'Corporate offices, tech parks, and premium high-rises',
-          verdict: 'Copper EPABX provides the lowest hardware & maintenance cost for societies.'
+          feature: 'Installation Cost',
+          col1: 'Cost-effective per-flat hardware and wiring',
+          col2: 'Higher initial investment for IP handsets/switches',
+          verdict: 'Traditional copper is ideal for standard housing society budgets.'
         },
         {
-          feature: 'Wiring Infrastructure',
-          col1: 'Multi-pair telephone copper cables (0.5mm / 0.6mm)',
-          col2: 'Standard Cat6 Ethernet cable or Optical Fiber LAN',
-          verdict: 'Copper is highly durable and immune to IP router crashes.'
-        },
-        {
-          feature: 'Gatekeeper Integration',
-          col1: 'Dedicated rugged gatekeeper handset with LCD display',
-          col2: 'Touchscreen video guard console & mobile app calling',
-          verdict: 'Both provide instant flat calling; IP adds video preview.'
+          feature: 'Audio Reliability',
+          col1: 'Direct dedicated copper lines with zero reliance on internet',
+          col2: 'Dependent on internal network / internet stability',
+          verdict: 'Copper intercoms provide consistent voice audio independent of Wi-Fi.'
         },
         {
           feature: 'Maintenance Simplicity',
-          col1: 'Simple physical wire tracing with tone generator',
-          col2: 'Requires IT network admin & router management',
-          verdict: 'Traditional EPABX requires zero software maintenance by society staff.'
+          col1: 'Straightforward hardware maintenance via standard tag blocks',
+          col2: 'Requires IT network administration and IP configuration',
+          verdict: 'Copper intercom maintenance is simple and widely supported.'
+        },
+        {
+          feature: 'Feature Richness',
+          col1: 'Basic flat-to-gate calling, flat-to-flat dialing, and panic alerts',
+          col2: 'Video calling, smartphone integration, and voicemail',
+          verdict: 'IP-PBX is best suited for corporate offices and luxury complexes.'
         }
       ]
     },
     amcPlans: [
       {
         title: 'Society Intercom Non-Comprehensive AMC',
-        priceHint: 'Affordable per-flat quarterly maintenance',
-        description: 'Covers unlimited technician visits for extension line faults, gatekeeper repair, and DP box jumpering.',
+        priceHint: 'Quarterly maintenance for residential societies',
+        description: 'Covers routine technician visits for extension line faults, gatekeeper checkups, and DP box jumpering.',
         features: [
-          'Unlimited Technician Visits for Flat Complaints',
-          'Gatekeeper Handset Servicing & Jumper Repair',
-          'Quarterly Main DP Box & Power Supply Check',
-          'Free Wire Testing & Number Relabeling'
+          'Scheduled Preventive Checks for Society DP Boxes',
+          'Technician Support for Extension Faults',
+          'Gatekeeper Handset Servicing & Jumper Checks',
+          'Wire Continuity Testing & Labeling Assistance'
         ],
-        sla: '24-48 Hours'
+        sla: 'Prompt On-Call'
       },
       {
         title: 'Comprehensive Intercom AMC',
         badge: 'Recommended for 50+ Flats',
-        priceHint: 'All-inclusive coverage including main PBX system parts',
-        description: 'Complete protection covering PBX motherboards, extension cards, power supply units, and labour.',
+        priceHint: 'Extended coverage including PBX system components',
+        description: 'Comprehensive protection covering routine servicing, line fault rectifications, and PBX component repair/replacement as per agreed terms.',
         features: [
           'Everything in Non-Comprehensive Plan',
-          'Free Repair / Replacement of PBX Extension Cards',
-          'Free Main Power Supply Unit (SMPS) Replacement',
-          'Free Krone Tag Block Modules',
-          'Guaranteed Priority 24-Hour Breakdown Support'
+          'PBX Component Servicing / Replacement per agreed terms',
+          'Main Power Supply Unit (SMPS) Check & Maintenance',
+          'Tag Block Module Replacements as Needed',
+          'Priority Support for Society Management Committees'
         ],
-        sla: 'Within 24 Hours'
+        sla: 'Priority Service'
       }
     ],
     faqs: [
       {
-        question: 'How do we fix static or humming noise in housing society intercom lines?',
-        answer: 'Static or buzzing noise is usually caused by: (1) Moisture/corrosion inside floor junction (DP) boxes, (2) Parallel routing of telephone cables alongside high-voltage electrical mains, or (3) Deteriorated cable insulation. Sunrise Communication rectifies this by replacing damaged pairs, installing Krone waterproof tag modules, and separating audio lines from power cables.'
+        question: 'How is static or humming noise fixed in housing society intercom lines?',
+        answer: 'Static or humming noise is typically caused by moisture inside floor junction (DP) boxes, cable deterioration, or wiring placed too close to electrical lines. Technicians resolve this by cleaning contacts, installing protective Krone modules, and separating audio wiring from high-voltage cables.'
       },
       {
-        question: 'Can an existing old analog intercom cabling be upgraded to IP Intercom without breaking society walls?',
-        answer: 'Yes. If the existing copper conduit pipes are intact, new Cat6 or 2-wire IP converters can be pulled through existing shafts. Alternatively, modern Hybrid IP-PBX systems allow societies to retain their existing copper flat wiring while upgrading the central server to an IP backbone.'
+        question: 'Can an older intercom system be upgraded without tearing down building walls?',
+        answer: 'In most cases, existing conduit pipes can be used to pull fresh cables. Modern hybrid systems also allow societies to retain existing internal flat wiring while upgrading the central exchange.'
       },
       {
-        question: 'How does a housing society intercom system work during power cuts?',
-        answer: 'All EPABX and intercom systems installed by Sunrise Communication include dedicated 12V/24V SMPS battery backup units (UPS) ensuring uninterrupted flat-to-gate communication for 4 to 8 hours during electricity outages.'
+        question: 'How does an intercom system operate during electricity power cuts?',
+        answer: 'Intercom systems are typically connected to dedicated SMPS battery backup units (UPS) to ensure flat-to-gate communication remains functional during temporary power outages.'
       },
       {
         question: 'What is the cost of intercom wiring per flat in Thane and Mumbai?',
-        answer: 'Intercom installation costs depend on the number of wings, building height, cable meterage, and whether conduits are already available. On average, turnkey wiring including telephone instrument and PBX port ranges from ₹900 to ₹1,800 per flat.'
+        answer: 'Installation costs depend on building height, number of wings, cable meterage, and whether conduits are pre-existing. Indicative pricing is provided following a brief site survey.'
       }
     ],
     serviceAreasThane: ['Charai', 'Naupada', 'Panchpakhadi', 'Ghodbunder Road', 'Majiwada', 'Vasant Vihar', 'Hiranandani Estate', 'Wagle Industrial Estate', 'Kalwa', 'Kalyan', 'Dombivli'],
@@ -396,7 +396,7 @@ export const SERVICE_CLUSTERS_DATA: Record<string, ServiceClusterData> = {
     serviceAreasNaviMumbai: ['Vashi', 'Mahape (TTC MIDC)', 'Airoli Knowledge Park', 'Kopar Khairane', 'Nerul', 'Belapur', 'Panvel'],
     seo: {
       title: 'Housing Society Intercom & EPABX Systems in Thane, Mumbai | Sunrise Communication',
-      description: 'Reliable housing society intercom wiring, Matrix EPABX systems, and telecom AMC across Thane, Mumbai, and Navi Mumbai. Fast 24h repair service. Call +91-9323848622.',
+      description: 'Reliable housing society intercom wiring, Matrix EPABX systems, and telecom AMC across Thane, Mumbai, and Navi Mumbai. Call +91-9323848622.',
       keywords: 'Society Intercom Thane, EPABX Installation Mumbai, Matrix PBX Dealer Thane, Housing Society Intercom Repair Charai, Intercom AMC Naupada, CHS Intercom Cabling'
     }
   },
@@ -405,147 +405,147 @@ export const SERVICE_CLUSTERS_DATA: Record<string, ServiceClusterData> = {
     slug: 'biometric-access-control',
     name: 'Biometric Access Control & Time-Attendance',
     heroTitle: 'Biometric Attendance Machines & Access Control Systems in Thane & Mumbai',
-    tagline: 'AI Face Recognition, Optical Fingerprint, RFID Cards, and Fail-Safe EM Door Locks',
-    directAnswerAeo: 'Sunrise Communication supplies and installs biometric attendance systems, AI facial recognition terminals, and electromagnetic (EM) door lock access systems in Thane, Mumbai, and Navi Mumbai. We partner with Essl, Matrix, and Hikvision for seamless HR payroll sync.',
+    tagline: 'AI Face Recognition, Optical Fingerprint, RFID Cards, and Reliable EM Door Locks',
+    directAnswerAeo: 'Sunrise Communication supplies and installs biometric attendance systems, facial recognition terminals, and electromagnetic (EM) door lock access systems in Thane, Mumbai, and Navi Mumbai. We supply Essl, Matrix, and Hikvision systems for office and society access management.',
     categoryIcon: 'flaticon-biometrics',
-    shortDescription: 'Streamline staff attendance tracking, eliminate proxy clock-ins, and secure sensitive premises with contactless biometric access control.',
+    shortDescription: 'Manage staff attendance tracking, secure restricted entry points, and streamline access control with modern biometric readers.',
     authorizedBrands: ['Essl Security', 'Matrix COSEC', 'Hikvision', 'Realtime', 'e-Survey', 'CP Plus'],
     offerings: [
       {
-        title: 'AI Facial Recognition Attendance Terminals',
-        description: 'Contactless high-speed facial recognition terminals capable of scanning users in <0.3 seconds even with masks.',
+        title: 'Facial Recognition Attendance Terminals',
+        description: 'Contactless facial recognition terminals for fast, hygienic employee attendance recording.',
         icon: 'fa-id-badge',
         features: [
-          'Anti-Spoofing 3D Live Face Detection',
-          'Capacity from 500 to 50,000 Facial Templates',
-          'Thermal & Mask Detection Capabilities',
-          'Wi-Fi, LAN Ethernet & 4G SIM Connectivity'
+          '3D Live Anti-Spoofing Technology',
+          'Capacity options from 500 to 10,000+ templates',
+          'Contactless High-Speed Scanning',
+          'Wi-Fi, LAN Ethernet & USB Data Export'
         ]
       },
       {
         title: 'Fingerprint & RFID Card Time-Attendance',
-        description: 'Rugged optical and capacitive fingerprint readers for offices, factories, schools, and hospitals.',
+        description: 'Durable optical fingerprint readers and card punch terminals for offices, workshops, and retail stores.',
         icon: 'fa-id-card-o',
         features: [
-          'High-precision 500 DPI Optical Sensor',
-          'RFID 125kHz / Mifare 13.56MHz Card Integration',
-          'Battery Backup for 4+ Hours Operation',
-          'Built-in Voice Prompts & Color Display'
+          'High-precision Optical Fingerprint Sensors',
+          'RFID Proximity / Smart Card Integration',
+          'Battery Backup options for uninterrupted use',
+          'Clear Display & Audio Voice Confirmation'
         ]
       },
       {
         title: 'Electromagnetic (EM) Door Lock Systems',
-        description: 'Heavy-duty magnetic door locks for glass doors, wooden doors, metal fire doors, and server room access.',
+        description: 'Reliable magnetic door locks for glass doors, wooden doors, metal doors, and server room access.',
         icon: 'fa-lock',
         features: [
           '600 lbs / 1200 lbs Holding Force Fail-Safe EM Locks',
-          'U-Brackets for Frameless Glass Doors & L-Z Brackets',
-          'Emergency Break-Glass & Push-to-Exit Buttons',
-          'Fire Alarm Emergency Auto-Release Integration'
+          'U-Brackets for Frameless Glass & L-Z Brackets',
+          'Push-to-Exit Buttons & Emergency Break-Glass Units',
+          'Integration with Fire Alarm System Release'
         ]
       },
       {
-        title: 'Attendance & Payroll Software Integration',
-        description: 'Automated software sync generating daily overtime, late-mark, shift roster, and monthly salary reports.',
+        title: 'Attendance Software & Report Setup',
+        description: 'Software configuration for tracking work hours, late marks, shift rosters, and monthly attendance summaries.',
         icon: 'fa-cogs',
         features: [
-          'Real-time Cloud Push Data Architecture',
-          'Integration with Tally, SAP, and HRMS Portals',
-          'Mobile App for Remote Employee Geofence Punching',
-          'Automated WhatsApp/SMS Alert Notifications'
+          'Cloud & Local Network Database Sync',
+          'Export to Excel, CSV, and standard payroll formats',
+          'Shift Roster & Overtime Calculation Setup',
+          'Remote Employee Management Options'
         ]
       }
     ],
     caseStudies: [
       {
-        title: 'Multi-Door AI Face Recognition Access & Payroll Sync',
+        title: 'Access Control & Attendance Setup for Corporate Office',
         location: 'Mahape IT Park (TTC MIDC), Navi Mumbai',
-        premiseType: 'Software Development & BPO Center (250 Staff)',
-        challenge: 'Client needed contactless entry across 6 glass doors and automated attendance data sync into their Tally ERP software.',
-        solution: 'Installed Essl AI Face Recognition readers paired with 600lbs EM locks, glass U-brackets, push-to-exit buttons, and cloud attendance software.',
-        hardwareDeployed: ['6x Essl AI Face Terminals', '6x 600lbs Fail-Safe EM Locks', 'Glass U-Brackets', 'Push-to-Exit Buttons', 'Cloud Sync Gateway'],
-        resultMetrics: 'Reduced morning queue check-in time by 75% with zero manual attendance entry errors.'
+        premiseType: 'Corporate Office Facility',
+        challenge: 'A growing company required controlled entry across glass doors and automated attendance logs for HR reporting.',
+        solution: 'Installed facial recognition terminals paired with 600lbs EM locks, glass U-brackets, exit switches, and attendance software.',
+        hardwareDeployed: ['Essl Face Recognition Terminals', '600lbs EM Locks', 'Glass U-Brackets', 'Push-to-Exit Switches'],
+        resultMetrics: 'Convenient contactless employee entry with automated attendance summary reports.'
       },
       {
-        title: 'Residential Society Clubhouse & Gym Smart RFID Entry',
+        title: 'Gated Amenity Access for Society Clubhouse',
         location: 'Ghodbunder Road, Thane (West)',
-        premiseType: 'Residential Gated Community Clubhouse',
-        challenge: 'Society needed to restrict gym, swimming pool, and clubhouse access exclusively to verified registered flat residents.',
-        solution: 'Implemented RFID smart card readers with EM door locks and a centralized membership management database.',
-        hardwareDeployed: ['4x RFID Proximity Readers', '4x Heavy-Duty EM Locks', '500x Mifare Smart Cards', 'Management Software'],
-        resultMetrics: 'Eliminated unauthorized guest entry and simplified society amenity fee tracking.'
+        premiseType: 'Residential Society Clubhouse & Gym',
+        challenge: 'A residential society needed to restrict clubhouse and fitness room entry to registered residents.',
+        solution: 'Installed RFID card readers with EM locks and registered resident access cards.',
+        hardwareDeployed: ['RFID Readers', 'Heavy-Duty EM Locks', 'Proximity Cards', 'Access Controller'],
+        resultMetrics: 'Secure, organized entry for society residents with simplified access management.'
       }
     ],
     comparisonMatrix: {
-      title: 'AI Facial Recognition vs Optical Fingerprint Systems',
-      subtitle: 'Compare modern contactless biometric technologies with traditional fingerprint readers.',
-      headers: ['Feature', 'AI Facial Recognition (Latest)', 'Optical Fingerprint Reader (Standard)'],
+      title: 'Facial Recognition vs Optical Fingerprint Systems',
+      subtitle: 'A practical comparison of modern biometric authentication methods.',
+      headers: ['Feature', 'Facial Recognition (Contactless)', 'Optical Fingerprint Reader'],
       rows: [
         {
           feature: 'Hygiene & Contact',
-          col1: '100% Contactless — scans from 1 to 2 meters away',
-          col2: 'Requires physical finger touch on sensor',
-          verdict: 'Face recognition eliminates germ transmission in large workplaces.'
+          col1: 'Contactless recognition from a comfortable distance',
+          col2: 'Requires physical finger touch on sensor surface',
+          verdict: 'Facial recognition provides a touch-free entry experience.'
         },
         {
-          feature: 'Recognition Speed',
-          col1: 'Under 0.3 seconds per person (Walk-through speed)',
-          col2: '1 to 2 seconds per person',
-          verdict: 'Face recognition prevents morning lobby bottleneck queues.'
+          feature: 'Scanning Speed',
+          col1: 'Fast, smooth walk-through authentication',
+          col2: '1 to 2 seconds per user touch',
+          verdict: 'Facial recognition reduces entry bottlenecks during shift changes.'
         },
         {
-          feature: 'Dry / Worn Fingerprint Issues',
-          col1: 'Unaffected by dirty, greasy, or wet hands',
-          col2: 'Can fail on worn finger ridges (common in factory/kitchen workers)',
-          verdict: 'Face recognition ensures 99.9% reliable recognition for all staff.'
+          feature: 'Worn / Dry Fingerprints',
+          col1: 'Unaffected by dry, wet, or worn finger ridges',
+          col2: 'May occasionally require multiple attempts with worn skin',
+          verdict: 'Facial recognition is dependable across all employee profiles.'
         },
         {
-          feature: 'Spoof Prevention',
-          col1: '3D Live motion detection blocks photo and video spoofing',
-          col2: 'Basic optical sensors can be vulnerable to fake latex prints',
-          verdict: 'AI Face recognition delivers military-grade anti-spoofing security.'
+          feature: 'Security',
+          col1: '3D live anti-spoofing technology',
+          col2: 'Standard optical verification',
+          verdict: 'Both systems provide reliable access security.'
         }
       ]
     },
     amcPlans: [
       {
-        title: 'Biometric Software & Support AMC',
-        priceHint: 'Best for standard office attendance setups',
-        description: 'Covers software maintenance, database backups, payroll report configuration, and unlimited remote support.',
+        title: 'Software Support AMC',
+        priceHint: 'Basic support for standard attendance setups',
+        description: 'Covers software assistance, database maintenance, report configuration, and remote troubleshooting.',
         features: [
-          'Database Backup & Cloud Push Maintenance',
-          'Shift Roster & Overtime Rules Customization',
-          'Unlimited Remote Desktop & Phone Support',
-          'Biometric Device Firmware Upgrades'
+          'Database Maintenance & Backup Support',
+          'Shift Roster & Report Configuration Assistance',
+          'Remote Desktop & Phone Technical Support',
+          'Device Firmware Updates & Diagnostics'
         ],
-        sla: '24 Hours'
+        sla: 'Prompt On-Call'
       },
       {
-        title: 'Comprehensive Biometric & Lock AMC',
-        badge: 'Best for High-Security Offices',
-        priceHint: 'Full hardware + software + EM lock coverage',
-        description: 'Complete protection covering biometric readers, power supply controllers, exit switches, and EM locks.',
+        title: 'Comprehensive Hardware & Lock AMC',
+        badge: 'Recommended for Access Setups',
+        priceHint: 'Hardware maintenance for readers and EM locks',
+        description: 'Complete support covering biometric readers, power controllers, exit switches, and EM lock servicing per agreed terms.',
         features: [
           'Everything in Software Support Plan',
-          'Free Replacement of Faulty EM Locks & Exit Switches',
-          'Power Supply Unit (SMPS) Repair / Replacement',
-          'On-Site Physical Technician Visits within 24 Hours'
+          'EM Lock & Exit Switch Servicing/Repair per agreed terms',
+          'Power Supply Unit Maintenance',
+          'On-Site Technician Assistance as per AMC Schedule'
         ],
-        sla: 'Within 24 Hours'
+        sla: 'Priority Service'
       }
     ],
     faqs: [
       {
-        question: 'How does biometric attendance integrate with Tally and HR payroll software?',
-        answer: 'Our Essl and Matrix biometric machines utilize automatic cloud push data or local SQL database syncing. Attendance punch logs (in-time, out-time, overtime, lunch breaks) are exported directly into Excel, CSV, or synced via API with Tally, SAP, Keka, and Darwinbox.'
+        question: 'How does biometric attendance data export to payroll software?',
+        answer: 'Biometric terminals store punch logs (in-time, out-time, overtime) which are synced to attendance software and exported directly to Excel, CSV, or standard payroll formats.'
       },
       {
         question: 'What happens to electromagnetic (EM) door locks during a power failure?',
-        answer: 'Our installations utilize Fail-Safe EM Locks connected to a 12V battery backup unit (UPS). In the event of a power cut, the battery maintains door locking for 4 to 8 hours. In the event of an emergency fire alarm trigger, the power is cut automatically to unlock all emergency exit doors.'
+        answer: 'EM lock systems are typically connected to battery backup units (UPS) to maintain door locking during temporary power cuts. Fail-safe locks are also integrated with emergency push buttons or fire systems for safe exit.'
       },
       {
-        question: 'Can employee attendance be tracked across multiple branch offices in Mumbai?',
-        answer: 'Yes. Multi-location biometric systems connect via internet to a centralized cloud attendance server, allowing HR to view live employee punches across Thane, Andheri, BKC, and Navi Mumbai branches on a single unified dashboard.'
+        question: 'Can employee attendance be tracked across multiple branch locations?',
+        answer: 'Yes. Multi-location biometric systems connect over the internet to a central server, allowing centralized HR management across different branch offices.'
       }
     ],
     serviceAreasThane: ['Charai', 'Naupada', 'Panchpakhadi', 'Ghodbunder Road', 'Majiwada', 'Vasant Vihar', 'Hiranandani Estate', 'Wagle Industrial Estate'],
@@ -560,159 +560,159 @@ export const SERVICE_CLUSTERS_DATA: Record<string, ServiceClusterData> = {
 
   'structured-networking-cabling': {
     slug: 'structured-networking-cabling',
-    name: 'Structured Cabling & Server Networking',
-    heroTitle: 'Structured Cat6/Cat6A LAN Cabling & Server Rack Dressing in Thane & Mumbai',
-    tagline: 'High-Speed Gigabit LAN Cabling, Server Rack Cable Management & Optical Fiber Splicing',
-    directAnswerAeo: 'Sunrise Communication designs, lays, and certifies structured Cat6/Cat6A network cabling and server rack dressing across Thane, Mumbai, and Navi Mumbai. We supply D-Link and Schneider Electric components with Fluke-tested gigabit performance.',
+    name: 'Security & Telecom Structured Cabling',
+    heroTitle: 'CCTV, Intercom, EPABX & Biometric Structured Cabling in Thane & Mumbai',
+    tagline: 'End-to-End Cat6, Multi-Pair Copper, and Security Rack Dressing for Surveillance & Telecom',
+    directAnswerAeo: 'Sunrise Communication provides structured Cat6 and multi-pair copper cabling specifically for CCTV surveillance cameras, DVR/NVR setups, EPABX society intercoms, biometric access controllers, and Video Door Phones across Thane, Mumbai, and Navi Mumbai. We supply trusted D-Link, Finolex, and Schneider components.',
     categoryIcon: 'flaticon-cables',
-    shortDescription: 'Build a high-performance network foundation for your corporate office, IT infrastructure, or residential building with certified copper and fiber cabling.',
-    authorizedBrands: ['D-Link', 'Schneider Electric (Digilink)', 'CommScope (Systimax)', 'Molex', 'Finolex', 'Netgear'],
+    shortDescription: 'Reliable, concealed, and neatly organized cabling infrastructure designed specifically for CCTV security cameras, housing society intercoms, access control, and telecom exchanges.',
+    authorizedBrands: ['D-Link', 'Finolex', 'Schneider Electric (Digilink)', 'Polycab', 'Matrix', 'CP Plus'],
     offerings: [
       {
-        title: 'Cat6 & Cat6A Structured LAN Cabling',
-        description: 'Certified copper network cabling for office workstations, Wi-Fi access points, CCTV cameras, and IP telephones.',
-        icon: 'fa-sitemap',
+        title: 'CCTV Camera & Surveillance Network Cabling',
+        description: 'Quality Cat6 PoE network cabling for IP cameras and 3+1 coaxial wiring for analog HD surveillance systems.',
+        icon: 'fa-video-camera',
         features: [
-          'Gigabit & 10-Gigabit Certified Speed Bandwidth',
-          'High-grade 23/24 AWG Solid Bare Copper Conductors',
-          'PVC Casing-Capping, Flexible Pipe & Underfloor Trunking',
-          'Individual Node Number Tagging & Port Mapping'
+          'Cat6 Solid Copper Cable Laying for IP PoE Cameras',
+          'Heavy-Duty 3+1 Coaxial Cabling for Analog HD Systems',
+          'Elevator Travelling Cable for Lift Cabin Cameras',
+          'Concealed PVC Casing-Capping & Armoured Outdoor Runs'
         ]
       },
       {
-        title: 'Server Rack Dressing & Cable Management',
-        description: 'Transform tangled server racks into clean, organized, color-coded patch panel network distributions.',
+        title: 'EPABX & Society Intercom Multi-Pair Cabling',
+        description: 'Multi-pair telephone cable infrastructure connecting security gatekeeper phones, floor DP boxes, and individual flats.',
+        icon: 'fa-phone',
+        features: [
+          '0.5mm High-Grade Solid Copper Multi-Pair Cables',
+          'Floor Junction (DP) Box Dressing & Krone Tag Blocks',
+          'Shaft Cable Relaying & Moisture Protection',
+          'Extension Line Tracing, Jumpering & Number Tagging'
+        ]
+      },
+      {
+        title: 'Biometrics, Access Control & VDP Wiring',
+        description: 'Dedicated low-voltage wiring for biometric terminals, EM magnetic door locks, push buttons, and Video Door Phones.',
+        icon: 'fa-id-badge',
+        features: [
+          'Shielded Multi-Core Wiring for Biometric Readers',
+          'Heavy-Duty Power Lines for 600lbs/1200lbs EM Locks',
+          'Multi-Apartment Video Door Phone (VDP) Cabling',
+          'Exit Switch & Emergency Break-Glass Cable Integration'
+        ]
+      },
+      {
+        title: 'Security Equipment Rack Dressing & Cable Management',
+        description: 'Organize DVRs, NVRs, EPABX main exchanges, PoE switches, and power supplies into neat, secure rack enclosures.',
         icon: 'fa-server',
         features: [
-          '4U, 6U, 9U, 12U, 24U & 42U Server Rack Assemblies',
-          '24-Port / 48-Port Keystone Patch Panel Termination',
-          'Horizontal & Vertical Wire Managers with Velcro Ties',
-          'Rack Power Distribution Units (PDU) & Fan Trays'
-        ]
-      },
-      {
-        title: 'Optical Fiber Splicing & Backbone Cabling',
-        description: 'High-speed fiber optic backbone links connecting multiple building wings, floors, and remote CCTV cameras.',
-        icon: 'fa-code-fork',
-        features: [
-          'Single-Mode & Multi-Mode Armoured Fiber Laying',
-          'Fusion Splicing & Optical Loss (OTDR) Testing',
-          'Fiber LIU (Light Interface Unit) Patching',
-          'Industrial Media Converters & SFP Transceiver Modules'
-        ]
-      },
-      {
-        title: 'PoE Switch & Wi-Fi Network Deployment',
-        description: 'Turnkey network active hardware supply and configuration ensuring seamless wireless and wired data speeds.',
-        icon: 'fa-wifi',
-        features: [
-          '8, 16, 24 & 48-Port Gigabit PoE+ Managed Switches',
-          'Dual-Band Wi-Fi 6 Enterprise Access Point Distribution',
-          'VLAN Network Segmentation for CCTV & Guest Wi-Fi',
-          'Annual Network Maintenance & Speed Troubleshooting'
+          '4U, 6U, 9U & 12U Wall-Mount Security Racks',
+          'Keystone Patch Panel Termination & Cable Tracing',
+          'Horizontal Wire Managers for Tangle-Free Maintenance',
+          'Power Distribution & Battery Backup (UPS) Organization'
         ]
       }
     ],
     caseStudies: [
       {
-        title: '160-Node Cat6A Server Room Dressing & Gigabit Backbone',
-        location: 'Vashi Sector 30A, Navi Mumbai',
-        premiseType: 'Corporate Financial IT Services Office',
-        challenge: 'A growing company had a tangled server closet causing network drops, overheating switches, and unmapped workstation ports.',
-        solution: 'Installed a 42U server rack, re-terminated 160 workstation lines into Schneider patch panels with wire managers, and labeled all ports.',
-        hardwareDeployed: ['1x 42U Server Rack', '4x 48-Port Cat6A Keystone Patch Panels', '4x D-Link 48-Port Gigabit Switches', 'Horizontal Wire Managers'],
-        resultMetrics: 'Zero packet loss with Fluke-certified 10Gbps backbone throughput and clean port identification.'
+        title: 'Society Intercom Multi-Pair Cabling & DP Box Overhaul',
+        location: 'Charai, Thane (West)',
+        premiseType: 'Residential Cooperative Housing Society',
+        challenge: 'A residential society suffered from damaged telephone wiring, open junction boxes, and static noise on flat intercom extensions.',
+        solution: 'Re-laid multi-pair copper telephone cables through protective PVC conduits, installed clean Krone DP boxes, and re-tagged all flat pairs.',
+        hardwareDeployed: ['Multi-Pair Copper Cable', 'Krone DP Tag Blocks', 'PVC Casing-Capping', 'MDF Panel Dressing'],
+        resultMetrics: 'Restored clear intercom voice communication with neatly labeled, protected junction boxes across all floors.'
       },
       {
-        title: 'Multi-Wing Optical Fiber Inter-Building Backbone',
-        location: 'Majiwada, Thane (West)',
-        premiseType: 'Commercial Corporate Complex (3 Towers)',
-        challenge: 'Interconnecting security control room with 3 distant commercial towers over 500m distance exceeded copper Cat6 limits.',
-        solution: 'Laid 6-core armoured single-mode optical fiber in underground conduits with fusion splicing and LIU rack termination.',
-        hardwareDeployed: ['1,500m 6-Core Armoured Fiber', '3x Fiber LIU Units', 'Gigabit SFP Optical Transceivers', 'OTDR Testing Report'],
-        resultMetrics: 'Flawless zero-latency CCTV streaming and data transfer across all 3 towers.'
+        title: 'Security Camera Cabling & NVR Rack Setup',
+        location: 'Wagle Industrial Estate, Thane',
+        premiseType: 'Commercial Office & Warehouse Facility',
+        challenge: 'Unorganized CCTV wires and exposed power adapters were creating maintenance issues and intermittent camera video loss.',
+        solution: 'Re-routed all camera lines through structured Cat6 cables into a central wall-mount security rack with PoE switches and patch panels.',
+        hardwareDeployed: ['Cat6 Solid Copper Cabling', '9U Wall-Mount Security Rack', 'Gigabit PoE Switch', 'Patch Panel Dressing'],
+        resultMetrics: 'Organized central security closet with labeled camera ports and easy maintenance access.'
       }
     ],
     comparisonMatrix: {
-      title: 'Cat6 vs Cat6A vs Optical Fiber Cable Specs',
-      subtitle: 'Understand technical bandwidth and distance limitations for data infrastructure.',
-      headers: ['Specification', 'Cat6 UTP Copper Cable', 'Cat6A Shielded (STP) Cable', 'Optical Fiber Cable (Single Mode)'],
+      title: 'Cat6 PoE Network Cabling vs Multi-Pair Intercom Wiring',
+      subtitle: 'Understanding the right cabling types for CCTV, Intercom, and Security systems.',
+      headers: ['Feature / Aspect', 'Cat6 PoE Network Cabling (IP CCTV & Access)', 'Multi-Pair Telephone & Coaxial Cable (Intercom & Analog)'],
       rows: [
         {
-          feature: 'Maximum Bandwidth',
-          col1: '250 MHz (Up to 1 Gbps Gigabit)',
-          col2: '500 MHz (Up to 10 Gbps 10-Gigabit)',
-          verdict: 'Cat6 is standard for offices; Cat6A is recommended for high-data IT servers.'
+          feature: 'Primary Application',
+          col1: 'IP CCTV Cameras, NVRs, Network Switches, and Biometric Readers',
+          col2: 'EPABX Systems, Society Intercoms, and HD Analog Cameras',
+          verdict: 'Cat6 provides high-speed digital data and Power over Ethernet (PoE) in a single cable.'
         },
         {
-          feature: 'Max Distance Limit',
-          col1: '100 meters (328 feet)',
-          col2: '100 meters (Up to 100m for 10Gbps)',
-          verdict: 'Optical Fiber is mandatory for distances exceeding 100 meters.'
+          feature: 'Signal Transmission',
+          col1: 'High-definition digital video stream + DC power up to 100m',
+          col2: 'Multi-line dedicated analog voice audio or coaxial video signal',
+          verdict: 'Multi-pair copper delivers dedicated, interference-free audio for building intercoms.'
         },
         {
-          feature: 'Electromagnetic Interference (EMI)',
-          col1: 'Moderate resistance; sensitive to high power cables',
-          col2: 'High resistance due to individual foil shielding',
-          verdict: 'Optical Fiber is 100% immune to all electrical and lightning noise.'
+          feature: 'Physical Protection',
+          col1: 'Laid inside heavy-duty PVC casing-capping, conduits & lift travelling cables',
+          col2: 'Enclosed within floor DP junction boxes with Krone tag blocks',
+          verdict: 'Concealed conduits and sealed DP boxes prevent weathering and rodent damage.'
         },
         {
-          feature: 'Typical Use Case',
-          col1: 'Office workstation LAN, IP cameras, society intercoms',
-          col2: 'Data centers, 4K video editing suites, server backbones',
-          verdict: 'Optical Fiber is used for building-to-building interconnections.'
+          feature: 'Maintenance & Expansion',
+          col1: 'Modular addition of cameras and readers via PoE network switches',
+          col2: 'Simple line testing and jumpering on floor distribution frames',
+          verdict: 'Both architectures offer easy maintenance when lines are properly tagged.'
         }
       ]
     },
     amcPlans: [
       {
-        title: 'Network Infrastructure AMC',
-        priceHint: 'Affordable network support for small to mid offices',
-        description: 'Covers routine patch panel testing, port re-termination, switch port health audits, and cable repair.',
+        title: 'Cabling & Infrastructure Maintenance',
+        priceHint: 'Maintenance support for existing security wiring',
+        description: 'Covers periodic cable continuity checks, junction box inspections, and port re-termination.',
         features: [
-          'Quarterly Network Port & Cable Continuity Testing',
-          'Patch Panel Re-Punching & Keystone Replacements',
-          'PoE Switch Port Reboot & Health Audit',
-          'Priority On-Site Technician Dispatch'
+          'Periodic DP Box & Patch Panel Inspections',
+          'Cable Continuity Testing & Fault Jumpering',
+          'Connector Replacements & Line Relabeling Assistance',
+          'On-Call Technician Support for Line Breakdown Calls'
         ],
-        sla: '24-48 Hours'
+        sla: 'Prompt On-Call'
       },
       {
-        title: 'Enterprise Server & Network AMC',
-        badge: 'Recommended for Corporate IT',
-        priceHint: 'All-inclusive active + passive network protection',
-        description: 'Complete coverage including managed switches, Wi-Fi access points, server rack power, and fiber links.',
+        title: 'Comprehensive Security Rack & Cable AMC',
+        badge: 'Recommended for Societies & Offices',
+        priceHint: 'Extended support for racks, switches, and wiring',
+        description: 'Complete maintenance covering security rack dressing, PoE switch health checks, and wiring maintenance per agreed terms.',
         features: [
-          'Everything in Network Infrastructure Plan',
-          'Managed Switch VLAN Configuration & Backup',
-          'Wi-Fi Access Point Roaming & Channel Tuning',
-          'Free Standby Gigabit Switch during Repairs',
-          'Guaranteed Priority 24-Hour Emergency Dispatch'
+          'Everything in Cabling Maintenance Plan',
+          'PoE Switch Port Diagnostics & Maintenance',
+          'Security Rack Cable Organization Checkups',
+          'Hardware Servicing & Assistance per agreed terms',
+          'Priority Support for Society and Office Security Setups'
         ],
-        sla: 'Within 24 Hours'
+        sla: 'Priority Service'
       }
     ],
     faqs: [
       {
-        question: 'What is the maximum cable run distance for Cat6 UTP before signal degradation occurs?',
-        answer: 'The international TIA/EIA standard specifies a maximum length of 100 meters (90 meters of solid horizontal cabling + 10 meters of stranded patch cords) for Cat6 copper cable. For distances exceeding 100 meters, Sunrise Communication utilizes Optical Fiber backbone cabling or Gigabit PoE extenders.'
+        question: 'What types of cabling are used for CCTV and Intercom installations?',
+        answer: 'We use high-grade Cat6 solid copper cabling for IP CCTV and PoE systems, multi-pair copper telephone cables with Krone tag blocks for society intercom and EPABX systems, and heavy-duty 3+1 coaxial cable for analog HD cameras.'
       },
       {
-        question: 'When should an enterprise use Optical Fiber instead of Cat6 copper cabling?',
-        answer: 'Optical Fiber is necessary when: (1) The distance between network points exceeds 100 meters (e.g. multi-building campuses, long compound yards), (2) Extremely high bandwidth is required (10Gbps to 100Gbps server links), or (3) Cabling passes through industrial areas with intense electromagnetic interference from motors and generators.'
+        question: 'How are CCTV and intercom cables protected in residential societies?',
+        answer: 'All cables are laid inside rigid PVC casing-capping, conduit pipes, or flexible metal conduits in shafts to protect against weathering, moisture, and rodent damage. Outdoor building-to-building lines use armoured cables.'
       },
       {
-        question: 'What is included in server rack dressing and cable reorganization service?',
-        answer: 'Server rack dressing includes: (1) Tracing and labeling all active and inactive LAN ports, (2) Re-punching cables into organized keystone patch panels, (3) Installing horizontal and vertical cable wire managers, (4) Replacing mismatched cables with color-coded snagless patch cords, and (5) Optimizing airflow and power distribution units.'
+        question: 'Why is a dedicated security rack recommended for CCTV NVR and Intercom EPABX systems?',
+        answer: 'A wall-mounted or floor security rack keeps recorders, PoE switches, EPABX exchanges, and power backup units securely enclosed, preventing unauthorized tampering, reducing wire clutter, and ensuring adequate ventilation.'
       }
     ],
-    serviceAreasThane: ['Charai', 'Naupada', 'Panchpakhadi', 'Ghodbunder Road', 'Majiwada', 'Vasant Vihar', 'Wagle Industrial Estate'],
-    serviceAreasMumbai: ['Mulund', 'Bhandup', 'Ghatkopar', 'Powai', 'Andheri', 'BKC', 'Lower Parel', 'Worli'],
+    serviceAreasThane: ['Charai', 'Naupada', 'Panchpakhadi', 'Ghodbunder Road', 'Majiwada', 'Vasant Vihar', 'Wagle Industrial Estate', 'Hiranandani Estate'],
+    serviceAreasMumbai: ['Mulund', 'Bhandup', 'Ghatkopar', 'Powai', 'Andheri', 'BKC', 'Lower Parel', 'Worli', 'Malad', 'Borivali'],
     serviceAreasNaviMumbai: ['Vashi', 'Mahape (TTC MIDC)', 'Airoli Knowledge Park', 'Kopar Khairane', 'Ghansoli', 'Nerul', 'Belapur'],
     seo: {
-      title: 'Structured Cat6 Cabling & Server Rack Dressing in Thane, Mumbai | Sunrise Communication',
-      description: 'Certified Cat6 LAN cabling, server rack dressing, patch panel termination, and fiber splicing across Thane, Mumbai, and Navi Mumbai. Call +91-9323848622.',
-      keywords: 'Structured Cabling Thane, Cat6 LAN Cabling Mumbai, Server Rack Dressing Mahape, Fiber Optic Splicing BKC, Network Cabling Wagle Estate, D-Link Network Dealer'
+      title: 'CCTV, Intercom & Security Cabling in Thane, Mumbai | Sunrise Communication',
+      description: 'Professional Cat6 network cabling, society intercom multi-pair telephone wiring, and security rack dressing in Thane, Mumbai, and Navi Mumbai. Call +91-9323848622.',
+      keywords: 'CCTV Cabling Thane, Society Intercom Wiring Mumbai, EPABX Cable Dressing Thane, Security Rack Setup Mahape, Biometric Wiring BKC, Cat6 PoE Cabling Wagle Estate'
     }
   }
 };

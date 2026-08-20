@@ -23,18 +23,19 @@
 - **CCTV Surveillance Systems:** High-Definition IP Cameras, ColorVu, Dual-Light Dome/Bullet, Fisheye Panoramic, 4K Network Video Recorders (NVR 4/8/16/32/64 Ch), Housing Society Compound Surveillance, Cloud Remote Monitoring, CCTV AMC.
 - **EPABX & Intercom Solutions:** Housing Society Intercom Wiring (20 to 1000+ flats), Corporate IP-PBX & Hybrid EPABX, Multi-line Intercoms, Auto-Attendant, Voice Logging, Intercom Cable Splicing & Maintenance.
 - **Biometric & Access Control:** Fingerprint Time-Attendance Terminals, AI Facial Recognition Readers, RFID Card Access, Electromagnetic (EM) Door Locks, Turnstile & Boom Barrier Integration, Payroll Software Sync.
-- **Structured Cabling & Network Infrastructure:** Cat6/Cat6A LAN Cabling, Server Rack Dressing & Cable Management, Optical Fiber Splicing & OTDR Testing, Gigabit PoE Switches, Wi-Fi Access Point Distribution.
+- **Security & Telecom Structured Cabling:** Cat6 PoE Camera Wiring, Housing Society Intercom Multi-Pair Telephone Wiring, Biometrics & EM Lock Low-Voltage Cabling, Video Door Phone (VDP) Wiring, and Security Rack Dressing.
 
 ## Geographic Coverage Areas
 - **Thane District:** Charai, Naupada, Panchpakhadi, Ghodbunder Road, Majiwada, Vasant Vihar, Hiranandani Estate, Wagle Industrial Estate, Kalwa, Kalyan, Dombivli, Mira Road.
 - **Mumbai Suburbs:** Mulund, Bhandup, Ghatkopar, Powai, Andheri, BKC (Bandra Kurla Complex), Goregaon, Borivali, Dadar, Lower Parel.
 - **Navi Mumbai:** Vashi, Mahape Industrial Corridor (TTC MIDC), Airoli Knowledge Park, Kopar Khairane, Ghansoli, Nerul, Belapur, Panvel.
 
-## Service Level Agreements (SLA) & Operating Terms
-- **Emergency Breakdown Response:** Within 24–48 hours across Thane & Mumbai MMR.
-- **Warranty Policy:** 1 to 3 Years Manufacturer Hardware Replacement Warranty on authorized equipment (CP Plus, Matrix, Hikvision, Essl).
-- **AMC Contracts:** Comprehensive (Hardware replacement + Preventive quarterly servicing) and Non-Comprehensive (Labour + Unlimited breakdown visits).
-- **Site Survey:** Free technical on-site inspection for Housing Societies and Commercial Offices.
+## Service Terms & Maintenance Options
+- **Technical Support:** Prompt on-call technician assistance for active AMC clients across Thane & Mumbai MMR.
+- **Warranty Policy:** Standard OEM Manufacturer Warranty on authorized hardware (CP Plus, Matrix, Hikvision, Essl).
+- **AMC Maintenance:** Flexible Comprehensive (Routine maintenance + component servicing per agreed terms) and Non-Comprehensive (Preventive servicing + troubleshooting) options.
+- **Site Consultation:** Technical on-site inspection & customized BOQ design for Housing Societies and Commercial Offices.
+- **Notice:** All specifications, response schedules, and service scopes are customized and finalized based on site survey and written agreement.
 
 ## Key URLs & Endpoints
 - **Homepage:** https://sunrisecommunication.in/

@@ -60,28 +60,30 @@ Sunrise Communication is an authorized sales, installation, and maintenance part
   - Integration with Tripod Turnstiles, Flap Barriers, and Motorized Vehicle Boom Barriers.
 - **Software Integration:** Real-time push data to Windows-based Attendance Management Software (AMS), Payroll ERPs, and Cloud Attendance Apps.
 
-### D. Structured Network Cabling & Server Infrastructure
-- **Cabling Standards:** TIA/EIA-568-C.2 Cat6 & Cat6A UTP/STP cabling certified for Gigabit Ethernet up to 10Gbps.
+### D. Security & Telecom Structured Cabling Infrastructure
+- **Applications:** Dedicated cabling for CCTV Cameras, NVRs/DVRs, EPABX Systems, Society Intercoms, Biometrics, and Video Door Phones (VDP).
 - **Infrastructure Services:**
-  - Server Rack Installation & Dressing (4U, 6U, 9U, 12U, 15U, 24U, 42U Floor-standing racks).
-  - Cable Patch Panel Punching (Keystone Jacks), Cable Tracing, Fluke Performance Testing, Structured Numbering & Tagging.
-  - Optical Fiber Splicing: Single-Mode (OS2) and Multi-Mode (OM3/OM4) fusion splicing, Patch Chords, OTDR loss testing.
+  - Cat6 PoE Network Cabling for IP CCTV cameras and PoE switches.
+  - Multi-Pair Copper Telephone Cabling (0.5mm) with Krone floor DP distribution boxes for housing societies.
+  - Low-voltage multiconductor wiring for biometric face/fingerprint terminals and EM magnetic door locks.
+  - Security Equipment Rack Organization (4U, 6U, 9U, 12U wall-mount/floor racks) for NVRs, EPABX exchanges, and power supplies.
 
 ---
 
-## 4. Annual Maintenance Contract (AMC) Service Level Agreements (SLAs)
+## 4. Annual Maintenance Contract (AMC) Maintenance Options
 
-| Feature / SLA Metric | Comprehensive AMC | Non-Comprehensive AMC | On-Demand Breakdown Call |
+| Feature / Service Scope | Comprehensive AMC | Non-Comprehensive AMC | On-Demand Service Call |
 | :--- | :--- | :--- | :--- |
-| **Labour & Service Charges** | 100% Free / Included | 100% Free / Included | Charged per visit |
-| **Defective Hardware Parts** | Free repair/replacement included | Charged at actuals | Charged at actuals |
-| **Preventive Maintenance Visits** | 4 Scheduled Visits / Year (Quarterly) | 4 Scheduled Visits / Year (Quarterly) | None |
-| **Camera Lens Cleaning & Focus** | Included on every visit | Included on every visit | Included in visit scope |
-| **Power Supply & Voltage Check** | Included (SMPS & PoE testing) | Included (SMPS & PoE testing) | Included in visit scope |
-| **HDD Health & Recording Audit** | Mandatory quarterly audit | Mandatory quarterly audit | On-demand check |
-| **Emergency Breakdown SLA** | **Within 24 Hours** | **Within 24–48 Hours** | 48–72 Hours |
-| **Backup Standby Unit Support** | Free standby DVR/NVR provided | Subject to availability | Not provided |
+| **Labour & Routine Visits** | Included in contract | Included in contract | Charged per visit |
+| **Hardware Parts Coverage** | Covered as per agreed terms | Charged at actuals / OEM | Charged at actuals |
+| **Preventive Maintenance Visits** | 4 Scheduled Visits / Year (Quarterly) | 4 Scheduled Visits / Year (Quarterly) | On-demand basis |
+| **Lens Cleaning & Camera Focus** | Included during visits | Included during visits | Included in visit scope |
+| **Power Supply & Continuity Check** | Included (SMPS & PoE testing) | Included (SMPS & PoE testing) | Included in visit scope |
+| **Storage & Recording Check** | Routine periodic audit | Routine periodic audit | On-demand check |
+| **Service Support** | Priority On-Call Response | Prompt On-Call Response | Standard On-Call |
 | **Contract Duration** | 1 Year to 3 Years | 1 Year to 3 Years | Single Visit |
+
+> _Notice: Specific contract inclusions, spare parts clauses, and response schedules are customized and finalized based on site survey and formal written agreement._
 
 ---
 

@@ -16,7 +16,7 @@
   <section class="service-cluster-section">
     <div class="auto-container">
       
-      <!-- 1. VOICE-READY QUICK FACT SPEC STRIP (AEO & Social Proof) -->
+      <!-- 1. QUICK FACT SPEC STRIP (Social Proof & Core Information) -->
       <div class="quick-facts-spec-ribbon mb-4">
         <div class="fact-item">
           <div class="fact-icon text-warning"><i class="fa fa-star"></i></div>
@@ -27,26 +27,26 @@
         </div>
         <div class="fact-divider"></div>
         <div class="fact-item">
-          <div class="fact-icon text-danger"><i class="fa fa-clock-o"></i></div>
+          <div class="fact-icon text-danger"><i class="fa fa-phone"></i></div>
           <div class="fact-text">
-            <span class="fact-val">24/7 Support</span>
-            <span class="fact-sub">24-48h Breakdown SLA</span>
+            <span class="fact-val">On-Call Support</span>
+            <span class="fact-sub">Dedicated AMC Services</span>
           </div>
         </div>
         <div class="fact-divider"></div>
         <div class="fact-item">
-          <div class="fact-icon text-success"><i class="fa fa-bolt"></i></div>
+          <div class="fact-icon text-success"><i class="fa fa-clock-o"></i></div>
           <div class="fact-text">
-            <span class="fact-val">2–5 Days Delivery</span>
-            <span class="fact-sub">Turnkey Deployment</span>
+            <span class="fact-val">Prompt Delivery</span>
+            <span class="fact-sub">Turnkey Installation</span>
           </div>
         </div>
         <div class="fact-divider"></div>
         <div class="fact-item">
           <div class="fact-icon text-primary"><i class="fa fa-shield"></i></div>
           <div class="fact-text">
-            <span class="fact-val">1–3 Yrs Warranty</span>
-            <span class="fact-sub">OEM Authorized</span>
+            <span class="fact-val">OEM Warranty</span>
+            <span class="fact-sub">Authorized Hardware</span>
           </div>
         </div>
       </div>
@@ -363,16 +363,23 @@
         </div>
       </div>
 
-      <!-- 11. FINAL CONSULTATION CTA BANNER -->
+      <!-- 11. SERVICE NOTICE & DISCLAIMER -->
+      <div class="service-notice-disclaimer my-4 p-3 bg-light rounded border text-muted small">
+        <p class="mb-0">
+          <strong><i class="fa fa-info-circle text-primary"></i> Please Note:</strong> Technical specifications, hardware models, AMC coverage terms, response times, and estimated costs are indicative and customized based on actual site survey, infrastructure feasibility, and finalized written agreements.
+        </p>
+      </div>
+
+      <!-- 12. FINAL CONSULTATION CTA BANNER -->
       <div class="consultation-cta-strip text-center">
         <h3>Ready to Secure Your Building or Office?</h3>
-        <p>Contact our technical consultants for a free site audit, customized BOQ (Bill of Quantities), and instant quotation.</p>
+        <p>Contact our technical consultants for a site audit, customized BOQ (Bill of Quantities), and transparent quotation.</p>
         <div class="cta-btns d-flex justify-content-center gap-3 flex-wrap">
           <a [href]="whatsappConsultUrl()" target="_blank" rel="noopener noreferrer" class="whatsapp-main-btn">
             <i class="fa fa-whatsapp"></i> Chat on WhatsApp
           </a>
           <a [href]="'tel:' + siteData.contact.primaryPhone" class="call-main-btn">
-            <i class="fa fa-phone"></i> Call 24/7: {{ siteData.contact.primaryPhone }}
+            <i class="fa fa-phone"></i> Call: {{ siteData.contact.primaryPhone }}
           </a>
         </div>
       </div>
