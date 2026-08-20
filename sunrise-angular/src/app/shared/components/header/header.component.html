@@ -58,13 +58,13 @@
                 <li routerLinkActive="current"><a routerLink="/about">About</a></li>
                 <li routerLinkActive="current"><a routerLink="/products">Products</a></li>
                 <li class="dropdown" [class.open]="isServicesDropdownOpen()">
-                  <a href="javascript:void(0)" (click)="toggleServicesDropdown($event)">Services</a>
+                  <a routerLink="/services" (click)="closeAllMenus()">Services</a>
                   <ul [style.display]="isServicesDropdownOpen() ? 'block' : ''">
-                    <li routerLinkActive="current"><a routerLink="/services" (click)="closeAllMenus()">All Services Overview</a></li>
+                    <li routerLinkActive="current" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/services" (click)="closeAllMenus()">All Services Overview</a></li>
                     <li routerLinkActive="current"><a routerLink="/services/cctv-surveillance-systems" (click)="closeAllMenus()">CCTV Surveillance Systems</a></li>
                     <li routerLinkActive="current"><a routerLink="/services/epabx-intercom-solutions" (click)="closeAllMenus()">EPABX & Intercom Solutions</a></li>
                     <li routerLinkActive="current"><a routerLink="/services/biometric-access-control" (click)="closeAllMenus()">Biometric & Access Control</a></li>
-                    <li routerLinkActive="current"><a routerLink="/services/structured-networking-cabling" (click)="closeAllMenus()">Structured Cabling & Networking</a></li>
+                    <li routerLinkActive="current"><a routerLink="/services/structured-networking-cabling" (click)="closeAllMenus()">Security & Telecom Cabling</a></li>
                   </ul>
                 </li>
                 <li routerLinkActive="current"><a routerLink="/contact">Contact us</a></li>
@@ -109,13 +109,13 @@
             <li routerLinkActive="current"><a routerLink="/about">About</a></li>
             <li routerLinkActive="current"><a routerLink="/products">Products</a></li>
             <li class="dropdown" [class.open]="isServicesDropdownOpen()">
-              <a href="javascript:void(0)" (click)="toggleServicesDropdown($event)">Services</a>
+              <a routerLink="/services" (click)="closeAllMenus()">Services</a>
               <ul [style.display]="isServicesDropdownOpen() ? 'block' : ''">
-                <li routerLinkActive="current"><a routerLink="/services" (click)="closeAllMenus()">All Services Overview</a></li>
+                <li routerLinkActive="current" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/services" (click)="closeAllMenus()">All Services Overview</a></li>
                 <li routerLinkActive="current"><a routerLink="/services/cctv-surveillance-systems" (click)="closeAllMenus()">CCTV Surveillance Systems</a></li>
                 <li routerLinkActive="current"><a routerLink="/services/epabx-intercom-solutions" (click)="closeAllMenus()">EPABX & Intercom Solutions</a></li>
                 <li routerLinkActive="current"><a routerLink="/services/biometric-access-control" (click)="closeAllMenus()">Biometric & Access Control</a></li>
-                <li routerLinkActive="current"><a routerLink="/services/structured-networking-cabling" (click)="closeAllMenus()">Structured Cabling & Networking</a></li>
+                <li routerLinkActive="current"><a routerLink="/services/structured-networking-cabling" (click)="closeAllMenus()">Security & Telecom Cabling</a></li>
               </ul>
             </li>
             <li routerLinkActive="current"><a routerLink="/contact">Contact us</a></li>
@@ -148,16 +148,16 @@
             <li routerLinkActive="current"><a routerLink="/about" (click)="toggleMobileMenu()">About</a></li>
             <li routerLinkActive="current"><a routerLink="/products" (click)="toggleMobileMenu()">Products</a></li>
             <li class="dropdown" [class.open]="isServicesDropdownOpen()">
-              <a href="javascript:void(0)" (click)="toggleServicesDropdown($event)">Services</a>
+              <a routerLink="/services" (click)="closeAllMenus()">Services</a>
               <div class="dropdown-btn" [class.open]="isServicesDropdownOpen()" (click)="toggleServicesDropdown($event)">
                 <span class="fa fa-angle-down"></span>
               </div>
               <ul [style.display]="isServicesDropdownOpen() ? 'block' : 'none'">
-                <li routerLinkActive="current"><a routerLink="/services" (click)="closeAllMenus()">All Services Overview</a></li>
+                <li routerLinkActive="current" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/services" (click)="closeAllMenus()">All Services Overview</a></li>
                 <li routerLinkActive="current"><a routerLink="/services/cctv-surveillance-systems" (click)="closeAllMenus()">CCTV Surveillance Systems</a></li>
                 <li routerLinkActive="current"><a routerLink="/services/epabx-intercom-solutions" (click)="closeAllMenus()">EPABX & Intercom Solutions</a></li>
                 <li routerLinkActive="current"><a routerLink="/services/biometric-access-control" (click)="closeAllMenus()">Biometric & Access Control</a></li>
-                <li routerLinkActive="current"><a routerLink="/services/structured-networking-cabling" (click)="closeAllMenus()">Structured Cabling & Networking</a></li>
+                <li routerLinkActive="current"><a routerLink="/services/structured-networking-cabling" (click)="closeAllMenus()">Security & Telecom Cabling</a></li>
               </ul>
             </li>
             <li routerLinkActive="current"><a routerLink="/contact" (click)="toggleMobileMenu()">Contact us</a></li>

@@ -48,8 +48,9 @@ export class App implements OnInit {
     ).subscribe((event: any) => {
       this.seoService.updateForRoute(event.urlAfterRedirects);
       
-      // Re-trigger AOS animations on route change
+      // Guarantee scroll to top on every route change
       if (isPlatformBrowser(this.platformId)) {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
         setTimeout(() => AOS.refresh(), 100);
       }
     });
