@@ -234,7 +234,7 @@ export const SERVICE_CLUSTERS_DATA: Record<string, ServiceClusterData> = {
     serviceAreasNaviMumbai: ['Vashi', 'Mahape (TTC MIDC)', 'Airoli Knowledge Park', 'Kopar Khairane', 'Ghansoli', 'Nerul', 'Belapur', 'Panvel'],
     seo: {
       title: 'CCTV Camera Installation & AMC in Thane, Mumbai | Sunrise Communication',
-      description: 'Professional CCTV installation, IP camera systems, and AMC maintenance for housing societies, offices, and warehouses in Thane, Mumbai, and Navi Mumbai. Call +91-9323848622.',
+      description: 'Professional CCTV installation, IP camera systems, and AMC maintenance for housing societies, offices, and warehouses in Thane, Mumbai, and Navi Mumbai. Call +91 93238 48622.',
       keywords: 'CCTV Installation Thane, CCTV AMC Mumbai, Housing Society CCTV Thane West, CP Plus Camera Dealer, Hikvision IP Camera Thane, Security Camera Repair Charai'
     }
   },
@@ -396,7 +396,7 @@ export const SERVICE_CLUSTERS_DATA: Record<string, ServiceClusterData> = {
     serviceAreasNaviMumbai: ['Vashi', 'Mahape (TTC MIDC)', 'Airoli Knowledge Park', 'Kopar Khairane', 'Nerul', 'Belapur', 'Panvel'],
     seo: {
       title: 'Housing Society Intercom & EPABX Systems in Thane, Mumbai | Sunrise Communication',
-      description: 'Reliable housing society intercom wiring, Matrix EPABX systems, and telecom AMC across Thane, Mumbai, and Navi Mumbai. Call +91-9323848622.',
+      description: 'Reliable housing society intercom wiring, Matrix EPABX systems, and telecom AMC across Thane, Mumbai, and Navi Mumbai. Call +91 93238 48622.',
       keywords: 'Society Intercom Thane, EPABX Installation Mumbai, Matrix PBX Dealer Thane, Housing Society Intercom Repair Charai, Intercom AMC Naupada, CHS Intercom Cabling'
     }
   },
@@ -553,7 +553,7 @@ export const SERVICE_CLUSTERS_DATA: Record<string, ServiceClusterData> = {
     serviceAreasNaviMumbai: ['Vashi', 'Mahape (TTC MIDC)', 'Airoli Knowledge Park', 'Kopar Khairane', 'Ghansoli', 'Nerul', 'Belapur'],
     seo: {
       title: 'Biometric Attendance & Access Control in Thane, Mumbai | Sunrise Communication',
-      description: 'Authorized dealer & installer for Essl, Matrix, and Hikvision biometric attendance machines & EM door locks in Thane, Mumbai, and Navi Mumbai. Call +91-9323848622.',
+      description: 'Authorized dealer & installer for Essl, Matrix, and Hikvision biometric attendance machines & EM door locks in Thane, Mumbai, and Navi Mumbai. Call +91 93238 48622.',
       keywords: 'Biometric Attendance Thane, Access Control System Mumbai, Essl Dealer Thane, Face Recognition Attendance Mahape, EM Lock Installation BKC, Time Attendance AMC'
     }
   },
@@ -711,7 +711,7 @@ export const SERVICE_CLUSTERS_DATA: Record<string, ServiceClusterData> = {
     serviceAreasNaviMumbai: ['Vashi', 'Mahape (TTC MIDC)', 'Airoli Knowledge Park', 'Kopar Khairane', 'Ghansoli', 'Nerul', 'Belapur'],
     seo: {
       title: 'CCTV, Intercom & Security Cabling in Thane, Mumbai | Sunrise Communication',
-      description: 'Professional Cat6 network cabling, society intercom multi-pair telephone wiring, and security rack dressing in Thane, Mumbai, and Navi Mumbai. Call +91-9323848622.',
+      description: 'Professional Cat6 network cabling, society intercom multi-pair telephone wiring, and security rack dressing in Thane, Mumbai, and Navi Mumbai. Call +91 93238 48622.',
       keywords: 'CCTV Cabling Thane, Society Intercom Wiring Mumbai, EPABX Cable Dressing Thane, Security Rack Setup Mahape, Biometric Wiring BKC, Cat6 PoE Cabling Wagle Estate'
     }
   }

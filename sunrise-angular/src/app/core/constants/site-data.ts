@@ -14,8 +14,8 @@ export const SITE_DATA = {
   contact: {
     address: 'Room No.10, Amar Building, Near Jyoti Book Center, Charai, Thane (West) 400601',
     addressUrl: 'https://maps.google.com/maps?cid=7206965003768673260',
-    primaryPhone: '+919323848622',
-    secondaryPhone: '+919987555399',
+    primaryPhone: '+91 93238 48622',
+    secondaryPhone: '+91 99875 55399',
     email: 'sunrisecommunication1555@gmail.com',
     secondaryEmail: 'info@sunrisecommunication.in',
     website: 'https://sunrisecommunication.in',

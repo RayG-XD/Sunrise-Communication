@@ -109,7 +109,7 @@ export class RequirementEstimatorComponent {
       `📌 _Note: Indicative requirement estimate. Final hardware selection, cable lengths, and proposal subject to site survey._`,
       ``,
       `📞 *Provider:* Sunrise Communication (Thane West)`,
-      `📱 *Direct Contact:* +91-9323848622 / +91-9987555399`,
+      `📱 *Direct Contact:* +91 93238 48622 / +91 99875 55399`,
       `🌐 *Website:* https://sunrisecommunication.in`
     ].filter(Boolean).join('\n');
   });
