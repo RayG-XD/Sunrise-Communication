@@ -10,7 +10,7 @@
         <div class="service-detail">
           <div class="inner-box">
             <div class="image" data-aos="fade-up">
-              <img loading="lazy" src="assets/images/resource/service-2.jpg" alt="CCTV and EPABX Security Services Mumbai" />
+              <img loading="lazy" src="assets/images/resource/service-2.jpg" alt="CCTV Camera and Network Video Recorder Installation Thane" />
             </div>
             <div class="lower-content">
               <h3 data-aos="fade-up">CCTV & Security Systems</h3>
@@ -23,7 +23,7 @@
                   <!-- Column -->
                   <div class="column col-lg-6 col-md-6 col-sm-12">
                     <div class="lower-image" data-aos="fade-right">
-                      <img loading="lazy" src="assets/images/resource/service-3.png" alt="CCTV and EPABX Security Services Mumbai" />
+                      <img loading="lazy" src="assets/images/resource/service-3.png" alt="Housing Society Security Surveillance System Maintenance" />
                     </div>
                   </div>
                   <!-- Column -->
@@ -141,14 +141,11 @@
                 <h5>Our Services</h5>
               </div>
               <ul class="service-list">
-                <li><a routerLink="/services/detail">CCTV, NVR & DVR</a></li>
-                <li><a routerLink="/services/detail">EPABX Systems</a></li>
-                <li><a routerLink="/services/detail">Intercom Systems</a></li>
-                <li><a routerLink="/services/detail">Telephones & Telecom</a></li>
-                <li><a routerLink="/services/detail">Access Control Systems</a></li>
-                <li><a routerLink="/services/detail">Biometrics</a></li>
-                <li><a routerLink="/services/detail">Projectors</a></li>
-                <li><a routerLink="/services/detail">Network & Telecom Cables</a></li>
+                <li><a routerLink="/services/cctv-surveillance-systems">CCTV Surveillance & AMC</a></li>
+                <li><a routerLink="/services/epabx-intercom-solutions">EPABX & Society Intercom</a></li>
+                <li><a routerLink="/services/biometric-access-control">Biometrics & Access Control</a></li>
+                <li><a routerLink="/services/structured-networking-cabling">Security & Telecom Cabling</a></li>
+                <li><a routerLink="/products">Hardware & Product Catalog</a></li>
               </ul>
             </div>
           </div>
@@ -159,8 +156,8 @@
               <div class="sidebar-title">
                 <h5>Our Company Brochure</h5>
               </div>
-              <div class="text">Download our detailed product catalog to explore our complete range of security and communication solutions. Our brochure provides specifications, features, and applications for all our products.</div>
-              <a href="javascript:void(0)" class="theme-btn btn-style-four"><span class="txt">Download PDF</span></a>
+              <div class="text">Inquire about our detailed product catalogs and customized BOQ solutions for security and communication systems across Thane and Mumbai.</div>
+              <a [href]="siteData.social.whatsapp" target="_blank" rel="noopener noreferrer" class="theme-btn btn-style-four"><span class="txt">Request Catalog on WhatsApp</span></a>
             </div>
           </div>
 
@@ -183,7 +180,7 @@
                 <li>
                   <span class="icon flaticon-email-1"></span>
                   <a [href]="'mailto:' + siteData.contact.email">{{ siteData.contact.email }}</a><br>
-                  <a [href]="'https://' + siteData.contact.website" target="_blank">{{ siteData.contact.website }}</a>
+                  <a [href]="siteData.contact.website" target="_blank">{{ siteData.contact.website }}</a>
                 </li>
               </ul>
             </div>

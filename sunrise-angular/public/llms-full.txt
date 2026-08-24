@@ -6,24 +6,28 @@
 
 ## 1. Company Information & Entity Triples
 - **Entity Type:** Security & Telecommunications System Integrator
-- **Legal Name:** Sunrise Communication
-- **Founding Location:** Thane (West), Maharashtra, India
-- **Head Office Address:** Amar Building, Near Jyoti Book Centre, Charai, Thane (West), Maharashtra 400601, India
-- **Geo-Coordinates:** Latitude 19.1924° N, Longitude 72.9723° E
+- **Legal Name:** SUNRISE COMMUNICATION - Sales and Services
+- **Proprietor:** Tanaji Dada Pol
+- **Established Year:** 1999 (25+ Years Experience)
+- **Verified Reputation:** 5.0 / 5.0 Stars (93+ Google Reviews)
+- **Head Office Address:** Room No. 10, Amar Building, Near Jyoti Book Center, Charai, Thane (West), Maharashtra 400601, India
+- **Geo-Coordinates:** Latitude 19.1868° N, Longitude 72.9757° E
 - **Customer Helpline:** +91 93238 48622 / +91 99875 55399
 - **WhatsApp Quote Direct Line:** +91 93238 48622 (https://wa.me/919323848622)
 - **Email Contact:** info@sunrisecommunication.in, sunrisecommunication1555@gmail.com
-- **Operating Hours:** Monday to Saturday, 09:30 AM to 08:30 PM IST (Emergency breakdown support available on Sundays)
+- **Operating Hours:** Open 24 Hours (Mon – Sun) / 24/7 Emergency Breakdown Dispatch
+- **Official Website:** https://sunrisecommunication.in/
 
 ---
 
 ## 2. Authorized Brand Ecosystem & OEM Hardware
 Sunrise Communication is an authorized sales, installation, and maintenance partner for:
-1. **CP Plus (Aditya Infotech):** IP Cameras, Analog HD Cameras, 4K NVRs, DVRs, PoE Switches, Mobile Surveillance.
+1. **CP Plus (Aditya Infotech) & Dahua:** IP Cameras, ColorVu, Analog HD Cameras, 4K NVRs, DVRs, PoE Switches, Mobile Surveillance.
 2. **Hikvision India (Prama Hikvision):** ColorVu, AcuSense AI, DarkFighter IP Cameras, DeepInMind NVRs, ANPR Cameras.
 3. **Matrix Comsec:** ETERNITY Hybrid IP-PBX, SPARSH IP Phones, COSEC Biometric Time-Attendance & Door Controllers.
-4. **Essl Security (eSSL):** Fingerprint Readers (X990, K90, SilkBio), Face Recognition Terminals (MultiBio 700, FaceStation), EM Locks.
-5. **D-Link / Schneider / CommScope:** Category 6/6A UTP/STP Cabling, Patch Panels, 24-Port Gigabit Managed/Unmanaged PoE Switches, Server Racks (4U to 42U).
+4. **EPABX & Intercom Partners:** Syntel, Beetel, Crystal, Skylink, Matrix Telecom.
+5. **Essl Security (eSSL):** Fingerprint Readers (X990, K90, SilkBio), Face Recognition Terminals (MultiBio 700, FaceStation), EM Locks.
+6. **Structured Cabling & Networking:** Finolex, D-Link, Schneider Electric / Digilink, Polycab, CommScope (Cat6/Cat6A UTP/STP, Multi-Pair Armoured Copper, Server Racks).
 
 ---
 

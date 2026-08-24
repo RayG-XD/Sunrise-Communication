@@ -70,8 +70,8 @@ export const STRUCTURED_DATA_BASE = {
   email: SITE_DATA.contact.email,
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Amar Building, Near Jyoti Book Centre, Charai',
-    addressLocality: 'Thane (W)',
+    streetAddress: 'Room No. 10, Amar Building, Near Jyoti Book Center, Charai',
+    addressLocality: 'Thane (West)',
     addressRegion: 'Maharashtra',
     postalCode: '400601',
     addressCountry: 'IN'

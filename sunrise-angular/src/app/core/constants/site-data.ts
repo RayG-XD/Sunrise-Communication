@@ -1,6 +1,7 @@
 export const SITE_DATA = {
   companyName: 'Sunrise Communication',
   legalName: 'SUNRISE COMMUNICATION - Sales and Services (CCTV Camera, EPABX, Intercom, Telephones, Access Control, Biometrics, Telecom)',
+  proprietor: 'Tanaji Dada Pol',
   tagline: 'Telecommunication Sales and Services',
   establishedYear: 1999,
   gbp: {
@@ -11,8 +12,12 @@ export const SITE_DATA = {
     rating: 5,
     reviewCount: 93
   },
+  geo: {
+    latitude: 19.1868,
+    longitude: 72.9757
+  },
   contact: {
-    address: 'Room No.10, Amar Building, Near Jyoti Book Center, Charai, Thane (West) 400601',
+    address: 'Room No. 10, Amar Building, Near Jyoti Book Center, Charai, Thane (West) 400601',
     addressUrl: 'https://maps.google.com/maps?cid=7206965003768673260',
     primaryPhone: '+91 93238 48622',
     secondaryPhone: '+91 99875 55399',

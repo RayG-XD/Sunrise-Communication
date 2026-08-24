@@ -16,6 +16,7 @@ const siteDataPath = path.join(__dirname, '..', 'src', 'app', 'core', 'constants
 const siteDataContent = `export const SITE_DATA = {
   companyName: '${gbp.shortName}',
   legalName: '${gbp.businessName.replace(/'/g, "\\'")}',
+  proprietor: '${gbp.proprietor || 'Tanaji Dada Pol'}',
   tagline: 'Telecommunication Sales and Services',
   establishedYear: ${gbp.establishedYear},
   gbp: {
@@ -25,6 +26,10 @@ const siteDataContent = `export const SITE_DATA = {
     reviewUrl: '${gbp.reviewUrl}',
     rating: ${gbp.reputation.ratingValue},
     reviewCount: ${gbp.reputation.reviewCount}
+  },
+  geo: {
+    latitude: ${gbp.geo?.latitude || 19.1868},
+    longitude: ${gbp.geo?.longitude || 72.9757}
   },
   contact: {
     address: '${gbp.address.street}, ${gbp.address.city} ${gbp.address.postalCode}',

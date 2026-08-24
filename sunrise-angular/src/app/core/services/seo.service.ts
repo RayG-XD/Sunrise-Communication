@@ -36,7 +36,7 @@ export class SeoService {
         pageData.keywords || DEFAULT_SEO_DATA.keywords,
         canonicalUrl
       );
-      this.injectGlobalKnowledgeGraph();
+      this.injectGlobalKnowledgeGraph(route);
     } else if (!route.startsWith('/products/') && !route.startsWith('/services/')) {
       this.updateMeta(
         DEFAULT_SEO_DATA.title,
@@ -44,7 +44,7 @@ export class SeoService {
         DEFAULT_SEO_DATA.keywords,
         canonicalUrl
       );
-      this.injectGlobalKnowledgeGraph();
+      this.injectGlobalKnowledgeGraph(route);
     }
   }
 
@@ -234,10 +234,14 @@ export class SeoService {
 
   private getBaseLocalBusinessNode(): any {
     return {
-      '@type': 'LocalBusiness',
+      '@type': ['LocalBusiness', 'SecuritySystemInstallationService'],
       '@id': `${SITE_DATA.contact.website}/#localbusiness`,
       name: SITE_DATA.companyName,
       legalName: SITE_DATA.legalName,
+      founder: {
+        '@type': 'Person',
+        name: 'Tanaji Dada Pol'
+      },
       image: `${SITE_DATA.contact.website}/assets/images/logo.png`,
       telephone: SITE_DATA.contact.primaryPhone,
       email: SITE_DATA.contact.email,
@@ -293,7 +297,7 @@ export class SeoService {
       ],
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Room No.10, Amar Building, Near Jyoti Book Center, Charai',
+        streetAddress: 'Room No. 10, Amar Building, Near Jyoti Book Center, Charai',
         addressLocality: 'Thane (West)',
         addressRegion: 'Maharashtra',
         postalCode: '400601',
@@ -301,8 +305,8 @@ export class SeoService {
       },
       geo: {
         '@type': 'GeoCoordinates',
-        latitude: 19.1966,
-        longitude: 72.9781
+        latitude: 19.1868,
+        longitude: 72.9757
       },
       openingHoursSpecification: [
         {
@@ -334,7 +338,7 @@ export class SeoService {
     };
   }
 
-  private injectGlobalKnowledgeGraph(): void {
+  private injectGlobalKnowledgeGraph(route?: string): void {
     const localBusinessNode = this.getBaseLocalBusinessNode();
     const websiteNode = {
       '@type': 'WebSite',
@@ -345,7 +349,37 @@ export class SeoService {
         '@id': `${SITE_DATA.contact.website}/#localbusiness`
       }
     };
-    this.injectGraph([localBusinessNode, websiteNode]);
+
+    const nodes: any[] = [localBusinessNode, websiteNode];
+
+    if (route && route !== '/') {
+      const routeLabels: Record<string, string> = {
+        '/about': 'About Us',
+        '/products': 'Products',
+        '/services': 'Services',
+        '/contact': 'Contact Us'
+      };
+      const label = routeLabels[route] || route.replace('/', '');
+      nodes.push({
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: SITE_DATA.contact.website
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: label,
+            item: `${SITE_DATA.contact.website}${route}`
+          }
+        ]
+      });
+    }
+
+    this.injectGraph(nodes);
   }
 
   private updateMeta(
@@ -360,22 +394,23 @@ export class SeoService {
     this.metaService.updateTag({ name: 'description', content: description });
     this.metaService.updateTag({ name: 'keywords', content: keywords });
 
+    const effectiveOgImage = ogImage || `${SITE_DATA.contact.website}/assets/images/logo.png`;
+
     // Open Graph Tags
     this.metaService.updateTag({ property: 'og:title', content: title });
     this.metaService.updateTag({ property: 'og:description', content: description });
     this.metaService.updateTag({ property: 'og:type', content: ogType });
+    this.metaService.updateTag({ property: 'og:image', content: effectiveOgImage });
     if (canonicalUrl) {
       this.metaService.updateTag({ property: 'og:url', content: canonicalUrl });
       this.setCanonicalUrl(canonicalUrl);
     }
-    if (ogImage) {
-      this.metaService.updateTag({ property: 'og:image', content: ogImage });
-      this.metaService.updateTag({ name: 'twitter:image', content: ogImage });
-    }
 
     // Twitter Tags
+    this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
     this.metaService.updateTag({ name: 'twitter:title', content: title });
     this.metaService.updateTag({ name: 'twitter:description', content: description });
+    this.metaService.updateTag({ name: 'twitter:image', content: effectiveOgImage });
   }
 
   private setCanonicalUrl(url: string) {

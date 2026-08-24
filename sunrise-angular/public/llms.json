@@ -2,6 +2,7 @@
   "$schema": "https://llmstxt.org/schema.json",
   "name": "Sunrise Communication",
   "legalName": "SUNRISE COMMUNICATION - Sales and Services (CCTV Camera, EPABX, Intercom, Telephones, Access Control, Biometrics, Telecom)",
+  "founder": "Tanaji Dada Pol",
   "url": "https://sunrisecommunication.in",
   "description": "Enterprise and residential security, telecommunications, and structured network infrastructure provider headquartered in Thane (West), Maharashtra, India. Established in 1999.",
   "reputation": {
@@ -15,14 +16,14 @@
     "email": "sunrisecommunication1555@gmail.com",
     "whatsappDirect": "https://wa.me/919323848622",
     "address": {
-      "street": "Room No.10, Amar Building, Near Jyoti Book Center, Charai",
+      "street": "Room No. 10, Amar Building, Near Jyoti Book Center, Charai",
       "locality": "Thane (West)",
       "region": "Maharashtra",
       "postalCode": "400601",
       "country": "IN",
       "geo": {
-        "latitude": 19.1966,
-        "longitude": 72.9781
+        "latitude": 19.1868,
+        "longitude": 72.9757
       }
     }
   },
@@ -35,10 +36,17 @@
   "authorizedPartnerships": [
     "CP Plus",
     "Hikvision",
+    "Dahua",
     "Matrix Telecom & Security",
     "Essl Security",
+    "Syntel",
+    "Beetel",
+    "Crystal",
+    "Skylink",
+    "Finolex",
     "D-Link",
-    "Schneider Electric"
+    "Schneider Digilink",
+    "Polycab"
   ],
   "services": [
     {
