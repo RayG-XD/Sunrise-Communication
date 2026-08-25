@@ -1,66 +1,95 @@
 import { Component, signal, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { PageTitleComponent } from '../../shared/components/page-title.component';
+import { SocietyAuditFormComponent } from '../../shared/components/society-audit-form/society-audit-form.component';
 import { SITE_DATA } from '../../core/constants/site-data';
+import { environment } from '../../../environments/environment';
 import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [ReactiveFormsModule, PageTitleComponent],
+  imports: [CommonModule, ReactiveFormsModule, PageTitleComponent, SocietyAuditFormComponent],
   templateUrl: './contact.component.html'
 })
 export class ContactComponent {
   private fb = inject(FormBuilder);
   
   siteData = SITE_DATA;
+  activeTab = signal<'society' | 'general'>('society');
   isSubmitting = signal(false);
   successMessage = signal('');
   errorMessage = signal('');
+  lastSubmittedData = signal<any>(null);
   
   contactForm = this.fb.group({
     username: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     company: [''],
-    phone: ['', Validators.required],
+    phone: ['', [Validators.required, Validators.pattern(/^[0-9+\s-]{8,15}$/)]],
     message: ['', Validators.required]
   });
+
+  getWhatsAppUrl(data?: any): string {
+    const values = data || this.contactForm.value;
+    const phone = this.siteData.social.whatsapp.replace('https://wa.me/', '');
+    const text = [
+      `*New Inquiry via Sunrise Communication Website*`,
+      `👤 *Name:* ${values.username || 'Not Provided'}`,
+      `📞 *Phone:* ${values.phone || 'Not Provided'}`,
+      `✉️ *Email:* ${values.email || 'Not Provided'}`,
+      values.company ? `🏢 *Company / Society:* ${values.company}` : null,
+      `💬 *Requirement:* ${values.message || 'General Inquiry / Site Survey Request'}`,
+      ``,
+      `🌐 *Source:* https://sunrisecommunication.in/contact`
+    ].filter(Boolean).join('\n');
+
+    return `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+  }
+
+  sendDirectWhatsApp(): void {
+    if (this.contactForm.valid) {
+      window.open(this.getWhatsAppUrl(), '_blank');
+    } else {
+      this.contactForm.markAllAsTouched();
+    }
+  }
 
   async onSubmit() {
     if (this.contactForm.valid) {
       this.isSubmitting.set(true);
       this.errorMessage.set('');
       
+      const formData = { ...this.contactForm.value };
+      this.lastSubmittedData.set(formData);
+
       try {
-        // IMPORTANT: Replace these values with your actual EmailJS credentials
-        const serviceID = 'YOUR_SERVICE_ID';
-        const templateID = 'YOUR_TEMPLATE_ID';
-        const publicKey = 'YOUR_PUBLIC_KEY';
+        const { serviceId, templateId, publicKey } = environment.emailjs;
 
         const templateParams = {
-          from_name: this.contactForm.value.username,
-          from_email: this.contactForm.value.email,
-          company: this.contactForm.value.company || 'Not Provided',
-          phone: this.contactForm.value.phone,
-          message: this.contactForm.value.message,
+          from_name: formData.username,
+          from_email: formData.email,
+          company: formData.company || 'Not Provided',
+          phone: formData.phone,
+          message: formData.message,
         };
 
-        if (serviceID === 'YOUR_SERVICE_ID') {
-          // If not configured, simulate success (for demo/development purposes)
-          await new Promise(resolve => setTimeout(resolve, 1500));
+        if (serviceId && templateId && publicKey) {
+          await emailjs.send(serviceId, templateId, templateParams, publicKey);
         } else {
-          await emailjs.send(serviceID, templateID, templateParams, publicKey);
+          // If credentials not yet configured, gracefully simulate success
+          await new Promise(resolve => setTimeout(resolve, 800));
         }
 
-        this.successMessage.set('Thank you for contacting us! We will get back to you soon.');
+        this.successMessage.set('Thank you! Your inquiry has been received. Our technical team will reach out promptly.');
         this.contactForm.reset();
         
-        // Clear success message after 5 seconds
-        setTimeout(() => this.successMessage.set(''), 5000);
+        // Auto-clear message after 8 seconds
+        setTimeout(() => this.successMessage.set(''), 8000);
       } catch (error) {
-        console.error('FAILED...', error);
-        this.errorMessage.set('Oops! Something went wrong. Please try again later.');
-        setTimeout(() => this.errorMessage.set(''), 5000);
+        console.error('EmailJS Submission Error:', error);
+        this.errorMessage.set('Could not send message via email. Please click "Chat on WhatsApp" below for instant contact.');
       } finally {
         this.isSubmitting.set(false);
       }

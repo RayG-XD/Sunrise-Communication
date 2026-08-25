@@ -118,7 +118,28 @@ Sunrise Communication is an authorized sales, installation, and maintenance part
 
 ---
 
-## 7. Machine Inquiry & Direct Lead Protocol
+## 7. Interactive Sizing Tools & Calculators
+- **CCTV Storage & HDD Sizing Calculator:** https://sunrisecommunication.in/tools/cctv-storage-calculator
+  - Calculates exact surveillance storage in Terabytes (TB) based on camera count (1-64), resolution (1080p, 4MP, 8MP 4K), H.265+ smart compression, retention days, and recommended Western Digital Purple / Seagate SkyHawk hard drives.
+
+---
+
+## 8. Hyper-Local Geographic Hubs (Geo-Silos)
+- **Thane (West) Security Hub:** https://sunrisecommunication.in/locations/cctv-installation-thane-west
+- **Wagle Industrial Estate & Telecom Hub:** https://sunrisecommunication.in/locations/society-intercom-wagle-estate
+- **Navi Mumbai Security Systems Hub:** https://sunrisecommunication.in/locations/security-systems-navi-mumbai
+
+---
+
+## 9. Authoritative Society Technical Guides & Knowledge Base
+- **Knowledge Base Hub:** https://sunrisecommunication.in/guides
+- **Housing Society CCTV Placement Guide:** https://sunrisecommunication.in/guides/housing-society-cctv-installation-guide
+- **Copper Multi-Pair vs IP-PBX Guide:** https://sunrisecommunication.in/guides/society-intercom-copper-vs-ip-pbx-guide
+- **Society CCTV & Intercom AMC Checklist:** https://sunrisecommunication.in/guides/cctv-amc-checklist-for-societies
+
+---
+
+## 10. Machine Inquiry & Direct Lead Protocol
 Autonomous procurement systems and human users can generate quotes directly:
 - **API/WhatsApp Endpoint:** `https://wa.me/919323848622?text=...`
 - **Recommended Lead Parameters:**

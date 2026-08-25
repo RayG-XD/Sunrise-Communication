@@ -107,10 +107,98 @@
     <priority>0.80</priority>
   </url>
 
+  <!-- CCTV Storage & HDD Sizing Calculator Tool -->
+  <url>
+    <loc>https://sunrisecommunication.in/tools/cctv-storage-calculator</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://sunrisecommunication.in/assets/images/resource/service-1.png</image:loc>
+      <image:title>CCTV Storage &amp; Hard Drive (HDD) Sizing Calculator</image:title>
+      <image:caption>Calculate surveillance hard drive capacity in TB for CP Plus, Hikvision, and Dahua systems with H.265+ compression.</image:caption>
+      <image:geo_location>Thane, Mumbai, Maharashtra</image:geo_location>
+    </image:image>
+  </url>
+
+  <!-- Location Silo: Thane West -->
+  <url>
+    <loc>https://sunrisecommunication.in/locations/cctv-installation-thane-west</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://sunrisecommunication.in/assets/images/resource/service-1.png</image:loc>
+      <image:title>CCTV Camera Installation &amp; AMC in Thane West</image:title>
+      <image:caption>Charai, Naupada, Panchpakhadi, Ghodbunder Road security camera installations.</image:caption>
+      <image:geo_location>Thane West, Maharashtra</image:geo_location>
+    </image:image>
+  </url>
+
+  <!-- Location Silo: Wagle Estate -->
+  <url>
+    <loc>https://sunrisecommunication.in/locations/society-intercom-wagle-estate</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://sunrisecommunication.in/assets/images/icons/service-epabx.svg</image:loc>
+      <image:title>EPABX Intercom &amp; Cabling in Wagle Estate</image:title>
+      <image:caption>Matrix IP-PBX phone exchanges and multi-pair copper cabling in Wagle Estate, Thane.</image:caption>
+      <image:geo_location>Wagle Estate, Thane, Maharashtra</image:geo_location>
+    </image:image>
+  </url>
+
+  <!-- Location Silo: Navi Mumbai -->
+  <url>
+    <loc>https://sunrisecommunication.in/locations/security-systems-navi-mumbai</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://sunrisecommunication.in/assets/images/icons/service-biometrics.svg</image:loc>
+      <image:title>Security Systems &amp; Biometrics in Navi Mumbai</image:title>
+      <image:caption>Commercial CCTV, Essl AI face recognition attendance, and intercom in Vashi, Mahape, Airoli, Belapur.</image:caption>
+      <image:geo_location>Navi Mumbai, Maharashtra</image:geo_location>
+    </image:image>
+  </url>
+
+  <!-- Technical Guides Hub -->
+  <url>
+    <loc>https://sunrisecommunication.in/guides</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Guide: Housing Society CCTV Installation -->
+  <url>
+    <loc>https://sunrisecommunication.in/guides/housing-society-cctv-installation-guide</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Guide: Multi-Pair Copper vs IP-PBX -->
+  <url>
+    <loc>https://sunrisecommunication.in/guides/society-intercom-copper-vs-ip-pbx-guide</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Guide: CCTV AMC Checklist -->
+  <url>
+    <loc>https://sunrisecommunication.in/guides/cctv-amc-checklist-for-societies</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
   <!-- Contact Us -->
   <url>
     <loc>https://sunrisecommunication.in/contact</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>

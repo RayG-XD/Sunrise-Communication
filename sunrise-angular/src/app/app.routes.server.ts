@@ -34,6 +34,38 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Prerender
   },
   {
+    path: 'tools/cctv-storage-calculator',
+    renderMode: RenderMode.Prerender
+  },
+  {
+    path: 'locations/cctv-installation-thane-west',
+    renderMode: RenderMode.Prerender
+  },
+  {
+    path: 'locations/society-intercom-wagle-estate',
+    renderMode: RenderMode.Prerender
+  },
+  {
+    path: 'locations/security-systems-navi-mumbai',
+    renderMode: RenderMode.Prerender
+  },
+  {
+    path: 'guides',
+    renderMode: RenderMode.Prerender
+  },
+  {
+    path: 'guides/housing-society-cctv-installation-guide',
+    renderMode: RenderMode.Prerender
+  },
+  {
+    path: 'guides/society-intercom-copper-vs-ip-pbx-guide',
+    renderMode: RenderMode.Prerender
+  },
+  {
+    path: 'guides/cctv-amc-checklist-for-societies',
+    renderMode: RenderMode.Prerender
+  },
+  {
     path: 'contact',
     renderMode: RenderMode.Prerender
   },
@@ -43,6 +75,14 @@ export const serverRoutes: ServerRoute[] = [
   },
   {
     path: 'services/:slug',
+    renderMode: RenderMode.Client
+  },
+  {
+    path: 'locations/:slug',
+    renderMode: RenderMode.Client
+  },
+  {
+    path: 'guides/:slug',
     renderMode: RenderMode.Client
   },
   {

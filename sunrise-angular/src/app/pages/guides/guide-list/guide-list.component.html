@@ -1,0 +1,52 @@
+<app-page-title 
+  title="Housing Society & Enterprise Technical Guides" 
+  breadcrumb="Guides & Resources" 
+  bgImage="assets/images/background/about-banner.jpg">
+</app-page-title>
+
+<!-- Guides List Section -->
+<section class="guides-list-section py-5" style="background-color: #f8fafc;">
+  <div class="auto-container">
+    
+    <div class="section-header text-center mb-5">
+      <span class="badge bg-primary text-white px-3 py-2 rounded-pill mb-2">Knowledge Base & Best Practices</span>
+      <h2 class="h3 fw-bold text-dark">Authoritative Guides for Society Committees & IT Heads</h2>
+      <p class="text-muted small max-w-750 mx-auto">
+        Practical engineering blueprints, hardware positioning checklists, statutory guidelines, and AMC procurement advice for Thane, Mumbai & Navi Mumbai.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      @for (guide of guides(); track guide.slug) {
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="guide-card p-4 rounded-4 bg-white border shadow-sm h-100 d-flex flex-column transition-all">
+            
+            <div class="card-meta d-flex justify-content-between align-items-center mb-3">
+              <span class="badge bg-danger text-white rounded-pill px-3 py-1">{{ guide.category }}</span>
+              <span class="text-muted small"><i class="fa fa-clock-o me-1"></i> {{ guide.readTime }}</span>
+            </div>
+
+            <h3 class="h5 fw-bold text-dark mb-3">
+              <a [routerLink]="['/guides', guide.slug]" class="text-dark text-decoration-none hover-primary">
+                {{ guide.title }}
+              </a>
+            </h3>
+
+            <p class="text-muted small flex-grow-1">{{ guide.summary }}</p>
+
+            <div class="card-takeaways p-3 bg-light rounded-3 my-3">
+              <strong class="d-block small text-secondary mb-1"><i class="fa fa-key text-warning me-1"></i> Key Highlight:</strong>
+              <small class="text-dark">{{ guide.keyTakeaways[0] }}</small>
+            </div>
+
+            <a [routerLink]="['/guides', guide.slug]" class="btn btn-outline-primary w-100 fw-bold py-2 mt-auto">
+              Read Complete Guide <i class="fa fa-arrow-right ms-1"></i>
+            </a>
+
+          </div>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

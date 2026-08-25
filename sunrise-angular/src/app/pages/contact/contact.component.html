@@ -73,53 +73,114 @@
 
     </div>
 
-    <!-- Contact Form Box -->
-    <div class="contact-form-box" data-aos="fade-up">
-      <!-- Form Title Box -->
-      <div class="form-title-box">
-        <h3>Send a Message</h3>
+    <!-- Contact / Audit Form Container -->
+    <div class="contact-form-box mt-5" data-aos="fade-up">
+      
+      <!-- Inquiry Mode Tabs -->
+      <div class="inquiry-mode-tabs d-flex justify-content-center gap-2 mb-4 flex-wrap">
+        <button type="button" class="btn px-4 py-2 fw-bold rounded-pill transition-all"
+                [class.btn-danger]="activeTab() === 'society'"
+                [class.btn-outline-secondary]="activeTab() !== 'society'"
+                (click)="activeTab.set('society')">
+          <i class="fa fa-building me-1"></i> Housing Society & Office Site Audit
+        </button>
+        <button type="button" class="btn px-4 py-2 fw-bold rounded-pill transition-all"
+                [class.btn-primary]="activeTab() === 'general'"
+                [class.btn-outline-secondary]="activeTab() !== 'general'"
+                (click)="activeTab.set('general')">
+          <i class="fa fa-envelope-o me-1"></i> General Message / Quick Inquiry
+        </button>
       </div>
 
-      <!-- Contact Form -->
-      <div class="contact-form">
-        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" id="contact-form">
-          <div class="row clearfix">
+      <!-- TAB 1: Housing Society & Commercial Site Audit Form -->
+      @if (activeTab() === 'society') {
+        <app-society-audit-form></app-society-audit-form>
+      }
 
-            <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-              <input type="text" formControlName="username" placeholder="Name" [class.error]="contactForm.get('username')?.invalid && contactForm.get('username')?.touched">
-            </div>
-
-            <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-              <input type="email" formControlName="email" placeholder="Email Address" [class.error]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
-            </div>
-
-            <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-              <input type="text" formControlName="company" placeholder="Company">
-            </div>
-
-            <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-              <input type="text" formControlName="phone" placeholder="Phone" [class.error]="contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched">
-            </div>
-
-            <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-              <textarea formControlName="message" placeholder="Write Your Message..." [class.error]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"></textarea>
-            </div>
-
-            <div class="col-lg-12 col-md-12 col-sm-12 form-group text-center">
-              <button class="theme-btn btn-style-four" type="submit" [disabled]="isSubmitting()">
-                <span class="txt">{{ isSubmitting() ? 'Sending...' : 'Submit Now' }}</span>
-              </button>
-            </div>
-            
-            @if(successMessage()) {
-              <div class="col-lg-12 col-md-12 col-sm-12 form-group text-center mt-3">
-                <div class="alert alert-success">{{ successMessage() }}</div>
-              </div>
-            }
-
+      <!-- TAB 2: Standard Contact Message Form -->
+      @if (activeTab() === 'general') {
+        <div class="p-4 p-md-5 rounded-4 shadow-sm bg-white border">
+          <!-- Form Title Box -->
+          <div class="form-title-box text-center mb-4">
+            <h3 class="h4 fw-bold text-dark">Send a Direct Message</h3>
+            <p class="text-muted small">Fill out the form below or chat with our technician on WhatsApp.</p>
           </div>
-        </form>
-      </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form">
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" id="contact-form">
+              <div class="row clearfix">
+
+                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                  <input type="text" formControlName="username" placeholder="Your Full Name *" [class.error]="contactForm.get('username')?.invalid && contactForm.get('username')?.touched">
+                  @if(contactForm.get('username')?.invalid && contactForm.get('username')?.touched) {
+                    <small class="text-danger d-block mt-1">Please enter your name.</small>
+                  }
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                  <input type="email" formControlName="email" placeholder="Email Address *" [class.error]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+                  @if(contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
+                    <small class="text-danger d-block mt-1">Please enter a valid email address.</small>
+                  }
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                  <input type="text" formControlName="company" placeholder="Society / Company Name (e.g. Gokul CHS, Thane)">
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                  <input type="tel" formControlName="phone" placeholder="Phone Number (e.g. 9876543210) *" [class.error]="contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched">
+                  @if(contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched) {
+                    <small class="text-danger d-block mt-1">Please enter a valid phone number.</small>
+                  }
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                  <textarea formControlName="message" placeholder="Describe Your Requirement (e.g. 16 Camera CCTV Installation for CHS, Intercom Line Repair, AMC Quote)... *" [class.error]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"></textarea>
+                  @if(contactForm.get('message')?.invalid && contactForm.get('message')?.touched) {
+                    <small class="text-danger d-block mt-1">Please describe your requirement.</small>
+                  }
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 form-group text-center d-flex justify-content-center gap-3 flex-wrap">
+                  <button class="theme-btn btn-style-four" type="submit" [disabled]="isSubmitting()">
+                    <span class="txt"><i class="fa fa-envelope-o mr-1"></i> {{ isSubmitting() ? 'Sending...' : 'Submit Inquiry' }}</span>
+                  </button>
+                  <button class="btn btn-success px-4 py-2 fw-bold d-inline-flex align-items-center gap-2" type="button" (click)="sendDirectWhatsApp()">
+                    <i class="fa fa-whatsapp fs-5"></i> <span>Send via WhatsApp</span>
+                  </button>
+                </div>
+                
+                @if(successMessage()) {
+                  <div class="col-lg-12 col-md-12 col-sm-12 form-group text-center mt-3">
+                    <div class="alert alert-success d-flex flex-column align-items-center gap-2 p-3">
+                      <div><strong><i class="fa fa-check-circle"></i> {{ successMessage() }}</strong></div>
+                      @if(lastSubmittedData()) {
+                        <a [href]="getWhatsAppUrl(lastSubmittedData())" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-success mt-1">
+                          <i class="fa fa-whatsapp"></i> Also Send this Copy to WhatsApp for Instant Reply
+                        </a>
+                      }
+                    </div>
+                  </div>
+                }
+
+                @if(errorMessage()) {
+                  <div class="col-lg-12 col-md-12 col-sm-12 form-group text-center mt-3">
+                    <div class="alert alert-danger d-flex flex-column align-items-center gap-2 p-3">
+                      <div><strong><i class="fa fa-exclamation-triangle"></i> {{ errorMessage() }}</strong></div>
+                      <button type="button" (click)="sendDirectWhatsApp()" class="btn btn-sm btn-success mt-1">
+                        <i class="fa fa-whatsapp"></i> Click to Send via WhatsApp Instead
+                      </button>
+                    </div>
+                  </div>
+                }
+
+              </div>
+            </form>
+          </div>
+        </div>
+      }
 
     </div>
     <!-- End Contact Form Box -->

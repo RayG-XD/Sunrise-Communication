@@ -1,0 +1,116 @@
+.cctv-calc-banner {
+  background-image: url('/assets/images/background/10.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.cctv-calc-section {
+  background-color: #f8fafc;
+}
+
+.max-w-750 {
+  max-w: 750px;
+}
+
+.max-w-850 {
+  max-width: 850px;
+}
+
+.calc-card {
+  border-color: #e2e8f0;
+}
+
+.resolution-option-card,
+.codec-option-card {
+  background-color: #ffffff;
+  border: 2px solid #e2e8f0;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    border-color: #0d6efd;
+    background-color: #f0f7ff;
+    transform: translateY(-2px);
+  }
+
+  &.active {
+    border-color: #0d6efd;
+    background-color: #e7f1ff;
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.15);
+  }
+}
+
+.custom-slider {
+  accent-color: #0d6efd;
+  height: 8px;
+  border-radius: 4px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.tracking-wide {
+  letter-spacing: 0.05em;
+}
+
+.faq-accordion-container {
+  .faq-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    &.open {
+      border-color: #0d6efd;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .faq-question-btn {
+      width: 100%;
+      text-align: left;
+      padding: 16px 20px;
+      background: transparent;
+      border: none;
+      font-size: 16px;
+      font-weight: 600;
+      color: #0f172a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+
+      i {
+        font-size: 14px;
+        color: #0d6efd;
+      }
+    }
+
+    .faq-answer-content {
+      padding: 0 20px 16px;
+      color: #475569;
+      font-size: 15px;
+      line-height: 1.6;
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

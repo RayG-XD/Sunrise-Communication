@@ -55,6 +55,11 @@ export const PAGE_SEO_DATA: Record<string, Partial<SeoMetaData>> = {
     description: 'Browse our complete catalog of CCTV cameras, EPABX systems, biometric devices, and more. Sales, installation, and AMC services available across Mumbai, Thane, and Navi Mumbai.',
     keywords: 'CCTV products, EPABX systems, Biometric devices, CP Plus, Hikvision, Matrix, Essl, security products Thane'
   },
+  '/tools/cctv-storage-calculator': {
+    title: 'CCTV Storage & Hard Drive (HDD) Calculator | Sunrise Communication',
+    description: 'Calculate exact CCTV storage requirements in TB for CP Plus, Hikvision, & Dahua cameras with H.265+ compression. Sizing tool for housing societies & offices in Thane & Mumbai.',
+    keywords: 'CCTV Storage Calculator, CCTV HDD Calculator, CCTV Hard Disk Sizing, 16 Camera CCTV Storage, H.265+ Storage Calculation, WD Purple Sizing Thane'
+  },
   '/contact': {
     title: 'Contact Us | Sunrise Communication',
     description: 'Get in touch with Sunrise Communication in Thane for all your security camera, access control, and telecom wiring needs. Call us at +91 93238 48622 / +91 99875 55399.',

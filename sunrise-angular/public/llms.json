@@ -70,6 +70,41 @@
       "scope": "Certified Cat6/Cat6A LAN cabling, server rack dressing, keystone patch panel termination, optical fiber splicing & OTDR testing"
     }
   ],
+  "interactiveTools": [
+    {
+      "name": "CCTV Storage & HDD Sizing Calculator",
+      "canonicalUrl": "https://sunrisecommunication.in/tools/cctv-storage-calculator",
+      "function": "Computes surveillance storage in Terabytes (TB) and network bandwidth for IP/Analog cameras with H.265+ smart compression."
+    }
+  ],
+  "localGeoHubs": [
+    {
+      "region": "Thane (West)",
+      "canonicalUrl": "https://sunrisecommunication.in/locations/cctv-installation-thane-west"
+    },
+    {
+      "region": "Wagle Industrial Estate, Thane",
+      "canonicalUrl": "https://sunrisecommunication.in/locations/society-intercom-wagle-estate"
+    },
+    {
+      "region": "Navi Mumbai (Vashi, Mahape, Airoli, Belapur)",
+      "canonicalUrl": "https://sunrisecommunication.in/locations/security-systems-navi-mumbai"
+    }
+  ],
+  "technicalGuides": [
+    {
+      "title": "Complete Housing Society CCTV Surveillance Guide",
+      "canonicalUrl": "https://sunrisecommunication.in/guides/housing-society-cctv-installation-guide"
+    },
+    {
+      "title": "Multi-Pair Copper Cabling vs IP-PBX Society Intercom Guide",
+      "canonicalUrl": "https://sunrisecommunication.in/guides/society-intercom-copper-vs-ip-pbx-guide"
+    },
+    {
+      "title": "Housing Society CCTV & EPABX AMC Checklist",
+      "canonicalUrl": "https://sunrisecommunication.in/guides/cctv-amc-checklist-for-societies"
+    }
+  ],
   "leadGenerationWebhook": {
     "protocol": "WhatsApp URI Intent",
     "endpoint": "https://wa.me/919323848622?text={encoded_message}"

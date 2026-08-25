@@ -1,0 +1,190 @@
+@if (locationData(); as loc) {
+
+  <!-- Hero Title Banner -->
+  <section class="page-title local-hero-banner">
+    <div class="auto-container">
+      <div class="rating-pill-badge mb-2">
+        <span class="stars-gold">⭐⭐⭐⭐⭐</span>
+        <span>5.0 Star Rated Local Security Partner in {{ loc.regionName }}</span>
+      </div>
+      <h1>{{ loc.heroTitle }}</h1>
+      <p class="hero-lead-text text-white-50 max-w-750 mx-auto mt-2">{{ loc.heroSubtitle }}</p>
+      
+      <ul class="bread-crumb clearfix mt-3">
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/services">Service Areas</a></li>
+        <li class="active">{{ loc.regionName }}</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Local Overview & Micro-Markets Section -->
+  <section class="local-overview-section py-5 bg-white">
+    <div class="auto-container">
+      
+      <div class="row clearfix g-4 align-items-center">
+        <div class="col-lg-8 col-md-12">
+          <div class="overview-content pe-lg-4">
+            <span class="badge bg-primary text-white px-3 py-2 rounded-pill mb-2">Established 1999 • 25+ Years Service</span>
+            <h2 class="h3 fw-bold text-dark mb-3">{{ loc.overviewHeading }}</h2>
+            <p class="text-muted leading-relaxed">{{ loc.overviewText }}</p>
+
+            <!-- Micro-Markets Cloud -->
+            <div class="micro-markets-box mt-4 p-3 bg-light rounded-3 border">
+              <h4 class="h6 fw-bold text-dark mb-2">
+                <i class="fa fa-map-marker text-danger me-1"></i> Active Coverage Across {{ loc.regionName }} Localities:
+              </h4>
+              <div class="d-flex flex-wrap gap-2">
+                @for (market of loc.localMicroMarkets; track market) {
+                  <span class="badge bg-white text-dark border px-3 py-2 fw-semibold">{{ market }}</span>
+                }
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-12">
+          <div class="local-quick-contact-card p-4 rounded-4 shadow bg-dark text-white text-center">
+            <div class="rating-stars text-warning fs-5 mb-1">⭐⭐⭐⭐⭐</div>
+            <h3 class="h5 text-white mb-2">Need a Fast Site Audit in {{ loc.regionName }}?</h3>
+            <p class="text-light small mb-3">Our field technicians can conduct an on-site survey and prepare an itemized BOQ within hours.</p>
+            
+            <a [href]="whatsappDirectUrl()" target="_blank" rel="noopener noreferrer" class="btn btn-success w-100 fw-bold py-2 mb-2 d-flex align-items-center justify-content-center gap-2">
+              <i class="fa fa-whatsapp fs-5"></i> Chat on WhatsApp
+            </a>
+            
+            <a [href]="'tel:' + siteData.contact.primaryPhone" class="btn btn-outline-light w-100 py-2 d-flex align-items-center justify-content-center gap-2">
+              <i class="fa fa-phone"></i> Call: {{ siteData.contact.primaryPhone }}
+            </a>
+
+            <div class="mt-3 text-white-50 small">
+              📍 HQ Hub: Room No. 10, Amar Bldg, Charai, Thane West
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Featured Local Services Grid -->
+  <section class="local-services-section py-5" style="background-color: #f8fafc;">
+    <div class="auto-container">
+      <div class="section-title text-center mb-5">
+        <span class="badge bg-danger text-white px-3 py-1 rounded-pill mb-2">Turnkey Solutions</span>
+        <h2 class="h3 fw-bold text-dark">Services Delivered Across {{ loc.regionName }}</h2>
+        <p class="text-muted small">Comprehensive installation, cabling, hardware supply, and AMC maintenance contracts.</p>
+      </div>
+
+      <div class="row g-4">
+        @for (service of loc.featuredServices; track service.title) {
+          <div class="col-lg-3 col-md-6 col-12">
+            <div class="local-service-card p-4 rounded-4 bg-white border shadow-sm h-100 d-flex flex-column transition-all">
+              <div class="icon-circle mb-3">
+                <i class="fa" [class]="service.icon"></i>
+              </div>
+              <h3 class="h5 fw-bold text-dark mb-2">{{ service.title }}</h3>
+              <p class="text-muted small flex-grow-1">{{ service.description }}</p>
+              <a [routerLink]="service.route" class="btn btn-link p-0 text-primary fw-bold text-decoration-none mt-3">
+                Explore Details <i class="fa fa-arrow-right ms-1"></i>
+              </a>
+            </div>
+          </div>
+        }
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Local Case Study Showcase -->
+  <section class="local-casestudy-section py-5 bg-white">
+    <div class="auto-container">
+      <div class="casestudy-card p-4 p-md-5 rounded-4 shadow-sm border bg-light">
+        <div class="row g-4 align-items-center">
+          
+          <div class="col-lg-7 col-md-12">
+            <span class="badge bg-success text-white px-3 py-1 rounded-pill mb-2">Verified {{ loc.regionName }} Case Study</span>
+            <h3 class="h4 fw-bold text-dark mb-2">{{ loc.localCaseStudy.title }}</h3>
+            <p class="text-secondary fw-semibold mb-3"><i class="fa fa-building text-primary me-1"></i> {{ loc.localCaseStudy.societyOrClient }}</p>
+            
+            <div class="mb-2">
+              <strong class="text-danger d-block small text-uppercase">Challenge:</strong>
+              <p class="text-muted small mb-2">{{ loc.localCaseStudy.challenge }}</p>
+            </div>
+
+            <div class="mb-3">
+              <strong class="text-success d-block small text-uppercase">Turnkey Solution:</strong>
+              <p class="text-muted small mb-0">{{ loc.localCaseStudy.solution }}</p>
+            </div>
+
+            <div class="alert alert-success p-2 small mb-0">
+              <strong><i class="fa fa-check-circle"></i> Outcome:</strong> {{ loc.localCaseStudy.result }}
+            </div>
+          </div>
+
+          <div class="col-lg-5 col-md-12">
+            <div class="p-3 bg-white rounded-3 border">
+              <h4 class="h6 fw-bold text-dark mb-3 border-bottom pb-2">Hardware & Infrastructure Deployed:</h4>
+              <ul class="list-unstyled mb-0">
+                @for (item of loc.localCaseStudy.hardwareInstalled; track item) {
+                  <li class="py-1 text-secondary small d-flex align-items-center">
+                    <i class="fa fa-check text-success me-2"></i> {{ item }}
+                  </li>
+                }
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dedicated Society Secretary Site Audit Form Section -->
+  <section class="local-audit-form-section py-5" style="background-color: #f1f5f9;">
+    <div class="auto-container">
+      <app-society-audit-form 
+        [title]="'Book Free Site Audit in ' + loc.regionName"
+        [subtitle]="'Turnkey site survey, cable length estimation & itemized BOQ quote for housing societies & commercial facilities across ' + loc.regionName">
+      </app-society-audit-form>
+    </div>
+  </section>
+
+  <!-- Localized FAQ Accordion -->
+  <section class="local-faq-section py-5 bg-white">
+    <div class="auto-container">
+      <div class="section-title text-center mb-4">
+        <span class="sub-title">Local Knowledge</span>
+        <h2 class="h3 fw-bold text-dark">Frequently Asked Questions in {{ loc.regionName }}</h2>
+      </div>
+
+      <div class="faq-accordion-container max-w-850 mx-auto">
+        @for (faq of loc.localFaqs; track faq.question; let i = $index) {
+          <div class="faq-item" [class.open]="activeFaqIndex() === i">
+            <button class="faq-question-btn" (click)="toggleFaq(i)">
+              <span>{{ faq.question }}</span>
+              <i class="fa" [class.fa-plus]="activeFaqIndex() !== i" [class.fa-minus]="activeFaqIndex() === i"></i>
+            </button>
+            @if (activeFaqIndex() === i) {
+              <div class="faq-answer-content animate-fade-in">
+                <p>{{ faq.answer }}</p>
+              </div>
+            }
+          </div>
+        }
+      </div>
+
+    </div>
+  </section>
+
+} @else {
+  <!-- Fallback if location not found -->
+  <section class="py-5 text-center">
+    <div class="auto-container">
+      <h2>Location Page Not Found</h2>
+      <p>The requested service location could not be located.</p>
+      <a routerLink="/services" class="btn btn-primary">Return to Services</a>
+    </div>
+  </section>
+}

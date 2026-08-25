@@ -46,6 +46,48 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/services/service-cluster/service-cluster.component').then(m => m.ServiceClusterComponent)
   },
   {
+    path: 'tools/cctv-storage-calculator',
+    loadComponent: () => import('./pages/tools/cctv-calculator/cctv-calculator.component').then(m => m.CctvCalculatorComponent),
+    title: 'CCTV Storage & Hard Drive (HDD) Calculator | Sunrise Communication'
+  },
+  {
+    path: 'locations/cctv-installation-thane-west',
+    loadComponent: () => import('./pages/locations/local-landing/local-landing.component').then(m => m.LocalLandingComponent)
+  },
+  {
+    path: 'locations/society-intercom-wagle-estate',
+    loadComponent: () => import('./pages/locations/local-landing/local-landing.component').then(m => m.LocalLandingComponent)
+  },
+  {
+    path: 'locations/security-systems-navi-mumbai',
+    loadComponent: () => import('./pages/locations/local-landing/local-landing.component').then(m => m.LocalLandingComponent)
+  },
+  {
+    path: 'locations/:slug',
+    loadComponent: () => import('./pages/locations/local-landing/local-landing.component').then(m => m.LocalLandingComponent)
+  },
+  {
+    path: 'guides',
+    loadComponent: () => import('./pages/guides/guide-list/guide-list.component').then(m => m.GuideListComponent),
+    title: 'Technical Security & Society Guides | Sunrise Communication'
+  },
+  {
+    path: 'guides/housing-society-cctv-installation-guide',
+    loadComponent: () => import('./pages/guides/guide-detail/guide-detail.component').then(m => m.GuideDetailComponent)
+  },
+  {
+    path: 'guides/society-intercom-copper-vs-ip-pbx-guide',
+    loadComponent: () => import('./pages/guides/guide-detail/guide-detail.component').then(m => m.GuideDetailComponent)
+  },
+  {
+    path: 'guides/cctv-amc-checklist-for-societies',
+    loadComponent: () => import('./pages/guides/guide-detail/guide-detail.component').then(m => m.GuideDetailComponent)
+  },
+  {
+    path: 'guides/:slug',
+    loadComponent: () => import('./pages/guides/guide-detail/guide-detail.component').then(m => m.GuideDetailComponent)
+  },
+  {
     path: 'contact',
     loadComponent: () => import('./pages/contact/contact.component').then(m => m.ContactComponent),
     title: 'Contact Us for Security Solutions | Sunrise Communication'

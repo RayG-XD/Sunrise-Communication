@@ -264,6 +264,20 @@
         </div>
       </div>
 
+      <!-- CCTV Storage Calculator Cross-Link Banner -->
+      @if (cluster.slug === 'cctv-surveillance-systems') {
+        <div class="cctv-calculator-crosslink-card mb-5 p-4 rounded-4 bg-primary text-white d-flex align-items-center justify-content-between flex-wrap gap-3 shadow-sm">
+          <div>
+            <span class="badge bg-warning text-dark px-3 py-1 rounded-pill mb-1">Free Sizing Tool</span>
+            <h3 class="h4 mb-1 text-white"><i class="fa fa-calculator me-2"></i> Need Exact CCTV Hard Drive (HDD) Sizing?</h3>
+            <p class="mb-0 text-white-50">Calculate storage in TB, NVR channel capacities, and bandwidth for CP Plus, Hikvision & Dahua cameras.</p>
+          </div>
+          <a routerLink="/tools/cctv-storage-calculator" class="btn btn-warning btn-lg fw-bold text-dark px-4 py-2">
+            Launch Storage Calculator <i class="fa fa-arrow-right ms-1"></i>
+          </a>
+        </div>
+      }
+
       <!-- 7. INTERACTIVE REQUIREMENT ESTIMATOR (SXO Conversion Engine) -->
       <div class="estimator-wrapper-section mb-5">
         <app-requirement-estimator></app-requirement-estimator>

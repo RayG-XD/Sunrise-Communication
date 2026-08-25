@@ -26,6 +26,14 @@ const routes = [
   'services/biometric-access-control',
   'services/structured-networking-cabling',
   'services/detail',
+  'tools/cctv-storage-calculator',
+  'locations/cctv-installation-thane-west',
+  'locations/society-intercom-wagle-estate',
+  'locations/security-systems-navi-mumbai',
+  'guides',
+  'guides/housing-society-cctv-installation-guide',
+  'guides/society-intercom-copper-vs-ip-pbx-guide',
+  'guides/cctv-amc-checklist-for-societies',
   'contact',
   '404'
 ];

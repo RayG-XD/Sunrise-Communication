@@ -1,0 +1,86 @@
+.guide-hero-banner {
+  background-image: url('/assets/images/background/10.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 80px 0 50px;
+}
+
+.guide-main-heading {
+  font-size: 32px;
+  line-height: 1.3;
+  color: #ffffff;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+}
+
+.max-w-850 {
+  max-width: 850px;
+}
+
+.hover-primary:hover {
+  color: #0d6efd !important;
+}
+
+.faq-accordion-container {
+  .faq-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    &.open {
+      border-color: #0d6efd;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .faq-question-btn {
+      width: 100%;
+      text-align: left;
+      padding: 16px 20px;
+      background: transparent;
+      border: none;
+      font-size: 16px;
+      font-weight: 600;
+      color: #0f172a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+
+      i {
+        font-size: 14px;
+        color: #0d6efd;
+      }
+    }
+
+    .faq-answer-content {
+      padding: 0 20px 16px;
+      color: #475569;
+      font-size: 15px;
+      line-height: 1.6;
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

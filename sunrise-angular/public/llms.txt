@@ -45,4 +45,9 @@
 - **EPABX & Intercom Hub:** https://sunrisecommunication.in/services/epabx-intercom-solutions
 - **Biometric Access Control Hub:** https://sunrisecommunication.in/services/biometric-access-control
 - **Structured Cabling Hub:** https://sunrisecommunication.in/services/structured-networking-cabling
+- **CCTV Storage & HDD Calculator Tool:** https://sunrisecommunication.in/tools/cctv-storage-calculator
+- **Thane West Local Security Hub:** https://sunrisecommunication.in/locations/cctv-installation-thane-west
+- **Wagle Estate Telecom & EPABX Hub:** https://sunrisecommunication.in/locations/society-intercom-wagle-estate
+- **Navi Mumbai Security Systems Hub:** https://sunrisecommunication.in/locations/security-systems-navi-mumbai
+- **Technical Society Guides & Knowledge Base:** https://sunrisecommunication.in/guides
 - **Full Machine-Readable Manifest:** https://sunrisecommunication.in/llms-full.txt
