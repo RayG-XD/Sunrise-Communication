@@ -1,4 +1,12 @@
-import { Component, PLATFORM_ID, inject, signal, afterNextRender, NgZone, OnDestroy } from '@angular/core';
+import {
+  Component,
+  PLATFORM_ID,
+  inject,
+  signal,
+  afterNextRender,
+  NgZone,
+  OnDestroy,
+} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { fromEvent, Subscription } from 'rxjs';
 
@@ -6,10 +14,17 @@ import { fromEvent, Subscription } from 'rxjs';
   selector: 'app-scroll-to-top',
   standalone: true,
   template: `
-    <div class="scroll-to-top scroll-to-target" [style.display]="isVisible() ? 'block' : 'none'" (click)="scrollToTop()">
-      <span class="fa fa-arrow-up"></span>
-    </div>
-  `
+    <button
+      type="button"
+      class="scroll-to-top scroll-to-target"
+      [style.display]="isVisible() ? 'block' : 'none'"
+      (click)="scrollToTop()"
+      aria-label="Scroll to top of page"
+      title="Scroll to top of page"
+    >
+      <span class="fa fa-arrow-up" aria-hidden="true"></span>
+    </button>
+  `,
 })
 export class ScrollToTopComponent implements OnDestroy {
   private platformId = inject(PLATFORM_ID);
@@ -25,7 +40,7 @@ export class ScrollToTopComponent implements OnDestroy {
         this.ngZone.runOutsideAngular(() => {
           this.scrollSub = fromEvent(window, 'scroll').subscribe(() => {
             const shouldShow = window.scrollY > 300; // Original script.js usually uses 300 or 500
-            
+
             // Only trigger change detection if the visibility state actually changes
             if (shouldShow !== this.isVisible()) {
               this.ngZone.run(() => {
@@ -42,7 +57,7 @@ export class ScrollToTopComponent implements OnDestroy {
     if (isPlatformBrowser(this.platformId)) {
       window.scrollTo({
         top: 0,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
   }
