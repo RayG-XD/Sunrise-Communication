@@ -38,7 +38,7 @@
         <div class="nav-outer clearfix">
 
           <!-- Mobile Navigation Toggler -->
-          <div class="mobile-nav-toggler" (click)="toggleMobileMenu()"><span class="icon flaticon-menu"></span></div>
+          <div class="mobile-nav-toggler" (click)="toggleMobileMenu()" role="button" aria-label="Toggle mobile navigation menu" tabindex="0" (keydown.enter)="toggleMobileMenu()" (keydown.space)="$event.preventDefault(); toggleMobileMenu()"><span class="icon flaticon-menu"></span></div>
           
           <!-- Main Menu -->
           <nav class="main-menu show navbar-expand-md">
@@ -80,7 +80,7 @@
           <div class="outer-box clearfix">
 
             <!-- Nav Btn -->
-            <div class="nav-btn navSidebar-button" (click)="toggleSidebar()"><span class="icon flaticon-dots-menu"></span>
+            <div class="nav-btn navSidebar-button" (click)="toggleSidebar()" role="button" aria-label="Toggle sidebar panel" tabindex="0" (keydown.enter)="toggleSidebar()" (keydown.space)="$event.preventDefault(); toggleSidebar()"><span class="icon flaticon-dots-menu"></span>
             </div>
 
           </div>
@@ -129,7 +129,7 @@
         <!-- Outer Box -->
         <div class="outer-box clearfix">
           <!-- Nav Btn -->
-          <div class="nav-btn navSidebar-button" (click)="toggleSidebar()"><span class="icon flaticon-dots-menu"></span></div>
+          <div class="nav-btn navSidebar-button" (click)="toggleSidebar()" role="button" aria-label="Toggle sidebar panel" tabindex="0" (keydown.enter)="toggleSidebar()" (keydown.space)="$event.preventDefault(); toggleSidebar()"><span class="icon flaticon-dots-menu"></span></div>
         </div>
         <!-- End Outer Box -->
 
@@ -140,7 +140,7 @@
   <!-- Mobile Menu  -->
   <div class="mobile-menu">
     <div class="menu-backdrop" (click)="toggleMobileMenu()"></div>
-    <div class="close-btn" (click)="toggleMobileMenu()"><span class="icon flaticon-multiply"></span></div>
+    <div class="close-btn" (click)="toggleMobileMenu()" role="button" aria-label="Close mobile navigation menu" tabindex="0" (keydown.enter)="toggleMobileMenu()" (keydown.space)="$event.preventDefault(); toggleMobileMenu()"><span class="icon flaticon-multiply"></span></div>
 
     <nav class="menu-box">
       <div class="nav-logo"><a routerLink="/"><img src="assets/images/logo.png" alt="Sunrise Communication Logo" title=""></a></div>
@@ -153,7 +153,7 @@
             <li routerLinkActive="current"><a routerLink="/products" (click)="toggleMobileMenu()">Products</a></li>
             <li class="dropdown" [class.open]="isServicesDropdownOpen()">
               <a routerLink="/services" (click)="closeAllMenus()">Services</a>
-              <div class="dropdown-btn" [class.open]="isServicesDropdownOpen()" (click)="toggleServicesDropdown($event)">
+              <div class="dropdown-btn" [class.open]="isServicesDropdownOpen()" (click)="toggleServicesDropdown($event)" role="button" aria-label="Toggle services submenu" tabindex="0" (keydown.enter)="toggleServicesDropdown($event)" (keydown.space)="$event.preventDefault(); toggleServicesDropdown($event)">
                 <span class="fa fa-angle-down"></span>
               </div>
               <ul [style.display]="isServicesDropdownOpen() ? 'block' : 'none'">
@@ -181,7 +181,7 @@
   <div class="xs-sidebar-widget">
     <div class="sidebar-widget-container">
       <div class="widget-heading">
-        <a href="javascript:void(0)" class="close-side-widget" (click)="toggleSidebar()">
+        <a href="javascript:void(0)" class="close-side-widget" (click)="toggleSidebar()" aria-label="Close sidebar panel">
           X
         </a>
       </div>
