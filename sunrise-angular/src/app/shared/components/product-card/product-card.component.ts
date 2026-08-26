@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { Product } from '../../../core/models/product.model';
@@ -8,7 +8,10 @@ import { Product } from '../../../core/models/product.model';
   standalone: true,
   imports: [RouterLink, NgOptimizedImage],
   templateUrl: './product-card.component.html',
-  styleUrl: './product-card.component.scss'
+  styleUrl: './product-card.component.scss',
+  // Bolt Optimization: OnPush change detection avoids unnecessary component re-evaluations
+  // when parent lists (e.g. product catalog filtering/search) trigger change detection.
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductCardComponent {
   product = input.required<Product>();
