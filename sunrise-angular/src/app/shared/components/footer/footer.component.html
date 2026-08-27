@@ -1,28 +1,55 @@
 <footer class="main-footer">
-  <div class="pattern-layer-one" style="background-image: url(assets/images/background/pattern-12.png)"></div>
-  <div class="pattern-layer-two" style="background-image: url(assets/images/background/pattern-13.png)"></div>
+  <div
+    class="pattern-layer-one"
+    style="background-image: url(assets/images/background/pattern-12.png)"
+  ></div>
+  <div
+    class="pattern-layer-two"
+    style="background-image: url(assets/images/background/pattern-13.png)"
+  ></div>
   <div class="auto-container">
     <div class="widgets-section">
       <div class="logo">
-        <a routerLink="/"><img src="assets/images/footer-logo.png"
-            alt="Sunrise Communication Logo - Security Expert in Thane" /></a>
+        <a routerLink="/"
+          ><img
+            src="assets/images/footer-logo.png"
+            alt="Sunrise Communication Logo - Security Expert in Thane"
+        /></a>
       </div>
       <ul class="contact-info-list">
         <li>
-          <span class="icon"><img loading="lazy" src="assets/images/icons/icon-1.png"
-              alt="Sunrise Communication Service Icon" /></span>
-          <a [href]="'tel:' + siteData.contact.primaryPhone">{{ siteData.contact.primaryPhone }}</a><br>
-          <a [href]="'tel:' + siteData.contact.secondaryPhone">{{ siteData.contact.secondaryPhone }}</a>
+          <span class="icon"
+            ><img
+              loading="lazy"
+              src="assets/images/icons/icon-1.png"
+              alt="Sunrise Communication Service Icon"
+          /></span>
+          <a [href]="'tel:' + siteData.contact.primaryPhone">{{ siteData.contact.primaryPhone }}</a
+          ><br />
+          <a [href]="'tel:' + siteData.contact.secondaryPhone">{{
+            siteData.contact.secondaryPhone
+          }}</a>
         </li>
         <li>
-          <span class="icon"><img loading="lazy" src="assets/images/icons/icon-2.png"
-              alt="Sunrise Communication Service Icon" /></span>
-          <a [href]="'mailto:' + siteData.contact.email">{{ siteData.contact.email }}</a><br>
-          <a [href]="siteData.contact.website" target="_blank">www.sunrisecommunication.in</a>
+          <span class="icon"
+            ><img
+              loading="lazy"
+              src="assets/images/icons/icon-2.png"
+              alt="Sunrise Communication Service Icon"
+          /></span>
+          <a [href]="'mailto:' + siteData.contact.email">{{ siteData.contact.email }}</a
+          ><br />
+          <a [href]="siteData.contact.website" target="_blank" rel="noopener noreferrer"
+            >www.sunrisecommunication.in</a
+          >
         </li>
         <li>
-          <span class="icon"><img loading="lazy" src="assets/images/icons/icon-3.png"
-              alt="Sunrise Communication Service Icon" /></span>
+          <span class="icon"
+            ><img
+              loading="lazy"
+              src="assets/images/icons/icon-3.png"
+              alt="Sunrise Communication Service Icon"
+          /></span>
           {{ siteData.contact.address }}
         </li>
       </ul>
@@ -30,30 +57,87 @@
       <!-- Footer Quick Links Strip -->
       <div class="footer-quick-links my-3 text-center">
         <ul class="list-inline mb-1 d-flex justify-content-center gap-3 flex-wrap small">
-          <li class="list-inline-item"><a routerLink="/services/cctv-surveillance-systems" class="text-white text-decoration-none opacity-75">CCTV Systems</a></li>
+          <li class="list-inline-item">
+            <a
+              routerLink="/services/cctv-surveillance-systems"
+              class="text-white text-decoration-none opacity-75"
+              >CCTV Systems</a
+            >
+          </li>
           <li class="list-inline-item text-white-50">•</li>
-          <li class="list-inline-item"><a routerLink="/services/epabx-intercom-solutions" class="text-white text-decoration-none opacity-75">EPABX & Intercom</a></li>
+          <li class="list-inline-item">
+            <a
+              routerLink="/services/epabx-intercom-solutions"
+              class="text-white text-decoration-none opacity-75"
+              >EPABX & Intercom</a
+            >
+          </li>
           <li class="list-inline-item text-white-50">•</li>
-          <li class="list-inline-item"><a routerLink="/services/biometric-access-control" class="text-white text-decoration-none opacity-75">Biometrics & Access</a></li>
+          <li class="list-inline-item">
+            <a
+              routerLink="/services/biometric-access-control"
+              class="text-white text-decoration-none opacity-75"
+              >Biometrics & Access</a
+            >
+          </li>
           <li class="list-inline-item text-white-50">•</li>
-          <li class="list-inline-item"><a routerLink="/services/structured-networking-cabling" class="text-white text-decoration-none opacity-75">LAN Cabling</a></li>
+          <li class="list-inline-item">
+            <a
+              routerLink="/services/structured-networking-cabling"
+              class="text-white text-decoration-none opacity-75"
+              >LAN Cabling</a
+            >
+          </li>
           <li class="list-inline-item text-white-50">•</li>
-          <li class="list-inline-item"><a routerLink="/tools/cctv-storage-calculator" class="text-warning text-decoration-none fw-bold"><i class="fa fa-calculator"></i> Storage Calculator</a></li>
+          <li class="list-inline-item">
+            <a
+              routerLink="/tools/cctv-storage-calculator"
+              class="text-warning text-decoration-none fw-bold"
+              ><i class="fa fa-calculator"></i> Storage Calculator</a
+            >
+          </li>
           <li class="list-inline-item text-white-50">•</li>
-          <li class="list-inline-item"><a routerLink="/guides" class="text-white text-decoration-none opacity-75">Society Guides</a></li>
+          <li class="list-inline-item">
+            <a routerLink="/guides" class="text-white text-decoration-none opacity-75"
+              >Society Guides</a
+            >
+          </li>
         </ul>
         <ul class="list-inline mb-2 d-flex justify-content-center gap-3 flex-wrap small opacity-75">
-          <li class="list-inline-item"><a routerLink="/locations/cctv-installation-thane-west" class="text-white text-decoration-none">Thane West</a></li>
+          <li class="list-inline-item">
+            <a
+              routerLink="/locations/cctv-installation-thane-west"
+              class="text-white text-decoration-none"
+              >Thane West</a
+            >
+          </li>
           <li class="list-inline-item text-white-50">•</li>
-          <li class="list-inline-item"><a routerLink="/locations/society-intercom-wagle-estate" class="text-white text-decoration-none">Wagle Estate</a></li>
+          <li class="list-inline-item">
+            <a
+              routerLink="/locations/society-intercom-wagle-estate"
+              class="text-white text-decoration-none"
+              >Wagle Estate</a
+            >
+          </li>
           <li class="list-inline-item text-white-50">•</li>
-          <li class="list-inline-item"><a routerLink="/locations/security-systems-navi-mumbai" class="text-white text-decoration-none">Navi Mumbai</a></li>
+          <li class="list-inline-item">
+            <a
+              routerLink="/locations/security-systems-navi-mumbai"
+              class="text-white text-decoration-none"
+              >Navi Mumbai</a
+            >
+          </li>
         </ul>
       </div>
 
       <!-- Google 5.0 Star Social Proof Badge -->
       <div class="footer-review-badge">
-        <a [href]="siteData.gbp.reviewUrl" target="_blank" rel="noopener noreferrer" class="google-review-pill">
+        <a
+          [href]="siteData.gbp.reviewUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="google-review-pill"
+        >
           <span class="stars">⭐⭐⭐⭐⭐</span>
           <span class="score"><strong>5.0 / 5.0 Stars</strong> (93+ Google Reviews)</span>
           <span class="btn-text">Rate Us <i class="fa fa-external-link"></i></span>
@@ -62,24 +146,61 @@
 
       <!-- Social Box -->
       <ul class="social-box">
-        <li><a aria-label="Facebook Profile" [href]="siteData.social.facebook" class="fa fa-facebook-f"
-            target="_blank"></a></li>
-        <li><a aria-label="LinkedIn Profile" [href]="siteData.social.linkedin" class="fa fa-linkedin"
-            target="_blank"></a></li>
-        <li><a aria-label="Instagram Profile" [href]="siteData.social.instagram" class="fa fa-instagram"
-            target="_blank"></a></li>
-        <li><a aria-label="Twitter Profile" [href]="siteData.social.twitter" class="fa fa-twitter" target="_blank"></a></li>
-        <li><a aria-label="WhatsApp Contact" [href]="siteData.social.whatsapp" class="fa fa-whatsapp" target="_blank"></a></li>
+        <li>
+          <a
+            aria-label="Facebook Profile"
+            [href]="siteData.social.facebook"
+            class="fa fa-facebook-f"
+            target="_blank"
+            rel="noopener noreferrer"
+          ></a>
+        </li>
+        <li>
+          <a
+            aria-label="LinkedIn Profile"
+            [href]="siteData.social.linkedin"
+            class="fa fa-linkedin"
+            target="_blank"
+            rel="noopener noreferrer"
+          ></a>
+        </li>
+        <li>
+          <a
+            aria-label="Instagram Profile"
+            [href]="siteData.social.instagram"
+            class="fa fa-instagram"
+            target="_blank"
+            rel="noopener noreferrer"
+          ></a>
+        </li>
+        <li>
+          <a
+            aria-label="Twitter Profile"
+            [href]="siteData.social.twitter"
+            class="fa fa-twitter"
+            target="_blank"
+            rel="noopener noreferrer"
+          ></a>
+        </li>
+        <li>
+          <a
+            aria-label="WhatsApp Contact"
+            [href]="siteData.social.whatsapp"
+            class="fa fa-whatsapp"
+            target="_blank"
+            rel="noopener noreferrer"
+          ></a>
+        </li>
       </ul>
-
     </div>
-
   </div>
   <!-- Footer Bottom -->
   <div class="footer-bottom">
     <div class="auto-container">
-      <div class="copyright">&copy; {{ currentYear }} Sunrise Communication. All Rights Reserved. Designed By <a
-          href="https://pratikpol.in/">Pratik Pol</a></div>
+      <div class="copyright">
+        &copy; {{ currentYear }} Sunrise Communication. All Rights Reserved. Designed By
+        <a href="https://pratikpol.in/">Pratik Pol</a>
+      </div>
     </div>
   </div>
 </footer>
