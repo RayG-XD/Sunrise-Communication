@@ -1,10 +1,13 @@
-<app-page-title title="Contact Us for Security Solutions" breadcrumb="Contact us" bgImage="assets/images/background/10.jpg"></app-page-title>
+<app-page-title
+  title="Contact Us for Security Solutions"
+  breadcrumb="Contact us"
+  bgImage="assets/images/background/10.jpg"
+></app-page-title>
 
 <!-- Contact Page Section -->
 <section class="contact-page-section">
   <div class="auto-container">
     <div class="row clearfix">
-
       <!-- Info Column -->
       <div class="info-column col-lg-5 col-md-12 col-sm-12" data-aos="fade-right">
         <div class="inner-column">
@@ -19,13 +22,21 @@
               </li>
               <li>
                 <span class="icon flaticon-call"></span>
-                <a [href]="'tel:' + siteData.contact.primaryPhone">{{ siteData.contact.primaryPhone }}</a><br>
-                <a [href]="'tel:' + siteData.contact.secondaryPhone">{{ siteData.contact.secondaryPhone }}</a>
+                <a [href]="'tel:' + siteData.contact.primaryPhone">{{
+                  siteData.contact.primaryPhone
+                }}</a
+                ><br />
+                <a [href]="'tel:' + siteData.contact.secondaryPhone">{{
+                  siteData.contact.secondaryPhone
+                }}</a>
               </li>
               <li>
                 <span class="icon flaticon-email-1"></span>
-                <a [href]="'mailto:' + siteData.contact.email">{{ siteData.contact.email }}</a><br>
-                <a [href]="siteData.contact.website" target="_blank" rel="noopener noreferrer">{{ siteData.contact.website }}</a>
+                <a [href]="'mailto:' + siteData.contact.email">{{ siteData.contact.email }}</a
+                ><br />
+                <a [href]="siteData.contact.website" target="_blank" rel="noopener noreferrer">{{
+                  siteData.contact.website
+                }}</a>
               </li>
             </ul>
             <div class="timing">
@@ -37,10 +48,20 @@
               <div class="stars-gold text-warning">⭐⭐⭐⭐⭐</div>
               <strong class="d-block text-dark">5.0 / 5.0 Stars (93+ Reviews)</strong>
               <div class="d-flex gap-2 mt-2 flex-wrap">
-                <a [href]="siteData.gbp.mapsUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">
+                <a
+                  [href]="siteData.gbp.mapsUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-outline-primary btn-sm"
+                >
                   <i class="fa fa-map-marker"></i> Get Directions
                 </a>
-                <a [href]="siteData.gbp.reviewUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline-danger btn-sm">
+                <a
+                  [href]="siteData.gbp.reviewUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-outline-danger btn-sm"
+                >
                   <i class="fa fa-google"></i> Review Us
                 </a>
               </div>
@@ -48,13 +69,52 @@
 
             <!-- Social Box -->
             <ul class="social-box">
-              <li><a aria-label="Facebook Profile" [href]="siteData.social.facebook" class="fa fa-facebook-f" target="_blank" rel="noopener noreferrer"></a></li>
-              <li><a aria-label="LinkedIn Profile" [href]="siteData.social.linkedin" class="fa fa-linkedin" target="_blank" rel="noopener noreferrer"></a></li>
-              <li><a aria-label="Instagram Profile" [href]="siteData.social.instagram" class="fa fa-instagram" target="_blank" rel="noopener noreferrer"></a></li>
-              <li><a aria-label="Twitter Profile" [href]="siteData.social.twitter" class="fa fa-twitter" target="_blank" rel="noopener noreferrer"></a></li>
-              <li><a aria-label="WhatsApp Contact" [href]="siteData.social.whatsapp" class="fa fa-whatsapp" target="_blank" rel="noopener noreferrer"></a></li>
+              <li>
+                <a
+                  aria-label="Facebook Profile"
+                  [href]="siteData.social.facebook"
+                  class="fa fa-facebook-f"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                ></a>
+              </li>
+              <li>
+                <a
+                  aria-label="LinkedIn Profile"
+                  [href]="siteData.social.linkedin"
+                  class="fa fa-linkedin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                ></a>
+              </li>
+              <li>
+                <a
+                  aria-label="Instagram Profile"
+                  [href]="siteData.social.instagram"
+                  class="fa fa-instagram"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                ></a>
+              </li>
+              <li>
+                <a
+                  aria-label="Twitter Profile"
+                  [href]="siteData.social.twitter"
+                  class="fa fa-twitter"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                ></a>
+              </li>
+              <li>
+                <a
+                  aria-label="WhatsApp Contact"
+                  [href]="siteData.social.whatsapp"
+                  class="fa fa-whatsapp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                ></a>
+              </li>
             </ul>
-
           </div>
         </div>
       </div>
@@ -65,29 +125,41 @@
           <!--Map Outer-->
           <div class="map-outer">
             <iframe
+              title="Google Maps location of Sunrise Communication"
               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d235.49947738884177!2d72.9744403558198!3d19.195567565228195!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b9054e8ac5dd%3A0x6404487c9e4db3ec!2sSunrise%20Communication!5e0!3m2!1sen!2sus!4v1685973441825!5m2!1sen!2sus"
-              allowfullscreen="" loading="lazy"></iframe>
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
           </div>
         </div>
       </div>
-
     </div>
 
     <!-- Contact / Audit Form Container -->
     <div class="contact-form-box mt-5" data-aos="fade-up">
-      
       <!-- Inquiry Mode Tabs -->
-      <div class="inquiry-mode-tabs d-flex justify-content-center gap-2 mb-4 flex-wrap">
-        <button type="button" class="btn px-4 py-2 fw-bold rounded-pill transition-all"
-                [class.btn-danger]="activeTab() === 'society'"
-                [class.btn-outline-secondary]="activeTab() !== 'society'"
-                (click)="activeTab.set('society')">
+      <div
+        class="inquiry-mode-tabs d-flex justify-content-center gap-2 mb-4 flex-wrap"
+        role="tablist"
+      >
+        <button
+          type="button"
+          class="btn px-4 py-2 fw-bold rounded-pill transition-all"
+          [class.btn-danger]="activeTab() === 'society'"
+          [class.btn-outline-secondary]="activeTab() !== 'society'"
+          [attr.aria-pressed]="activeTab() === 'society'"
+          (click)="activeTab.set('society')"
+        >
           <i class="fa fa-building me-1"></i> Housing Society & Office Site Audit
         </button>
-        <button type="button" class="btn px-4 py-2 fw-bold rounded-pill transition-all"
-                [class.btn-primary]="activeTab() === 'general'"
-                [class.btn-outline-secondary]="activeTab() !== 'general'"
-                (click)="activeTab.set('general')">
+        <button
+          type="button"
+          class="btn px-4 py-2 fw-bold rounded-pill transition-all"
+          [class.btn-primary]="activeTab() === 'general'"
+          [class.btn-outline-secondary]="activeTab() !== 'general'"
+          [attr.aria-pressed]="activeTab() === 'general'"
+          (click)="activeTab.set('general')"
+        >
           <i class="fa fa-envelope-o me-1"></i> General Message / Quick Inquiry
         </button>
       </div>
@@ -103,88 +175,161 @@
           <!-- Form Title Box -->
           <div class="form-title-box text-center mb-4">
             <h3 class="h4 fw-bold text-dark">Send a Direct Message</h3>
-            <p class="text-muted small">Fill out the form below or chat with our technician on WhatsApp.</p>
+            <p class="text-muted small">
+              Fill out the form below or chat with our technician on WhatsApp.
+            </p>
           </div>
 
           <!-- Contact Form -->
           <div class="contact-form">
             <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" id="contact-form">
               <div class="row clearfix">
-
                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                  <input type="text" formControlName="username" placeholder="Your Full Name *" [class.error]="contactForm.get('username')?.invalid && contactForm.get('username')?.touched">
-                  @if(contactForm.get('username')?.invalid && contactForm.get('username')?.touched) {
+                  <input
+                    type="text"
+                    formControlName="username"
+                    aria-label="Your Full Name"
+                    placeholder="Your Full Name *"
+                    [class.error]="
+                      contactForm.get('username')?.invalid && contactForm.get('username')?.touched
+                    "
+                  />
+                  @if (
+                    contactForm.get('username')?.invalid && contactForm.get('username')?.touched
+                  ) {
                     <small class="text-danger d-block mt-1">Please enter your name.</small>
                   }
                 </div>
 
                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                  <input type="email" formControlName="email" placeholder="Email Address *" [class.error]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
-                  @if(contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
-                    <small class="text-danger d-block mt-1">Please enter a valid email address.</small>
+                  <input
+                    type="email"
+                    formControlName="email"
+                    aria-label="Email Address"
+                    placeholder="Email Address *"
+                    [class.error]="
+                      contactForm.get('email')?.invalid && contactForm.get('email')?.touched
+                    "
+                  />
+                  @if (contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
+                    <small class="text-danger d-block mt-1"
+                      >Please enter a valid email address.</small
+                    >
                   }
                 </div>
 
                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                  <input type="text" formControlName="company" placeholder="Society / Company Name (e.g. Gokul CHS, Thane)">
+                  <input
+                    type="text"
+                    formControlName="company"
+                    aria-label="Society or Company Name"
+                    placeholder="Society / Company Name (e.g. Gokul CHS, Thane)"
+                  />
                 </div>
 
                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                  <input type="tel" formControlName="phone" placeholder="Phone Number (e.g. 9876543210) *" [class.error]="contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched">
-                  @if(contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched) {
-                    <small class="text-danger d-block mt-1">Please enter a valid phone number.</small>
+                  <input
+                    type="tel"
+                    formControlName="phone"
+                    aria-label="Phone Number"
+                    placeholder="Phone Number (e.g. 9876543210) *"
+                    [class.error]="
+                      contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched
+                    "
+                  />
+                  @if (contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched) {
+                    <small class="text-danger d-block mt-1"
+                      >Please enter a valid phone number.</small
+                    >
                   }
                 </div>
 
                 <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                  <textarea formControlName="message" placeholder="Describe Your Requirement (e.g. 16 Camera CCTV Installation for CHS, Intercom Line Repair, AMC Quote)... *" [class.error]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"></textarea>
-                  @if(contactForm.get('message')?.invalid && contactForm.get('message')?.touched) {
-                    <small class="text-danger d-block mt-1">Please describe your requirement.</small>
+                  <textarea
+                    formControlName="message"
+                    aria-label="Requirement Description"
+                    placeholder="Describe Your Requirement (e.g. 16 Camera CCTV Installation for CHS, Intercom Line Repair, AMC Quote)... *"
+                    [class.error]="
+                      contactForm.get('message')?.invalid && contactForm.get('message')?.touched
+                    "
+                  ></textarea>
+                  @if (contactForm.get('message')?.invalid && contactForm.get('message')?.touched) {
+                    <small class="text-danger d-block mt-1"
+                      >Please describe your requirement.</small
+                    >
                   }
                 </div>
 
-                <div class="col-lg-12 col-md-12 col-sm-12 form-group text-center d-flex justify-content-center gap-3 flex-wrap">
-                  <button class="theme-btn btn-style-four" type="submit" [disabled]="isSubmitting()">
-                    <span class="txt"><i class="fa fa-envelope-o mr-1"></i> {{ isSubmitting() ? 'Sending...' : 'Submit Inquiry' }}</span>
+                <div
+                  class="col-lg-12 col-md-12 col-sm-12 form-group text-center d-flex justify-content-center gap-3 flex-wrap"
+                >
+                  <button
+                    class="theme-btn btn-style-four"
+                    type="submit"
+                    [disabled]="isSubmitting()"
+                  >
+                    <span class="txt"
+                      ><i class="fa fa-envelope-o mr-1"></i>
+                      {{ isSubmitting() ? 'Sending...' : 'Submit Inquiry' }}</span
+                    >
                   </button>
-                  <button class="btn btn-success px-4 py-2 fw-bold d-inline-flex align-items-center gap-2" type="button" (click)="sendDirectWhatsApp()">
+                  <button
+                    class="btn btn-success px-4 py-2 fw-bold d-inline-flex align-items-center gap-2"
+                    type="button"
+                    (click)="sendDirectWhatsApp()"
+                  >
                     <i class="fa fa-whatsapp fs-5"></i> <span>Send via WhatsApp</span>
                   </button>
                 </div>
-                
-                @if(successMessage()) {
+
+                @if (successMessage()) {
                   <div class="col-lg-12 col-md-12 col-sm-12 form-group text-center mt-3">
-                    <div class="alert alert-success d-flex flex-column align-items-center gap-2 p-3">
-                      <div><strong><i class="fa fa-check-circle"></i> {{ successMessage() }}</strong></div>
-                      @if(lastSubmittedData()) {
-                        <a [href]="getWhatsAppUrl(lastSubmittedData())" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-success mt-1">
-                          <i class="fa fa-whatsapp"></i> Also Send this Copy to WhatsApp for Instant Reply
+                    <div
+                      class="alert alert-success d-flex flex-column align-items-center gap-2 p-3"
+                    >
+                      <div>
+                        <strong><i class="fa fa-check-circle"></i> {{ successMessage() }}</strong>
+                      </div>
+                      @if (lastSubmittedData()) {
+                        <a
+                          [href]="getWhatsAppUrl(lastSubmittedData())"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="btn btn-sm btn-outline-success mt-1"
+                        >
+                          <i class="fa fa-whatsapp"></i> Also Send this Copy to WhatsApp for Instant
+                          Reply
                         </a>
                       }
                     </div>
                   </div>
                 }
 
-                @if(errorMessage()) {
+                @if (errorMessage()) {
                   <div class="col-lg-12 col-md-12 col-sm-12 form-group text-center mt-3">
                     <div class="alert alert-danger d-flex flex-column align-items-center gap-2 p-3">
-                      <div><strong><i class="fa fa-exclamation-triangle"></i> {{ errorMessage() }}</strong></div>
-                      <button type="button" (click)="sendDirectWhatsApp()" class="btn btn-sm btn-success mt-1">
+                      <div>
+                        <strong
+                          ><i class="fa fa-exclamation-triangle"></i> {{ errorMessage() }}</strong
+                        >
+                      </div>
+                      <button
+                        type="button"
+                        (click)="sendDirectWhatsApp()"
+                        class="btn btn-sm btn-success mt-1"
+                      >
                         <i class="fa fa-whatsapp"></i> Click to Send via WhatsApp Instead
                       </button>
                     </div>
                   </div>
                 }
-
               </div>
             </form>
           </div>
         </div>
       }
-
     </div>
     <!-- End Contact Form Box -->
-
   </div>
 </section>
 <!-- End Contact Page Section -->
