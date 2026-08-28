@@ -25,7 +25,7 @@
               <li>
                 <span class="icon flaticon-email-1"></span>
                 <a [href]="'mailto:' + siteData.contact.email">{{ siteData.contact.email }}</a><br>
-                <a [href]="siteData.contact.website" target="_blank">{{ siteData.contact.website }}</a>
+                <a [href]="siteData.contact.website" target="_blank" rel="noopener noreferrer">{{ siteData.contact.website }}</a>
               </li>
             </ul>
             <div class="timing">
@@ -48,11 +48,11 @@
 
             <!-- Social Box -->
             <ul class="social-box">
-              <li><a aria-label="Facebook Profile" [href]="siteData.social.facebook" class="fa fa-facebook-f" target="_blank"></a></li>
-              <li><a aria-label="LinkedIn Profile" [href]="siteData.social.linkedin" class="fa fa-linkedin" target="_blank"></a></li>
-              <li><a aria-label="Instagram Profile" [href]="siteData.social.instagram" class="fa fa-instagram" target="_blank"></a></li>
-              <li><a aria-label="Twitter Profile" [href]="siteData.social.twitter" class="fa fa-twitter" target="_blank"></a></li>
-              <li><a aria-label="WhatsApp Contact" [href]="siteData.social.whatsapp" class="fa fa-whatsapp" target="_blank"></a></li>
+              <li><a aria-label="Facebook Profile" [href]="siteData.social.facebook" class="fa fa-facebook-f" target="_blank" rel="noopener noreferrer"></a></li>
+              <li><a aria-label="LinkedIn Profile" [href]="siteData.social.linkedin" class="fa fa-linkedin" target="_blank" rel="noopener noreferrer"></a></li>
+              <li><a aria-label="Instagram Profile" [href]="siteData.social.instagram" class="fa fa-instagram" target="_blank" rel="noopener noreferrer"></a></li>
+              <li><a aria-label="Twitter Profile" [href]="siteData.social.twitter" class="fa fa-twitter" target="_blank" rel="noopener noreferrer"></a></li>
+              <li><a aria-label="WhatsApp Contact" [href]="siteData.social.whatsapp" class="fa fa-whatsapp" target="_blank" rel="noopener noreferrer"></a></li>
             </ul>
 
           </div>
