@@ -1,29 +1,40 @@
 <div class="society-audit-form-wrapper p-4 p-md-5 rounded-4 shadow-sm bg-white border">
-
   <div class="form-header text-center mb-4">
-    <span class="badge bg-danger text-white px-3 py-2 rounded-pill mb-2">Free Technical On-Site Inspection</span>
+    <span class="badge bg-danger text-white px-3 py-2 rounded-pill mb-2"
+      >Free Technical On-Site Inspection</span
+    >
     <h3 class="h4 fw-bold text-dark mb-1">{{ title }}</h3>
     <p class="text-muted small max-w-650 mx-auto">{{ subtitle }}</p>
   </div>
 
   <form [formGroup]="auditForm" (ngSubmit)="onSubmit()">
     <div class="row g-3">
-
       <!-- 1. Society / Organization Name -->
       <div class="col-md-6 col-12">
-        <label class="form-label fw-bold text-dark small mb-1">Society / Corporate Name *</label>
-        <input type="text" formControlName="societyName" class="form-control" 
-               placeholder="e.g. Gokul Horizon CHS / Amar Industrial Park"
-               [class.is-invalid]="auditForm.get('societyName')?.invalid && auditForm.get('societyName')?.touched">
-        @if(auditForm.get('societyName')?.invalid && auditForm.get('societyName')?.touched) {
+        <label for="societyName" class="form-label fw-bold text-dark small mb-1"
+          >Society / Corporate Name *</label
+        >
+        <input
+          id="societyName"
+          type="text"
+          formControlName="societyName"
+          class="form-control"
+          placeholder="e.g. Gokul Horizon CHS / Amar Industrial Park"
+          [class.is-invalid]="
+            auditForm.get('societyName')?.invalid && auditForm.get('societyName')?.touched
+          "
+        />
+        @if (auditForm.get('societyName')?.invalid && auditForm.get('societyName')?.touched) {
           <div class="invalid-feedback">Please enter the society or building name.</div>
         }
       </div>
 
       <!-- 2. Locality / Ward -->
       <div class="col-md-6 col-12">
-        <label class="form-label fw-bold text-dark small mb-1">Locality in Thane / Mumbai MMR *</label>
-        <select formControlName="locality" class="form-select">
+        <label for="locality" class="form-label fw-bold text-dark small mb-1"
+          >Locality in Thane / Mumbai MMR *</label
+        >
+        <select id="locality" formControlName="locality" class="form-select">
           <optgroup label="Thane District">
             <option value="Charai, Thane (West)">Charai, Thane (West)</option>
             <option value="Naupada, Thane (West)">Naupada, Thane (West)</option>
@@ -40,7 +51,9 @@
             <option value="Andheri East / West">Andheri East / West</option>
             <option value="BKC / Bandra / Kurla">BKC / Bandra / Kurla</option>
             <option value="Borivali / Kandivali / Malad">Borivali / Kandivali / Malad</option>
-            <option value="Dadar / Lower Parel / South Mumbai">Dadar / Lower Parel / South Mumbai</option>
+            <option value="Dadar / Lower Parel / South Mumbai">
+              Dadar / Lower Parel / South Mumbai
+            </option>
           </optgroup>
           <optgroup label="Navi Mumbai">
             <option value="Vashi / Sanpada / Nerul">Vashi / Sanpada / Nerul</option>
@@ -53,19 +66,39 @@
 
       <!-- 3. Scale: Flat Count & Wing Count -->
       <div class="col-md-3 col-6">
-        <label class="form-label fw-bold text-dark small mb-1">Total Flats / Units *</label>
-        <input type="number" formControlName="flatCount" class="form-control" min="1" max="2000" placeholder="e.g. 48">
+        <label for="flatCount" class="form-label fw-bold text-dark small mb-1"
+          >Total Flats / Units *</label
+        >
+        <input
+          id="flatCount"
+          type="number"
+          formControlName="flatCount"
+          class="form-control"
+          min="1"
+          max="2000"
+          placeholder="e.g. 48"
+        />
       </div>
 
       <div class="col-md-3 col-6">
-        <label class="form-label fw-bold text-dark small mb-1">Total Wings *</label>
-        <input type="number" formControlName="wingCount" class="form-control" min="1" max="20" placeholder="e.g. 2">
+        <label for="wingCount" class="form-label fw-bold text-dark small mb-1">Total Wings *</label>
+        <input
+          id="wingCount"
+          type="number"
+          formControlName="wingCount"
+          class="form-control"
+          min="1"
+          max="20"
+          placeholder="e.g. 2"
+        />
       </div>
 
       <!-- 4. Project Type & Preferred Time Slot -->
       <div class="col-md-3 col-6">
-        <label class="form-label fw-bold text-dark small mb-1">Project Scope</label>
-        <select formControlName="projectType" class="form-select">
+        <label for="projectType" class="form-label fw-bold text-dark small mb-1"
+          >Project Scope</label
+        >
+        <select id="projectType" formControlName="projectType" class="form-select">
           <option value="New Turnkey Installation">New Turnkey Setup</option>
           <option value="Rewiring / Upgradation">Rewiring / Upgrade</option>
           <option value="AMC / Breakdown Service">AMC Maintenance</option>
@@ -73,8 +106,10 @@
       </div>
 
       <div class="col-md-3 col-6">
-        <label class="form-label fw-bold text-dark small mb-1">Preferred Time</label>
-        <select formControlName="preferredTime" class="form-select">
+        <label for="preferredTime" class="form-label fw-bold text-dark small mb-1"
+          >Preferred Time</label
+        >
+        <select id="preferredTime" formControlName="preferredTime" class="form-select">
           <option value="Morning (10 AM – 1 PM)">Morning (10AM–1PM)</option>
           <option value="Afternoon (2 PM – 5 PM)">Afternoon (2PM–5PM)</option>
           <option value="Evening (5 PM – 8 PM)">Evening (5PM–8PM)</option>
@@ -84,47 +119,59 @@
 
       <!-- 5. Scope Selection (Multi-Checkboxes) -->
       <div class="col-12">
-        <label class="form-label fw-bold text-dark small mb-2">Systems to Inspect / Quote For:</label>
+        <label class="form-label fw-bold text-dark small mb-2"
+          >Systems to Inspect / Quote For:</label
+        >
         <div class="d-flex flex-wrap gap-2">
-          
           <label class="service-pill-checkbox">
-            <input type="checkbox" formControlName="needCctv">
+            <input type="checkbox" formControlName="needCctv" />
             <span><i class="fa fa-video-camera"></i> CCTV Surveillance</span>
           </label>
 
           <label class="service-pill-checkbox">
-            <input type="checkbox" formControlName="needIntercom">
+            <input type="checkbox" formControlName="needIntercom" />
             <span><i class="fa fa-phone"></i> EPABX / Intercom</span>
           </label>
 
           <label class="service-pill-checkbox">
-            <input type="checkbox" formControlName="needBiometrics">
+            <input type="checkbox" formControlName="needBiometrics" />
             <span><i class="fa fa-id-card-o"></i> Biometrics & Access</span>
           </label>
 
           <label class="service-pill-checkbox">
-            <input type="checkbox" formControlName="needCabling">
+            <input type="checkbox" formControlName="needCabling" />
             <span><i class="fa fa-sitemap"></i> Network Cabling</span>
           </label>
 
           <label class="service-pill-checkbox">
-            <input type="checkbox" formControlName="needAmc">
+            <input type="checkbox" formControlName="needAmc" />
             <span><i class="fa fa-shield"></i> Annual AMC Contract</span>
           </label>
-
         </div>
       </div>
 
       <!-- 6. Contact Details -->
       <div class="col-md-4 col-12">
-        <label class="form-label fw-bold text-dark small mb-1">Contact Person Name *</label>
-        <input type="text" formControlName="contactPerson" class="form-control" placeholder="e.g. Mr. Rajesh Sharma"
-               [class.is-invalid]="auditForm.get('contactPerson')?.invalid && auditForm.get('contactPerson')?.touched">
+        <label for="contactPerson" class="form-label fw-bold text-dark small mb-1"
+          >Contact Person Name *</label
+        >
+        <input
+          id="contactPerson"
+          type="text"
+          formControlName="contactPerson"
+          class="form-control"
+          placeholder="e.g. Mr. Rajesh Sharma"
+          [class.is-invalid]="
+            auditForm.get('contactPerson')?.invalid && auditForm.get('contactPerson')?.touched
+          "
+        />
       </div>
 
       <div class="col-md-4 col-6">
-        <label class="form-label fw-bold text-dark small mb-1">Role / Designation *</label>
-        <select formControlName="designation" class="form-select">
+        <label for="designation" class="form-label fw-bold text-dark small mb-1"
+          >Role / Designation *</label
+        >
+        <select id="designation" formControlName="designation" class="form-select">
           <option value="Society Secretary">Society Secretary</option>
           <option value="Society Chairman">Society Chairman</option>
           <option value="Society Treasurer">Society Treasurer</option>
@@ -135,51 +182,72 @@
       </div>
 
       <div class="col-md-4 col-6">
-        <label class="form-label fw-bold text-dark small mb-1">Direct Mobile Number *</label>
-        <input type="tel" formControlName="phone" class="form-control" placeholder="e.g. 9323848622"
-               [class.is-invalid]="auditForm.get('phone')?.invalid && auditForm.get('phone')?.touched">
+        <label for="phone" class="form-label fw-bold text-dark small mb-1"
+          >Direct Mobile Number *</label
+        >
+        <input
+          id="phone"
+          type="tel"
+          formControlName="phone"
+          class="form-control"
+          placeholder="e.g. 9323848622"
+          [class.is-invalid]="auditForm.get('phone')?.invalid && auditForm.get('phone')?.touched"
+        />
       </div>
 
       <!-- 7. Action Buttons -->
       <div class="col-12 text-center mt-3 d-flex justify-content-center gap-3 flex-wrap">
-        
         <button type="submit" class="theme-btn btn-style-four" [disabled]="isSubmitting()">
           <span class="txt">
-            <i class="fa fa-calendar-check-o mr-1"></i> 
+            <i class="fa fa-calendar-check-o mr-1"></i>
             {{ isSubmitting() ? 'Booking Audit...' : 'Schedule Site Audit' }}
           </span>
         </button>
 
-        <button type="button" class="btn btn-success px-4 py-2 fw-bold d-inline-flex align-items-center gap-2" (click)="sendDirectWhatsApp()">
+        <button
+          type="button"
+          class="btn btn-success px-4 py-2 fw-bold d-inline-flex align-items-center gap-2"
+          (click)="sendDirectWhatsApp()"
+        >
           <i class="fa fa-whatsapp fs-5"></i> <span>Send via WhatsApp</span>
         </button>
-
       </div>
 
       <!-- Success & Error Alerts -->
-      @if(successMessage()) {
+      @if (successMessage()) {
         <div class="col-12 mt-3">
-          <div class="alert alert-success d-flex flex-column align-items-center gap-2 p-3 text-center">
-            <div><strong><i class="fa fa-check-circle"></i> {{ successMessage() }}</strong></div>
-            <a [href]="getWhatsAppLeadUrl(lastSubmittedSummary())" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-success">
+          <div
+            class="alert alert-success d-flex flex-column align-items-center gap-2 p-3 text-center"
+          >
+            <div>
+              <strong><i class="fa fa-check-circle"></i> {{ successMessage() }}</strong>
+            </div>
+            <a
+              [href]="getWhatsAppLeadUrl(lastSubmittedSummary())"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-sm btn-outline-success"
+            >
               <i class="fa fa-whatsapp"></i> Also Forward Audit Copy to WhatsApp
             </a>
           </div>
         </div>
       }
 
-      @if(errorMessage()) {
+      @if (errorMessage()) {
         <div class="col-12 mt-3">
-          <div class="alert alert-danger d-flex flex-column align-items-center gap-2 p-3 text-center">
-            <div><strong><i class="fa fa-exclamation-triangle"></i> {{ errorMessage() }}</strong></div>
+          <div
+            class="alert alert-danger d-flex flex-column align-items-center gap-2 p-3 text-center"
+          >
+            <div>
+              <strong><i class="fa fa-exclamation-triangle"></i> {{ errorMessage() }}</strong>
+            </div>
             <button type="button" (click)="sendDirectWhatsApp()" class="btn btn-sm btn-success">
               <i class="fa fa-whatsapp"></i> Click to Send Request on WhatsApp
             </button>
           </div>
         </div>
       }
-
     </div>
   </form>
-
 </div>
