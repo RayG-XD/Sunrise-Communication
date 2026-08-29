@@ -1,12 +1,15 @@
 import {
   Component,
   OnInit,
+  OnDestroy,
   inject,
   signal,
   computed,
   ChangeDetectionStrategy,
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subject, Subscription } from 'rxjs';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { ProductService } from '../../../core/services/product.service';
 import { ProductCardComponent } from '../../../shared/components/product-card/product-card.component';
 import { PageTitleComponent } from '../../../shared/components/page-title.component';
@@ -44,10 +47,16 @@ export interface ProductSubGroup {
   // dirty checking runs across the entire catalog and filter trees on unrelated DOM events.
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProductCatalogComponent implements OnInit {
+export class ProductCatalogComponent implements OnInit, OnDestroy {
   protected productService = inject(ProductService);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
+
+  // Subject and Subscription for debouncing user search input (250ms)
+  // Performance Optimization: Prevents high-frequency re-computations of filtered dynamic lists
+  // and eliminates excessive router.navigate URL updates on every single keystroke.
+  private searchSubject = new Subject<string>();
+  private searchSubscription!: Subscription;
 
   // Filter signals
   searchQuery = signal<string>('');
@@ -232,6 +241,17 @@ export class ProductCatalogComponent implements OnInit {
   ngOnInit(): void {
     this.productService.loadProducts();
 
+    // Debounce search inputs to optimize live catalog filtering performance & avoid router spam
+    this.searchSubscription = this.searchSubject
+      .pipe(debounceTime(250), distinctUntilChanged())
+      .subscribe((query) => {
+        this.searchQuery.set(query);
+        if (this.isLandingPageMode()) {
+          this.isLandingPageMode.set(false);
+        }
+        this.syncQueryParams();
+      });
+
     this.route.queryParams.subscribe((params) => {
       const hasParams =
         params['q'] || params['category'] || params['sub_category'] || params['brand'];
@@ -283,6 +303,12 @@ export class ProductCatalogComponent implements OnInit {
     }
   }
 
+  ngOnDestroy(): void {
+    if (this.searchSubscription) {
+      this.searchSubscription.unsubscribe();
+    }
+  }
+
   selectCategoryFromLanding(categoryName: string): void {
     this.isLandingPageMode.set(false);
     this.selectedCategories.set(new Set([categoryName]));
@@ -291,11 +317,8 @@ export class ProductCatalogComponent implements OnInit {
 
   onSearchInput(event: Event): void {
     const val = (event.target as HTMLInputElement).value;
-    this.searchQuery.set(val);
-    if (this.isLandingPageMode()) {
-      this.isLandingPageMode.set(false);
-    }
-    this.syncQueryParams();
+    // Push into subject to trigger debounced filtering
+    this.searchSubject.next(val);
   }
 
   toggleCategory(category: string): void {
