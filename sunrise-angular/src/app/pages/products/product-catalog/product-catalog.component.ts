@@ -162,13 +162,15 @@ export class ProductCatalogComponent implements OnInit {
   });
 
   // Active Category Description computed signal
+  // Performance Optimization: Look up description directly from pre-computed categoryList()
+  // to avoid scanning the entire products array with .find().
   activeCategoryDescription = computed(() => {
     const catName = this.activeCategoryName();
-    if (catName) {
-      const match = this.productService.products().find((p) => p.category === catName);
-      return match?.category_description || '';
+    if (!catName) {
+      return '';
     }
-    return '';
+    const catCard = this.categoryList().find((c) => c.name === catName);
+    return catCard?.description || '';
   });
 
   // Filtered products computed signal:
@@ -202,8 +204,12 @@ export class ProductCatalogComponent implements OnInit {
   });
 
   // Group filtered products by sub-category heading (e.g. 6 MP, 5 MP, 4 MP, 2 MP, 8 MP)
+  // Performance Optimization: Return early if filtered is empty to avoid allocating Map instances.
   groupedProductsBySubCategory = computed<ProductSubGroup[]>(() => {
     const filtered = this.filteredProducts();
+    if (filtered.length === 0) {
+      return [];
+    }
     const groupMap = new Map<string, { slug: string; list: Product[] }>();
 
     for (const p of filtered) {
