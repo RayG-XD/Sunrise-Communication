@@ -132,7 +132,13 @@
                   class="form-control"
                 />
                 @if (searchQuery()) {
-                  <button class="clear-search-icon" (click)="clearSearch()">×</button>
+                  <button
+                    class="clear-search-icon"
+                    (click)="clearSearch()"
+                    aria-label="Clear search input"
+                  >
+                    ×
+                  </button>
                 } @else {
                   <i class="fa fa-search search-icon"></i>
                 }
@@ -152,25 +158,40 @@
                   @if (searchQuery()) {
                     <span class="chip-item">
                       "{{ searchQuery() }}"
-                      <button (click)="clearSearch()">×</button>
+                      <button (click)="clearSearch()" aria-label="Clear search filter">×</button>
                     </span>
                   }
                   @for (cat of selectedCategories(); track cat) {
                     <span class="chip-item">
                       {{ cat }}
-                      <button (click)="removeCategoryFilter(cat)">×</button>
+                      <button
+                        (click)="removeCategoryFilter(cat)"
+                        [attr.aria-label]="'Remove ' + cat + ' category filter'"
+                      >
+                        ×
+                      </button>
                     </span>
                   }
                   @for (subCat of selectedSubCategories(); track subCat) {
                     <span class="chip-item chip-subcat">
                       {{ subCat }}
-                      <button (click)="removeSubCategoryFilter(subCat)">×</button>
+                      <button
+                        (click)="removeSubCategoryFilter(subCat)"
+                        [attr.aria-label]="'Remove ' + subCat + ' sub-category filter'"
+                      >
+                        ×
+                      </button>
                     </span>
                   }
                   @for (brand of selectedBrands(); track brand) {
                     <span class="chip-item">
                       {{ brand }}
-                      <button (click)="removeBrandFilter(brand)">×</button>
+                      <button
+                        (click)="removeBrandFilter(brand)"
+                        [attr.aria-label]="'Remove ' + brand + ' brand filter'"
+                      >
+                        ×
+                      </button>
                     </span>
                   }
                 </div>
