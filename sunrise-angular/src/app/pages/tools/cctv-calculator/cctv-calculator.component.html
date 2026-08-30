@@ -13,13 +13,16 @@
 <!-- Calculator Main Section -->
 <section class="cctv-calc-section py-5">
   <div class="auto-container">
-
     <!-- Header Introduction & Quick Presets -->
     <div class="calc-intro-card mb-4 text-center">
-      <span class="badge bg-primary text-white px-3 py-2 rounded-pill mb-2">Free Online Sizing Tool</span>
+      <span class="badge bg-primary text-white px-3 py-2 rounded-pill mb-2"
+        >Free Online Sizing Tool</span
+      >
       <h2 class="section-heading">Surveillance Storage & Bandwidth Sizing Tool</h2>
       <p class="section-desc max-w-750 mx-auto text-muted">
-        Accurately compute storage capacity in Terabytes (TB) and network bandwidth for IP & Analog CCTV systems (CP Plus, Hikvision, Dahua). Engineered with precision formulas for H.265+ smart compression.
+        Accurately compute storage capacity in Terabytes (TB) and network bandwidth for IP & Analog
+        CCTV systems (CP Plus, Hikvision, Dahua). Engineered with precision formulas for H.265+
+        smart compression.
       </p>
 
       <!-- Premise Quick Presets -->
@@ -55,11 +58,9 @@
     </div>
 
     <div class="row clearfix g-4">
-
       <!-- LEFT COLUMN: Parameter Controls -->
       <div class="col-lg-7 col-md-12">
         <div class="calc-card control-card p-4 rounded-4 shadow-sm bg-white border">
-          
           <h3 class="card-title h5 mb-4 text-dark border-bottom pb-3">
             <i class="fa fa-sliders text-primary me-2"></i> Surveillance System Parameters
           </h3>
@@ -70,8 +71,15 @@
               <label class="form-label fw-bold text-dark mb-0">Number of CCTV Cameras</label>
               <span class="badge bg-primary fs-6 px-3 py-1">{{ cameraCount() }} Cameras</span>
             </div>
-            <input type="range" class="form-range custom-slider" min="1" max="64" step="1" 
-                   [ngModel]="cameraCount()" (ngModelChange)="cameraCount.set($event)">
+            <input
+              type="range"
+              class="form-range custom-slider"
+              min="1"
+              max="64"
+              step="1"
+              [ngModel]="cameraCount()"
+              (ngModelChange)="cameraCount.set($event)"
+            />
             <div class="d-flex justify-content-between text-muted small">
               <span>1 Cam</span>
               <span>16 Cams (Society Standard)</span>
@@ -84,11 +92,19 @@
           <div class="control-group mb-4">
             <label class="form-label fw-bold text-dark mb-2">Camera Video Resolution</label>
             <div class="row g-2">
-              @for(res of resolutions; track res.id) {
+              @for (res of resolutions; track res.id) {
                 <div class="col-md-4 col-6">
-                  <div class="resolution-option-card p-2 rounded-3 border text-center cursor-pointer transition-all"
-                       [class.active]="resolution() === res.id"
-                       (click)="resolution.set(res.id)">
+                  <div
+                    class="resolution-option-card p-2 rounded-3 border text-center cursor-pointer transition-all"
+                    [class.active]="resolution() === res.id"
+                    (click)="resolution.set(res.id)"
+                    role="button"
+                    tabindex="0"
+                    [attr.aria-pressed]="resolution() === res.id"
+                    [attr.aria-label]="res.name + ' (' + res.tag + ')'"
+                    (keydown.enter)="resolution.set(res.id)"
+                    (keydown.space)="$event.preventDefault(); resolution.set(res.id)"
+                  >
                     <div class="fw-bold">{{ res.name }}</div>
                     <small class="text-muted d-block">{{ res.tag }}</small>
                   </div>
@@ -103,11 +119,19 @@
               Video Compression Standard (Codec)
             </label>
             <div class="row g-2">
-              @for(cod of codecs; track cod.id) {
+              @for (cod of codecs; track cod.id) {
                 <div class="col-md-4 col-12">
-                  <div class="codec-option-card p-2 rounded-3 border text-center cursor-pointer transition-all"
-                       [class.active]="codec() === cod.id"
-                       (click)="codec.set(cod.id)">
+                  <div
+                    class="codec-option-card p-2 rounded-3 border text-center cursor-pointer transition-all"
+                    [class.active]="codec() === cod.id"
+                    (click)="codec.set(cod.id)"
+                    role="button"
+                    tabindex="0"
+                    [attr.aria-pressed]="codec() === cod.id"
+                    [attr.aria-label]="cod.name + ' (' + cod.savings + ')'"
+                    (keydown.enter)="codec.set(cod.id)"
+                    (keydown.space)="$event.preventDefault(); codec.set(cod.id)"
+                  >
                     <div class="fw-bold">{{ cod.name }}</div>
                     <small class="text-success fw-semibold d-block">{{ cod.savings }}</small>
                   </div>
@@ -119,11 +143,20 @@
           <!-- 4. Retention Days Slider -->
           <div class="control-group mb-4">
             <div class="d-flex justify-content-between align-items-center mb-2">
-              <label class="form-label fw-bold text-dark mb-0">Recording History Retention (Days)</label>
+              <label class="form-label fw-bold text-dark mb-0"
+                >Recording History Retention (Days)</label
+              >
               <span class="badge bg-danger fs-6 px-3 py-1">{{ recordingDays() }} Days Backup</span>
             </div>
-            <input type="range" class="form-range custom-slider" min="3" max="90" step="1" 
-                   [ngModel]="recordingDays()" (ngModelChange)="recordingDays.set($event)">
+            <input
+              type="range"
+              class="form-range custom-slider"
+              min="3"
+              max="90"
+              step="1"
+              [ngModel]="recordingDays()"
+              (ngModelChange)="recordingDays.set($event)"
+            />
             <div class="d-flex justify-content-between text-muted small">
               <span>3 Days</span>
               <span>15 Days</span>
@@ -136,18 +169,29 @@
           <!-- 5. Advanced Settings (Mode, Frame Rate, Audio) -->
           <div class="advanced-settings-box p-3 bg-light rounded-3 border">
             <div class="row g-3">
-              
               <div class="col-md-6 col-12">
-                <label class="form-label fw-semibold text-secondary small mb-1">Recording Schedule Mode</label>
-                <select class="form-select form-select-sm" [ngModel]="recordingMode()" (ngModelChange)="recordingMode.set($event)">
+                <label class="form-label fw-semibold text-secondary small mb-1"
+                  >Recording Schedule Mode</label
+                >
+                <select
+                  class="form-select form-select-sm"
+                  [ngModel]="recordingMode()"
+                  (ngModelChange)="recordingMode.set($event)"
+                >
                   <option value="continuous">24/7 Continuous Recording (Standard)</option>
                   <option value="motion">Motion Detection (~12h Active Recording)</option>
                 </select>
               </div>
 
               <div class="col-md-3 col-6">
-                <label class="form-label fw-semibold text-secondary small mb-1">Frame Rate (FPS)</label>
-                <select class="form-select form-select-sm" [ngModel]="fps()" (ngModelChange)="fps.set($event)">
+                <label class="form-label fw-semibold text-secondary small mb-1"
+                  >Frame Rate (FPS)</label
+                >
+                <select
+                  class="form-select form-select-sm"
+                  [ngModel]="fps()"
+                  (ngModelChange)="fps.set($event)"
+                >
                   <option [ngValue]="12">12 FPS (Eco)</option>
                   <option [ngValue]="15">15 FPS (Standard)</option>
                   <option [ngValue]="20">20 FPS (Fluid)</option>
@@ -156,31 +200,45 @@
               </div>
 
               <div class="col-md-3 col-6">
-                <label class="form-label fw-semibold text-secondary small mb-1">Audio Recording</label>
-                <select class="form-select form-select-sm" [ngModel]="audioRecording()" (ngModelChange)="audioRecording.set($event)">
+                <label class="form-label fw-semibold text-secondary small mb-1"
+                  >Audio Recording</label
+                >
+                <select
+                  class="form-select form-select-sm"
+                  [ngModel]="audioRecording()"
+                  (ngModelChange)="audioRecording.set($event)"
+                >
                   <option [ngValue]="true">Yes (Mic Enabled)</option>
                   <option [ngValue]="false">No (Video Only)</option>
                 </select>
               </div>
-
             </div>
           </div>
-
         </div>
       </div>
 
       <!-- RIGHT COLUMN: Sizing Outputs & Hardware Recommendation -->
       <div class="col-lg-5 col-md-12">
-        <div class="calc-card results-card p-4 rounded-4 shadow bg-dark text-white border-0 sticky-top" style="top: 90px;">
-          
-          <div class="results-header border-bottom border-secondary pb-3 mb-4 d-flex justify-content-between align-items-center">
-            <h3 class="h5 mb-0 text-white"><i class="fa fa-calculator text-warning me-2"></i> Calculated Sizing</h3>
+        <div
+          class="calc-card results-card p-4 rounded-4 shadow bg-dark text-white border-0 sticky-top"
+          style="top: 90px"
+        >
+          <div
+            class="results-header border-bottom border-secondary pb-3 mb-4 d-flex justify-content-between align-items-center"
+          >
+            <h3 class="h5 mb-0 text-white">
+              <i class="fa fa-calculator text-warning me-2"></i> Calculated Sizing
+            </h3>
             <span class="badge bg-warning text-dark fw-bold">Live Computation</span>
           </div>
 
           <!-- Major Storage Metric Display -->
-          <div class="storage-metric-hero text-center p-3 mb-4 rounded-3 bg-secondary bg-opacity-25 border border-secondary">
-            <span class="text-uppercase text-light small fw-bold tracking-wide">Total Surveillance Storage Required</span>
+          <div
+            class="storage-metric-hero text-center p-3 mb-4 rounded-3 bg-secondary bg-opacity-25 border border-secondary"
+          >
+            <span class="text-uppercase text-light small fw-bold tracking-wide"
+              >Total Surveillance Storage Required</span
+            >
             <div class="display-4 fw-bold text-warning my-1">
               {{ totalStorageRequiredTb() }} <span class="fs-4">TB</span>
             </div>
@@ -191,61 +249,92 @@
 
           <!-- Granular Specification Breakdown -->
           <div class="specs-list mb-4">
-            
-            <div class="spec-row d-flex justify-content-between py-2 border-bottom border-secondary">
-              <span class="text-light"><i class="fa fa-hdd-o text-info me-2"></i> Recommended HDD:</span>
+            <div
+              class="spec-row d-flex justify-content-between py-2 border-bottom border-secondary"
+            >
+              <span class="text-light"
+                ><i class="fa fa-hdd-o text-info me-2"></i> Recommended HDD:</span
+              >
               <strong class="text-white text-end ps-2">{{ recommendedHddConfig().label }}</strong>
             </div>
 
-            <div class="spec-row d-flex justify-content-between py-2 border-bottom border-secondary">
-              <span class="text-light"><i class="fa fa-server text-warning me-2"></i> Recommended NVR:</span>
+            <div
+              class="spec-row d-flex justify-content-between py-2 border-bottom border-secondary"
+            >
+              <span class="text-light"
+                ><i class="fa fa-server text-warning me-2"></i> Recommended NVR:</span
+              >
               <strong class="text-white text-end ps-2">{{ recommendedNvr().model }}</strong>
             </div>
 
-            <div class="spec-row d-flex justify-content-between py-2 border-bottom border-secondary">
-              <span class="text-light"><i class="fa fa-sitemap text-success me-2"></i> PoE Switch Sizing:</span>
+            <div
+              class="spec-row d-flex justify-content-between py-2 border-bottom border-secondary"
+            >
+              <span class="text-light"
+                ><i class="fa fa-sitemap text-success me-2"></i> PoE Switch Sizing:</span
+              >
               <strong class="text-white text-end ps-2">{{ recommendedPoESwitch() }}</strong>
             </div>
 
-            <div class="spec-row d-flex justify-content-between py-2 border-bottom border-secondary">
-              <span class="text-light"><i class="fa fa-tachometer text-danger me-2"></i> Network Bandwidth Load:</span>
-              <strong class="text-white text-end ps-2">~{{ totalBandwidthMbps() }} Mbps ({{ effectiveBitratePerCameraMbps() }} Mbps/cam)</strong>
+            <div
+              class="spec-row d-flex justify-content-between py-2 border-bottom border-secondary"
+            >
+              <span class="text-light"
+                ><i class="fa fa-tachometer text-danger me-2"></i> Network Bandwidth Load:</span
+              >
+              <strong class="text-white text-end ps-2"
+                >~{{ totalBandwidthMbps() }} Mbps ({{
+                  effectiveBitratePerCameraMbps()
+                }}
+                Mbps/cam)</strong
+              >
             </div>
 
             <div class="spec-row d-flex justify-content-between py-2">
-              <span class="text-light"><i class="fa fa-database text-warning me-2"></i> Daily Write Rate:</span>
-              <strong class="text-white text-end ps-2">~{{ dailyStoragePerCameraGb() }} GB / camera / day</strong>
+              <span class="text-light"
+                ><i class="fa fa-database text-warning me-2"></i> Daily Write Rate:</span
+              >
+              <strong class="text-white text-end ps-2"
+                >~{{ dailyStoragePerCameraGb() }} GB / camera / day</strong
+              >
             </div>
-
           </div>
 
           <!-- CTAs & Lead Dispatch -->
           <div class="action-buttons-stack d-grid gap-2">
-            
-            <a [href]="whatsappQuoteUrl()" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-lg fw-bold d-flex align-items-center justify-content-center gap-2">
+            <a
+              [href]="whatsappQuoteUrl()"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-success btn-lg fw-bold d-flex align-items-center justify-content-center gap-2"
+            >
               <i class="fa fa-whatsapp fs-4"></i>
               <span>Send BOQ & Get Formal Quote</span>
             </a>
 
-            <button type="button" class="btn btn-outline-light d-flex align-items-center justify-content-center gap-2" (click)="copyToClipboard()">
+            <button
+              type="button"
+              class="btn btn-outline-light d-flex align-items-center justify-content-center gap-2"
+              (click)="copyToClipboard()"
+            >
               <i class="fa fa-copy"></i>
               <span>{{ copiedToast() ? 'Copied to Clipboard!' : 'Copy Technical Summary' }}</span>
             </button>
 
-            <a [href]="'tel:' + siteData.contact.primaryPhone" class="btn btn-primary d-flex align-items-center justify-content-center gap-2">
+            <a
+              [href]="'tel:' + siteData.contact.primaryPhone"
+              class="btn btn-primary d-flex align-items-center justify-content-center gap-2"
+            >
               <i class="fa fa-phone"></i>
               <span>Call Technician: {{ siteData.contact.primaryPhone }}</span>
             </a>
-
           </div>
 
           <div class="trust-footer mt-3 text-center text-muted small">
             ⭐ 5.0 Rating (93+ Reviews) • 25+ Yrs Industry Experience
           </div>
-
         </div>
       </div>
-
     </div>
 
     <!-- AEO Inverted Pyramid Technical FAQ Section -->
@@ -253,68 +342,142 @@
       <div class="section-title-wrapper text-center mb-4">
         <span class="sub-title">Technical Knowledge</span>
         <h2 class="section-heading">CCTV Storage & Hard Drive FAQs</h2>
-        <p class="section-desc">Expert answers regarding surveillance hard drive reliability, retention policies, and smart codecs.</p>
+        <p class="section-desc">
+          Expert answers regarding surveillance hard drive reliability, retention policies, and
+          smart codecs.
+        </p>
       </div>
 
       <div class="faq-accordion-container max-w-850 mx-auto">
-        
         <div class="faq-item" [class.open]="activeFaqIndex() === 0">
-          <button class="faq-question-btn" (click)="toggleFaq(0)">
+          <button
+            class="faq-question-btn"
+            (click)="toggleFaq(0)"
+            [attr.aria-expanded]="activeFaqIndex() === 0"
+          >
             <span>How much HDD storage is needed for 8 CCTV cameras for 30 days?</span>
-            <i class="fa" [class.fa-plus]="activeFaqIndex() !== 0" [class.fa-minus]="activeFaqIndex() === 0"></i>
+            <i
+              class="fa"
+              [class.fa-plus]="activeFaqIndex() !== 0"
+              [class.fa-minus]="activeFaqIndex() === 0"
+            ></i>
           </button>
-          @if(activeFaqIndex() === 0) {
+          @if (activeFaqIndex() === 0) {
             <div class="faq-answer-content animate-fade-in">
-              <p>For 8 IP cameras running at 4MP (2K resolution) with smart H.265+ compression at 15fps recording 24/7, you need approximately <strong>4 TB of surveillance-grade storage</strong> (e.g. Western Digital Purple or Seagate SkyHawk). On older H.264 codecs, the exact same setup would require 8 TB to 10 TB of hard disk capacity.</p>
+              <p>
+                For 8 IP cameras running at 4MP (2K resolution) with smart H.265+ compression at
+                15fps recording 24/7, you need approximately
+                <strong>4 TB of surveillance-grade storage</strong> (e.g. Western Digital Purple or
+                Seagate SkyHawk). On older H.264 codecs, the exact same setup would require 8 TB to
+                10 TB of hard disk capacity.
+              </p>
             </div>
           }
         </div>
 
         <div class="faq-item" [class.open]="activeFaqIndex() === 1">
-          <button class="faq-question-btn" (click)="toggleFaq(1)">
-            <span>Why should I use surveillance hard drives (WD Purple / Seagate SkyHawk) instead of regular PC hard drives?</span>
-            <i class="fa" [class.fa-plus]="activeFaqIndex() !== 1" [class.fa-minus]="activeFaqIndex() === 1"></i>
+          <button
+            class="faq-question-btn"
+            (click)="toggleFaq(1)"
+            [attr.aria-expanded]="activeFaqIndex() === 1"
+          >
+            <span
+              >Why should I use surveillance hard drives (WD Purple / Seagate SkyHawk) instead of
+              regular PC hard drives?</span
+            >
+            <i
+              class="fa"
+              [class.fa-plus]="activeFaqIndex() !== 1"
+              [class.fa-minus]="activeFaqIndex() === 1"
+            ></i>
           </button>
-          @if(activeFaqIndex() === 1) {
+          @if (activeFaqIndex() === 1) {
             <div class="faq-answer-content animate-fade-in">
-              <p>Surveillance-grade HDDs are specifically engineered for <strong>24/7 continuous write workloads (90% write, 10% read)</strong> with AllFrame / ImagePerfect firmware that prevents video frame dropping and withstands extreme heat and vibration inside NVR/DVR chassis. Desktop PC hard drives are built for 8 hours/day read-heavy usage and fail prematurely within 6 to 12 months when used in CCTV recorders.</p>
+              <p>
+                Surveillance-grade HDDs are specifically engineered for
+                <strong>24/7 continuous write workloads (90% write, 10% read)</strong> with AllFrame
+                / ImagePerfect firmware that prevents video frame dropping and withstands extreme
+                heat and vibration inside NVR/DVR chassis. Desktop PC hard drives are built for 8
+                hours/day read-heavy usage and fail prematurely within 6 to 12 months when used in
+                CCTV recorders.
+              </p>
             </div>
           }
         </div>
 
         <div class="faq-item" [class.open]="activeFaqIndex() === 2">
-          <button class="faq-question-btn" (click)="toggleFaq(2)">
+          <button
+            class="faq-question-btn"
+            (click)="toggleFaq(2)"
+            [attr.aria-expanded]="activeFaqIndex() === 2"
+          >
             <span>How does H.265+ smart compression reduce CCTV storage requirements by 75%?</span>
-            <i class="fa" [class.fa-plus]="activeFaqIndex() !== 2" [class.fa-minus]="activeFaqIndex() === 2"></i>
+            <i
+              class="fa"
+              [class.fa-plus]="activeFaqIndex() !== 2"
+              [class.fa-minus]="activeFaqIndex() === 2"
+            ></i>
           </button>
-          @if(activeFaqIndex() === 2) {
+          @if (activeFaqIndex() === 2) {
             <div class="faq-answer-content animate-fade-in">
-              <p>H.265+ (Ultra H.265 / Smart Codec) uses predictive background modeling, intelligent noise suppression, and long-term reference frames. Instead of recording static backgrounds repeatedly (like an empty compound or lobby), it only encodes active motion pixels (such as moving persons or vehicles). This reduces required bitrate and disk usage by <strong>50% to 75% without compromising evidentiary video clarity</strong>.</p>
+              <p>
+                H.265+ (Ultra H.265 / Smart Codec) uses predictive background modeling, intelligent
+                noise suppression, and long-term reference frames. Instead of recording static
+                backgrounds repeatedly (like an empty compound or lobby), it only encodes active
+                motion pixels (such as moving persons or vehicles). This reduces required bitrate
+                and disk usage by
+                <strong>50% to 75% without compromising evidentiary video clarity</strong>.
+              </p>
             </div>
           }
         </div>
 
         <div class="faq-item" [class.open]="activeFaqIndex() === 3">
-          <button class="faq-question-btn" (click)="toggleFaq(3)">
-            <span>How many days of CCTV recording does a Housing Society require by law in Thane & Mumbai?</span>
-            <i class="fa" [class.fa-plus]="activeFaqIndex() !== 3" [class.fa-minus]="activeFaqIndex() === 3"></i>
+          <button
+            class="faq-question-btn"
+            (click)="toggleFaq(3)"
+            [attr.aria-expanded]="activeFaqIndex() === 3"
+          >
+            <span
+              >How many days of CCTV recording does a Housing Society require by law in Thane &
+              Mumbai?</span
+            >
+            <i
+              class="fa"
+              [class.fa-plus]="activeFaqIndex() !== 3"
+              [class.fa-minus]="activeFaqIndex() === 3"
+            ></i>
           </button>
-          @if(activeFaqIndex() === 3) {
+          @if (activeFaqIndex() === 3) {
             <div class="faq-answer-content animate-fade-in">
-              <p>In Mumbai, Thane, and Navi Mumbai, local police directives strongly advise Cooperative Housing Societies (CHS) and commercial establishments to maintain a <strong>minimum of 15 to 30 days of continuous recording backup</strong> across all entry/exit gates, parking basements, lift lobbies, and boundary perimeters.</p>
+              <p>
+                In Mumbai, Thane, and Navi Mumbai, local police directives strongly advise
+                Cooperative Housing Societies (CHS) and commercial establishments to maintain a
+                <strong>minimum of 15 to 30 days of continuous recording backup</strong> across all
+                entry/exit gates, parking basements, lift lobbies, and boundary perimeters.
+              </p>
             </div>
           }
         </div>
-
       </div>
     </div>
 
     <!-- Bottom Consultation CTA -->
     <div class="calc-cta-footer mt-5 p-4 rounded-4 bg-light text-center border">
-      <h3 class="h4 mb-2 text-dark">Need a Turnkey Proposal or Physical Site Survey in Thane & Mumbai?</h3>
-      <p class="text-muted mb-3">Our certified security engineers will visit your housing society or commercial office, measure cable lengths, identify camera blind spots, and deliver an itemized BOQ.</p>
+      <h3 class="h4 mb-2 text-dark">
+        Need a Turnkey Proposal or Physical Site Survey in Thane & Mumbai?
+      </h3>
+      <p class="text-muted mb-3">
+        Our certified security engineers will visit your housing society or commercial office,
+        measure cable lengths, identify camera blind spots, and deliver an itemized BOQ.
+      </p>
       <div class="d-flex justify-content-center gap-3 flex-wrap">
-        <a [href]="whatsappQuoteUrl()" target="_blank" rel="noopener noreferrer" class="btn btn-success px-4 py-2 fw-bold">
+        <a
+          [href]="whatsappQuoteUrl()"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-success px-4 py-2 fw-bold"
+        >
           <i class="fa fa-whatsapp"></i> Chat on WhatsApp
         </a>
         <a routerLink="/contact" class="btn btn-dark px-4 py-2 fw-bold">
@@ -322,6 +485,5 @@
         </a>
       </div>
     </div>
-
   </div>
 </section>

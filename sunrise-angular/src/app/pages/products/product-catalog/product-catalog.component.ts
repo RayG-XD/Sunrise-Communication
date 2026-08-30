@@ -1,4 +1,11 @@
-import { Component, OnInit, inject, signal, computed } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  inject,
+  signal,
+  computed,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../../core/services/product.service';
 import { ProductCardComponent } from '../../../shared/components/product-card/product-card.component';
@@ -32,7 +39,10 @@ export interface ProductSubGroup {
   standalone: true,
   imports: [ProductCardComponent, PageTitleComponent],
   templateUrl: './product-catalog.component.html',
-  styleUrl: './product-catalog.component.scss'
+  styleUrl: './product-catalog.component.scss',
+  // Performance Optimization: Use OnPush change detection strategy to eliminate unnecessary
+  // dirty checking runs across the entire catalog and filter trees on unrelated DOM events.
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductCatalogComponent implements OnInit {
   protected productService = inject(ProductService);
@@ -76,7 +86,7 @@ export class ProductCatalogComponent implements OnInit {
       list.push({
         category: key,
         slug: val.slug,
-        subcategories: Array.from(val.subcats)
+        subcategories: Array.from(val.subcats),
       });
     });
 
@@ -105,7 +115,10 @@ export class ProductCatalogComponent implements OnInit {
   // Category Overview Cards list for Stage 1 Landing View
   categoryList = computed<CategoryCardItem[]>(() => {
     const products = this.productService.products();
-    const map = new Map<string, { slug: string; desc: string; prods: Set<string>; subcats: Set<string> }>();
+    const map = new Map<
+      string,
+      { slug: string; desc: string; prods: Set<string>; subcats: Set<string> }
+    >();
 
     for (const p of products) {
       const catName = p.category;
@@ -114,7 +127,7 @@ export class ProductCatalogComponent implements OnInit {
           slug: p.category_slug,
           desc: p.category_description || '',
           prods: new Set(),
-          subcats: new Set()
+          subcats: new Set(),
         });
       }
       const item = map.get(catName)!;
@@ -132,7 +145,7 @@ export class ProductCatalogComponent implements OnInit {
         description: val.desc,
         iconClass: this.getCategoryIcon(val.slug),
         productCount: val.prods.size,
-        subCategoryCount: val.subcats.size
+        subCategoryCount: val.subcats.size,
       });
     });
 
@@ -152,7 +165,7 @@ export class ProductCatalogComponent implements OnInit {
   activeCategoryDescription = computed(() => {
     const catName = this.activeCategoryName();
     if (catName) {
-      const match = this.productService.products().find(p => p.category === catName);
+      const match = this.productService.products().find((p) => p.category === catName);
       return match?.category_description || '';
     }
     return '';
@@ -209,7 +222,7 @@ export class ProductCatalogComponent implements OnInit {
         subCategory: key,
         subCategorySlug: val.slug,
         count: val.list.length,
-        products: val.list
+        products: val.list,
       });
     });
 
@@ -220,7 +233,8 @@ export class ProductCatalogComponent implements OnInit {
     this.productService.loadProducts();
 
     this.route.queryParams.subscribe((params) => {
-      const hasParams = params['q'] || params['category'] || params['sub_category'] || params['brand'];
+      const hasParams =
+        params['q'] || params['category'] || params['sub_category'] || params['brand'];
 
       if (hasParams) {
         this.isLandingPageMode.set(false);
@@ -299,9 +313,9 @@ export class ProductCatalogComponent implements OnInit {
     if (currentCats.has(category)) {
       currentCats.delete(category);
       // Clean up subcategories belonging to this category
-      const catTreeItem = this.categoriesWithSubCategories().find(c => c.category === category);
+      const catTreeItem = this.categoriesWithSubCategories().find((c) => c.category === category);
       if (catTreeItem) {
-        catTreeItem.subcategories.forEach(sub => currentSubCats.delete(sub));
+        catTreeItem.subcategories.forEach((sub) => currentSubCats.delete(sub));
       }
     } else {
       currentCats.add(category);
@@ -437,7 +451,7 @@ export class ProductCatalogComponent implements OnInit {
       relativeTo: this.route,
       queryParams,
       queryParamsHandling: 'merge',
-      replaceUrl: true
+      replaceUrl: true,
     });
   }
 }

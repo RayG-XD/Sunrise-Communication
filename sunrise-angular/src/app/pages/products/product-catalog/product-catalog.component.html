@@ -1,20 +1,19 @@
 <!-- Page Title Section -->
-<app-page-title 
-  title="Products & Solutions Catalog" 
-  breadcrumb="Products Catalog">
+<app-page-title title="Products & Solutions Catalog" breadcrumb="Products Catalog">
 </app-page-title>
 
 <!-- Products Catalog Section -->
 <section class="products-catalog-section">
   <div class="auto-container">
-    
     <!-- STAGE 1: CATEGORIES OVERVIEW LANDING GRID -->
     @if (viewMode() === 'categories-landing') {
       <div class="category-landing-container">
-        
         <div class="section-intro-header text-center mb-4">
           <h2 class="section-title">Product & Hardware Categories</h2>
-          <p class="section-subtitle">Select a product category below to explore enterprise models, technical specifications, and solutions.</p>
+          <p class="section-subtitle">
+            Select a product category below to explore enterprise models, technical specifications,
+            and solutions.
+          </p>
         </div>
 
         <!-- Loading State -->
@@ -32,8 +31,15 @@
           <div class="row clearfix">
             @for (cat of categoryList(); track cat.slug) {
               <div class="col-lg-3 col-md-6 col-sm-12 category-card-col mb-4">
-                <div class="category-overview-card" (click)="selectCategoryFromLanding(cat.name)">
-                  
+                <div
+                  class="category-overview-card"
+                  (click)="selectCategoryFromLanding(cat.name)"
+                  role="button"
+                  tabindex="0"
+                  [attr.aria-label]="'Explore ' + cat.name + ' category catalog'"
+                  (keydown.enter)="selectCategoryFromLanding(cat.name)"
+                  (keydown.space)="$event.preventDefault(); selectCategoryFromLanding(cat.name)"
+                >
                   <div class="card-top-bar">
                     <div class="icon-circle" [class]="'cat-' + cat.slug">
                       <i [class]="cat.iconClass"></i>
@@ -58,19 +64,16 @@
                       Explore Catalog <i class="fa fa-arrow-right"></i>
                     </span>
                   </div>
-
                 </div>
               </div>
             }
           </div>
         }
-
       </div>
     }
 
     <!-- STAGE 2: DETAILED CATEGORY & PRODUCTS GRID VIEW -->
     @else {
-      
       <!-- Top Action Navigation Bar -->
       <div class="stage2-top-bar mb-3">
         <button class="back-to-categories-btn" (click)="returnToCategoryLanding()">
@@ -78,7 +81,8 @@
         </button>
 
         <div class="results-count-summary d-none d-md-block">
-          Showing <strong>{{ filteredProducts().length }}</strong> of <strong>{{ productService.products().length }}</strong> products
+          Showing <strong>{{ filteredProducts().length }}</strong> of
+          <strong>{{ productService.products().length }}</strong> products
         </div>
       </div>
 
@@ -86,7 +90,7 @@
       <div class="mobile-filter-bar d-lg-none mb-4">
         <button class="theme-btn btn-style-one filter-toggle-btn" (click)="toggleMobileFilter()">
           <span class="txt">
-            <i class="fa fa-filter"></i> 
+            <i class="fa fa-filter"></i>
             {{ isMobileFilterOpen() ? 'Hide Filters' : 'Filter Products' }}
           </span>
         </button>
@@ -96,16 +100,20 @@
       </div>
 
       <div class="row clearfix">
-        
         <!-- Filter Sidebar Column -->
-        <div class="col-lg-3 col-md-12 col-sm-12 filter-sidebar-col" [class.show-mobile]="isMobileFilterOpen()">
+        <div
+          class="col-lg-3 col-md-12 col-sm-12 filter-sidebar-col"
+          [class.show-mobile]="isMobileFilterOpen()"
+        >
           <div class="filter-sidebar-inner">
-            
             <div class="sidebar-header">
-              <h3 class="sidebar-title">
-                <i class="fa fa-sliders"></i> Filter Products
-              </h3>
-              @if (selectedCategories().size > 0 || selectedSubCategories().size > 0 || selectedBrands().size > 0 || searchQuery()) {
+              <h3 class="sidebar-title"><i class="fa fa-sliders"></i> Filter Products</h3>
+              @if (
+                selectedCategories().size > 0 ||
+                selectedSubCategories().size > 0 ||
+                selectedBrands().size > 0 ||
+                searchQuery()
+              ) {
                 <button class="clear-all-btn" (click)="clearAllFiltersInDetailMode()">
                   Clear All
                 </button>
@@ -116,11 +124,11 @@
             <div class="filter-widget search-widget">
               <h4 class="widget-title">Search</h4>
               <div class="search-input-box">
-                <input 
-                  type="text" 
-                  placeholder="Search model, CCTV, NVR..." 
-                  [value]="searchQuery()" 
-                  (input)="onSearchInput($event)" 
+                <input
+                  type="text"
+                  placeholder="Search model, CCTV, NVR..."
+                  [value]="searchQuery()"
+                  (input)="onSearchInput($event)"
                   class="form-control"
                 />
                 @if (searchQuery()) {
@@ -132,7 +140,12 @@
             </div>
 
             <!-- Active Filter Chips -->
-            @if (selectedCategories().size > 0 || selectedSubCategories().size > 0 || selectedBrands().size > 0 || searchQuery()) {
+            @if (
+              selectedCategories().size > 0 ||
+              selectedSubCategories().size > 0 ||
+              selectedBrands().size > 0 ||
+              searchQuery()
+            ) {
               <div class="filter-widget active-chips-widget">
                 <h4 class="widget-title">Active Filters</h4>
                 <div class="chips-container">
@@ -170,12 +183,11 @@
               <div class="category-tree-list">
                 @for (catItem of categoriesWithSubCategories(); track catItem.category) {
                   <div class="category-tree-item mb-2">
-                    
                     <!-- Parent Category Checkbox -->
                     <label class="custom-checkbox parent-category-checkbox">
-                      <input 
-                        type="checkbox" 
-                        [checked]="selectedCategories().has(catItem.category)" 
+                      <input
+                        type="checkbox"
+                        [checked]="selectedCategories().has(catItem.category)"
                         (change)="toggleCategory(catItem.category)"
                       />
                       <span class="checkmark"></span>
@@ -187,9 +199,9 @@
                       <div class="subcategory-nested-list ps-3 ms-1 mt-1">
                         @for (subCat of catItem.subcategories; track subCat) {
                           <label class="custom-checkbox subcategory-checkbox">
-                            <input 
-                              type="checkbox" 
-                              [checked]="selectedSubCategories().has(subCat)" 
+                            <input
+                              type="checkbox"
+                              [checked]="selectedSubCategories().has(subCat)"
                               (change)="toggleSubCategoryWithCategory(subCat, catItem.category)"
                             />
                             <span class="checkmark"></span>
@@ -198,22 +210,23 @@
                         }
                       </div>
                     }
-
                   </div>
                 }
               </div>
             </div>
 
             <!-- Brands Widget (ONLY SHOWN WHEN AT LEAST ONE CATEGORY IS SELECTED) -->
-            @if (selectedCategories().size > 0 && availableBrandsForSelectedCategories().length > 0) {
+            @if (
+              selectedCategories().size > 0 && availableBrandsForSelectedCategories().length > 0
+            ) {
               <div class="filter-widget">
                 <h4 class="widget-title">Brands</h4>
                 <div class="checkbox-list">
                   @for (brand of availableBrandsForSelectedCategories(); track brand) {
                     <label class="custom-checkbox">
-                      <input 
-                        type="checkbox" 
-                        [checked]="selectedBrands().has(brand)" 
+                      <input
+                        type="checkbox"
+                        [checked]="selectedBrands().has(brand)"
                         (change)="toggleBrand(brand)"
                       />
                       <span class="checkmark"></span>
@@ -230,18 +243,21 @@
                 <i class="fa fa-whatsapp whatsapp-icon"></i>
                 <h4>Need Custom Quote?</h4>
                 <p>Contact our technical team directly on WhatsApp for bulk inquiries & AMC.</p>
-                <a href="https://wa.me/919323848622?text=Hi%20Sunrise%20Communication%2C%20I%20need%20a%20custom%20quote%20for%20security%20hardware." target="_blank" rel="noopener noreferrer" class="whatsapp-link-btn">
+                <a
+                  href="https://wa.me/919323848622?text=Hi%20Sunrise%20Communication%2C%20I%20need%20a%20custom%20quote%20for%20security%20hardware."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="whatsapp-link-btn"
+                >
                   Chat on WhatsApp
                 </a>
               </div>
             </div>
-
           </div>
         </div>
 
         <!-- Products Content Grid Column -->
         <div class="col-lg-9 col-md-12 col-sm-12 products-grid-col">
-          
           <!-- Active Category Banner & Description -->
           @if (activeCategoryName()) {
             <div class="category-description-card">
@@ -272,7 +288,6 @@
 
           <!-- Sub-Category Grouped Products Sections -->
           @if (!productService.loading() && !productService.error()) {
-            
             <!-- CASE A: NO CATEGORY CHECKED -->
             @if (selectedCategories().size === 0) {
               <div class="no-category-selected-prompt text-center py-5">
@@ -280,19 +295,22 @@
                   <i class="fa fa-list-alt"></i>
                 </div>
                 <h3>Select a Category to View Products</h3>
-                <p>Please check one or more categories from the sidebar filter on the left to browse available products and models.</p>
+                <p>
+                  Please check one or more categories from the sidebar filter on the left to browse
+                  available products and models.
+                </p>
                 <button class="theme-btn btn-style-one" (click)="returnToCategoryLanding()">
-                  <span class="txt"><i class="fa fa-arrow-left"></i> View All Category Overview</span>
+                  <span class="txt"
+                    ><i class="fa fa-arrow-left"></i> View All Category Overview</span
+                  >
                 </button>
               </div>
             }
 
             <!-- CASE B: CATEGORY SELECTED WITH PRODUCTS -->
             @else if (groupedProductsBySubCategory().length > 0) {
-              
               @for (group of groupedProductsBySubCategory(); track group.subCategory) {
                 <div class="subcategory-group-section mb-4">
-                  
                   <!-- Group Heading Bar -->
                   <div class="group-header-bar">
                     <h3 class="group-title">
@@ -301,29 +319,37 @@
                     </h3>
 
                     @if (group.products.length > 2) {
-                      <button class="show-all-toggle-btn" (click)="toggleShowAllGroup(group.subCategory)">
+                      <button
+                        class="show-all-toggle-btn"
+                        (click)="toggleShowAllGroup(group.subCategory)"
+                      >
                         {{ isGroupExpanded(group.subCategory) ? 'SHOW LESS' : 'SHOW ALL' }}
-                        <i class="fa" [class.fa-angle-down]="!isGroupExpanded(group.subCategory)" [class.fa-angle-up]="isGroupExpanded(group.subCategory)"></i>
+                        <i
+                          class="fa"
+                          [class.fa-angle-down]="!isGroupExpanded(group.subCategory)"
+                          [class.fa-angle-up]="isGroupExpanded(group.subCategory)"
+                        ></i>
                       </button>
                     }
                   </div>
 
                   <!-- Products Grid under this Sub-Group -->
                   <div class="row clearfix">
-                    @let visibleProducts = isGroupExpanded(group.subCategory) ? group.products : group.products.slice(0, 2);
-                    
+                    @let visibleProducts =
+                      isGroupExpanded(group.subCategory)
+                        ? group.products
+                        : group.products.slice(0, 2);
+
                     @for (product of visibleProducts; track product.id) {
                       <div class="col-lg-4 col-md-6 col-sm-12 product-grid-item mb-3">
                         <app-product-card [product]="product"></app-product-card>
                       </div>
                     }
                   </div>
-
                 </div>
               }
+            }
 
-            } 
-            
             <!-- CASE C: CATEGORY SELECTED BUT SEARCH/BRAND FILTER RETURNED ZERO MATCHES -->
             @else {
               <div class="no-products-found text-center py-5">
@@ -331,20 +357,18 @@
                   <i class="fa fa-search"></i>
                 </div>
                 <h3>No Products Match Your Active Filters</h3>
-                <p>Try clearing your sub-category, brand, or search filters to see products in the selected category.</p>
+                <p>
+                  Try clearing your sub-category, brand, or search filters to see products in the
+                  selected category.
+                </p>
                 <button class="theme-btn btn-style-one" (click)="clearAllFiltersInDetailMode()">
                   <span class="txt">Reset Filters</span>
                 </button>
               </div>
             }
-
           }
-
         </div>
-
       </div>
-
     }
-
   </div>
 </section>

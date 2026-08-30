@@ -10,6 +10,9 @@ class SubCategorySerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'slug', 'display_order', 'product_count']
 
     def get_product_count(self, obj):
+        # Uses pre-annotated active_product_count when available to prevent N+1 queries
+        if hasattr(obj, 'active_product_count'):
+            return obj.active_product_count
         return obj.products.filter(is_active=True).count()
 
 
@@ -22,6 +25,9 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'slug', 'description', 'icon_class', 'gradient_colors', 'product_count', 'subcategories']
 
     def get_product_count(self, obj):
+        # Uses pre-annotated active_product_count when available to prevent N+1 queries
+        if hasattr(obj, 'active_product_count'):
+            return obj.active_product_count
         return obj.products.filter(is_active=True).count()
 
 
@@ -42,6 +48,9 @@ class BrandSerializer(serializers.ModelSerializer):
         return ''
 
     def get_product_count(self, obj):
+        # Uses pre-annotated active_product_count when available to prevent N+1 queries
+        if hasattr(obj, 'active_product_count'):
+            return obj.active_product_count
         return obj.products.filter(is_active=True).count()
 
 

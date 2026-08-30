@@ -1,6 +1,7 @@
+from django.db.models import Count, Q, Prefetch
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
-from .models import Category, Brand, Product
+from .models import Category, SubCategory, Brand, Product
 from .serializers import (
     CategorySerializer, BrandSerializer,
     ProductListSerializer, ProductDetailSerializer
@@ -10,18 +11,33 @@ from .filters import ProductFilter
 
 class CategoryViewSet(viewsets.ReadOnlyModelViewSet):
     """API endpoint for product categories with nested sub-categories."""
-    queryset = Category.objects.all().prefetch_related('subcategories', 'subcategories__products')
     serializer_class = CategorySerializer
     permission_classes = [AllowAny]
     pagination_class = None
 
+    def get_queryset(self):
+        # Annotate product counts to eliminate N+1 queries during serialization
+        subcategories_qs = SubCategory.objects.annotate(
+            active_product_count=Count('products', filter=Q(products__is_active=True))
+        )
+        return Category.objects.annotate(
+            active_product_count=Count('products', filter=Q(products__is_active=True))
+        ).prefetch_related(
+            Prefetch('subcategories', queryset=subcategories_qs)
+        )
+
 
 class BrandViewSet(viewsets.ReadOnlyModelViewSet):
     """API endpoint for product brands."""
-    queryset = Brand.objects.all()
     serializer_class = BrandSerializer
     permission_classes = [AllowAny]
     pagination_class = None
+
+    def get_queryset(self):
+        # Annotate active product count to eliminate N+1 queries during serialization
+        return Brand.objects.annotate(
+            active_product_count=Count('products', filter=Q(products__is_active=True))
+        )
 
 
 class ProductViewSet(viewsets.ReadOnlyModelViewSet):

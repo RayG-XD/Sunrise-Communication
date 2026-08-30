@@ -14,7 +14,7 @@ export type RecordingMode = 'continuous' | 'motion';
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './cctv-calculator.component.html',
-  styleUrl: './cctv-calculator.component.scss'
+  styleUrl: './cctv-calculator.component.scss',
 })
 export class CctvCalculatorComponent implements OnInit {
   private seoService = inject(SeoService);
@@ -37,32 +37,52 @@ export class CctvCalculatorComponent implements OnInit {
   audioRecording = signal<boolean>(true);
 
   // Resolution Metadata
-  readonly resolutions: { id: ResolutionOption; name: string; tag: string; baseBitrateMbps: number }[] = [
-    { id: '1080p', name: '2 MP (1080p Full HD)', tag: 'Standard Residential', baseBitrateMbps: 2.0 },
+  readonly resolutions: {
+    id: ResolutionOption;
+    name: string;
+    tag: string;
+    baseBitrateMbps: number;
+  }[] = [
+    {
+      id: '1080p',
+      name: '2 MP (1080p Full HD)',
+      tag: 'Standard Residential',
+      baseBitrateMbps: 2.0,
+    },
     { id: '3mp', name: '3 MP (1296p HD+)', tag: 'Entry Commercial', baseBitrateMbps: 3.0 },
     { id: '4mp', name: '4 MP (2K Quad HD)', tag: 'Recommended for CHS', baseBitrateMbps: 4.0 },
     { id: '5mp', name: '5 MP (Super HD)', tag: 'High-Risk Perimeter', baseBitrateMbps: 5.0 },
-    { id: '8mp', name: '8 MP (4K Ultra HD)', tag: 'Bank & Gate ANPR', baseBitrateMbps: 8.0 }
+    { id: '8mp', name: '8 MP (4K Ultra HD)', tag: 'Bank & Gate ANPR', baseBitrateMbps: 8.0 },
   ];
 
   // Codec Compression Multipliers
   readonly codecs: { id: CodecOption; name: string; savings: string; factor: number }[] = [
     { id: 'h264', name: 'H.264 (Legacy)', savings: 'Baseline (High storage)', factor: 1.0 },
-    { id: 'h265', name: 'H.265 (Standard HEVC)', savings: '50% Bandwidth & Storage Saved', factor: 0.5 },
-    { id: 'h265plus', name: 'H.265+ / Ultra H.265 (Smart AI)', savings: 'Up to 75% Storage Saved', factor: 0.25 }
+    {
+      id: 'h265',
+      name: 'H.265 (Standard HEVC)',
+      savings: '50% Bandwidth & Storage Saved',
+      factor: 0.5,
+    },
+    {
+      id: 'h265plus',
+      name: 'H.265+ / Ultra H.265 (Smart AI)',
+      savings: 'Up to 75% Storage Saved',
+      factor: 0.25,
+    },
   ];
 
   // Calculations
   effectiveBitratePerCameraMbps = computed(() => {
-    const res = this.resolutions.find(r => r.id === this.resolution()) || this.resolutions[2];
-    const cod = this.codecs.find(c => c.id === this.codec()) || this.codecs[2];
-    
+    const res = this.resolutions.find((r) => r.id === this.resolution()) || this.resolutions[2];
+    const cod = this.codecs.find((c) => c.id === this.codec()) || this.codecs[2];
+
     // FPS multiplier relative to 15fps baseline
     const fpsMultiplier = this.fps() / 15;
     // Audio overhead ~0.064 Mbps
     const audioOverhead = this.audioRecording() ? 0.064 : 0;
-    
-    const calculated = (res.baseBitrateMbps * cod.factor * fpsMultiplier) + audioOverhead;
+
+    const calculated = res.baseBitrateMbps * cod.factor * fpsMultiplier + audioOverhead;
     return Math.max(0.15, Number(calculated.toFixed(2)));
   });
 
@@ -72,7 +92,10 @@ export class CctvCalculatorComponent implements OnInit {
 
   dailyStoragePerCameraGb = computed(() => {
     const bitrate = this.effectiveBitratePerCameraMbps();
-    const hours = this.recordingMode() === 'motion' ? Math.min(12, this.recordingHoursPerDay()) : this.recordingHoursPerDay();
+    const hours =
+      this.recordingMode() === 'motion'
+        ? Math.min(12, this.recordingHoursPerDay())
+        : this.recordingHoursPerDay();
     // Formula: (Bitrate in Mbps * 3600 seconds * hours) / (8 bits/byte * 1024 MB/GB)
     const gb = (bitrate * 3600 * hours) / (8 * 1024);
     return Number(gb.toFixed(2));
@@ -90,23 +113,44 @@ export class CctvCalculatorComponent implements OnInit {
     const reqTb = this.totalStorageRequiredTb();
     const cams = this.cameraCount();
 
-    if (reqTb <= 1.8) return { label: '1x 2TB Surveillance Drive (WD Purple / Seagate SkyHawk)', rawTb: 2 };
-    if (reqTb <= 3.8) return { label: '1x 4TB Surveillance Drive (WD Purple / Seagate SkyHawk)', rawTb: 4 };
-    if (reqTb <= 5.8) return { label: '1x 6TB Surveillance Drive (WD Purple / Seagate SkyHawk)', rawTb: 6 };
-    if (reqTb <= 7.8) return { label: '1x 8TB Surveillance Drive (WD Purple / Seagate SkyHawk)', rawTb: 8 };
+    if (reqTb <= 1.8)
+      return { label: '1x 2TB Surveillance Drive (WD Purple / Seagate SkyHawk)', rawTb: 2 };
+    if (reqTb <= 3.8)
+      return { label: '1x 4TB Surveillance Drive (WD Purple / Seagate SkyHawk)', rawTb: 4 };
+    if (reqTb <= 5.8)
+      return { label: '1x 6TB Surveillance Drive (WD Purple / Seagate SkyHawk)', rawTb: 6 };
+    if (reqTb <= 7.8)
+      return { label: '1x 8TB Surveillance Drive (WD Purple / Seagate SkyHawk)', rawTb: 8 };
     if (reqTb <= 11.5) return { label: '2x 6TB or 1x 12TB Surveillance HDD Setup', rawTb: 12 };
-    if (reqTb <= 15.5) return { label: '2x 8TB or 1x 16TB Enterprise Surveillance Setup', rawTb: 16 };
-    if (reqTb <= 23.5) return { label: '3x 8TB or 2x 12TB Multi-SATA Surveillance Setup', rawTb: 24 };
-    return { label: `4x 8TB or 2x 16TB High-Capacity Array (${Math.ceil(reqTb)} TB required)`, rawTb: Math.ceil(reqTb) };
+    if (reqTb <= 15.5)
+      return { label: '2x 8TB or 1x 16TB Enterprise Surveillance Setup', rawTb: 16 };
+    if (reqTb <= 23.5)
+      return { label: '3x 8TB or 2x 12TB Multi-SATA Surveillance Setup', rawTb: 24 };
+    return {
+      label: `4x 8TB or 2x 16TB High-Capacity Array (${Math.ceil(reqTb)} TB required)`,
+      rawTb: Math.ceil(reqTb),
+    };
   });
 
   recommendedNvr = computed(() => {
     const cams = this.cameraCount();
     if (cams <= 4) return { model: '4-Channel 4K PoE NVR (1 SATA Bay)', bandwidth: '40–80 Mbps' };
-    if (cams <= 8) return { model: '8-Channel 4K H.265+ NVR (1–2 SATA Bays)', bandwidth: '80–160 Mbps' };
-    if (cams <= 16) return { model: '16-Channel 4K H.265+ NVR (2 SATA Bays up to 16TB)', bandwidth: '160–256 Mbps' };
-    if (cams <= 32) return { model: '32-Channel 4K Enterprise NVR (4 SATA Bays up to 32TB)', bandwidth: '256–384 Mbps' };
-    return { model: '64-Channel Multi-Drive High-Capacity NVR (8 SATA Bays / RAID)', bandwidth: '384+ Mbps' };
+    if (cams <= 8)
+      return { model: '8-Channel 4K H.265+ NVR (1–2 SATA Bays)', bandwidth: '80–160 Mbps' };
+    if (cams <= 16)
+      return {
+        model: '16-Channel 4K H.265+ NVR (2 SATA Bays up to 16TB)',
+        bandwidth: '160–256 Mbps',
+      };
+    if (cams <= 32)
+      return {
+        model: '32-Channel 4K Enterprise NVR (4 SATA Bays up to 32TB)',
+        bandwidth: '256–384 Mbps',
+      };
+    return {
+      model: '64-Channel Multi-Drive High-Capacity NVR (8 SATA Bays / RAID)',
+      bandwidth: '384+ Mbps',
+    };
   });
 
   recommendedPoESwitch = computed(() => {
@@ -119,8 +163,8 @@ export class CctvCalculatorComponent implements OnInit {
   });
 
   formattedSummary = computed(() => {
-    const resObj = this.resolutions.find(r => r.id === this.resolution());
-    const codecObj = this.codecs.find(c => c.id === this.codec());
+    const resObj = this.resolutions.find((r) => r.id === this.resolution());
+    const codecObj = this.codecs.find((c) => c.id === this.codec());
 
     return [
       `*Sunrise Communication — CCTV Storage & Hard Disk Sizing Report*`,
@@ -136,7 +180,7 @@ export class CctvCalculatorComponent implements OnInit {
       `📍 *Turnkey Supply, Installation & AMC by:*`,
       `Sunrise Communication — Room No. 10, Amar Bldg, Charai, Thane (West)`,
       `📞 *Call / WhatsApp:* +91 93238 48622 / +91 99875 55399`,
-      `🌐 *Online Tool:* https://sunrisecommunication.in/tools/cctv-storage-calculator`
+      `🌐 *Online Tool:* https://sunrisecommunication.in/tools/cctv-storage-calculator`,
     ].join('\n');
   });
 
