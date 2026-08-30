@@ -67,45 +67,95 @@ export class ProductCatalogComponent implements OnInit {
     return this.isLandingPageMode() ? 'categories-landing' : 'products-detail';
   });
 
-  // Hierarchical Category Tree for Sidebar Filter (Categories -> Nested SubCategories)
-  categoriesWithSubCategories = computed<CategoryTreeItem[]>(() => {
+  // Performance Optimization: Consolidated single-pass index computed signal for products metadata.
+  // Instead of traversing the products array 4 separate times across 4 computed signals on every product update or filter change,
+  // we aggregate categories tree, category overview cards, category descriptions, and category-to-brands mapping in one pass.
+  private catalogMetadataIndex = computed(() => {
     const products = this.productService.products();
-    const map = new Map<string, { slug: string; subcats: Set<string> }>();
+
+    const categoryMap = new Map<
+      string,
+      { slug: string; desc: string; prods: Set<string>; subcats: Set<string>; brands: Set<string> }
+    >();
 
     for (const p of products) {
-      if (!map.has(p.category)) {
-        map.set(p.category, { slug: p.category_slug, subcats: new Set() });
+      const catName = p.category;
+      let item = categoryMap.get(catName);
+      if (!item) {
+        item = {
+          slug: p.category_slug,
+          desc: p.category_description || '',
+          prods: new Set(),
+          subcats: new Set(),
+          brands: new Set(),
+        };
+        categoryMap.set(catName, item);
       }
+      item.prods.add(p.id);
       if (p.sub_category) {
-        map.get(p.category)!.subcats.add(p.sub_category);
+        item.subcats.add(p.sub_category);
+      }
+      if (p.brand) {
+        item.brands.add(p.brand);
       }
     }
 
-    const list: CategoryTreeItem[] = [];
-    map.forEach((val, key) => {
-      list.push({
+    const categoriesWithSubCategories: CategoryTreeItem[] = [];
+    const categoryList: CategoryCardItem[] = [];
+    const categoryDescriptions = new Map<string, string>();
+    const categoryBrandsMap = new Map<string, Set<string>>();
+
+    categoryMap.forEach((val, key) => {
+      categoriesWithSubCategories.push({
         category: key,
         slug: val.slug,
         subcategories: Array.from(val.subcats),
       });
+
+      categoryList.push({
+        name: key,
+        slug: val.slug,
+        description: val.desc,
+        iconClass: this.getCategoryIcon(val.slug),
+        productCount: val.prods.size,
+        subCategoryCount: val.subcats.size,
+      });
+
+      categoryDescriptions.set(key, val.desc);
+      categoryBrandsMap.set(key, val.brands);
     });
 
-    return list;
+    return {
+      categoriesWithSubCategories,
+      categoryList,
+      categoryDescriptions,
+      categoryBrandsMap,
+    };
   });
 
-  // Dynamic Brands list available for currently selected categories
-  availableBrandsForSelectedCategories = computed<string[]>(() => {
-    const products = this.productService.products();
-    const activeCats = this.selectedCategories();
+  // Hierarchical Category Tree for Sidebar Filter (Categories -> Nested SubCategories)
+  categoriesWithSubCategories = computed<CategoryTreeItem[]>(() => {
+    return this.catalogMetadataIndex().categoriesWithSubCategories;
+  });
 
+  // Dynamic Brands list available for currently selected categories.
+  // Performance Optimization: Uses the fast indexed category-to-brand map for O(K) lookup of available brands
+  // instead of scanning the full product array on every filter toggle.
+  availableBrandsForSelectedCategories = computed<string[]>(() => {
+    const activeCats = this.selectedCategories();
     if (activeCats.size === 0) {
       return [];
     }
 
+    const categoryBrandsMap = this.catalogMetadataIndex().categoryBrandsMap;
     const brandSet = new Set<string>();
-    for (const p of products) {
-      if (activeCats.has(p.category)) {
-        brandSet.add(p.brand);
+
+    for (const cat of activeCats) {
+      const brands = categoryBrandsMap.get(cat);
+      if (brands) {
+        for (const b of brands) {
+          brandSet.add(b);
+        }
       }
     }
 
@@ -114,42 +164,7 @@ export class ProductCatalogComponent implements OnInit {
 
   // Category Overview Cards list for Stage 1 Landing View
   categoryList = computed<CategoryCardItem[]>(() => {
-    const products = this.productService.products();
-    const map = new Map<
-      string,
-      { slug: string; desc: string; prods: Set<string>; subcats: Set<string> }
-    >();
-
-    for (const p of products) {
-      const catName = p.category;
-      if (!map.has(catName)) {
-        map.set(catName, {
-          slug: p.category_slug,
-          desc: p.category_description || '',
-          prods: new Set(),
-          subcats: new Set(),
-        });
-      }
-      const item = map.get(catName)!;
-      item.prods.add(p.id);
-      if (p.sub_category) {
-        item.subcats.add(p.sub_category);
-      }
-    }
-
-    const result: CategoryCardItem[] = [];
-    map.forEach((val, key) => {
-      result.push({
-        name: key,
-        slug: val.slug,
-        description: val.desc,
-        iconClass: this.getCategoryIcon(val.slug),
-        productCount: val.prods.size,
-        subCategoryCount: val.subcats.size,
-      });
-    });
-
-    return result;
+    return this.catalogMetadataIndex().categoryList;
   });
 
   // Active Category Name computed signal
@@ -162,13 +177,13 @@ export class ProductCatalogComponent implements OnInit {
   });
 
   // Active Category Description computed signal
+  // Performance Optimization: Direct O(1) map lookup instead of array search.
   activeCategoryDescription = computed(() => {
     const catName = this.activeCategoryName();
-    if (catName) {
-      const match = this.productService.products().find((p) => p.category === catName);
-      return match?.category_description || '';
+    if (!catName) {
+      return '';
     }
-    return '';
+    return this.catalogMetadataIndex().categoryDescriptions.get(catName) || '';
   });
 
   // Filtered products computed signal:
