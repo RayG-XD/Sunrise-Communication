@@ -4,7 +4,9 @@
     <div class="card-media-wrapper">
       @if (product().image_url) {
         <div class="product-image-box">
-          <img [ngSrc]="product().image_url" [alt]="product().name" width="300" height="180" priority />
+          <!-- Bolt Optimization: Omit priority attribute on list cards to allow NgOptimizedImage
+               default lazy loading (loading="lazy"), preventing eager image fetches across product grids. -->
+          <img [ngSrc]="product().image_url" [alt]="product().name" width="300" height="180" />
         </div>
       } @else {
         <!-- CSS Gradient Placeholder (No AI Image Files) -->
@@ -35,7 +37,10 @@
 
     <!-- Action Link -->
     <div class="card-action-link">
-      <a [routerLink]="['/products', product().category_slug, product().slug]" class="view-details-link">
+      <a
+        [routerLink]="['/products', product().category_slug, product().slug]"
+        class="view-details-link"
+      >
         View Details <i class="fa fa-angle-right"></i>
       </a>
     </div>
