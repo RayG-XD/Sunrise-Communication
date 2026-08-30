@@ -55,7 +55,7 @@
       <div class="aeo-direct-answer-box mb-5">
         <div class="answer-box-inner">
           <div class="aeo-icon-box">
-            <span class="icon flaticon-check"></span>
+            <i class="fa fa-check-circle text-danger fs-2"></i>
           </div>
           <div class="aeo-text-content">
             <span class="aeo-badge">Direct Answer & Service Overview</span>
@@ -82,7 +82,7 @@
           <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
             <div class="offering-card">
               <div class="card-icon-wrapper">
-                <i class="fa" [class]="offering.icon"></i>
+                <i class="fa {{ offering.icon }}"></i>
               </div>
               <div class="card-text-wrapper">
                 <h3 class="offering-title">{{ offering.title }}</h3>
@@ -200,6 +200,10 @@
           <span class="sub-title">Technical Architecture & Engineering</span>
           <h2 class="section-heading">{{ cluster.comparisonMatrix.title }}</h2>
           <p class="section-desc">{{ cluster.comparisonMatrix.subtitle }}</p>
+        </div>
+
+        <div class="d-md-none text-center text-muted small mb-2">
+          <i class="fa fa-arrows-h text-danger me-1"></i> <em>Scroll horizontally to view complete comparison matrix</em>
         </div>
 
         <div class="table-responsive comparison-table-wrapper">

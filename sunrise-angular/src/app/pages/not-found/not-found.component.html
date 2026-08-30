@@ -1,22 +1,31 @@
 <app-page-title title="404 - Page Not Found" breadcrumb="404 Error" bgImage="assets/images/background/7.jpg"></app-page-title>
 
 <!-- Error Section -->
-<section class="error-section" style="padding: 100px 0;">
+<section class="error-section" style="padding: 100px 0 140px; background-color: #f8fafc;">
   <div class="auto-container">
-    <div class="content-box text-center" data-aos="fade-up">
-      <h1 style="font-size: 100px; font-weight: 700; color: #222222; margin-bottom: 20px;">404</h1>
-      <h2 style="margin-bottom: 20px;">Oops! The page you're looking for doesn't exist.</h2>
-      <div class="text mb-4" style="font-size: 18px; color: #666666;">
-        It looks like the page you are looking for has moved or does not exist. Explore our core services and tools below:
+    <div class="content-box text-center p-5 bg-white rounded-4 border shadow-sm max-w-750 mx-auto" data-aos="fade-up">
+      <div class="error-badge mb-3">
+        <span class="badge bg-danger text-white px-3 py-2 rounded-pill font-monospace fs-6">ERROR 404</span>
       </div>
+      <h1 class="display-3 fw-bold text-dark mb-2">Page Not Found</h1>
+      <h2 class="h5 text-muted mb-4">The page you requested is unavailable or has been relocated.</h2>
+      <p class="text-secondary mb-4">
+        Don't worry, you can easily jump directly to our core security systems, sizing tools, and catalogs:
+      </p>
+      
       <div class="d-flex justify-content-center gap-2 flex-wrap mb-4">
-        <a routerLink="/" class="btn btn-outline-primary btn-sm rounded-pill px-3">Home</a>
-        <a routerLink="/services" class="btn btn-outline-primary btn-sm rounded-pill px-3">Services</a>
-        <a routerLink="/products" class="btn btn-outline-primary btn-sm rounded-pill px-3">Products</a>
-        <a routerLink="/tools/cctv-storage-calculator" class="btn btn-outline-warning btn-sm rounded-pill px-3">CCTV Calculator</a>
-        <a routerLink="/contact" class="btn btn-outline-danger btn-sm rounded-pill px-3">Contact Us</a>
+        <a routerLink="/" class="btn btn-outline-dark btn-sm rounded-pill px-3 py-2"><i class="fa fa-home me-1"></i> Home</a>
+        <a routerLink="/services" class="btn btn-outline-dark btn-sm rounded-pill px-3 py-2"><i class="fa fa-cogs me-1"></i> Services</a>
+        <a routerLink="/products" class="btn btn-outline-dark btn-sm rounded-pill px-3 py-2"><i class="fa fa-th-large me-1"></i> Products</a>
+        <a routerLink="/tools/cctv-storage-calculator" class="btn btn-outline-dark btn-sm rounded-pill px-3 py-2"><i class="fa fa-calculator me-1"></i> Storage Calculator</a>
+        <a routerLink="/contact" class="btn btn-outline-dark btn-sm rounded-pill px-3 py-2"><i class="fa fa-phone me-1"></i> Contact Us</a>
       </div>
-      <a routerLink="/" class="theme-btn btn-style-four"><span class="txt">Back to Home <i class="lnr lnr-arrow-right"></i></span></a>
+
+      <div>
+        <a routerLink="/" class="theme-btn btn-style-one px-4 py-2">
+          <span class="txt"><i class="fa fa-arrow-left me-1"></i> Return to Homepage</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>

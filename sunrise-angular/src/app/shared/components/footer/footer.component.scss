@@ -1,54 +1,237 @@
-.footer-review-badge {
-  display: flex;
-  justify-content: center;
-  margin: 25px 0 15px;
+.main-footer {
+  position: relative;
+  background-color: #010c3a;
+  color: #ffffff;
+  padding: 60px 0 0;
+  overflow: hidden;
 
-  .google-review-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 30px;
-    padding: 8px 20px;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 13px;
-    transition: all 0.25s ease;
+  .footer-top {
+    position: relative;
+    z-index: 2;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
 
-    &:hover {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: #df0303;
-      transform: translateY(-2px);
-    }
+  .footer-col {
+    margin-bottom: 30px;
 
-    .stars {
-      font-size: 13px;
-      letter-spacing: 1px;
-    }
-
-    .score {
-      color: rgba(255, 255, 255, 0.95);
-      font-weight: 500;
-    }
-
-    .btn-text {
-      color: #df0303;
-      font-weight: 700;
-      font-size: 12px;
-      margin-left: 4px;
-
-      i {
-        font-size: 10px;
+    .footer-logo {
+      margin-bottom: 18px;
+      img {
+        max-height: 48px;
+        width: auto;
+        object-fit: contain;
       }
     }
 
-    @media (max-width: 575px) {
-      flex-direction: column;
-      gap: 6px;
-      text-align: center;
-      border-radius: 12px;
-      padding: 10px 16px;
+    .footer-desc {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 13.5px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .footer-heading {
+      color: #ffffff;
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 32px;
+        height: 2px;
+        background: #df0303;
+      }
+    }
+
+    .footer-links-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin-bottom: 10px;
+
+        a {
+          color: rgba(255, 255, 255, 0.8);
+          text-decoration: none;
+          font-size: 13.5px;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          transition: all 0.2s ease;
+
+          i {
+            font-size: 11px;
+            color: #df0303;
+            transition: transform 0.2s ease;
+          }
+
+          &:hover {
+            color: #ffffff;
+            padding-left: 4px;
+
+            i {
+              transform: translateX(3px);
+            }
+          }
+        }
+      }
+    }
+
+    .footer-contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 14px;
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 13.5px;
+        line-height: 1.5;
+
+        .contact-icon {
+          width: 30px;
+          height: 30px;
+          border-radius: 6px;
+          background: rgba(223, 3, 3, 0.15);
+          color: #df0303;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 13px;
+          flex-shrink: 0;
+          margin-top: 2px;
+        }
+
+        a {
+          color: rgba(255, 255, 255, 0.9);
+          text-decoration: none;
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: #df0303;
+          }
+        }
+      }
+    }
+  }
+
+  .footer-review-badge {
+    margin-top: 15px;
+
+    .google-review-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 30px;
+      padding: 8px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 12.5px;
+      transition: all 0.25s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: #df0303;
+        transform: translateY(-2px);
+      }
+
+      .stars {
+        font-size: 12px;
+        letter-spacing: 1px;
+      }
+
+      .score {
+        color: rgba(255, 255, 255, 0.95);
+        font-weight: 600;
+      }
+
+      .btn-text {
+        color: #df0303;
+        font-weight: 700;
+        font-size: 11.5px;
+
+        i {
+          font-size: 10px;
+        }
+      }
+    }
+  }
+
+  .footer-social-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+
+    a {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+
+      &:hover {
+        background: #df0303;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  .footer-bottom {
+    position: relative;
+    z-index: 2;
+    padding: 22px 0 26px;
+
+    .bottom-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.65);
+
+      a {
+        color: #df0303;
+        text-decoration: none;
+        font-weight: 600;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .bottom-links {
+        display: flex;
+        gap: 16px;
+
+        a {
+          color: rgba(255, 255, 255, 0.7);
+          font-weight: 400;
+
+          &:hover {
+            color: #ffffff;
+          }
+        }
+      }
     }
   }
 }

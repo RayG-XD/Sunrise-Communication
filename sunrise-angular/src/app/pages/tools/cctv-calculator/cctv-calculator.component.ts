@@ -24,6 +24,7 @@ export class CctvCalculatorComponent implements OnInit {
   siteData = SITE_DATA;
   copiedToast = signal<boolean>(false);
   activeFaqIndex = signal<number | null>(0);
+  activePreset = signal<string>('society');
 
   // Input Signals
   cameraCount = signal<number>(16);
@@ -160,6 +161,7 @@ export class CctvCalculatorComponent implements OnInit {
   }
 
   setPreset(type: 'society' | 'office' | 'warehouse' | 'retail') {
+    this.activePreset.set(type);
     if (type === 'society') {
       this.cameraCount.set(16);
       this.resolution.set('4mp');

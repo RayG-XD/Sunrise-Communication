@@ -1,85 +1,109 @@
 <footer class="main-footer">
   <div class="pattern-layer-one" style="background-image: url(assets/images/background/pattern-12.png)"></div>
   <div class="pattern-layer-two" style="background-image: url(assets/images/background/pattern-13.png)"></div>
+  
   <div class="auto-container">
-    <div class="widgets-section">
-      <div class="logo">
-        <a routerLink="/"><img src="assets/images/footer-logo.png"
-            alt="Sunrise Communication Logo - Security Expert in Thane" /></a>
+    
+    <!-- Top 4-Column Section -->
+    <div class="footer-top">
+      <div class="row clearfix g-4">
+        
+        <!-- Column 1: Company Profile & Google Rating -->
+        <div class="col-lg-3 col-md-6 col-sm-12 footer-col">
+          <div class="footer-logo">
+            <a routerLink="/" aria-label="Sunrise Communication Home">
+              <img src="assets/images/footer-logo.png" alt="Sunrise Communication - Security & Telecom Expert" />
+            </a>
+          </div>
+          <p class="footer-desc">
+            Trusted security systems integrator and telecom contractor in Thane & Mumbai MMR since 1999. Specializing in Housing Society CCTV, EPABX intercoms, biometrics & AMC maintenance.
+          </p>
+          <div class="footer-review-badge">
+            <a [href]="siteData.gbp.reviewUrl" target="_blank" rel="noopener noreferrer" class="google-review-pill">
+              <span class="stars">⭐⭐⭐⭐⭐</span>
+              <span class="score">5.0 / 5.0 (93+ Reviews)</span>
+              <span class="btn-text">Rate Us <i class="fa fa-external-link"></i></span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Specialized Services -->
+        <div class="col-lg-3 col-md-6 col-sm-12 footer-col">
+          <h4 class="footer-heading">Our Core Services</h4>
+          <ul class="footer-links-list">
+            <li><a routerLink="/services/cctv-surveillance-systems"><i class="fa fa-angle-right"></i> CCTV Surveillance & AMC</a></li>
+            <li><a routerLink="/services/epabx-intercom-solutions"><i class="fa fa-angle-right"></i> EPABX & Society Intercom</a></li>
+            <li><a routerLink="/services/biometric-access-control"><i class="fa fa-angle-right"></i> Biometrics & Access Control</a></li>
+            <li><a routerLink="/services/structured-networking-cabling"><i class="fa fa-angle-right"></i> Structured LAN Cabling</a></li>
+            <li><a routerLink="/products"><i class="fa fa-angle-right"></i> Hardware Catalog & Models</a></li>
+            <li><a routerLink="/services"><i class="fa fa-angle-right"></i> All Enterprise Services</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Sizing Tools & Local Areas -->
+        <div class="col-lg-3 col-md-6 col-sm-12 footer-col">
+          <h4 class="footer-heading">Tools & Service Hubs</h4>
+          <ul class="footer-links-list">
+            <li><a routerLink="/tools/cctv-storage-calculator"><i class="fa fa-calculator text-warning"></i> CCTV Storage Calculator</a></li>
+            <li><a routerLink="/guides"><i class="fa fa-book text-danger"></i> Society Technical Guides</a></li>
+            <li><a routerLink="/locations/cctv-installation-thane-west"><i class="fa fa-map-marker text-danger"></i> CCTV in Thane (West)</a></li>
+            <li><a routerLink="/locations/society-intercom-wagle-estate"><i class="fa fa-map-marker text-danger"></i> Intercom in Wagle Estate</a></li>
+            <li><a routerLink="/locations/security-systems-navi-mumbai"><i class="fa fa-map-marker text-danger"></i> Security in Navi Mumbai</a></li>
+            <li><a routerLink="/contact"><i class="fa fa-calendar-check-o text-success"></i> Book Free Site Survey</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Head Office & Direct Contact -->
+        <div class="col-lg-3 col-md-6 col-sm-12 footer-col">
+          <h4 class="footer-heading">Contact & HQ Hub</h4>
+          <ul class="footer-contact-list">
+            <li>
+              <div class="contact-icon"><i class="fa fa-map-marker"></i></div>
+              <span>{{ siteData.contact.address }}</span>
+            </li>
+            <li>
+              <div class="contact-icon"><i class="fa fa-phone"></i></div>
+              <div>
+                <a [href]="'tel:' + siteData.contact.primaryPhone">{{ siteData.contact.primaryPhone }}</a><br>
+                <a [href]="'tel:' + siteData.contact.secondaryPhone">{{ siteData.contact.secondaryPhone }}</a>
+              </div>
+            </li>
+            <li>
+              <div class="contact-icon"><i class="fa fa-envelope"></i></div>
+              <a [href]="'mailto:' + siteData.contact.email">{{ siteData.contact.email }}</a>
+            </li>
+            <li>
+              <div class="contact-icon"><i class="fa fa-clock-o"></i></div>
+              <span>{{ siteData.contact.workingHours }}</span>
+            </li>
+          </ul>
+
+          <div class="footer-social-row">
+            <a aria-label="Facebook Profile" [href]="siteData.social.facebook" class="fa fa-facebook" target="_blank" rel="noopener noreferrer"></a>
+            <a aria-label="LinkedIn Profile" [href]="siteData.social.linkedin" class="fa fa-linkedin" target="_blank" rel="noopener noreferrer"></a>
+            <a aria-label="Instagram Profile" [href]="siteData.social.instagram" class="fa fa-instagram" target="_blank" rel="noopener noreferrer"></a>
+            <a aria-label="WhatsApp Contact" [href]="siteData.social.whatsapp" class="fa fa-whatsapp" target="_blank" rel="noopener noreferrer"></a>
+          </div>
+        </div>
+
       </div>
-      <ul class="contact-info-list">
-        <li>
-          <span class="icon"><img loading="lazy" src="assets/images/icons/icon-1.png"
-              alt="Sunrise Communication Service Icon" /></span>
-          <a [href]="'tel:' + siteData.contact.primaryPhone">{{ siteData.contact.primaryPhone }}</a><br>
-          <a [href]="'tel:' + siteData.contact.secondaryPhone">{{ siteData.contact.secondaryPhone }}</a>
-        </li>
-        <li>
-          <span class="icon"><img loading="lazy" src="assets/images/icons/icon-2.png"
-              alt="Sunrise Communication Service Icon" /></span>
-          <a [href]="'mailto:' + siteData.contact.email">{{ siteData.contact.email }}</a><br>
-          <a [href]="siteData.contact.website" target="_blank">www.sunrisecommunication.in</a>
-        </li>
-        <li>
-          <span class="icon"><img loading="lazy" src="assets/images/icons/icon-3.png"
-              alt="Sunrise Communication Service Icon" /></span>
-          {{ siteData.contact.address }}
-        </li>
-      </ul>
-
-      <!-- Footer Quick Links Strip -->
-      <div class="footer-quick-links my-3 text-center">
-        <ul class="list-inline mb-1 d-flex justify-content-center gap-3 flex-wrap small">
-          <li class="list-inline-item"><a routerLink="/services/cctv-surveillance-systems" class="text-white text-decoration-none opacity-75">CCTV Systems</a></li>
-          <li class="list-inline-item text-white-50">•</li>
-          <li class="list-inline-item"><a routerLink="/services/epabx-intercom-solutions" class="text-white text-decoration-none opacity-75">EPABX & Intercom</a></li>
-          <li class="list-inline-item text-white-50">•</li>
-          <li class="list-inline-item"><a routerLink="/services/biometric-access-control" class="text-white text-decoration-none opacity-75">Biometrics & Access</a></li>
-          <li class="list-inline-item text-white-50">•</li>
-          <li class="list-inline-item"><a routerLink="/services/structured-networking-cabling" class="text-white text-decoration-none opacity-75">LAN Cabling</a></li>
-          <li class="list-inline-item text-white-50">•</li>
-          <li class="list-inline-item"><a routerLink="/tools/cctv-storage-calculator" class="text-warning text-decoration-none fw-bold"><i class="fa fa-calculator"></i> Storage Calculator</a></li>
-          <li class="list-inline-item text-white-50">•</li>
-          <li class="list-inline-item"><a routerLink="/guides" class="text-white text-decoration-none opacity-75">Society Guides</a></li>
-        </ul>
-        <ul class="list-inline mb-2 d-flex justify-content-center gap-3 flex-wrap small opacity-75">
-          <li class="list-inline-item"><a routerLink="/locations/cctv-installation-thane-west" class="text-white text-decoration-none">Thane West</a></li>
-          <li class="list-inline-item text-white-50">•</li>
-          <li class="list-inline-item"><a routerLink="/locations/society-intercom-wagle-estate" class="text-white text-decoration-none">Wagle Estate</a></li>
-          <li class="list-inline-item text-white-50">•</li>
-          <li class="list-inline-item"><a routerLink="/locations/security-systems-navi-mumbai" class="text-white text-decoration-none">Navi Mumbai</a></li>
-        </ul>
-      </div>
-
-      <!-- Google 5.0 Star Social Proof Badge -->
-      <div class="footer-review-badge">
-        <a [href]="siteData.gbp.reviewUrl" target="_blank" rel="noopener noreferrer" class="google-review-pill">
-          <span class="stars">⭐⭐⭐⭐⭐</span>
-          <span class="score"><strong>5.0 / 5.0 Stars</strong> (93+ Google Reviews)</span>
-          <span class="btn-text">Rate Us <i class="fa fa-external-link"></i></span>
-        </a>
-      </div>
-
-      <!-- Social Box -->
-      <ul class="social-box">
-        <li><a aria-label="Facebook Profile" [href]="siteData.social.facebook" class="fa fa-facebook-f"
-            target="_blank"></a></li>
-        <li><a aria-label="LinkedIn Profile" [href]="siteData.social.linkedin" class="fa fa-linkedin"
-            target="_blank"></a></li>
-        <li><a aria-label="Instagram Profile" [href]="siteData.social.instagram" class="fa fa-instagram"
-            target="_blank"></a></li>
-        <li><a aria-label="Twitter Profile" [href]="siteData.social.twitter" class="fa fa-twitter" target="_blank"></a></li>
-        <li><a aria-label="WhatsApp Contact" [href]="siteData.social.whatsapp" class="fa fa-whatsapp" target="_blank"></a></li>
-      </ul>
-
     </div>
 
-  </div>
-  <!-- Footer Bottom -->
-  <div class="footer-bottom">
-    <div class="auto-container">
-      <div class="copyright">&copy; {{ currentYear }} Sunrise Communication. All Rights Reserved. Designed By <a
-          href="https://pratikpol.in/">Pratik Pol</a></div>
+    <!-- Bottom Copyright & Credits -->
+    <div class="footer-bottom">
+      <div class="bottom-inner">
+        <div>
+          &copy; {{ currentYear }} <strong>Sunrise Communication</strong>. All Rights Reserved. Designed By <a href="https://pratikpol.in/" target="_blank" rel="noopener noreferrer">Pratik Pol</a>
+        </div>
+        <div class="bottom-links">
+          <a routerLink="/about">About Us</a>
+          <span>•</span>
+          <a routerLink="/services">Services</a>
+          <span>•</span>
+          <a routerLink="/contact">Contact</a>
+        </div>
+      </div>
     </div>
+
   </div>
 </footer>

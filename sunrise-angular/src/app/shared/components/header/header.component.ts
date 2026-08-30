@@ -8,7 +8,8 @@ import { SITE_DATA } from '../../../core/constants/site-data';
   selector: 'app-header',
   standalone: true,
   imports: [RouterLink, RouterLinkActive],
-  templateUrl: './header.component.html'
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnDestroy {
   private platformId = inject(PLATFORM_ID);

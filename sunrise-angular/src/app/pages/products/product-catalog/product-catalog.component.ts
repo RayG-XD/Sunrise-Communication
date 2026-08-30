@@ -254,19 +254,23 @@ export class ProductCatalogComponent implements OnInit {
   }
 
   getCategoryIcon(slug: string): string {
-    switch (slug) {
-      case 'network-camera':
-      case 'cctv':
-      case 'analog-hd':
-      case 'ptz':
-        return 'flaticon-camera';
-      case 'epabx':
-        return 'flaticon-call';
-      case 'biometrics':
-        return 'flaticon-security';
-      default:
-        return 'flaticon-technology';
+    const s = (slug || '').toLowerCase();
+    if (s.includes('camera') || s.includes('cctv') || s.includes('analog') || s.includes('ptz')) {
+      return 'fa fa-video-camera';
     }
+    if (s.includes('nvr') || s.includes('recorder') || s.includes('dvr')) {
+      return 'fa fa-server';
+    }
+    if (s.includes('epabx') || s.includes('intercom') || s.includes('phone') || s.includes('telecom')) {
+      return 'fa fa-phone';
+    }
+    if (s.includes('biometric') || s.includes('access') || s.includes('security') || s.includes('lock')) {
+      return 'fa fa-id-card-o';
+    }
+    if (s.includes('cable') || s.includes('network') || s.includes('wire')) {
+      return 'fa fa-sitemap';
+    }
+    return 'fa fa-cubes';
   }
 
   selectCategoryFromLanding(categoryName: string): void {

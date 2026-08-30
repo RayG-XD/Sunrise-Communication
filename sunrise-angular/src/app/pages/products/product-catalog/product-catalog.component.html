@@ -36,7 +36,7 @@
                   
                   <div class="card-top-bar">
                     <div class="icon-circle" [class]="'cat-' + cat.slug">
-                      <span class="icon" [class]="cat.iconClass"></span>
+                      <i [class]="cat.iconClass"></i>
                     </div>
                     <span class="counts-badge">
                       {{ cat.productCount }} {{ cat.productCount === 1 ? 'Product' : 'Products' }}
@@ -184,7 +184,7 @@
 
                     <!-- ONLY SHOW SUB-CATEGORIES WHEN THIS CATEGORY IS CHECKED -->
                     @if (selectedCategories().has(catItem.category) && catItem.subcategories.length > 0) {
-                      <div class="subcategory-nested-list pl-3 mt-1">
+                      <div class="subcategory-nested-list ps-3 ms-1 mt-1">
                         @for (subCat of catItem.subcategories; track subCat) {
                           <label class="custom-checkbox subcategory-checkbox">
                             <input 

@@ -3,7 +3,7 @@ import { CommonModule, isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SITE_DATA } from '../../../core/constants/site-data';
 
-export type PremiseType = 'society' | 'office' | 'warehouse' | 'retail' | 'residential';
+export type PremiseType = 'society' | 'office' | 'warehouse' | 'retail' | 'residential' | 'healthcare';
 
 @Component({
   selector: 'app-requirement-estimator',
@@ -83,7 +83,8 @@ export class RequirementEstimatorComponent {
       office: 'Corporate Office / Commercial Complex',
       warehouse: 'Industrial Warehouse / Factory',
       retail: 'Retail Store / Showroom',
-      residential: 'Residential Villa / Bungalow'
+      residential: 'Residential Villa / Bungalow',
+      healthcare: 'Hospital / Healthcare Facility / Clinic'
     };
 
     const servicesList: string[] = [];
@@ -153,6 +154,16 @@ export class RequirementEstimatorComponent {
       this.needNetworking.set(true);
       this.cameraCount.set(16);
       this.storageDays.set(45);
+    } else if (type === 'healthcare') {
+      this.needCctv.set(true);
+      this.needIntercom.set(true);
+      this.needBiometrics.set(true);
+      this.needNetworking.set(true);
+      this.cameraCount.set(24);
+      this.flatCount.set(20);
+      this.doorCount.set(4);
+      this.employeeCount.set(50);
+      this.lanPoints.set(40);
     } else {
       this.needCctv.set(true);
       this.needIntercom.set(false);

@@ -27,16 +27,28 @@
         <span class="presets-label fw-bold d-flex align-items-center text-secondary">
           <i class="fa fa-magic text-primary me-1"></i> Quick Presets:
         </span>
-        <button type="button" class="btn btn-outline-dark btn-sm rounded-pill" (click)="setPreset('society')">
+        <button type="button" class="btn btn-sm rounded-pill transition-all" 
+                [class.btn-primary]="activePreset() === 'society'"
+                [class.btn-outline-dark]="activePreset() !== 'society'"
+                (click)="setPreset('society')">
           🏢 Housing Society (16 Cams / 30 Days)
         </button>
-        <button type="button" class="btn btn-outline-dark btn-sm rounded-pill" (click)="setPreset('office')">
+        <button type="button" class="btn btn-sm rounded-pill transition-all" 
+                [class.btn-primary]="activePreset() === 'office'"
+                [class.btn-outline-dark]="activePreset() !== 'office'"
+                (click)="setPreset('office')">
           💼 Corporate Office (8 Cams / 30 Days)
         </button>
-        <button type="button" class="btn btn-outline-dark btn-sm rounded-pill" (click)="setPreset('warehouse')">
+        <button type="button" class="btn btn-sm rounded-pill transition-all" 
+                [class.btn-primary]="activePreset() === 'warehouse'"
+                [class.btn-outline-dark]="activePreset() !== 'warehouse'"
+                (click)="setPreset('warehouse')">
           🏭 Industrial Warehouse (24 Cams / 45 Days)
         </button>
-        <button type="button" class="btn btn-outline-dark btn-sm rounded-pill" (click)="setPreset('retail')">
+        <button type="button" class="btn btn-sm rounded-pill transition-all" 
+                [class.btn-primary]="activePreset() === 'retail'"
+                [class.btn-outline-dark]="activePreset() !== 'retail'"
+                (click)="setPreset('retail')">
           🏪 Retail Shop (4 Cams / 15 Days)
         </button>
       </div>

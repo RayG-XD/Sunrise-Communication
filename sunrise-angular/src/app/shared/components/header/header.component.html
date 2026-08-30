@@ -2,150 +2,98 @@
 
   <!-- Header Top -->
   <div class="header-top">
-    <div class="auto-container clearfix">
+    <div class="auto-container">
+      <ul class="top-left-info">
+        <li>
+          <a [href]="'tel:' + siteData.contact.secondaryPhone">
+            <i class="fa fa-phone text-danger"></i> Call: {{ siteData.contact.secondaryPhone }}
+          </a>
+        </li>
+        <li>
+          <a [href]="'mailto:' + siteData.contact.email">
+            <i class="fa fa-envelope text-danger"></i> {{ siteData.contact.email }}
+          </a>
+        </li>
+      </ul>
 
-      <div class="pull-left">
-        <ul class="info">
-          <li><a [href]="'tel:' + siteData.contact.secondaryPhone"><span class="icon flaticon-call"></span>Call:
-              {{ siteData.contact.secondaryPhone }}</a></li>
-          <li><a [href]="'mailto:' + siteData.contact.email"><span
-                class="icon flaticon-email-2"></span>{{ siteData.contact.email }}</a></li>
+      <div class="top-right-bar">
+        <ul class="social-links">
+          <li><a aria-label="Facebook Profile" [href]="siteData.social.facebook" class="fa fa-facebook" target="_blank" rel="noopener noreferrer"></a></li>
+          <li><a aria-label="LinkedIn Profile" [href]="siteData.social.linkedin" class="fa fa-linkedin" target="_blank" rel="noopener noreferrer"></a></li>
+          <li><a aria-label="Instagram Profile" [href]="siteData.social.instagram" class="fa fa-instagram" target="_blank" rel="noopener noreferrer"></a></li>
+          <li><a aria-label="WhatsApp Contact" [href]="siteData.social.whatsapp" class="fa fa-whatsapp" target="_blank" rel="noopener noreferrer"></a></li>
         </ul>
       </div>
-
-      <div class="pull-right clearfix">
-        <!-- Social Box -->
-        <ul class="social-box">
-          <li><a aria-label="Facebook Profile" [href]="siteData.social.facebook" class="fa fa-facebook-f" target="_blank"></a></li>
-          <li><a aria-label="Twitter Profile" [href]="siteData.social.twitter" class="fa fa-twitter" target="_blank"></a></li>
-          <li><a aria-label="LinkedIn Profile" [href]="siteData.social.linkedin" class="fa fa-linkedin" target="_blank"></a></li>
-          <li><a aria-label="WhatsApp Contact" [href]="siteData.social.whatsapp" class="fa fa-whatsapp" target="_blank"></a></li>
-        </ul>
-      </div>
-
     </div>
   </div>
 
   <!-- Header Lower -->
   <div class="header-lower">
+    <div class="auto-container">
+      <div class="inner-container">
 
-    <div class="auto-container clearfix">
-      <div class="inner-container clearfix">
-
-        <div class="pull-left logo-box">
-          <div class="logo"><a routerLink="/"><img src="assets/images/logo.png" alt="Sunrise Communication Logo" title=""></a></div>
+        <div class="logo-box">
+          <div class="logo">
+            <a routerLink="/" aria-label="Sunrise Communication Home">
+              <img src="assets/images/logo.png" alt="Sunrise Communication Logo - Security & Intercom Expert" />
+            </a>
+          </div>
         </div>
-        <div class="nav-outer clearfix">
 
+        <div class="nav-outer">
           <!-- Mobile Navigation Toggler -->
-          <div class="mobile-nav-toggler" (click)="toggleMobileMenu()" role="button" aria-label="Toggle mobile navigation menu" tabindex="0" (keydown.enter)="toggleMobileMenu()" (keydown.space)="$event.preventDefault(); toggleMobileMenu()"><span class="icon flaticon-menu"></span></div>
+          <div class="mobile-nav-toggler" (click)="toggleMobileMenu()" role="button" aria-label="Toggle mobile navigation menu" tabindex="0" (keydown.enter)="toggleMobileMenu()" (keydown.space)="$event.preventDefault(); toggleMobileMenu()">
+            <span class="icon flaticon-menu"></span>
+          </div>
           
           <!-- Main Menu -->
           <nav class="main-menu show navbar-expand-md">
-            <div class="navbar-header">
-              <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation" (click)="toggleMobileMenu()">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-            </div>
-
-            <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+            <div class="navbar-collapse collapse clearfix show" id="navbarSupportedContent">
               <ul class="navigation clearfix">
                 <li routerLinkActive="current" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/">Home</a></li>
                 <li routerLinkActive="current"><a routerLink="/about">About</a></li>
                 <li routerLinkActive="current"><a routerLink="/products">Products</a></li>
                 <li class="dropdown" [class.open]="isServicesDropdownOpen()">
-                  <a routerLink="/services" (click)="closeAllMenus()">Services</a>
-                  <ul [style.display]="isServicesDropdownOpen() ? 'block' : ''">
+                  <a routerLink="/services" (click)="closeAllMenus()">Services <i class="fa fa-angle-down ms-1 small"></i></a>
+                  <ul>
                     <li routerLinkActive="current" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/services" (click)="closeAllMenus()">All Services Overview</a></li>
-                    <li routerLinkActive="current"><a routerLink="/services/cctv-surveillance-systems" (click)="closeAllMenus()">CCTV Surveillance Systems</a></li>
-                    <li routerLinkActive="current"><a routerLink="/services/epabx-intercom-solutions" (click)="closeAllMenus()">EPABX & Intercom Solutions</a></li>
-                    <li routerLinkActive="current"><a routerLink="/services/biometric-access-control" (click)="closeAllMenus()">Biometric & Access Control</a></li>
-                    <li routerLinkActive="current"><a routerLink="/services/structured-networking-cabling" (click)="closeAllMenus()">Security & Telecom Cabling</a></li>
-                    <li routerLinkActive="current"><a routerLink="/tools/cctv-storage-calculator" (click)="closeAllMenus()"><i class="fa fa-calculator text-warning"></i> CCTV Storage Calculator</a></li>
+                    <li routerLinkActive="current"><a routerLink="/services/cctv-surveillance-systems" (click)="closeAllMenus()"><i class="fa fa-video-camera text-danger me-2"></i> CCTV Surveillance Systems</a></li>
+                    <li routerLinkActive="current"><a routerLink="/services/epabx-intercom-solutions" (click)="closeAllMenus()"><i class="fa fa-phone text-danger me-2"></i> EPABX & Intercom Solutions</a></li>
+                    <li routerLinkActive="current"><a routerLink="/services/biometric-access-control" (click)="closeAllMenus()"><i class="fa fa-id-card-o text-danger me-2"></i> Biometric & Access Control</a></li>
+                    <li routerLinkActive="current"><a routerLink="/services/structured-networking-cabling" (click)="closeAllMenus()"><i class="fa fa-sitemap text-danger me-2"></i> Security & Telecom Cabling</a></li>
+                    <li routerLinkActive="current"><a routerLink="/tools/cctv-storage-calculator" (click)="closeAllMenus()"><i class="fa fa-calculator text-warning me-2"></i> CCTV Storage Calculator</a></li>
                   </ul>
                 </li>
                 <li routerLinkActive="current"><a routerLink="/guides">Guides</a></li>
-                <li routerLinkActive="current"><a routerLink="/contact">Contact us</a></li>
+                <li routerLinkActive="current"><a routerLink="/contact">Contact Us</a></li>
               </ul>
             </div>
-
           </nav>
-          <!-- Main Menu End-->
 
-          <!-- Outer Box -->
+          <!-- Outer Box with Quick Action / Sidebar Trigger -->
           <div class="outer-box clearfix">
-
-            <!-- Nav Btn -->
-            <div class="nav-btn navSidebar-button" (click)="toggleSidebar()" role="button" aria-label="Toggle sidebar panel" tabindex="0" (keydown.enter)="toggleSidebar()" (keydown.space)="$event.preventDefault(); toggleSidebar()"><span class="icon flaticon-dots-menu"></span>
-            </div>
-
+            <button class="navSidebar-button" (click)="toggleSidebar()" type="button" aria-label="Toggle quick contact sidebar" title="Quick Contact & Hours">
+              <i class="fa fa-th"></i>
+            </button>
           </div>
-          <!-- End Outer Box -->
 
         </div>
       </div>
-
     </div>
   </div>
-  <!-- End Header Lower -->
 
-  <!-- Sticky Header  -->
-  <div class="sticky-header" [class.animated]="isSticky()" [class.slideInDown]="isSticky()">
-    <div class="auto-container clearfix">
-      <!-- Logo -->
-      <div class="logo pull-left">
-        <a routerLink="/" title=""><img src="assets/images/logo-small.png" alt="Sunrise Communication Logo" title=""></a>
-      </div>
-
-      <!--Right Col-->
-      <div class="pull-right">
-        <!-- Main Menu -->
-        <nav class="main-menu">
-          <!-- Replicated Menu for Sticky Header -->
-          <ul class="navigation clearfix">
-            <li routerLinkActive="current" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/">Home</a></li>
-            <li routerLinkActive="current"><a routerLink="/about">About</a></li>
-            <li routerLinkActive="current"><a routerLink="/products">Products</a></li>
-            <li class="dropdown" [class.open]="isServicesDropdownOpen()">
-              <a routerLink="/services" (click)="closeAllMenus()">Services</a>
-              <ul [style.display]="isServicesDropdownOpen() ? 'block' : ''">
-                <li routerLinkActive="current" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/services" (click)="closeAllMenus()">All Services Overview</a></li>
-                <li routerLinkActive="current"><a routerLink="/services/cctv-surveillance-systems" (click)="closeAllMenus()">CCTV Surveillance Systems</a></li>
-                <li routerLinkActive="current"><a routerLink="/services/epabx-intercom-solutions" (click)="closeAllMenus()">EPABX & Intercom Solutions</a></li>
-                <li routerLinkActive="current"><a routerLink="/services/biometric-access-control" (click)="closeAllMenus()">Biometric & Access Control</a></li>
-                <li routerLinkActive="current"><a routerLink="/services/structured-networking-cabling" (click)="closeAllMenus()">Security & Telecom Cabling</a></li>
-                <li routerLinkActive="current"><a routerLink="/tools/cctv-storage-calculator" (click)="closeAllMenus()"><i class="fa fa-calculator text-warning"></i> CCTV Storage Calculator</a></li>
-              </ul>
-            </li>
-            <li routerLinkActive="current"><a routerLink="/guides">Guides</a></li>
-            <li routerLinkActive="current"><a routerLink="/contact">Contact us</a></li>
-          </ul>
-        </nav><!-- Main Menu End-->
-
-        <!-- Outer Box -->
-        <div class="outer-box clearfix">
-          <!-- Nav Btn -->
-          <div class="nav-btn navSidebar-button" (click)="toggleSidebar()" role="button" aria-label="Toggle sidebar panel" tabindex="0" (keydown.enter)="toggleSidebar()" (keydown.space)="$event.preventDefault(); toggleSidebar()"><span class="icon flaticon-dots-menu"></span></div>
-        </div>
-        <!-- End Outer Box -->
-
-      </div>
-    </div>
-  </div><!-- End Sticky Menu -->
-
-  <!-- Mobile Menu  -->
+  <!-- Mobile Menu Drawer -->
   <div class="mobile-menu">
     <div class="menu-backdrop" (click)="toggleMobileMenu()"></div>
-    <div class="close-btn" (click)="toggleMobileMenu()" role="button" aria-label="Close mobile navigation menu" tabindex="0" (keydown.enter)="toggleMobileMenu()" (keydown.space)="$event.preventDefault(); toggleMobileMenu()"><span class="icon flaticon-multiply"></span></div>
+    <div class="close-btn" (click)="toggleMobileMenu()" role="button" aria-label="Close mobile navigation menu" tabindex="0" (keydown.enter)="toggleMobileMenu()" (keydown.space)="$event.preventDefault(); toggleMobileMenu()">
+      <i class="fa fa-times"></i>
+    </div>
 
     <nav class="menu-box">
-      <div class="nav-logo"><a routerLink="/"><img src="assets/images/logo.png" alt="Sunrise Communication Logo" title=""></a></div>
+      <div class="nav-logo">
+        <a routerLink="/" (click)="toggleMobileMenu()"><img src="assets/images/logo.png" alt="Sunrise Communication Logo" /></a>
+      </div>
       <div class="menu-outer">
-        <!-- Replicated Menu for Mobile -->
         <div class="navbar-collapse collapse clearfix show">
           <ul class="navigation clearfix">
             <li routerLinkActive="current" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/" (click)="toggleMobileMenu()">Home</a></li>
@@ -166,58 +114,54 @@
               </ul>
             </li>
             <li routerLinkActive="current"><a routerLink="/guides" (click)="toggleMobileMenu()">Guides</a></li>
-            <li routerLinkActive="current"><a routerLink="/contact" (click)="toggleMobileMenu()">Contact us</a></li>
+            <li routerLinkActive="current"><a routerLink="/contact" (click)="toggleMobileMenu()">Contact Us</a></li>
           </ul>
         </div>
       </div>
     </nav>
-  </div><!-- End Mobile Menu -->
+  </div>
 
 </header>
 
-<!-- Sidebar Cart Item / Sidebar Widget -->
+<!-- Sidebar Contact Info Drawer -->
 <div class="xs-sidebar-group info-group" [class.isActive]="isSidebarOpen()">
   <div class="xs-overlay xs-bg-black" (click)="toggleSidebar()"></div>
   <div class="xs-sidebar-widget">
     <div class="sidebar-widget-container">
       <div class="widget-heading">
-        <a href="javascript:void(0)" class="close-side-widget" (click)="toggleSidebar()" aria-label="Close sidebar panel">
-          X
-        </a>
+        <button type="button" class="close-side-widget" (click)="toggleSidebar()" aria-label="Close sidebar panel">
+          <i class="fa fa-times"></i>
+        </button>
       </div>
       <div class="sidebar-textwidget">
-
-        <!-- Sidebar Info Content -->
         <div class="sidebar-info-contents">
           <div class="content-inner">
             <div class="logo">
-              <a routerLink="/"><img src="assets/images/logo-2.png" alt="Sunrise Communication Logo" /></a>
+              <a routerLink="/" (click)="toggleSidebar()"><img src="assets/images/logo-2.png" alt="Sunrise Communication Logo" /></a>
             </div>
             <div class="content-box">
-              <h5>About Us</h5>
-              <p class="text">Contact us today to learn more about how we can fulfill your communication and security needs.</p>
-              <a routerLink="/contact" class="theme-btn btn-style-one" (click)="toggleSidebar()"><span class="txt">Contact Us</span></a>
+              <h5>Security & Telecom Experts</h5>
+              <p class="text">Over 25+ years of trusted engineering in Thane & Mumbai MMR for CCTV surveillance, society EPABX intercoms, biometrics & network infrastructure.</p>
+              <a routerLink="/contact" class="theme-btn btn-style-one" (click)="toggleSidebar()"><span class="txt">Book Free Site Audit</span></a>
             </div>
             <div class="contact-info">
-              <h5>Contact Info</h5>
+              <h5>Direct Contact</h5>
               <ul class="list-style-one">
-                <li><span class="icon fa fa-location-arrow"></span>{{ siteData.contact.address }}</li>
-                <li><span class="icon fa fa-phone"></span>{{ siteData.contact.primaryPhone }}</li>
-                <li><span class="icon fa fa-envelope"></span>{{ siteData.contact.email }}</li>
-                <li><span class="icon fa fa-clock-o"></span>{{ siteData.contact.workingHours }}</li>
+                <li><span class="icon fa fa-map-marker"></span><span>{{ siteData.contact.address }}</span></li>
+                <li><span class="icon fa fa-phone"></span><span>{{ siteData.contact.primaryPhone }}</span></li>
+                <li><span class="icon fa fa-envelope"></span><span>{{ siteData.contact.email }}</span></li>
+                <li><span class="icon fa fa-clock-o"></span><span>{{ siteData.contact.workingHours }}</span></li>
               </ul>
             </div>
             <!-- Social Box -->
             <ul class="social-box">
-              <li><a aria-label="Facebook Profile" [href]="siteData.social.facebook" class="fa fa-facebook-f" target="_blank"></a></li>
-              <li><a aria-label="LinkedIn Profile" [href]="siteData.social.linkedin" class="fa fa-linkedin" target="_blank"></a></li>
-              <li><a aria-label="Instagram Profile" [href]="siteData.social.instagram" class="fa fa-instagram" target="_blank"></a></li>
-              <li><a aria-label="Twitter Profile" [href]="siteData.social.twitter" class="fa fa-twitter" target="_blank"></a></li>
-              <li><a aria-label="WhatsApp Contact" [href]="siteData.social.whatsapp" class="fa fa-whatsapp" target="_blank"></a></li>
+              <li><a aria-label="Facebook Profile" [href]="siteData.social.facebook" class="fa fa-facebook-f" target="_blank" rel="noopener noreferrer"></a></li>
+              <li><a aria-label="LinkedIn Profile" [href]="siteData.social.linkedin" class="fa fa-linkedin" target="_blank" rel="noopener noreferrer"></a></li>
+              <li><a aria-label="Instagram Profile" [href]="siteData.social.instagram" class="fa fa-instagram" target="_blank" rel="noopener noreferrer"></a></li>
+              <li><a aria-label="WhatsApp Contact" [href]="siteData.social.whatsapp" class="fa fa-whatsapp" target="_blank" rel="noopener noreferrer"></a></li>
             </ul>
           </div>
         </div>
-
       </div>
     </div>
   </div>

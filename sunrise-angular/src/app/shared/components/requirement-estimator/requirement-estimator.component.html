@@ -28,9 +28,9 @@
     @if (currentStep() === 1) {
       <div class="step-content animate-fade-in">
         <h4 class="step-heading">Select Your Property or Business Type</h4>
-        <div class="row clearfix premise-grid">
+        <div class="row clearfix premise-grid g-3">
           
-          <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+          <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="premise-card" [class.selected]="selectedPremise() === 'society'" (click)="setPremise('society')">
               <div class="card-icon"><i class="fa fa-building-o"></i></div>
               <h5>Housing Society (CHS)</h5>
@@ -38,7 +38,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+          <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="premise-card" [class.selected]="selectedPremise() === 'office'" (click)="setPremise('office')">
               <div class="card-icon"><i class="fa fa-briefcase"></i></div>
               <h5>Corporate Office / IT Park</h5>
@@ -46,7 +46,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+          <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="premise-card" [class.selected]="selectedPremise() === 'warehouse'" (click)="setPremise('warehouse')">
               <div class="card-icon"><i class="fa fa-cubes"></i></div>
               <h5>Warehouse & Industrial</h5>
@@ -54,25 +54,33 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
-            <div class="premise-card" [class.selected]="selectedPremise() === 'retail'" (click)="setPremise('retail')">
-              <div class="card-icon"><i class="fa fa-shopping-bag"></i></div>
-              <h5>Retail Store & Showroom</h5>
-              <p>Shops, supermarkets, showrooms & clinics.</p>
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="premise-card" [class.selected]="selectedPremise() === 'healthcare'" (click)="setPremise('healthcare')">
+              <div class="card-icon"><i class="fa fa-hospital-o"></i></div>
+              <h5>Hospital & Healthcare</h5>
+              <p>Clinics, nursing homes, diagnostic labs & hospitals.</p>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="premise-card" [class.selected]="selectedPremise() === 'retail'" (click)="setPremise('retail')">
+              <div class="card-icon"><i class="fa fa-shopping-bag"></i></div>
+              <h5>Retail Store & Showroom</h5>
+              <p>Shops, supermarkets, retail outlets & showrooms.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="premise-card" [class.selected]="selectedPremise() === 'residential'" (click)="setPremise('residential')">
               <div class="card-icon"><i class="fa fa-home"></i></div>
               <h5>Villa / Row House</h5>
-              <p>Independent bungalows, farmhouses & villas.</p>
+              <p>Independent bungalows, farmhouses & private estates.</p>
             </div>
           </div>
 
         </div>
 
-        <div class="step-footer mt-3 d-flex justify-content-between align-items-center">
+        <div class="step-footer mt-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
           <div class="location-input-group">
             <label><i class="fa fa-map-marker"></i> Location / Pincode:</label>
             <input type="text" [ngModel]="premiseLocation()" (ngModelChange)="premiseLocation.set($event)" class="form-control form-control-sm" placeholder="e.g. Charai Thane, Vashi, Andheri" />
@@ -89,9 +97,9 @@
       <div class="step-content animate-fade-in">
         <h4 class="step-heading">Which Services Do You Need?</h4>
         
-        <div class="row clearfix services-selection-grid">
+        <div class="row clearfix services-selection-grid g-3">
           
-          <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+          <div class="col-lg-6 col-md-6 col-sm-12">
             <label class="service-checkbox-card" [class.checked]="needCctv()">
               <input type="checkbox" [checked]="needCctv()" (change)="needCctv.set(!needCctv())" />
               <div class="check-box-inner">
@@ -104,7 +112,7 @@
             </label>
           </div>
 
-          <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+          <div class="col-lg-6 col-md-6 col-sm-12">
             <label class="service-checkbox-card" [class.checked]="needIntercom()">
               <input type="checkbox" [checked]="needIntercom()" (change)="needIntercom.set(!needIntercom())" />
               <div class="check-box-inner">
@@ -117,7 +125,7 @@
             </label>
           </div>
 
-          <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+          <div class="col-lg-6 col-md-6 col-sm-12">
             <label class="service-checkbox-card" [class.checked]="needBiometrics()">
               <input type="checkbox" [checked]="needBiometrics()" (change)="needBiometrics.set(!needBiometrics())" />
               <div class="check-box-inner">
@@ -130,7 +138,7 @@
             </label>
           </div>
 
-          <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+          <div class="col-lg-6 col-md-6 col-sm-12">
             <label class="service-checkbox-card" [class.checked]="needNetworking()">
               <input type="checkbox" [checked]="needNetworking()" (change)="needNetworking.set(!needNetworking())" />
               <div class="check-box-inner">
@@ -143,7 +151,7 @@
             </label>
           </div>
 
-          <div class="col-12 mb-2">
+          <div class="col-12">
             <label class="service-checkbox-card amc-highlight" [class.checked]="needAmc()">
               <input type="checkbox" [checked]="needAmc()" (change)="needAmc.set(!needAmc())" />
               <div class="check-box-inner">
@@ -158,7 +166,7 @@
 
         </div>
 
-        <div class="step-footer mt-3 d-flex justify-content-between">
+        <div class="step-footer mt-4 d-flex justify-content-between">
           <button class="btn btn-outline-secondary btn-sm" (click)="goToStep(1)">&lsaquo; Back</button>
           <button class="theme-btn btn-style-one next-btn" (click)="goToStep(3)">
             <span class="txt">Next: Scope & Numbers &rsaquo;</span>
@@ -172,10 +180,10 @@
       <div class="step-content animate-fade-in">
         <h4 class="step-heading">Configure Quantities & Specifications</h4>
 
-        <div class="row clearfix params-form-grid">
+        <div class="row clearfix params-form-grid g-3">
 
           @if (needCctv()) {
-            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+            <div class="col-lg-6 col-md-6 col-sm-12">
               <div class="param-box">
                 <label class="param-label"><i class="fa fa-video-camera"></i> Number of CCTV Cameras: <strong>{{ cameraCount() }} Points</strong></label>
                 <input type="range" class="form-range w-100" min="2" max="64" step="2" [value]="cameraCount()" (input)="cameraCount.set(+$any($event.target).value)" />
@@ -188,7 +196,7 @@
               </div>
             </div>
 
-            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+            <div class="col-lg-6 col-md-6 col-sm-12">
               <div class="param-box">
                 <label class="param-label"><i class="fa fa-hdd-o"></i> Desired Video Backup Duration: <strong>{{ storageDays() }} Days</strong></label>
                 <div class="btn-group w-100 btn-group-sm" role="group">
@@ -202,7 +210,7 @@
           }
 
           @if (needIntercom()) {
-            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+            <div class="col-lg-6 col-md-6 col-sm-12">
               <div class="param-box">
                 <label class="param-label"><i class="fa fa-phone"></i> Number of Flats / Extensions: <strong>{{ flatCount() }} Lines</strong></label>
                 <input type="range" class="form-range w-100" min="10" max="300" step="5" [value]="flatCount()" (input)="flatCount.set(+$any($event.target).value)" />
@@ -215,7 +223,7 @@
               </div>
             </div>
 
-            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+            <div class="col-lg-6 col-md-6 col-sm-12">
               <div class="param-box">
                 <label class="param-label"><i class="fa fa-cubes"></i> Number of Building Wings: <strong>{{ wingCount() }} Wing(s)</strong></label>
                 <div class="btn-group w-100 btn-group-sm" role="group">
@@ -229,14 +237,14 @@
           }
 
           @if (needBiometrics()) {
-            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+            <div class="col-lg-6 col-md-6 col-sm-12">
               <div class="param-box">
                 <label class="param-label"><i class="fa fa-lock"></i> Access Control Doors: <strong>{{ doorCount() }} Doors</strong></label>
                 <input type="number" [ngModel]="doorCount()" (ngModelChange)="doorCount.set(+$event)" class="form-control form-control-sm" min="1" max="50" />
               </div>
             </div>
 
-            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+            <div class="col-lg-6 col-md-6 col-sm-12">
               <div class="param-box">
                 <label class="param-label"><i class="fa fa-users"></i> Staff / User Count: <strong>{{ employeeCount() }} Users</strong></label>
                 <input type="number" [ngModel]="employeeCount()" (ngModelChange)="employeeCount.set(+$event)" class="form-control form-control-sm" min="5" max="2000" />
@@ -245,7 +253,7 @@
           }
 
           @if (needNetworking()) {
-            <div class="col-12 mb-3">
+            <div class="col-12">
               <div class="param-box">
                 <label class="param-label"><i class="fa fa-sitemap"></i> Workstation / LAN Cabling Points: <strong>{{ lanPoints() }} Nodes</strong></label>
                 <input type="range" class="form-range w-100" min="5" max="200" step="5" [value]="lanPoints()" (input)="lanPoints.set(+$any($event.target).value)" />
@@ -255,7 +263,7 @@
 
         </div>
 
-        <div class="step-footer mt-3 d-flex justify-content-between">
+        <div class="step-footer mt-4 d-flex justify-content-between">
           <button class="btn btn-outline-secondary btn-sm" (click)="goToStep(2)">&lsaquo; Back</button>
           <button class="theme-btn btn-style-one next-btn" (click)="goToStep(4)">
             <span class="txt">Generate Architecture &rsaquo;</span>
@@ -355,10 +363,10 @@
             <a [href]="whatsappQuoteUrl()" target="_blank" rel="noopener noreferrer" class="whatsapp-quote-btn">
               <i class="fa fa-whatsapp"></i> Get Instant WhatsApp Quote
             </a>
-            <button class="btn btn-outline-primary btn-sm copy-boq-btn" (click)="copyBoqToClipboard()">
+            <button class="copy-boq-btn" (click)="copyBoqToClipboard()" type="button">
               <i class="fa fa-copy"></i> Copy BOQ Spec
             </button>
-            <button class="btn btn-outline-secondary btn-sm" (click)="goToStep(1)">
+            <button class="copy-boq-btn" (click)="goToStep(1)" type="button">
               <i class="fa fa-refresh"></i> Recalculate
             </button>
           </div>

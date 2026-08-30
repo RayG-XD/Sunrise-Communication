@@ -1,13 +1,12 @@
 import { Component, signal, OnInit, OnDestroy, inject, PLATFORM_ID, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { RouterLink } from '@angular/router';
 import { PageTitleComponent } from '../../shared/components/page-title.component';
 import { SITE_DATA } from '../../core/constants/site-data';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [RouterLink, PageTitleComponent],
+  imports: [PageTitleComponent],
   templateUrl: './about.component.html',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
