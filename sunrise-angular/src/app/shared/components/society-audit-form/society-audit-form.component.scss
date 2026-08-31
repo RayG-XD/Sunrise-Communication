@@ -11,8 +11,20 @@
   cursor: pointer;
   margin-bottom: 0;
 
-  input[type="checkbox"] {
-    display: none;
+  input[type='checkbox'] {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  input[type='checkbox']:focus-visible + span {
+    outline: 2px solid #0284c7;
+    outline-offset: 2px;
+    border-color: #0284c7;
   }
 
   span {
@@ -29,7 +41,7 @@
     transition: all 0.2s ease-in-out;
   }
 
-  input[type="checkbox"]:checked + span {
+  input[type='checkbox']:checked + span {
     background-color: #e0f2fe;
     border-color: #0284c7;
     color: #0369a1;
