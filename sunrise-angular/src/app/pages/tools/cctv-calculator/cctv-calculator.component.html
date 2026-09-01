@@ -30,28 +30,44 @@
         <span class="presets-label fw-bold d-flex align-items-center text-secondary">
           <i class="fa fa-magic text-primary me-1"></i> Quick Presets:
         </span>
-        <button type="button" class="btn btn-sm rounded-pill transition-all" 
-                [class.btn-primary]="activePreset() === 'society'"
-                [class.btn-outline-dark]="activePreset() !== 'society'"
-                (click)="setPreset('society')">
+        <button
+          type="button"
+          class="btn btn-sm rounded-pill transition-all"
+          [class.btn-primary]="activePreset() === 'society'"
+          [class.btn-outline-dark]="activePreset() !== 'society'"
+          [attr.aria-pressed]="activePreset() === 'society'"
+          (click)="setPreset('society')"
+        >
           🏢 Housing Society (16 Cams / 30 Days)
         </button>
-        <button type="button" class="btn btn-sm rounded-pill transition-all" 
-                [class.btn-primary]="activePreset() === 'office'"
-                [class.btn-outline-dark]="activePreset() !== 'office'"
-                (click)="setPreset('office')">
+        <button
+          type="button"
+          class="btn btn-sm rounded-pill transition-all"
+          [class.btn-primary]="activePreset() === 'office'"
+          [class.btn-outline-dark]="activePreset() !== 'office'"
+          [attr.aria-pressed]="activePreset() === 'office'"
+          (click)="setPreset('office')"
+        >
           💼 Corporate Office (8 Cams / 30 Days)
         </button>
-        <button type="button" class="btn btn-sm rounded-pill transition-all" 
-                [class.btn-primary]="activePreset() === 'warehouse'"
-                [class.btn-outline-dark]="activePreset() !== 'warehouse'"
-                (click)="setPreset('warehouse')">
+        <button
+          type="button"
+          class="btn btn-sm rounded-pill transition-all"
+          [class.btn-primary]="activePreset() === 'warehouse'"
+          [class.btn-outline-dark]="activePreset() !== 'warehouse'"
+          [attr.aria-pressed]="activePreset() === 'warehouse'"
+          (click)="setPreset('warehouse')"
+        >
           🏭 Industrial Warehouse (24 Cams / 45 Days)
         </button>
-        <button type="button" class="btn btn-sm rounded-pill transition-all" 
-                [class.btn-primary]="activePreset() === 'retail'"
-                [class.btn-outline-dark]="activePreset() !== 'retail'"
-                (click)="setPreset('retail')">
+        <button
+          type="button"
+          class="btn btn-sm rounded-pill transition-all"
+          [class.btn-primary]="activePreset() === 'retail'"
+          [class.btn-outline-dark]="activePreset() !== 'retail'"
+          [attr.aria-pressed]="activePreset() === 'retail'"
+          (click)="setPreset('retail')"
+        >
           🏪 Retail Shop (4 Cams / 15 Days)
         </button>
       </div>
@@ -68,15 +84,19 @@
           <!-- 1. Camera Count Slider -->
           <div class="control-group mb-4">
             <div class="d-flex justify-content-between align-items-center mb-2">
-              <label class="form-label fw-bold text-dark mb-0">Number of CCTV Cameras</label>
+              <label for="camera-count-slider" class="form-label fw-bold text-dark mb-0"
+                >Number of CCTV Cameras</label
+              >
               <span class="badge bg-primary fs-6 px-3 py-1">{{ cameraCount() }} Cameras</span>
             </div>
             <input
+              id="camera-count-slider"
               type="range"
               class="form-range custom-slider"
               min="1"
               max="64"
               step="1"
+              aria-label="Number of CCTV Cameras"
               [ngModel]="cameraCount()"
               (ngModelChange)="cameraCount.set($event)"
             />
@@ -143,17 +163,19 @@
           <!-- 4. Retention Days Slider -->
           <div class="control-group mb-4">
             <div class="d-flex justify-content-between align-items-center mb-2">
-              <label class="form-label fw-bold text-dark mb-0"
+              <label for="retention-days-slider" class="form-label fw-bold text-dark mb-0"
                 >Recording History Retention (Days)</label
               >
               <span class="badge bg-danger fs-6 px-3 py-1">{{ recordingDays() }} Days Backup</span>
             </div>
             <input
+              id="retention-days-slider"
               type="range"
               class="form-range custom-slider"
               min="3"
               max="90"
               step="1"
+              aria-label="Recording History Retention in Days"
               [ngModel]="recordingDays()"
               (ngModelChange)="recordingDays.set($event)"
             />
@@ -170,10 +192,14 @@
           <div class="advanced-settings-box p-3 bg-light rounded-3 border">
             <div class="row g-3">
               <div class="col-md-6 col-12">
-                <label class="form-label fw-semibold text-secondary small mb-1"
+                <label
+                  for="recording-mode-select"
+                  class="form-label fw-semibold text-secondary small mb-1"
                   >Recording Schedule Mode</label
                 >
                 <select
+                  id="recording-mode-select"
+                  aria-label="Recording Schedule Mode"
                   class="form-select form-select-sm"
                   [ngModel]="recordingMode()"
                   (ngModelChange)="recordingMode.set($event)"
@@ -184,10 +210,12 @@
               </div>
 
               <div class="col-md-3 col-6">
-                <label class="form-label fw-semibold text-secondary small mb-1"
+                <label for="fps-select" class="form-label fw-semibold text-secondary small mb-1"
                   >Frame Rate (FPS)</label
                 >
                 <select
+                  id="fps-select"
+                  aria-label="Frame Rate (FPS)"
                   class="form-select form-select-sm"
                   [ngModel]="fps()"
                   (ngModelChange)="fps.set($event)"
@@ -200,10 +228,14 @@
               </div>
 
               <div class="col-md-3 col-6">
-                <label class="form-label fw-semibold text-secondary small mb-1"
+                <label
+                  for="audio-recording-select"
+                  class="form-label fw-semibold text-secondary small mb-1"
                   >Audio Recording</label
                 >
                 <select
+                  id="audio-recording-select"
+                  aria-label="Audio Recording"
                   class="form-select form-select-sm"
                   [ngModel]="audioRecording()"
                   (ngModelChange)="audioRecording.set($event)"
