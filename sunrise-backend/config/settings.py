@@ -105,6 +105,9 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Security Headers
+SECURE_CONTENT_TYPE_NOSNIFF = True  # Prevent MIME-type sniffing vulnerabilities
+
 # CORS Settings
 CORS_ALLOWED_ORIGINS = os.getenv(
     'CORS_ALLOWED_ORIGINS',
