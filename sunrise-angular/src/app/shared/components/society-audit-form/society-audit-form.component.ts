@@ -26,7 +26,7 @@ export class SocietyAuditFormComponent {
 
   auditForm = this.fb.group({
     societyName: ['', Validators.required],
-    locality: ['Thane (West)', Validators.required],
+    locality: ['Charai, Thane (West)', Validators.required],
     premiseType: ['Cooperative Housing Society (CHS)', Validators.required],
     flatCount: [32, [Validators.required, Validators.min(1)]],
     wingCount: [1, [Validators.required, Validators.min(1)]],
@@ -35,7 +35,7 @@ export class SocietyAuditFormComponent {
     needBiometrics: [false],
     needCabling: [false],
     needAmc: [true],
-    projectType: ['New Installation', Validators.required],
+    projectType: ['New Turnkey Installation', Validators.required],
     preferredTime: ['Morning (10 AM – 1 PM)', Validators.required],
     contactPerson: ['', Validators.required],
     designation: ['Society Secretary', Validators.required],
