@@ -3,14 +3,15 @@ import { CommonModule, isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SITE_DATA } from '../../../core/constants/site-data';
 
-export type PremiseType = 'society' | 'office' | 'warehouse' | 'retail' | 'residential' | 'healthcare';
+export type PremiseType =
+  'society' | 'office' | 'warehouse' | 'retail' | 'residential' | 'healthcare';
 
 @Component({
   selector: 'app-requirement-estimator',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './requirement-estimator.component.html',
-  styleUrl: './requirement-estimator.component.scss'
+  styleUrl: './requirement-estimator.component.scss',
 })
 export class RequirementEstimatorComponent {
   private platformId = inject(PLATFORM_ID);
@@ -55,7 +56,7 @@ export class RequirementEstimatorComponent {
     const days = this.storageDays();
     const estTb = Math.ceil((cams * 20 * days) / 1000);
     const standardSizes = [2, 4, 6, 8, 12, 16, 24];
-    const match = standardSizes.find(s => s >= estTb) || standardSizes[standardSizes.length - 1];
+    const match = standardSizes.find((s) => s >= estTb) || standardSizes[standardSizes.length - 1];
     return `${match} TB Surveillance Grade HDD (WD Purple / Seagate SkyHawk)`;
   });
 
@@ -84,13 +85,16 @@ export class RequirementEstimatorComponent {
       warehouse: 'Industrial Warehouse / Factory',
       retail: 'Retail Store / Showroom',
       residential: 'Residential Villa / Bungalow',
-      healthcare: 'Hospital / Healthcare Facility / Clinic'
+      healthcare: 'Hospital / Healthcare Facility / Clinic',
     };
 
     const servicesList: string[] = [];
-    if (this.needCctv()) servicesList.push(`CCTV (${this.cameraCount()} Cams, ${this.storageDays()} Days)`);
-    if (this.needIntercom()) servicesList.push(`Intercom (${this.flatCount()} Flats, ${this.wingCount()} Wing(s))`);
-    if (this.needBiometrics()) servicesList.push(`Biometrics (${this.doorCount()} Doors, ${this.employeeCount()} Users)`);
+    if (this.needCctv())
+      servicesList.push(`CCTV (${this.cameraCount()} Cams, ${this.storageDays()} Days)`);
+    if (this.needIntercom())
+      servicesList.push(`Intercom (${this.flatCount()} Flats, ${this.wingCount()} Wing(s))`);
+    if (this.needBiometrics())
+      servicesList.push(`Biometrics (${this.doorCount()} Doors, ${this.employeeCount()} Users)`);
     if (this.needNetworking()) servicesList.push(`Structured Cabling (${this.lanPoints()} Points)`);
     if (this.needAmc()) servicesList.push('Annual Maintenance Contract (AMC)');
 
@@ -101,18 +105,24 @@ export class RequirementEstimatorComponent {
       `⚙️ *Scope of Work:* ${servicesList.join(', ')}`,
       ``,
       `📋 *Calculated Architecture:*`,
-      this.needCctv() ? `• Surveillance: ${this.recommendedNvr()} + ${this.recommendedHdd()}` : null,
+      this.needCctv()
+        ? `• Surveillance: ${this.recommendedNvr()} + ${this.recommendedHdd()}`
+        : null,
       this.needIntercom() ? `• Telecom: ${this.recommendedIntercom()}` : null,
       this.needBiometrics() ? `• Access Control: ${this.recommendedBiometric()}` : null,
       this.needNetworking() ? `• Cabling: ${this.lanPoints()} Certified Cat6 LAN I/O Ports` : null,
-      this.needAmc() ? `• Maintenance: Scheduled Preventive Servicing & On-Call Breakdown Support` : null,
+      this.needAmc()
+        ? `• Maintenance: Scheduled Preventive Servicing & On-Call Breakdown Support`
+        : null,
       ``,
       `📌 _Note: Indicative requirement estimate. Final hardware selection, cable lengths, and proposal subject to site survey._`,
       ``,
       `📞 *Provider:* Sunrise Communication (Thane West)`,
       `📱 *Direct Contact:* +91 93238 48622 / +91 99875 55399`,
-      `🌐 *Website:* https://sunrisecommunication.in`
-    ].filter(Boolean).join('\n');
+      `🌐 *Website:* https://sunrisecommunication.in`,
+    ]
+      .filter(Boolean)
+      .join('\n');
   });
 
   // Dynamic WhatsApp Lead Generation Link
