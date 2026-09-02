@@ -22,11 +22,11 @@ body {
 /* Mobile Clearance for Fixed Quick Action Bar */
 @media (max-width: 991px) {
   body {
-    padding-bottom: 64px !important;
+    padding-bottom: 72px !important;
   }
 
   .scroll-to-top {
-    bottom: 74px !important;
+    bottom: 84px !important;
     right: 16px !important;
   }
 }

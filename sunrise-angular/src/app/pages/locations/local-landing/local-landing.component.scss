@@ -27,6 +27,19 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.locality-chip {
+  transition: all 0.2s ease;
+  font-size: 13.5px;
+  border-radius: 8px;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-color: #df0303 !important;
+    background-color: #fffafa !important;
+  }
+}
+
 .local-service-card {
   transition: all 0.3s ease;
   border-color: #e2e8f0;
