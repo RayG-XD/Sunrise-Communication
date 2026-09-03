@@ -33,7 +33,7 @@ export class ServiceClusterComponent implements OnInit {
     const data = this.clusterData();
     if (!data) return '';
     const phone = this.siteData.social.whatsapp.replace('https://wa.me/', '');
-    const msg = `Hi Sunrise Communication, I would like to schedule a free technical site survey & get a quote for ${data.name} in Thane / Mumbai MMR.`;
+    const msg = `Hi Sunrise Communication, I would like to schedule a technical site survey & get a quote for ${data.name} in Thane / Mumbai MMR.`;
     return `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
   });
 

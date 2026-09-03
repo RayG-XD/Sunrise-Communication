@@ -186,7 +186,7 @@ export class CctvCalculatorComponent implements OnInit {
 
   whatsappQuoteUrl = computed(() => {
     const phone = this.siteData.social.whatsapp.replace('https://wa.me/', '');
-    const msg = `Hi Sunrise Communication, I used your CCTV Storage Calculator tool and calculated my requirement:\n\n${this.formattedSummary()}\n\nPlease provide an itemized quote & schedule a free site survey.`;
+    const msg = `Hi Sunrise Communication, I used your CCTV Storage Calculator tool and calculated my requirement:\n\n${this.formattedSummary()}\n\nPlease provide an itemized quote & schedule a technical site survey.`;
     return `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
   });
 

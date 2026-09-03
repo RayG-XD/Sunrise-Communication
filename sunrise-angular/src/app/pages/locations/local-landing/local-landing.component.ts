@@ -32,7 +32,7 @@ export class LocalLandingComponent implements OnInit {
     const loc = this.locationData();
     if (!loc) return '';
     const phone = this.siteData.social.whatsapp.replace('https://wa.me/', '');
-    const msg = `Hi Sunrise Communication, I would like to schedule a free on-site survey and quote for CCTV / Intercom / Security systems in ${loc.regionName}.`;
+    const msg = `Hi Sunrise Communication, I would like to schedule an on-site survey and quote for CCTV / Intercom / Security systems in ${loc.regionName}.`;
     return `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
   });
 

@@ -264,7 +264,7 @@ export class SeoService {
       creator: {
         '@id': `${SITE_DATA.contact.website}/#localbusiness`
       },
-      description: 'Free technical calculator for sizing surveillance hard drives (HDD) in Terabytes (TB) and NVR channels based on camera count, resolution, compression codecs (H.265+), and retention days.'
+      description: 'Technical calculator for sizing surveillance hard drives (HDD) in Terabytes (TB) and NVR channels based on camera count, resolution, compression codecs (H.265+), and retention days.'
     };
 
     // FAQPage Schema Node for Calculator

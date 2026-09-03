@@ -19,7 +19,7 @@ export class SocietyAuditFormComponent {
   private http = inject(HttpClient);
   siteData = SITE_DATA;
 
-  @Input() title: string = 'Book a Free Technical Site Audit & BOQ Sizing';
+  @Input() title: string = 'Book a Technical Site Audit & BOQ Sizing';
   @Input() subtitle: string = 'For Housing Society Managing Committees, Secretaries & Office Facility Managers across Thane, Mumbai & Navi Mumbai';
 
   isSubmitting = signal<boolean>(false);
