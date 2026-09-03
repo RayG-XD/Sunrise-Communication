@@ -1,9 +1,11 @@
 <div class="requirement-estimator-card">
-  
   <div class="estimator-header">
     <div class="header-badge"><i class="fa fa-calculator"></i> Interactive Planning Tool</div>
     <h3 class="estimator-title">Security & Telecom Requirement Estimator</h3>
-    <p class="estimator-subtitle">Configure your building or office parameters below to get instant technical recommendations & a direct WhatsApp quote.</p>
+    <p class="estimator-subtitle">
+      Configure your building or office parameters below to get instant technical recommendations &
+      a direct WhatsApp quote.
+    </p>
   </div>
 
   <!-- Step Navigation Pills -->
@@ -23,15 +25,23 @@
   </div>
 
   <div class="estimator-body">
-
     <!-- STEP 1: PREMISE TYPE -->
     @if (currentStep() === 1) {
       <div class="step-content animate-fade-in">
         <h4 class="step-heading">Select Your Property or Business Type</h4>
         <div class="row clearfix premise-grid g-3">
-          
           <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="premise-card" [class.selected]="selectedPremise() === 'society'" (click)="setPremise('society')">
+            <div
+              class="premise-card"
+              [class.selected]="selectedPremise() === 'society'"
+              (click)="setPremise('society')"
+              (keydown.enter)="setPremise('society')"
+              (keydown.space)="$event.preventDefault(); setPremise('society')"
+              role="button"
+              tabindex="0"
+              [attr.aria-pressed]="selectedPremise() === 'society'"
+              aria-label="Select Housing Society (CHS)"
+            >
               <div class="card-icon"><i class="fa fa-building-o"></i></div>
               <h5>Housing Society (CHS)</h5>
               <p>Residential apartments, high-rise towers & residential complexes.</p>
@@ -39,7 +49,17 @@
           </div>
 
           <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="premise-card" [class.selected]="selectedPremise() === 'office'" (click)="setPremise('office')">
+            <div
+              class="premise-card"
+              [class.selected]="selectedPremise() === 'office'"
+              (click)="setPremise('office')"
+              (keydown.enter)="setPremise('office')"
+              (keydown.space)="$event.preventDefault(); setPremise('office')"
+              role="button"
+              tabindex="0"
+              [attr.aria-pressed]="selectedPremise() === 'office'"
+              aria-label="Select Corporate Office / IT Park"
+            >
               <div class="card-icon"><i class="fa fa-briefcase"></i></div>
               <h5>Corporate Office / IT Park</h5>
               <p>Commercial workspaces, IT offices & corporate branches.</p>
@@ -47,7 +67,17 @@
           </div>
 
           <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="premise-card" [class.selected]="selectedPremise() === 'warehouse'" (click)="setPremise('warehouse')">
+            <div
+              class="premise-card"
+              [class.selected]="selectedPremise() === 'warehouse'"
+              (click)="setPremise('warehouse')"
+              (keydown.enter)="setPremise('warehouse')"
+              (keydown.space)="$event.preventDefault(); setPremise('warehouse')"
+              role="button"
+              tabindex="0"
+              [attr.aria-pressed]="selectedPremise() === 'warehouse'"
+              aria-label="Select Warehouse & Industrial"
+            >
               <div class="card-icon"><i class="fa fa-cubes"></i></div>
               <h5>Warehouse & Industrial</h5>
               <p>Logistics hubs, factory floors & manufacturing plants.</p>
@@ -55,7 +85,17 @@
           </div>
 
           <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="premise-card" [class.selected]="selectedPremise() === 'healthcare'" (click)="setPremise('healthcare')">
+            <div
+              class="premise-card"
+              [class.selected]="selectedPremise() === 'healthcare'"
+              (click)="setPremise('healthcare')"
+              (keydown.enter)="setPremise('healthcare')"
+              (keydown.space)="$event.preventDefault(); setPremise('healthcare')"
+              role="button"
+              tabindex="0"
+              [attr.aria-pressed]="selectedPremise() === 'healthcare'"
+              aria-label="Select Hospital & Healthcare"
+            >
               <div class="card-icon"><i class="fa fa-hospital-o"></i></div>
               <h5>Hospital & Healthcare</h5>
               <p>Clinics, nursing homes, diagnostic labs & hospitals.</p>
@@ -63,7 +103,17 @@
           </div>
 
           <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="premise-card" [class.selected]="selectedPremise() === 'retail'" (click)="setPremise('retail')">
+            <div
+              class="premise-card"
+              [class.selected]="selectedPremise() === 'retail'"
+              (click)="setPremise('retail')"
+              (keydown.enter)="setPremise('retail')"
+              (keydown.space)="$event.preventDefault(); setPremise('retail')"
+              role="button"
+              tabindex="0"
+              [attr.aria-pressed]="selectedPremise() === 'retail'"
+              aria-label="Select Retail Store & Showroom"
+            >
               <div class="card-icon"><i class="fa fa-shopping-bag"></i></div>
               <h5>Retail Store & Showroom</h5>
               <p>Shops, supermarkets, retail outlets & showrooms.</p>
@@ -71,19 +121,36 @@
           </div>
 
           <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="premise-card" [class.selected]="selectedPremise() === 'residential'" (click)="setPremise('residential')">
+            <div
+              class="premise-card"
+              [class.selected]="selectedPremise() === 'residential'"
+              (click)="setPremise('residential')"
+              (keydown.enter)="setPremise('residential')"
+              (keydown.space)="$event.preventDefault(); setPremise('residential')"
+              role="button"
+              tabindex="0"
+              [attr.aria-pressed]="selectedPremise() === 'residential'"
+              aria-label="Select Villa / Row House"
+            >
               <div class="card-icon"><i class="fa fa-home"></i></div>
               <h5>Villa / Row House</h5>
               <p>Independent bungalows, farmhouses & private estates.</p>
             </div>
           </div>
-
         </div>
 
-        <div class="step-footer mt-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
+        <div
+          class="step-footer mt-4 d-flex justify-content-between align-items-center flex-wrap gap-3"
+        >
           <div class="location-input-group">
             <label><i class="fa fa-map-marker"></i> Location / Pincode:</label>
-            <input type="text" [ngModel]="premiseLocation()" (ngModelChange)="premiseLocation.set($event)" class="form-control form-control-sm" placeholder="e.g. Charai Thane, Vashi, Andheri" />
+            <input
+              type="text"
+              [ngModel]="premiseLocation()"
+              (ngModelChange)="premiseLocation.set($event)"
+              class="form-control form-control-sm"
+              placeholder="e.g. Charai Thane, Vashi, Andheri"
+            />
           </div>
           <button class="theme-btn btn-style-one next-btn" (click)="goToStep(2)">
             <span class="txt">Next: Select Services &rsaquo;</span>
@@ -96,9 +163,8 @@
     @if (currentStep() === 2) {
       <div class="step-content animate-fade-in">
         <h4 class="step-heading">Which Services Do You Need?</h4>
-        
+
         <div class="row clearfix services-selection-grid g-3">
-          
           <div class="col-lg-6 col-md-6 col-sm-12">
             <label class="service-checkbox-card" [class.checked]="needCctv()">
               <input type="checkbox" [checked]="needCctv()" (change)="needCctv.set(!needCctv())" />
@@ -114,7 +180,11 @@
 
           <div class="col-lg-6 col-md-6 col-sm-12">
             <label class="service-checkbox-card" [class.checked]="needIntercom()">
-              <input type="checkbox" [checked]="needIntercom()" (change)="needIntercom.set(!needIntercom())" />
+              <input
+                type="checkbox"
+                [checked]="needIntercom()"
+                (change)="needIntercom.set(!needIntercom())"
+              />
               <div class="check-box-inner">
                 <div class="icon-box"><i class="fa fa-phone"></i></div>
                 <div class="text-box">
@@ -127,7 +197,11 @@
 
           <div class="col-lg-6 col-md-6 col-sm-12">
             <label class="service-checkbox-card" [class.checked]="needBiometrics()">
-              <input type="checkbox" [checked]="needBiometrics()" (change)="needBiometrics.set(!needBiometrics())" />
+              <input
+                type="checkbox"
+                [checked]="needBiometrics()"
+                (change)="needBiometrics.set(!needBiometrics())"
+              />
               <div class="check-box-inner">
                 <div class="icon-box"><i class="fa fa-id-card-o"></i></div>
                 <div class="text-box">
@@ -140,7 +214,11 @@
 
           <div class="col-lg-6 col-md-6 col-sm-12">
             <label class="service-checkbox-card" [class.checked]="needNetworking()">
-              <input type="checkbox" [checked]="needNetworking()" (change)="needNetworking.set(!needNetworking())" />
+              <input
+                type="checkbox"
+                [checked]="needNetworking()"
+                (change)="needNetworking.set(!needNetworking())"
+              />
               <div class="check-box-inner">
                 <div class="icon-box"><i class="fa fa-sitemap"></i></div>
                 <div class="text-box">
@@ -158,16 +236,20 @@
                 <div class="icon-box"><i class="fa fa-shield"></i></div>
                 <div class="text-box">
                   <h5>Include Annual Maintenance Contract (AMC)</h5>
-                  <p>Guaranteed 24-48h breakdown support, quarterly preventive servicing & standby units.</p>
+                  <p>
+                    Guaranteed 24-48h breakdown support, quarterly preventive servicing & standby
+                    units.
+                  </p>
                 </div>
               </div>
             </label>
           </div>
-
         </div>
 
         <div class="step-footer mt-4 d-flex justify-content-between">
-          <button class="btn btn-outline-secondary btn-sm" (click)="goToStep(1)">&lsaquo; Back</button>
+          <button class="btn btn-outline-secondary btn-sm" (click)="goToStep(1)">
+            &lsaquo; Back
+          </button>
           <button class="theme-btn btn-style-one next-btn" (click)="goToStep(3)">
             <span class="txt">Next: Scope & Numbers &rsaquo;</span>
           </button>
@@ -181,12 +263,22 @@
         <h4 class="step-heading">Configure Quantities & Specifications</h4>
 
         <div class="row clearfix params-form-grid g-3">
-
           @if (needCctv()) {
             <div class="col-lg-6 col-md-6 col-sm-12">
               <div class="param-box">
-                <label class="param-label"><i class="fa fa-video-camera"></i> Number of CCTV Cameras: <strong>{{ cameraCount() }} Points</strong></label>
-                <input type="range" class="form-range w-100" min="2" max="64" step="2" [value]="cameraCount()" (input)="cameraCount.set(+$any($event.target).value)" />
+                <label class="param-label"
+                  ><i class="fa fa-video-camera"></i> Number of CCTV Cameras:
+                  <strong>{{ cameraCount() }} Points</strong></label
+                >
+                <input
+                  type="range"
+                  class="form-range w-100"
+                  min="2"
+                  max="64"
+                  step="2"
+                  [value]="cameraCount()"
+                  (input)="cameraCount.set(+$any($event.target).value)"
+                />
                 <div class="range-labels d-flex justify-content-between text-muted">
                   <span>2 Cams</span>
                   <span>16 Cams</span>
@@ -198,12 +290,47 @@
 
             <div class="col-lg-6 col-md-6 col-sm-12">
               <div class="param-box">
-                <label class="param-label"><i class="fa fa-hdd-o"></i> Desired Video Backup Duration: <strong>{{ storageDays() }} Days</strong></label>
+                <label class="param-label"
+                  ><i class="fa fa-hdd-o"></i> Desired Video Backup Duration:
+                  <strong>{{ storageDays() }} Days</strong></label
+                >
                 <div class="btn-group w-100 btn-group-sm" role="group">
-                  <button type="button" class="btn" [class.btn-danger]="storageDays() === 15" [class.btn-outline-secondary]="storageDays() !== 15" (click)="storageDays.set(15)">15 Days</button>
-                  <button type="button" class="btn" [class.btn-danger]="storageDays() === 30" [class.btn-outline-secondary]="storageDays() !== 30" (click)="storageDays.set(30)">30 Days</button>
-                  <button type="button" class="btn" [class.btn-danger]="storageDays() === 45" [class.btn-outline-secondary]="storageDays() !== 45" (click)="storageDays.set(45)">45 Days</button>
-                  <button type="button" class="btn" [class.btn-danger]="storageDays() === 60" [class.btn-outline-secondary]="storageDays() !== 60" (click)="storageDays.set(60)">60 Days</button>
+                  <button
+                    type="button"
+                    class="btn"
+                    [class.btn-danger]="storageDays() === 15"
+                    [class.btn-outline-secondary]="storageDays() !== 15"
+                    (click)="storageDays.set(15)"
+                  >
+                    15 Days
+                  </button>
+                  <button
+                    type="button"
+                    class="btn"
+                    [class.btn-danger]="storageDays() === 30"
+                    [class.btn-outline-secondary]="storageDays() !== 30"
+                    (click)="storageDays.set(30)"
+                  >
+                    30 Days
+                  </button>
+                  <button
+                    type="button"
+                    class="btn"
+                    [class.btn-danger]="storageDays() === 45"
+                    [class.btn-outline-secondary]="storageDays() !== 45"
+                    (click)="storageDays.set(45)"
+                  >
+                    45 Days
+                  </button>
+                  <button
+                    type="button"
+                    class="btn"
+                    [class.btn-danger]="storageDays() === 60"
+                    [class.btn-outline-secondary]="storageDays() !== 60"
+                    (click)="storageDays.set(60)"
+                  >
+                    60 Days
+                  </button>
                 </div>
               </div>
             </div>
@@ -212,8 +339,19 @@
           @if (needIntercom()) {
             <div class="col-lg-6 col-md-6 col-sm-12">
               <div class="param-box">
-                <label class="param-label"><i class="fa fa-phone"></i> Number of Flats / Extensions: <strong>{{ flatCount() }} Lines</strong></label>
-                <input type="range" class="form-range w-100" min="10" max="300" step="5" [value]="flatCount()" (input)="flatCount.set(+$any($event.target).value)" />
+                <label class="param-label"
+                  ><i class="fa fa-phone"></i> Number of Flats / Extensions:
+                  <strong>{{ flatCount() }} Lines</strong></label
+                >
+                <input
+                  type="range"
+                  class="form-range w-100"
+                  min="10"
+                  max="300"
+                  step="5"
+                  [value]="flatCount()"
+                  (input)="flatCount.set(+$any($event.target).value)"
+                />
                 <div class="range-labels d-flex justify-content-between text-muted">
                   <span>10 Flats</span>
                   <span>100 Flats</span>
@@ -225,12 +363,47 @@
 
             <div class="col-lg-6 col-md-6 col-sm-12">
               <div class="param-box">
-                <label class="param-label"><i class="fa fa-cubes"></i> Number of Building Wings: <strong>{{ wingCount() }} Wing(s)</strong></label>
+                <label class="param-label"
+                  ><i class="fa fa-cubes"></i> Number of Building Wings:
+                  <strong>{{ wingCount() }} Wing(s)</strong></label
+                >
                 <div class="btn-group w-100 btn-group-sm" role="group">
-                  <button type="button" class="btn" [class.btn-danger]="wingCount() === 1" [class.btn-outline-secondary]="wingCount() !== 1" (click)="wingCount.set(1)">1 Wing</button>
-                  <button type="button" class="btn" [class.btn-danger]="wingCount() === 2" [class.btn-outline-secondary]="wingCount() !== 2" (click)="wingCount.set(2)">2 Wings</button>
-                  <button type="button" class="btn" [class.btn-danger]="wingCount() === 4" [class.btn-outline-secondary]="wingCount() !== 4" (click)="wingCount.set(4)">4 Wings</button>
-                  <button type="button" class="btn" [class.btn-danger]="wingCount() === 6" [class.btn-outline-secondary]="wingCount() !== 6" (click)="wingCount.set(6)">6+ Wings</button>
+                  <button
+                    type="button"
+                    class="btn"
+                    [class.btn-danger]="wingCount() === 1"
+                    [class.btn-outline-secondary]="wingCount() !== 1"
+                    (click)="wingCount.set(1)"
+                  >
+                    1 Wing
+                  </button>
+                  <button
+                    type="button"
+                    class="btn"
+                    [class.btn-danger]="wingCount() === 2"
+                    [class.btn-outline-secondary]="wingCount() !== 2"
+                    (click)="wingCount.set(2)"
+                  >
+                    2 Wings
+                  </button>
+                  <button
+                    type="button"
+                    class="btn"
+                    [class.btn-danger]="wingCount() === 4"
+                    [class.btn-outline-secondary]="wingCount() !== 4"
+                    (click)="wingCount.set(4)"
+                  >
+                    4 Wings
+                  </button>
+                  <button
+                    type="button"
+                    class="btn"
+                    [class.btn-danger]="wingCount() === 6"
+                    [class.btn-outline-secondary]="wingCount() !== 6"
+                    (click)="wingCount.set(6)"
+                  >
+                    6+ Wings
+                  </button>
                 </div>
               </div>
             </div>
@@ -239,15 +412,35 @@
           @if (needBiometrics()) {
             <div class="col-lg-6 col-md-6 col-sm-12">
               <div class="param-box">
-                <label class="param-label"><i class="fa fa-lock"></i> Access Control Doors: <strong>{{ doorCount() }} Doors</strong></label>
-                <input type="number" [ngModel]="doorCount()" (ngModelChange)="doorCount.set(+$event)" class="form-control form-control-sm" min="1" max="50" />
+                <label class="param-label"
+                  ><i class="fa fa-lock"></i> Access Control Doors:
+                  <strong>{{ doorCount() }} Doors</strong></label
+                >
+                <input
+                  type="number"
+                  [ngModel]="doorCount()"
+                  (ngModelChange)="doorCount.set(+$event)"
+                  class="form-control form-control-sm"
+                  min="1"
+                  max="50"
+                />
               </div>
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-12">
               <div class="param-box">
-                <label class="param-label"><i class="fa fa-users"></i> Staff / User Count: <strong>{{ employeeCount() }} Users</strong></label>
-                <input type="number" [ngModel]="employeeCount()" (ngModelChange)="employeeCount.set(+$event)" class="form-control form-control-sm" min="5" max="2000" />
+                <label class="param-label"
+                  ><i class="fa fa-users"></i> Staff / User Count:
+                  <strong>{{ employeeCount() }} Users</strong></label
+                >
+                <input
+                  type="number"
+                  [ngModel]="employeeCount()"
+                  (ngModelChange)="employeeCount.set(+$event)"
+                  class="form-control form-control-sm"
+                  min="5"
+                  max="2000"
+                />
               </div>
             </div>
           }
@@ -255,16 +448,28 @@
           @if (needNetworking()) {
             <div class="col-12">
               <div class="param-box">
-                <label class="param-label"><i class="fa fa-sitemap"></i> Workstation / LAN Cabling Points: <strong>{{ lanPoints() }} Nodes</strong></label>
-                <input type="range" class="form-range w-100" min="5" max="200" step="5" [value]="lanPoints()" (input)="lanPoints.set(+$any($event.target).value)" />
+                <label class="param-label"
+                  ><i class="fa fa-sitemap"></i> Workstation / LAN Cabling Points:
+                  <strong>{{ lanPoints() }} Nodes</strong></label
+                >
+                <input
+                  type="range"
+                  class="form-range w-100"
+                  min="5"
+                  max="200"
+                  step="5"
+                  [value]="lanPoints()"
+                  (input)="lanPoints.set(+$any($event.target).value)"
+                />
               </div>
             </div>
           }
-
         </div>
 
         <div class="step-footer mt-4 d-flex justify-content-between">
-          <button class="btn btn-outline-secondary btn-sm" (click)="goToStep(2)">&lsaquo; Back</button>
+          <button class="btn btn-outline-secondary btn-sm" (click)="goToStep(2)">
+            &lsaquo; Back
+          </button>
           <button class="theme-btn btn-style-one next-btn" (click)="goToStep(4)">
             <span class="txt">Generate Architecture &rsaquo;</span>
           </button>
@@ -275,25 +480,36 @@
     <!-- STEP 4: INSTANT TECHNICAL ARCHITECTURE & WHATSAPP LEAD -->
     @if (currentStep() === 4) {
       <div class="step-content animate-fade-in">
-        
         <div class="recommendation-result-banner">
-          <div class="result-top-badge"><i class="fa fa-check-circle"></i> Custom Architecture Sized For Your Property</div>
+          <div class="result-top-badge">
+            <i class="fa fa-check-circle"></i> Custom Architecture Sized For Your Property
+          </div>
           <h4 class="result-title">Recommended Hardware & System Blueprint</h4>
-          <p class="result-location">Target Location: <strong>{{ premiseLocation() }}</strong></p>
+          <p class="result-location">
+            Target Location: <strong>{{ premiseLocation() }}</strong>
+          </p>
         </div>
 
         <div class="architecture-specs-list">
-          
           @if (needCctv()) {
             <div class="spec-recommendation-item">
               <div class="spec-icon"><i class="fa fa-video-camera"></i></div>
               <div class="spec-details">
                 <h6>Surveillance Infrastructure (CCTV)</h6>
                 <ul>
-                  <li><strong>Cameras:</strong> {{ cameraCount() }}x Full HD / 4K IP Network Cameras (CP Plus / Hikvision)</li>
+                  <li>
+                    <strong>Cameras:</strong> {{ cameraCount() }}x Full HD / 4K IP Network Cameras
+                    (CP Plus / Hikvision)
+                  </li>
                   <li><strong>Recorder:</strong> {{ recommendedNvr() }}</li>
-                  <li><strong>Storage:</strong> {{ recommendedHdd() }} ({{ storageDays() }} Days Retention)</li>
-                  <li><strong>Transmission:</strong> D-Link Gigabit PoE Switch Network + Cat6 UTP Cabling</li>
+                  <li>
+                    <strong>Storage:</strong> {{ recommendedHdd() }} ({{ storageDays() }} Days
+                    Retention)
+                  </li>
+                  <li>
+                    <strong>Transmission:</strong> D-Link Gigabit PoE Switch Network + Cat6 UTP
+                    Cabling
+                  </li>
                 </ul>
               </div>
             </div>
@@ -306,9 +522,18 @@
                 <h6>Intercom Telecommunication System</h6>
                 <ul>
                   <li><strong>System Model:</strong> {{ recommendedIntercom() }}</li>
-                  <li><strong>Capacity:</strong> {{ flatCount() }} Intercom Extensions across {{ wingCount() }} Wing(s)</li>
-                  <li><strong>Gate Integration:</strong> Security Gatekeeper Console with Direct Flat Calling & Caller ID</li>
-                  <li><strong>Cabling:</strong> Jelly-Filled Multi-Pair Armoured Copper Backbone & Krone Tag Blocks</li>
+                  <li>
+                    <strong>Capacity:</strong> {{ flatCount() }} Intercom Extensions across
+                    {{ wingCount() }} Wing(s)
+                  </li>
+                  <li>
+                    <strong>Gate Integration:</strong> Security Gatekeeper Console with Direct Flat
+                    Calling & Caller ID
+                  </li>
+                  <li>
+                    <strong>Cabling:</strong> Jelly-Filled Multi-Pair Armoured Copper Backbone &
+                    Krone Tag Blocks
+                  </li>
                 </ul>
               </div>
             </div>
@@ -321,8 +546,14 @@
                 <h6>Biometric Access & Security Control</h6>
                 <ul>
                   <li><strong>Terminal:</strong> {{ recommendedBiometric() }}</li>
-                  <li><strong>Hardware:</strong> {{ doorCount() }}x 600lbs Fail-Safe EM Locks, U-Brackets, Exit Switches</li>
-                  <li><strong>Software:</strong> Real-time Push Data Attendance Management Software & Tally Sync</li>
+                  <li>
+                    <strong>Hardware:</strong> {{ doorCount() }}x 600lbs Fail-Safe EM Locks,
+                    U-Brackets, Exit Switches
+                  </li>
+                  <li>
+                    <strong>Software:</strong> Real-time Push Data Attendance Management Software &
+                    Tally Sync
+                  </li>
                 </ul>
               </div>
             </div>
@@ -334,8 +565,13 @@
               <div class="spec-details">
                 <h6>Structured LAN Network Cabling</h6>
                 <ul>
-                  <li><strong>Capacity:</strong> {{ lanPoints() }} Certified Cat6/Cat6A I/O Ports</li>
-                  <li><strong>Racking:</strong> Server Rack Dressing with Keystone Patch Panels & Wire Managers</li>
+                  <li>
+                    <strong>Capacity:</strong> {{ lanPoints() }} Certified Cat6/Cat6A I/O Ports
+                  </li>
+                  <li>
+                    <strong>Racking:</strong> Server Rack Dressing with Keystone Patch Panels & Wire
+                    Managers
+                  </li>
                 </ul>
               </div>
             </div>
@@ -346,21 +582,32 @@
               <div class="spec-icon"><i class="fa fa-shield"></i></div>
               <div class="spec-details">
                 <h6>Annual Maintenance Contract (AMC) Protection</h6>
-                <p>Includes 4 quarterly preventive maintenance visits, camera lens focus cleaning, power voltage testing, and <strong>guaranteed 24-48h emergency technician breakdown support</strong>.</p>
+                <p>
+                  Includes 4 quarterly preventive maintenance visits, camera lens focus cleaning,
+                  power voltage testing, and
+                  <strong>guaranteed 24-48h emergency technician breakdown support</strong>.
+                </p>
               </div>
             </div>
           }
-
         </div>
 
         <!-- CTA Action Bar -->
         <div class="quote-action-card mt-4">
           <div class="cta-text">
             <h5>Get Official Quote & Schedule Free Site Survey</h5>
-            <p>Our senior technical engineers will review your configuration and provide a detailed itemized commercial quotation.</p>
+            <p>
+              Our senior technical engineers will review your configuration and provide a detailed
+              itemized commercial quotation.
+            </p>
           </div>
           <div class="cta-buttons">
-            <a [href]="whatsappQuoteUrl()" target="_blank" rel="noopener noreferrer" class="whatsapp-quote-btn">
+            <a
+              [href]="whatsappQuoteUrl()"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="whatsapp-quote-btn"
+            >
               <i class="fa fa-whatsapp"></i> Get Instant WhatsApp Quote
             </a>
             <button class="copy-boq-btn" (click)="copyBoqToClipboard()" type="button">
@@ -374,13 +621,11 @@
 
         @if (copiedToast()) {
           <div class="alert alert-success mt-3 text-center animate-fade-in" role="alert">
-            <i class="fa fa-check-circle"></i> <strong>BOQ Copied to Clipboard!</strong> Ready to paste into your Housing Society / Committee WhatsApp group or email.
+            <i class="fa fa-check-circle"></i> <strong>BOQ Copied to Clipboard!</strong> Ready to
+            paste into your Housing Society / Committee WhatsApp group or email.
           </div>
         }
-
       </div>
     }
-
   </div>
-
 </div>

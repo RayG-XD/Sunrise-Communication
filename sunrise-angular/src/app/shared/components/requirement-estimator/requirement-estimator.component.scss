@@ -122,7 +122,9 @@
     font-size: 28px;
     color: #010c3a;
     margin-bottom: 10px;
-    transition: transform 0.25s ease, color 0.25s ease;
+    transition:
+      transform 0.25s ease,
+      color 0.25s ease;
   }
 
   h5 {
@@ -148,6 +150,12 @@
       color: #df0303;
       transform: scale(1.1);
     }
+  }
+
+  &:focus-visible {
+    outline: 2px solid #df0303;
+    outline-offset: 2px;
+    border-color: #df0303;
   }
 
   &.selected {
