@@ -170,16 +170,16 @@
               </div>
               <ul class="contact-info-widget">
                 <li>
-                  <span class="icon flaticon-map"></span>
+                  <span class="icon fa fa-map-marker text-danger"></span>
                   {{ siteData.contact.address }}
                 </li>
                 <li>
-                  <span class="icon flaticon-call"></span>
+                  <span class="icon fa fa-phone text-danger"></span>
                   <a [href]="'tel:' + siteData.contact.primaryPhone">{{ siteData.contact.primaryPhone }}</a><br>
                   <a [href]="'tel:' + siteData.contact.secondaryPhone">{{ siteData.contact.secondaryPhone }}</a>
                 </li>
                 <li>
-                  <span class="icon flaticon-email-1"></span>
+                  <span class="icon fa fa-envelope text-danger"></span>
                   <a [href]="'mailto:' + siteData.contact.email">{{ siteData.contact.email }}</a><br>
                   <a [href]="siteData.contact.website" target="_blank">{{ siteData.contact.website }}</a>
                 </li>

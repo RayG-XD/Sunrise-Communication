@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Category, SubCategory, Brand, Product, ProductSpec
+from .models import Category, SubCategory, Brand, Product, ProductSpec, Inquiry
 
 
 class SubCategorySerializer(serializers.ModelSerializer):
@@ -111,3 +111,17 @@ class ProductListSerializer(serializers.ModelSerializer):
 class ProductDetailSerializer(ProductListSerializer):
     """Extended serializer for detail page."""
     pass
+
+
+class InquirySerializer(serializers.ModelSerializer):
+    """Serializer for customer inquiries, site audits, and quote requests."""
+    class Meta:
+        model = Inquiry
+        fields = [
+            'id', 'inquiry_type', 'status', 'name', 'phone', 'email',
+            'designation', 'organization', 'locality', 'project_type',
+            'flat_count', 'wing_count', 'preferred_time', 'systems_required',
+            'message', 'created_at'
+        ]
+        read_only_fields = ['id', 'status', 'created_at']
+

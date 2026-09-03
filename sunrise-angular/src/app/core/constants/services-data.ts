@@ -72,7 +72,7 @@ export const SERVICE_CLUSTERS_DATA: Record<string, ServiceClusterData> = {
     heroTitle: 'CCTV Camera Sales, Installation & AMC Services in Thane & Mumbai',
     tagline: 'Reliable HD IP, Analog HD, and Turnkey Surveillance Solutions',
     directAnswerAeo: 'Sunrise Communication provides professional CCTV camera installation, NVR/DVR setup, and customized Annual Maintenance Contracts (AMC) across Thane, Mumbai, and Navi Mumbai. We supply CP Plus, Hikvision, and Dahua systems with prompt on-call technical support.',
-    categoryIcon: 'flaticon-cctv',
+    categoryIcon: 'fa-video-camera',
     shortDescription: 'Protect your residential society, commercial office, or warehouse with high-definition surveillance, night vision, and remote mobile viewing capabilities.',
     authorizedBrands: ['CP Plus', 'Hikvision', 'Dahua', 'Matrix', 'Seagate SkyHawk', 'WD Purple'],
     offerings: [
@@ -245,7 +245,7 @@ export const SERVICE_CLUSTERS_DATA: Record<string, ServiceClusterData> = {
     heroTitle: 'Housing Society Intercom & Corporate EPABX Systems in Thane & Mumbai',
     tagline: 'Reliable Multi-Line Society Intercoms, PBX Systems, and Voice Cabling',
     directAnswerAeo: 'Sunrise Communication installs, repairs, and maintains EPABX and housing society intercom networks across Thane, Mumbai, and Navi Mumbai. We supply Matrix Telecom and Beetel systems, multi-pair copper cabling, security gatekeeper phones, and society telecom AMC.',
-    categoryIcon: 'flaticon-telephone',
+    categoryIcon: 'fa-phone',
     shortDescription: 'Reliable flat-to-gate, flat-to-flat, and corporate internal communication with clear audio, durable copper cabling, and PBX switching.',
     authorizedBrands: ['Matrix Telecom', 'Syntel', 'Beetel', 'Panasonic', 'D-Link', 'Finolex'],
     offerings: [
@@ -407,7 +407,7 @@ export const SERVICE_CLUSTERS_DATA: Record<string, ServiceClusterData> = {
     heroTitle: 'Biometric Attendance Machines & Access Control Systems in Thane & Mumbai',
     tagline: 'AI Face Recognition, Optical Fingerprint, RFID Cards, and Reliable EM Door Locks',
     directAnswerAeo: 'Sunrise Communication supplies and installs biometric attendance systems, facial recognition terminals, and electromagnetic (EM) door lock access systems in Thane, Mumbai, and Navi Mumbai. We supply Essl, Matrix, and Hikvision systems for office and society access management.',
-    categoryIcon: 'flaticon-biometrics',
+    categoryIcon: 'fa-id-card-o',
     shortDescription: 'Manage staff attendance tracking, secure restricted entry points, and streamline access control with modern biometric readers.',
     authorizedBrands: ['Essl Security', 'Matrix COSEC', 'Hikvision', 'Realtime', 'e-Survey', 'CP Plus'],
     offerings: [
@@ -564,7 +564,7 @@ export const SERVICE_CLUSTERS_DATA: Record<string, ServiceClusterData> = {
     heroTitle: 'CCTV, Intercom, EPABX & Biometric Structured Cabling in Thane & Mumbai',
     tagline: 'End-to-End Cat6, Multi-Pair Copper, and Security Rack Dressing for Surveillance & Telecom',
     directAnswerAeo: 'Sunrise Communication provides structured Cat6 and multi-pair copper cabling specifically for CCTV surveillance cameras, DVR/NVR setups, EPABX society intercoms, biometric access controllers, and Video Door Phones across Thane, Mumbai, and Navi Mumbai. We supply trusted D-Link, Finolex, and Schneider components.',
-    categoryIcon: 'flaticon-cables',
+    categoryIcon: 'fa-sitemap',
     shortDescription: 'Reliable, concealed, and neatly organized cabling infrastructure designed specifically for CCTV security cameras, housing society intercoms, access control, and telecom exchanges.',
     authorizedBrands: ['D-Link', 'Finolex', 'Schneider Electric (Digilink)', 'Polycab', 'Matrix', 'CP Plus'],
     offerings: [

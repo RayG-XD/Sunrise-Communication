@@ -135,3 +135,62 @@ class ProductSpec(models.Model):
 
     def __str__(self):
         return f'{self.key}: {self.value}'
+
+
+class Inquiry(models.Model):
+    """Customer inquiries, society audit requests, and quote estimates."""
+    INQUIRY_TYPES = [
+        ('society_audit', 'Society Site Audit Request'),
+        ('cctv_calculator', 'CCTV Calculator BOQ Spec'),
+        ('contact', 'General Contact Inquiry'),
+        ('product', 'Product Inquiry'),
+    ]
+
+    STATUS_CHOICES = [
+        ('new', 'New Lead'),
+        ('contacted', 'Contacted / Follow-Up'),
+        ('audit_scheduled', 'Site Audit Scheduled'),
+        ('quote_sent', 'Quotation / BOQ Sent'),
+        ('won', 'Order Won / Contract Signed'),
+        ('closed', 'Closed / Lost'),
+    ]
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    inquiry_type = models.CharField(max_length=30, choices=INQUIRY_TYPES, default='society_audit')
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='new')
+
+    # Contact details
+    name = models.CharField(max_length=150, help_text='Contact person name')
+    phone = models.CharField(max_length=25, help_text='Direct phone or mobile number')
+    email = models.EmailField(blank=True, default='', help_text='Email address (optional)')
+    designation = models.CharField(max_length=100, blank=True, default='', help_text='e.g. Society Secretary')
+
+    # Organization / Society
+    organization = models.CharField(max_length=200, blank=True, default='', help_text='Society or Company name')
+    locality = models.CharField(max_length=150, blank=True, default='', help_text='Locality in Thane / Mumbai MMR')
+
+    # Details / Scope
+    project_type = models.CharField(max_length=100, blank=True, default='', help_text='e.g. New Turnkey Installation')
+    flat_count = models.IntegerField(null=True, blank=True, help_text='Total flats or units')
+    wing_count = models.IntegerField(null=True, blank=True, help_text='Total wings')
+    preferred_time = models.CharField(max_length=100, blank=True, default='')
+
+    # Selected systems / requirements
+    systems_required = models.JSONField(default=list, blank=True, help_text='List of systems e.g. ["CCTV", "Intercom", "AMC"]')
+
+    # Message or calculated summary
+    message = models.TextField(blank=True, default='', help_text='Message text or BOQ summary spec')
+    notes = models.TextField(blank=True, default='', help_text='Internal notes by Sunrise team')
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Customer Inquiry / Lead'
+        verbose_name_plural = 'Customer Inquiries / Leads'
+        ordering = ['-created_at']
+
+    def __str__(self):
+        org = f" - {self.organization}" if self.organization else ""
+        return f"[{self.get_inquiry_type_display()}] {self.name}{org} ({self.created_at.strftime('%d %b %Y')})"
+

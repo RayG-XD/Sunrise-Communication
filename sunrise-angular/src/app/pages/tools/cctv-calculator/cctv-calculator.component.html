@@ -322,8 +322,17 @@
             </button>
 
             <a
+              routerLink="/contact"
+              fragment="contact-forms"
+              class="btn btn-danger d-flex align-items-center justify-content-center gap-2 shadow-sm"
+            >
+              <i class="fa fa-calendar-check-o"></i>
+              <span>Book Free Site Audit for this Setup</span>
+            </a>
+
+            <a
               [href]="'tel:' + siteData.contact.primaryPhone"
-              class="btn btn-primary d-flex align-items-center justify-content-center gap-2"
+              class="btn btn-outline-light d-flex align-items-center justify-content-center gap-2"
             >
               <i class="fa fa-phone"></i>
               <span>Call Technician: {{ siteData.contact.primaryPhone }}</span>

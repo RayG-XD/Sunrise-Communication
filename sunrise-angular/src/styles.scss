@@ -49,7 +49,7 @@ body {
   }
 
   .header-lower {
-    padding: 0 !important;
+    padding: 8px 0 !important;
 
     .inner-container {
       display: flex !important;
@@ -124,6 +124,8 @@ body {
   }
 
   .header-lower {
+    padding: 4px 0 !important;
+
     .logo-box {
       padding: 3px 0 !important;
       .logo img {

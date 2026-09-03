@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.urls import path
 from django.utils.html import format_html
 from django.utils.text import slugify
-from .models import Category, SubCategory, Brand, Product, ProductSpec
+from .models import Category, SubCategory, Brand, Product, ProductSpec, Inquiry
 from .forms import JsonUploadForm
 
 # Category metadata for default CSS placeholders
@@ -266,6 +266,68 @@ class ProductAdmin(admin.ModelAdmin):
     def spec_count(self, obj):
         return obj.specs.count()
     spec_count.short_description = 'Specs'
+
+
+@admin.register(Inquiry)
+class InquiryAdmin(admin.ModelAdmin):
+    list_display = [
+        'name', 'phone', 'organization', 'locality',
+        'inquiry_type_badge', 'status', 'created_at'
+    ]
+    list_filter = ['status', 'inquiry_type', 'locality', 'created_at']
+    search_fields = ['name', 'phone', 'email', 'organization', 'locality', 'message', 'notes']
+    readonly_fields = ['id', 'created_at', 'updated_at']
+    list_editable = ['status']
+    date_hierarchy = 'created_at'
+    ordering = ['-created_at']
+
+    fieldsets = [
+        ('Lead Information', {
+            'fields': ['id', 'inquiry_type', 'status', 'created_at', 'updated_at']
+        }),
+        ('Contact Details', {
+            'fields': ['name', 'phone', 'email', 'designation', 'organization', 'locality']
+        }),
+        ('Project Requirements', {
+            'fields': ['project_type', 'flat_count', 'wing_count', 'preferred_time', 'systems_required']
+        }),
+        ('Message & Technical Spec', {
+            'fields': ['message']
+        }),
+        ('Internal Follow-up', {
+            'fields': ['notes']
+        }),
+    ]
+
+    def inquiry_type_badge(self, obj):
+        colors = {
+            'society_audit': '#d97706',
+            'cctv_calculator': '#2563eb',
+            'contact': '#059669',
+            'product': '#7c3aed',
+        }
+        color = colors.get(obj.inquiry_type, '#4b5563')
+        return format_html(
+            '<span style="background:{}; color:#fff; padding:2px 8px; border-radius:12px; font-size:11px; font-weight:bold;">{}</span>',
+            color, obj.get_inquiry_type_display()
+        )
+    inquiry_type_badge.short_description = 'Type'
+
+    def status_badge(self, obj):
+        colors = {
+            'new': '#ef4444',
+            'contacted': '#f59e0b',
+            'audit_scheduled': '#3b82f6',
+            'quote_sent': '#8b5cf6',
+            'won': '#10b981',
+            'closed': '#6b7280',
+        }
+        color = colors.get(obj.status, '#6b7280')
+        return format_html(
+            '<span style="background:{}; color:#fff; padding:2px 8px; border-radius:12px; font-size:11px; font-weight:bold;">{}</span>',
+            color, obj.get_status_display()
+        )
+    status_badge.short_description = 'Status'
 
 
 admin.site.site_header = 'Sunrise Communication — Admin Panel'

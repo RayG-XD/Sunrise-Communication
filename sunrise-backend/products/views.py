@@ -1,10 +1,11 @@
 from django.db.models import Count, Q, Prefetch
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
-from .models import Category, SubCategory, Brand, Product
+from .models import Category, SubCategory, Brand, Product, Inquiry
 from .serializers import (
     CategorySerializer, BrandSerializer,
-    ProductListSerializer, ProductDetailSerializer
+    ProductListSerializer, ProductDetailSerializer,
+    InquirySerializer
 )
 from .filters import ProductFilter
 
@@ -69,3 +70,15 @@ class ProductViewSet(viewsets.ReadOnlyModelViewSet):
         if self.action == 'retrieve':
             return ProductDetailSerializer
         return ProductListSerializer
+
+
+class InquiryViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint for customer inquiries, site audits, and quote requests.
+    Supports POST for public form submission and GET for administrative review.
+    """
+    queryset = Inquiry.objects.all()
+    serializer_class = InquirySerializer
+    permission_classes = [AllowAny]
+    http_method_names = ['get', 'post', 'head', 'options']
+

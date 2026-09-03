@@ -1,6 +1,8 @@
 import { Component, signal, inject, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
 import { SITE_DATA } from '../../../core/constants/site-data';
 import { environment } from '../../../../environments/environment';
 import emailjs from '@emailjs/browser';
@@ -14,6 +16,7 @@ import emailjs from '@emailjs/browser';
 })
 export class SocietyAuditFormComponent {
   private fb = inject(FormBuilder);
+  private http = inject(HttpClient);
   siteData = SITE_DATA;
 
   @Input() title: string = 'Book a Free Technical Site Audit & BOQ Sizing';
@@ -91,10 +94,40 @@ export class SocietyAuditFormComponent {
       this.lastSubmittedSummary.set(summary);
 
       try {
+        const formVal = this.auditForm.value;
+
+        // Collect selected systems
+        const systems: string[] = [];
+        if (formVal.needCctv) systems.push('CCTV');
+        if (formVal.needIntercom) systems.push('Intercom');
+        if (formVal.needBiometrics) systems.push('Biometrics');
+        if (formVal.needCabling) systems.push('Cabling');
+        if (formVal.needAmc) systems.push('AMC');
+
+        // 1. Post to Django CRM backend if accessible
+        try {
+          await firstValueFrom(this.http.post(`${environment.apiUrl}/inquiries/`, {
+            inquiry_type: 'society_audit',
+            name: formVal.contactPerson,
+            phone: formVal.phone,
+            designation: formVal.designation,
+            organization: formVal.societyName,
+            locality: formVal.locality,
+            project_type: formVal.projectType,
+            flat_count: formVal.flatCount,
+            wing_count: formVal.wingCount,
+            preferred_time: formVal.preferredTime,
+            systems_required: systems,
+            message: summary
+          }));
+        } catch (backendErr) {
+          console.warn('Backend inquiry API not reachable or failed, falling back to EmailJS:', backendErr);
+        }
+
+        // 2. EmailJS Notification
         const { serviceId, templateId, publicKey } = environment.emailjs;
 
         if (serviceId && templateId && publicKey) {
-          const formVal = this.auditForm.value;
           const templateParams = {
             from_name: `${formVal.contactPerson} (${formVal.designation})`,
             company: formVal.societyName,
@@ -103,13 +136,13 @@ export class SocietyAuditFormComponent {
           };
           await emailjs.send(serviceId, templateId, templateParams, publicKey);
         } else {
-          // Graceful fallback
-          await new Promise(resolve => setTimeout(resolve, 800));
+          // Graceful fallback simulation
+          await new Promise(resolve => setTimeout(resolve, 600));
         }
 
         this.successMessage.set('Site audit request booked successfully! Our field engineer will call you to confirm the time slot.');
         this.auditForm.reset({
-          locality: 'Thane (West)',
+          locality: 'Charai, Thane (West)',
           premiseType: 'Cooperative Housing Society (CHS)',
           flatCount: 32,
           wingCount: 1,
@@ -118,7 +151,7 @@ export class SocietyAuditFormComponent {
           needBiometrics: false,
           needCabling: false,
           needAmc: true,
-          projectType: 'New Installation',
+          projectType: 'New Turnkey Installation',
           preferredTime: 'Morning (10 AM – 1 PM)',
           designation: 'Society Secretary'
         });
