@@ -113,6 +113,10 @@ CORS_ALLOWED_ORIGINS = os.getenv(
 
 CORS_ALLOW_CREDENTIALS = True
 
+# Security Headers
+# Prevent browsers from MIME-sniffing a response away from declared content-type
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
 # Django REST Framework
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': [
