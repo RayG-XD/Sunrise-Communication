@@ -1,5 +1,8 @@
 import json
+import logging
 from django.contrib import admin, messages
+
+logger = logging.getLogger(__name__)
 from django.shortcuts import render, redirect
 from django.urls import path
 from django.utils.html import format_html
@@ -231,7 +234,8 @@ class ProductAdmin(admin.ModelAdmin):
                     return redirect('admin:products_product_changelist')
 
                 except Exception as e:
-                    messages.error(request, f'Failed to process JSON file: {str(e)}')
+                    logger.exception('Error processing uploaded JSON file in product admin: %s', e)
+                    messages.error(request, 'Failed to process JSON file. Please check file format and contents.')
                     return redirect('admin:products_product_upload_json')
 
         else:
