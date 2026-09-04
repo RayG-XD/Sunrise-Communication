@@ -109,6 +109,12 @@ class Product(models.Model):
 
     class Meta:
         ordering = ['display_order', '-created_at']
+        # Performance Optimization: Composite index on (is_active, display_order, -created_at)
+        # eliminates full table scans and explicit sorting on product catalog queries.
+        # Note: Since is_active is the leading column, it also serves single-field is_active queries.
+        indexes = [
+            models.Index(fields=['is_active', 'display_order', '-created_at'], name='prod_active_order_idx'),
+        ]
 
     def __str__(self):
         code = f' [{self.model_number}]' if self.model_number else ''
