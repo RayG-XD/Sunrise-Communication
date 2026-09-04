@@ -16,6 +16,11 @@ import { Product } from '../../../core/models/product.model';
 export class ProductCardComponent {
   product = input.required<Product>();
 
+  // Bolt Optimization: Configurable priority signal input (defaults to false).
+  // Eager preloading (`priority`) on all product cards in list views causes bandwidth congestion
+  // and degrades initial LCP. Only set priority=true for above-the-fold cards when needed.
+  priority = input<boolean>(false);
+
   /**
    * Helper to return flaticon / icofont class based on category
    */
@@ -27,10 +32,20 @@ export class ProductCardComponent {
     if (s.includes('nvr') || s.includes('recorder') || s.includes('dvr')) {
       return 'fa fa-server';
     }
-    if (s.includes('epabx') || s.includes('intercom') || s.includes('phone') || s.includes('telecom')) {
+    if (
+      s.includes('epabx') ||
+      s.includes('intercom') ||
+      s.includes('phone') ||
+      s.includes('telecom')
+    ) {
       return 'fa fa-phone';
     }
-    if (s.includes('biometric') || s.includes('access') || s.includes('security') || s.includes('lock')) {
+    if (
+      s.includes('biometric') ||
+      s.includes('access') ||
+      s.includes('security') ||
+      s.includes('lock')
+    ) {
       return 'fa fa-id-card-o';
     }
     if (s.includes('cable') || s.includes('network') || s.includes('wire')) {
