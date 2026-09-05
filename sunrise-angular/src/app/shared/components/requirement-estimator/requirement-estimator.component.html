@@ -31,48 +31,48 @@
         <div class="row clearfix premise-grid g-3">
           
           <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="premise-card" [class.selected]="selectedPremise() === 'society'" (click)="setPremise('society')">
-              <div class="card-icon"><i class="fa fa-building-o"></i></div>
+            <div class="premise-card" [class.selected]="selectedPremise() === 'society'" (click)="setPremise('society')" role="button" tabindex="0" [attr.aria-pressed]="selectedPremise() === 'society'" aria-label="Select Housing Society (CHS) premise type" (keydown.enter)="setPremise('society')" (keydown.space)="$event.preventDefault(); setPremise('society')">
+              <div class="card-icon"><i class="fa fa-building-o" aria-hidden="true"></i></div>
               <h5>Housing Society (CHS)</h5>
               <p>Residential apartments, high-rise towers & residential complexes.</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="premise-card" [class.selected]="selectedPremise() === 'office'" (click)="setPremise('office')">
-              <div class="card-icon"><i class="fa fa-briefcase"></i></div>
+            <div class="premise-card" [class.selected]="selectedPremise() === 'office'" (click)="setPremise('office')" role="button" tabindex="0" [attr.aria-pressed]="selectedPremise() === 'office'" aria-label="Select Corporate Office / IT Park premise type" (keydown.enter)="setPremise('office')" (keydown.space)="$event.preventDefault(); setPremise('office')">
+              <div class="card-icon"><i class="fa fa-briefcase" aria-hidden="true"></i></div>
               <h5>Corporate Office / IT Park</h5>
               <p>Commercial workspaces, IT offices & corporate branches.</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="premise-card" [class.selected]="selectedPremise() === 'warehouse'" (click)="setPremise('warehouse')">
-              <div class="card-icon"><i class="fa fa-cubes"></i></div>
+            <div class="premise-card" [class.selected]="selectedPremise() === 'warehouse'" (click)="setPremise('warehouse')" role="button" tabindex="0" [attr.aria-pressed]="selectedPremise() === 'warehouse'" aria-label="Select Warehouse & Industrial premise type" (keydown.enter)="setPremise('warehouse')" (keydown.space)="$event.preventDefault(); setPremise('warehouse')">
+              <div class="card-icon"><i class="fa fa-cubes" aria-hidden="true"></i></div>
               <h5>Warehouse & Industrial</h5>
               <p>Logistics hubs, factory floors & manufacturing plants.</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="premise-card" [class.selected]="selectedPremise() === 'healthcare'" (click)="setPremise('healthcare')">
-              <div class="card-icon"><i class="fa fa-hospital-o"></i></div>
+            <div class="premise-card" [class.selected]="selectedPremise() === 'healthcare'" (click)="setPremise('healthcare')" role="button" tabindex="0" [attr.aria-pressed]="selectedPremise() === 'healthcare'" aria-label="Select Hospital & Healthcare premise type" (keydown.enter)="setPremise('healthcare')" (keydown.space)="$event.preventDefault(); setPremise('healthcare')">
+              <div class="card-icon"><i class="fa fa-hospital-o" aria-hidden="true"></i></div>
               <h5>Hospital & Healthcare</h5>
               <p>Clinics, nursing homes, diagnostic labs & hospitals.</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="premise-card" [class.selected]="selectedPremise() === 'retail'" (click)="setPremise('retail')">
-              <div class="card-icon"><i class="fa fa-shopping-bag"></i></div>
+            <div class="premise-card" [class.selected]="selectedPremise() === 'retail'" (click)="setPremise('retail')" role="button" tabindex="0" [attr.aria-pressed]="selectedPremise() === 'retail'" aria-label="Select Retail Store & Showroom premise type" (keydown.enter)="setPremise('retail')" (keydown.space)="$event.preventDefault(); setPremise('retail')">
+              <div class="card-icon"><i class="fa fa-shopping-bag" aria-hidden="true"></i></div>
               <h5>Retail Store & Showroom</h5>
               <p>Shops, supermarkets, retail outlets & showrooms.</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="premise-card" [class.selected]="selectedPremise() === 'residential'" (click)="setPremise('residential')">
-              <div class="card-icon"><i class="fa fa-home"></i></div>
+            <div class="premise-card" [class.selected]="selectedPremise() === 'residential'" (click)="setPremise('residential')" role="button" tabindex="0" [attr.aria-pressed]="selectedPremise() === 'residential'" aria-label="Select Villa / Row House premise type" (keydown.enter)="setPremise('residential')" (keydown.space)="$event.preventDefault(); setPremise('residential')">
+              <div class="card-icon"><i class="fa fa-home" aria-hidden="true"></i></div>
               <h5>Villa / Row House</h5>
               <p>Independent bungalows, farmhouses & private estates.</p>
             </div>
