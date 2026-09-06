@@ -1,6 +1,6 @@
 from django.db.models import Count, Q, Prefetch
 from rest_framework import viewsets
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAdminUser
 from .models import Category, SubCategory, Brand, Product, Inquiry
 from .serializers import (
     CategorySerializer, BrandSerializer,
@@ -75,10 +75,13 @@ class ProductViewSet(viewsets.ReadOnlyModelViewSet):
 class InquiryViewSet(viewsets.ModelViewSet):
     """
     API endpoint for customer inquiries, site audits, and quote requests.
-    Supports POST for public form submission and GET for administrative review.
+    Supports POST for public form submission and admin authentication for viewing/managing leads.
     """
     queryset = Inquiry.objects.all()
     serializer_class = InquirySerializer
-    permission_classes = [AllowAny]
     http_method_names = ['get', 'post', 'head', 'options']
 
+    def get_permissions(self):
+        if self.action == 'create':
+            return [AllowAny()]
+        return [IsAdminUser()]
