@@ -1,7 +1,7 @@
 import { Component, PLATFORM_ID, inject, signal, afterNextRender, NgZone, OnDestroy, effect } from '@angular/core';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { RouterLink, RouterLinkActive } from '@angular/router';
-import { fromEvent, Subscription } from 'rxjs';
+import { Router, NavigationEnd, RouterLink, RouterLinkActive } from '@angular/router';
+import { fromEvent, Subscription, filter } from 'rxjs';
 import { SITE_DATA } from '../../../core/constants/site-data';
 
 @Component({
@@ -15,7 +15,9 @@ export class HeaderComponent implements OnDestroy {
   private platformId = inject(PLATFORM_ID);
   private ngZone = inject(NgZone);
   private document = inject(DOCUMENT);
+  private router = inject(Router);
   private scrollSub?: Subscription;
+  private routerSub?: Subscription;
 
   siteData = SITE_DATA;
 
@@ -25,6 +27,13 @@ export class HeaderComponent implements OnDestroy {
   isSticky = signal<boolean>(false);
 
   constructor() {
+    // Automatically close all drawers/dropdowns on route navigation
+    this.routerSub = this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.closeAllMenus();
+      });
+
     // Add/remove mobile menu class on body when signal changes
     effect(() => {
       const isMobileMenuOpen = this.isMobileMenuOpen();
@@ -71,11 +80,15 @@ export class HeaderComponent implements OnDestroy {
   closeAllMenus() {
     this.isSidebarOpen.set(false);
     this.isMobileMenuOpen.set(false);
+    this.isServicesDropdownOpen.set(false);
   }
 
   ngOnDestroy() {
     if (this.scrollSub) {
       this.scrollSub.unsubscribe();
+    }
+    if (this.routerSub) {
+      this.routerSub.unsubscribe();
     }
     // Clean up body class if component is destroyed while menu is open
     if (isPlatformBrowser(this.platformId)) {

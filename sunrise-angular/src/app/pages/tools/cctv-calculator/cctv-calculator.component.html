@@ -15,9 +15,10 @@
   <div class="auto-container">
     <!-- Header Introduction & Quick Presets -->
     <div class="calc-intro-card mb-4 text-center">
-      <span class="badge bg-primary text-white px-3 py-2 rounded-pill mb-2"
-        >Online Technical Sizing Tool</span
-      >
+      <div class="d-inline-flex align-items-center gap-2 px-3 py-1.5 rounded-pill border bg-white shadow-2xs mb-2">
+        <span class="pulse-dot"></span>
+        <span class="text-uppercase tracking-wider fw-bold text-dark x-small">Interactive CCTV Engineering Tool</span>
+      </div>
       <h2 class="section-heading">Surveillance Storage & Bandwidth Sizing Tool</h2>
       <p class="section-desc max-w-750 mx-auto text-muted">
         Accurately compute storage capacity in Terabytes (TB) and network bandwidth for IP & Analog
@@ -26,87 +27,109 @@
       </p>
 
       <!-- Premise Quick Presets -->
-      <div class="presets-container d-flex justify-content-center gap-2 flex-wrap mt-3">
-        <span class="presets-label fw-bold d-flex align-items-center text-secondary">
-          <i class="fa fa-magic text-primary me-1"></i> Quick Presets:
+      <div class="presets-container d-flex justify-content-center align-items-center gap-2 flex-wrap mt-3">
+        <span class="presets-label fw-semibold d-flex align-items-center text-muted small me-1">
+          <i class="fa fa-sliders text-danger me-1"></i> Quick Presets:
         </span>
-        <button type="button" class="btn btn-sm rounded-pill transition-all" 
-                [class.btn-primary]="activePreset() === 'society'"
-                [class.btn-outline-dark]="activePreset() !== 'society'"
+        <button type="button" class="preset-pill-btn" 
+                [class.active]="activePreset() === 'society'"
                 (click)="setPreset('society')">
-          🏢 Housing Society (16 Cams / 30 Days)
+          <span class="preset-emoji">🏢</span> Housing Society (16 Cams / 30 Days)
         </button>
-        <button type="button" class="btn btn-sm rounded-pill transition-all" 
-                [class.btn-primary]="activePreset() === 'office'"
-                [class.btn-outline-dark]="activePreset() !== 'office'"
+        <button type="button" class="preset-pill-btn" 
+                [class.active]="activePreset() === 'office'"
                 (click)="setPreset('office')">
-          💼 Corporate Office (8 Cams / 30 Days)
+          <span class="preset-emoji">💼</span> Corporate Office (8 Cams / 30 Days)
         </button>
-        <button type="button" class="btn btn-sm rounded-pill transition-all" 
-                [class.btn-primary]="activePreset() === 'warehouse'"
-                [class.btn-outline-dark]="activePreset() !== 'warehouse'"
+        <button type="button" class="preset-pill-btn" 
+                [class.active]="activePreset() === 'warehouse'"
                 (click)="setPreset('warehouse')">
-          🏭 Industrial Warehouse (24 Cams / 45 Days)
+          <span class="preset-emoji">🏭</span> Industrial Warehouse (24 Cams / 45 Days)
         </button>
-        <button type="button" class="btn btn-sm rounded-pill transition-all" 
-                [class.btn-primary]="activePreset() === 'retail'"
-                [class.btn-outline-dark]="activePreset() !== 'retail'"
+        <button type="button" class="preset-pill-btn" 
+                [class.active]="activePreset() === 'retail'"
                 (click)="setPreset('retail')">
-          🏪 Retail Shop (4 Cams / 15 Days)
+          <span class="preset-emoji">🏪</span> Retail Shop (4 Cams / 15 Days)
         </button>
       </div>
     </div>
 
-    <div class="row clearfix g-4">
+    <div class="row clearfix g-4 align-items-start">
       <!-- LEFT COLUMN: Parameter Controls -->
       <div class="col-lg-7 col-md-12">
         <div class="calc-card control-card p-4 rounded-4 shadow-sm bg-white border">
-          <h3 class="card-title h5 mb-4 text-dark border-bottom pb-3">
-            <i class="fa fa-sliders text-primary me-2"></i> Surveillance System Parameters
-          </h3>
+          <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom">
+            <h3 class="card-title h5 mb-0 text-dark fw-bold d-flex align-items-center gap-2">
+              <span class="icon-bubble"><i class="fa fa-sliders text-danger"></i></span>
+              <span>Surveillance System Parameters</span>
+            </h3>
+            <span class="badge bg-light text-secondary border px-2 py-1 small fw-normal">Interactive Sizing</span>
+          </div>
 
-          <!-- 1. Camera Count Slider -->
-          <div class="control-group mb-4">
+          <!-- 1. Camera Count Slider & Stepper -->
+          <div class="control-group mb-4 pb-3 border-bottom">
             <div class="d-flex justify-content-between align-items-center mb-2">
-              <label class="form-label fw-bold text-dark mb-0">Number of CCTV Cameras</label>
-              <span class="badge bg-primary fs-6 px-3 py-1">{{ cameraCount() }} Cameras</span>
+              <label class="form-label fw-bold text-dark mb-0">
+                Number of CCTV Cameras
+              </label>
+              <div class="stepper-controls d-flex align-items-center gap-2">
+                <button type="button" class="btn-stepper" (click)="decrementCameras()" [disabled]="cameraCount() <= 1" aria-label="Decrease cameras">
+                  <i class="fa fa-minus"></i>
+                </button>
+                <span class="camera-badge-pill">{{ cameraCount() }} Cameras</span>
+                <button type="button" class="btn-stepper" (click)="incrementCameras()" [disabled]="cameraCount() >= 64" aria-label="Increase cameras">
+                  <i class="fa fa-plus"></i>
+                </button>
+              </div>
             </div>
-            <input
-              type="range"
-              class="form-range custom-slider"
-              min="1"
-              max="64"
-              step="1"
-              [ngModel]="cameraCount()"
-              (ngModelChange)="cameraCount.set($event)"
-            />
-            <div class="d-flex justify-content-between text-muted small">
-              <span>1 Cam</span>
-              <span>16 Cams (Society Standard)</span>
-              <span>32 Cams</span>
-              <span>64 Cams</span>
+
+            <div class="slider-wrapper my-3">
+              <input
+                type="range"
+                class="form-range custom-slider"
+                min="1"
+                max="64"
+                step="1"
+                [ngModel]="cameraCount()"
+                (ngModelChange)="cameraCount.set($event)"
+              />
+            </div>
+
+            <div class="benchmark-chips d-flex justify-content-between flex-wrap gap-1">
+              <button type="button" class="chip-btn" [class.active]="cameraCount() === 4" (click)="setCameras(4)">4 Cams (Retail)</button>
+              <button type="button" class="chip-btn" [class.active]="cameraCount() === 8" (click)="setCameras(8)">8 Cams (Office)</button>
+              <button type="button" class="chip-btn recommended" [class.active]="cameraCount() === 16" (click)="setCameras(16)">16 Cams (CHS Standard)</button>
+              <button type="button" class="chip-btn" [class.active]="cameraCount() === 32" (click)="setCameras(32)">32 Cams</button>
+              <button type="button" class="chip-btn" [class.active]="cameraCount() === 64" (click)="setCameras(64)">64 Cams</button>
             </div>
           </div>
 
-          <!-- 2. Camera Resolution Selector -->
-          <div class="control-group mb-4">
-            <label class="form-label fw-bold text-dark mb-2">Camera Video Resolution</label>
-            <div class="row g-2">
+          <!-- 2. Camera Video Resolution Selector -->
+          <div class="control-group mb-4 pb-3 border-bottom">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <label class="form-label fw-bold text-dark mb-0">Camera Video Resolution</label>
+              <span class="text-muted small">Evidentiary clarity level</span>
+            </div>
+            <div class="resolution-grid">
               @for (res of resolutions; track res.id) {
-                <div class="col-md-4 col-6">
-                  <div
-                    class="resolution-option-card p-2 rounded-3 border text-center cursor-pointer transition-all"
-                    [class.active]="resolution() === res.id"
-                    (click)="resolution.set(res.id)"
-                    role="button"
-                    tabindex="0"
-                    [attr.aria-pressed]="resolution() === res.id"
-                    [attr.aria-label]="res.name + ' (' + res.tag + ')'"
-                    (keydown.enter)="resolution.set(res.id)"
-                    (keydown.space)="$event.preventDefault(); resolution.set(res.id)"
-                  >
-                    <div class="fw-bold">{{ res.name }}</div>
-                    <small class="text-muted d-block">{{ res.tag }}</small>
+                <div
+                  class="resolution-card cursor-pointer"
+                  [class.active]="resolution() === res.id"
+                  [class.highlight-chs]="res.id === '4mp'"
+                  (click)="resolution.set(res.id)"
+                  role="button"
+                  tabindex="0"
+                  [attr.aria-pressed]="resolution() === res.id"
+                  (keydown.enter)="resolution.set(res.id)"
+                  (keydown.space)="$event.preventDefault(); resolution.set(res.id)"
+                >
+                  @if (res.id === '4mp') {
+                    <span class="rec-badge">Recommended</span>
+                  }
+                  <div class="res-title fw-bold">{{ res.name }}</div>
+                  <div class="res-tag text-muted small">{{ res.tag }}</div>
+                  <div class="res-bitrate small text-secondary mt-1">
+                    <i class="fa fa-tachometer text-danger me-1"></i>~{{ res.baseBitrateMbps }} Mbps base
                   </div>
                 </div>
               }
@@ -114,26 +137,31 @@
           </div>
 
           <!-- 3. Video Compression Codec -->
-          <div class="control-group mb-4">
-            <label class="form-label fw-bold text-dark mb-2">
-              Video Compression Standard (Codec)
-            </label>
-            <div class="row g-2">
+          <div class="control-group mb-4 pb-3 border-bottom">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <label class="form-label fw-bold text-dark mb-0">Video Compression Standard (Codec)</label>
+              <span class="text-muted small">Smart compression saves bandwidth</span>
+            </div>
+            <div class="codec-grid">
               @for (cod of codecs; track cod.id) {
-                <div class="col-md-4 col-12">
-                  <div
-                    class="codec-option-card p-2 rounded-3 border text-center cursor-pointer transition-all"
-                    [class.active]="codec() === cod.id"
-                    (click)="codec.set(cod.id)"
-                    role="button"
-                    tabindex="0"
-                    [attr.aria-pressed]="codec() === cod.id"
-                    [attr.aria-label]="cod.name + ' (' + cod.savings + ')'"
-                    (keydown.enter)="codec.set(cod.id)"
-                    (keydown.space)="$event.preventDefault(); codec.set(cod.id)"
-                  >
-                    <div class="fw-bold">{{ cod.name }}</div>
-                    <small class="text-success fw-semibold d-block">{{ cod.savings }}</small>
+                <div
+                  class="codec-card cursor-pointer"
+                  [class.active]="codec() === cod.id"
+                  (click)="codec.set(cod.id)"
+                  role="button"
+                  tabindex="0"
+                  [attr.aria-pressed]="codec() === cod.id"
+                  (keydown.enter)="codec.set(cod.id)"
+                  (keydown.space)="$event.preventDefault(); codec.set(cod.id)"
+                >
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="codec-name fw-bold">{{ cod.name }}</span>
+                    @if (cod.id === 'h265plus') {
+                      <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-0.5 small">AI Optimized</span>
+                    }
+                  </div>
+                  <div class="codec-savings small fw-semibold mt-1" [class.text-muted]="cod.id === 'h264'" [class.text-success]="cod.id !== 'h264'">
+                    {{ cod.savings }}
                   </div>
                 </div>
               }
@@ -141,54 +169,54 @@
           </div>
 
           <!-- 4. Retention Days Slider -->
-          <div class="control-group mb-4">
+          <div class="control-group mb-4 pb-3 border-bottom">
             <div class="d-flex justify-content-between align-items-center mb-2">
-              <label class="form-label fw-bold text-dark mb-0"
-                >Recording History Retention (Days)</label
-              >
-              <span class="badge bg-danger fs-6 px-3 py-1">{{ recordingDays() }} Days Backup</span>
+              <label class="form-label fw-bold text-dark mb-0">Recording History Retention (Days)</label>
+              <span class="retention-badge-pill">{{ recordingDays() }} Days Retention</span>
             </div>
-            <input
-              type="range"
-              class="form-range custom-slider"
-              min="3"
-              max="90"
-              step="1"
-              [ngModel]="recordingDays()"
-              (ngModelChange)="recordingDays.set($event)"
-            />
-            <div class="d-flex justify-content-between text-muted small">
-              <span>3 Days</span>
-              <span>15 Days</span>
-              <span>30 Days (Police Guideline)</span>
-              <span>60 Days</span>
-              <span>90 Days</span>
+            <div class="slider-wrapper my-3">
+              <input
+                type="range"
+                class="form-range custom-slider slider-red"
+                min="3"
+                max="90"
+                step="1"
+                [ngModel]="recordingDays()"
+                (ngModelChange)="recordingDays.set($event)"
+              />
+            </div>
+            <div class="retention-chips d-flex justify-content-between flex-wrap gap-1">
+              <button type="button" class="chip-btn" [class.active]="recordingDays() === 15" (click)="setRetentionDays(15)">15 Days</button>
+              <button type="button" class="chip-btn recommended" [class.active]="recordingDays() === 30" (click)="setRetentionDays(30)">30 Days (Police Guideline)</button>
+              <button type="button" class="chip-btn" [class.active]="recordingDays() === 45" (click)="setRetentionDays(45)">45 Days</button>
+              <button type="button" class="chip-btn" [class.active]="recordingDays() === 60" (click)="setRetentionDays(60)">60 Days</button>
+              <button type="button" class="chip-btn" [class.active]="recordingDays() === 90" (click)="setRetentionDays(90)">90 Days</button>
             </div>
           </div>
 
           <!-- 5. Advanced Settings (Mode, Frame Rate, Audio) -->
-          <div class="advanced-settings-box p-3 bg-light rounded-3 border">
+          <div class="advanced-settings-card p-3 rounded-3">
+            <div class="advanced-header d-flex align-items-center gap-2 mb-3 text-secondary">
+              <i class="fa fa-cogs text-danger"></i>
+              <span class="fw-bold small text-uppercase tracking-wider">Advanced Recording Parameters</span>
+            </div>
             <div class="row g-3">
               <div class="col-md-6 col-12">
-                <label class="form-label fw-semibold text-secondary small mb-1"
-                  >Recording Schedule Mode</label
-                >
+                <label class="form-label fw-semibold text-dark small mb-1">Recording Schedule</label>
                 <select
-                  class="form-select form-select-sm"
+                  class="form-select form-select-sm custom-select"
                   [ngModel]="recordingMode()"
                   (ngModelChange)="recordingMode.set($event)"
                 >
                   <option value="continuous">24/7 Continuous Recording (Standard)</option>
-                  <option value="motion">Motion Detection (~12h Active Recording)</option>
+                  <option value="motion">Motion Triggered (~12h Active Recording)</option>
                 </select>
               </div>
 
               <div class="col-md-3 col-6">
-                <label class="form-label fw-semibold text-secondary small mb-1"
-                  >Frame Rate (FPS)</label
-                >
+                <label class="form-label fw-semibold text-dark small mb-1">Frame Rate</label>
                 <select
-                  class="form-select form-select-sm"
+                  class="form-select form-select-sm custom-select"
                   [ngModel]="fps()"
                   (ngModelChange)="fps.set($event)"
                 >
@@ -200,11 +228,9 @@
               </div>
 
               <div class="col-md-3 col-6">
-                <label class="form-label fw-semibold text-secondary small mb-1"
-                  >Audio Recording</label
-                >
+                <label class="form-label fw-semibold text-dark small mb-1">Audio Recording</label>
                 <select
-                  class="form-select form-select-sm"
+                  class="form-select form-select-sm custom-select"
                   [ngModel]="audioRecording()"
                   (ngModelChange)="audioRecording.set($event)"
                 >
@@ -217,130 +243,157 @@
         </div>
       </div>
 
-      <!-- RIGHT COLUMN: Sizing Outputs & Hardware Recommendation -->
+      <!-- RIGHT COLUMN: High-Tech Sizing Outputs & Hardware Recommendation -->
       <div class="col-lg-5 col-md-12">
-        <div
-          class="calc-card results-card p-4 rounded-4 shadow bg-dark text-white border-0 sticky-top"
-          style="top: 90px"
-        >
-          <div
-            class="results-header border-bottom border-secondary pb-3 mb-4 d-flex justify-content-between align-items-center"
-          >
-            <h3 class="h5 mb-0 text-white">
-              <i class="fa fa-calculator text-warning me-2"></i> Calculated Sizing
-            </h3>
-            <span class="badge bg-warning text-dark fw-bold">Live Computation</span>
+        <div class="sizing-results-card p-4 rounded-4 shadow-lg sticky-top" style="top: 90px">
+          <!-- Header -->
+          <div class="results-header d-flex justify-content-between align-items-center pb-3 mb-3 border-bottom border-white-10">
+            <div>
+              <h3 class="h5 mb-0 text-white fw-bold d-flex align-items-center gap-2">
+                <span class="calc-icon-glow"><i class="fa fa-calculator"></i></span>
+                <span>Calculated Sizing</span>
+              </h3>
+              <p class="text-white-50 small mb-0 mt-0.5">Live engineering computation</p>
+            </div>
+            <div class="live-status-pill">
+              <span class="pulse-dot"></span>
+              <span>Live Computation</span>
+            </div>
           </div>
 
-          <!-- Major Storage Metric Display -->
-          <div
-            class="storage-metric-hero text-center p-3 mb-4 rounded-3 bg-secondary bg-opacity-25 border border-secondary"
-          >
-            <span class="text-uppercase text-light small fw-bold tracking-wide"
-              >Total Surveillance Storage Required</span
-            >
-            <div class="display-4 fw-bold text-warning my-1">
-              {{ totalStorageRequiredTb() }} <span class="fs-4">TB</span>
+          <!-- Hero Storage Readout Metric Box -->
+          <div class="storage-hero-box text-center p-3 mb-3 rounded-3">
+            <span class="metric-eyebrow">Total Surveillance Storage Required</span>
+            <div class="metric-main-value my-1">
+              <span class="number-val">{{ totalStorageRequiredTb() }}</span>
+              <span class="unit-val">TB</span>
             </div>
-            <div class="text-light small">
+            <div class="metric-sub-caption">
               ~{{ totalStorageRequiredGb() }} GB total capacity across {{ cameraCount() }} camera(s)
             </div>
+            <!-- Dynamic Progress Meter -->
+            <div class="retention-meter-wrap mt-2 pt-2 border-top border-white-10">
+              <div class="d-flex justify-content-between text-white-50 x-small mb-1">
+                <span>{{ recordingDays() }} Days Retention</span>
+                <span>{{ codec().toUpperCase() }} Compression</span>
+              </div>
+              <div class="progress progress-glow" style="height: 6px;">
+                <div class="progress-bar bg-gradient-danger" role="progressbar" [style.width.%]="retentionProgressPercent()" aria-label="Retention meter"></div>
+              </div>
+            </div>
           </div>
 
-          <!-- Granular Specification Breakdown -->
-          <div class="specs-list mb-4">
-            <div
-              class="spec-row d-flex justify-content-between py-2 border-bottom border-secondary"
-            >
-              <span class="text-light"
-                ><i class="fa fa-hdd-o text-info me-2"></i> Recommended HDD:</span
-              >
-              <strong class="text-white text-end ps-2">{{ recommendedHddConfig().label }}</strong>
+          <!-- Structured Specifications List -->
+          <div class="specs-chips-list mb-3">
+            <!-- 1. Hard Drive Recommendation -->
+            <div class="spec-card mb-2">
+              <div class="spec-icon hdd-icon">
+                <i class="fa fa-hdd-o"></i>
+              </div>
+              <div class="spec-content flex-grow-1">
+                <div class="spec-label">Recommended HDD:</div>
+                <div class="spec-val-primary">{{ recommendedHddConfig().main }}</div>
+                <div class="spec-val-secondary">{{ recommendedHddConfig().detail }}</div>
+              </div>
             </div>
 
-            <div
-              class="spec-row d-flex justify-content-between py-2 border-bottom border-secondary"
-            >
-              <span class="text-light"
-                ><i class="fa fa-server text-warning me-2"></i> Recommended NVR:</span
-              >
-              <strong class="text-white text-end ps-2">{{ recommendedNvr().model }}</strong>
+            <!-- 2. NVR Recommendation -->
+            <div class="spec-card mb-2">
+              <div class="spec-icon nvr-icon">
+                <i class="fa fa-server"></i>
+              </div>
+              <div class="spec-content flex-grow-1">
+                <div class="spec-label">Recommended NVR:</div>
+                <div class="spec-val-primary">{{ recommendedNvr().main }}</div>
+                <div class="spec-val-secondary">{{ recommendedNvr().detail }}</div>
+              </div>
             </div>
 
-            <div
-              class="spec-row d-flex justify-content-between py-2 border-bottom border-secondary"
-            >
-              <span class="text-light"
-                ><i class="fa fa-sitemap text-success me-2"></i> PoE Switch Sizing:</span
-              >
-              <strong class="text-white text-end ps-2">{{ recommendedPoESwitch() }}</strong>
+            <!-- 3. PoE Switch -->
+            <div class="spec-card mb-2">
+              <div class="spec-icon poe-icon">
+                <i class="fa fa-sitemap"></i>
+              </div>
+              <div class="spec-content flex-grow-1">
+                <div class="spec-label">PoE Switch Sizing:</div>
+                <div class="spec-val-primary">{{ recommendedPoESwitch().main }}</div>
+                <div class="spec-val-secondary">{{ recommendedPoESwitch().detail }}</div>
+              </div>
             </div>
 
-            <div
-              class="spec-row d-flex justify-content-between py-2 border-bottom border-secondary"
-            >
-              <span class="text-light"
-                ><i class="fa fa-tachometer text-danger me-2"></i> Network Bandwidth Load:</span
-              >
-              <strong class="text-white text-end ps-2"
-                >~{{ totalBandwidthMbps() }} Mbps ({{
-                  effectiveBitratePerCameraMbps()
-                }}
-                Mbps/cam)</strong
-              >
-            </div>
-
-            <div class="spec-row d-flex justify-content-between py-2">
-              <span class="text-light"
-                ><i class="fa fa-database text-warning me-2"></i> Daily Write Rate:</span
-              >
-              <strong class="text-white text-end ps-2"
-                >~{{ dailyStoragePerCameraGb() }} GB / camera / day</strong
-              >
+            <!-- 4. Dual Metric Row: Bandwidth + Daily Write -->
+            <div class="row g-2">
+              <div class="col-6">
+                <div class="micro-stat-card">
+                  <div class="d-flex align-items-center gap-1.5 text-info small mb-1">
+                    <i class="fa fa-tachometer"></i>
+                    <span class="micro-stat-label">Network Bandwidth</span>
+                  </div>
+                  <div class="micro-stat-val text-white fw-bold">~{{ totalBandwidthMbps() }} Mbps</div>
+                  <div class="micro-stat-sub text-white-50 x-small">{{ effectiveBitratePerCameraMbps() }} Mbps / cam</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="micro-stat-card">
+                  <div class="d-flex align-items-center gap-1.5 text-warning small mb-1">
+                    <i class="fa fa-database"></i>
+                    <span class="micro-stat-label">Daily Write Rate</span>
+                  </div>
+                  <div class="micro-stat-val text-white fw-bold">~{{ dailyStoragePerCameraGb() }} GB</div>
+                  <div class="micro-stat-sub text-white-50 x-small">per camera / day</div>
+                </div>
+              </div>
             </div>
           </div>
 
           <!-- CTAs & Lead Dispatch -->
-          <div class="action-buttons-stack d-grid gap-2">
+          <div class="action-buttons-stack">
+            <!-- Primary WhatsApp BOQ -->
             <a
               [href]="whatsappQuoteUrl()"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn btn-success btn-lg fw-bold d-flex align-items-center justify-content-center gap-2"
+              class="calc-btn btn-whatsapp-boq"
             >
-              <i class="fa fa-whatsapp fs-4"></i>
+              <i class="fa fa-whatsapp"></i>
               <span>Send BOQ & Get Formal Quote</span>
             </a>
 
-            <button
-              type="button"
-              class="btn btn-outline-light d-flex align-items-center justify-content-center gap-2"
-              (click)="copyToClipboard()"
-            >
-              <i class="fa fa-copy"></i>
-              <span>{{ copiedToast() ? 'Copied to Clipboard!' : 'Copy Technical Summary' }}</span>
-            </button>
-
+            <!-- Secondary Site Audit Form Link -->
             <a
               routerLink="/contact"
               fragment="contact-forms"
-              class="btn btn-danger d-flex align-items-center justify-content-center gap-2 shadow-sm"
+              class="calc-btn btn-audit-cta"
             >
               <i class="fa fa-calendar-check-o"></i>
               <span>Book Technical Site Audit for this Setup</span>
             </a>
 
-            <a
-              [href]="'tel:' + siteData.contact.primaryPhone"
-              class="btn btn-outline-light d-flex align-items-center justify-content-center gap-2"
-            >
-              <i class="fa fa-phone"></i>
-              <span>Call Technician: {{ siteData.contact.primaryPhone }}</span>
-            </a>
+            <!-- Utility Row: Copy + Call -->
+            <div class="d-flex gap-2 mt-2">
+              <button
+                type="button"
+                class="calc-btn-sm btn-outline-copy flex-fill"
+                (click)="copyToClipboard()"
+              >
+                <i class="fa" [class.fa-check]="copiedToast()" [class.fa-copy]="!copiedToast()"></i>
+                <span>{{ copiedToast() ? 'Copied to Clipboard!' : 'Copy Technical Summary' }}</span>
+              </button>
+
+              <a
+                [href]="'tel:' + siteData.contact.primaryPhone"
+                class="calc-btn-sm btn-outline-call flex-fill"
+              >
+                <i class="fa fa-phone"></i>
+                <span>Call: {{ siteData.contact.primaryPhone }}</span>
+              </a>
+            </div>
           </div>
 
-          <div class="trust-footer mt-3 text-center text-muted small">
-            ⭐ 5.0 Rating (93+ Reviews) • 25+ Yrs Industry Experience
+          <!-- Social Proof Footer -->
+          <div class="trust-footer mt-3 pt-2 text-center border-top border-white-10">
+            <span class="trust-stars text-warning">★★★★★</span>
+            <span class="text-white-50 x-small ms-1">5.0 Rating (93+ Reviews) • 25+ Yrs Industry Experience</span>
           </div>
         </div>
       </div>

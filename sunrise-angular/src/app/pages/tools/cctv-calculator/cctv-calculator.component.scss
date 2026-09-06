@@ -1,3 +1,6 @@
+// CCTV Storage & HDD Calculator Stylesheet
+// Sunrise Communication - Engineering Design System
+
 .cctv-calc-banner {
   background: linear-gradient(135deg, rgba(1, 12, 58, 0.94) 0%, rgba(13, 27, 84, 0.9) 100%), url('/assets/images/background/10.jpg');
   background-size: cover;
@@ -16,35 +19,6 @@
   max-width: 850px;
 }
 
-.calc-card {
-  border-color: #e2e8f0;
-}
-
-.resolution-option-card,
-.codec-option-card {
-  background-color: #ffffff;
-  border: 2px solid #e2e8f0;
-  transition: all 0.2s ease-in-out;
-
-  &:hover {
-    border-color: #0d6efd;
-    background-color: #f0f7ff;
-    transform: translateY(-2px);
-  }
-
-  &.active {
-    border-color: #0d6efd;
-    background-color: #e7f1ff;
-    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.15);
-  }
-}
-
-.custom-slider {
-  accent-color: #0d6efd;
-  height: 8px;
-  border-radius: 4px;
-}
-
 .cursor-pointer {
   cursor: pointer;
 }
@@ -53,6 +27,686 @@
   letter-spacing: 0.05em;
 }
 
+.tracking-wider {
+  letter-spacing: 0.08em;
+}
+
+.x-small {
+  font-size: 0.72rem;
+}
+
+.shadow-2xs {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  display: inline-block;
+  animation: pulseGlow 1.8s infinite;
+}
+
+.border-white-10 {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Header Introduction & Presets */
+.presets-container {
+  .presets-label {
+    font-size: 0.82rem;
+  }
+
+  .preset-pill-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 30px;
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+    color: #334155;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    outline: none;
+
+    .preset-emoji {
+      font-size: 0.9rem;
+    }
+
+    &:hover {
+      border-color: #cbd5e1;
+      background: #f8fafc;
+      color: #0f172a;
+      transform: translateY(-1px);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    &.active {
+      background: #010c3a;
+      border-color: #010c3a;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(1, 12, 58, 0.25);
+    }
+  }
+}
+
+/* ==========================================================================
+   LEFT COLUMN: Parameter Controls
+   ========================================================================== */
+.control-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+
+  .icon-bubble {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(223, 3, 3, 0.08);
+    font-size: 14px;
+  }
+}
+
+/* 1. Camera Stepper Controls */
+.stepper-controls {
+  .btn-stepper {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    color: #1e293b;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &:hover:not(:disabled) {
+      border-color: #010c3a;
+      background: #010c3a;
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    &:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+  }
+
+  .camera-badge-pill {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #010c3a;
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-radius: 20px;
+    padding: 4px 14px;
+    min-width: 105px;
+    text-align: center;
+    user-select: none;
+  }
+}
+
+/* Custom Range Sliders */
+.slider-wrapper {
+  position: relative;
+
+  .custom-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 7px;
+    border-radius: 8px;
+    background: #e2e8f0;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: #cbd5e1;
+    }
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #df0303;
+      border: 3px solid #ffffff;
+      box-shadow: 0 2px 6px rgba(223, 3, 3, 0.35);
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+      &:hover {
+        transform: scale(1.15);
+        box-shadow: 0 3px 10px rgba(223, 3, 3, 0.5);
+      }
+    }
+
+    &::-moz-range-thumb {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #df0303;
+      border: 3px solid #ffffff;
+      box-shadow: 0 2px 6px rgba(223, 3, 3, 0.35);
+      cursor: pointer;
+    }
+  }
+}
+
+/* Benchmark & Retention Chips */
+.benchmark-chips,
+.retention-chips {
+  .chip-btn {
+    padding: 5px 12px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+
+    &:hover {
+      border-color: #94a3b8;
+      background: #ffffff;
+      color: #0f172a;
+    }
+
+    &.active {
+      background: #010c3a;
+      border-color: #010c3a;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(1, 12, 58, 0.2);
+    }
+
+    &.recommended:not(.active) {
+      border-color: #fed7aa;
+      background: #fffbeb;
+      color: #b45309;
+
+      &:hover {
+        border-color: #f59e0b;
+        background: #fef3c7;
+      }
+    }
+  }
+}
+
+/* 2. Resolution Card Grid */
+.resolution-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+
+  @media (max-width: 991px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 575px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .resolution-card {
+    position: relative;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px 8px;
+    text-align: center;
+    background: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    outline: none;
+
+    &:hover {
+      border-color: #cbd5e1;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    &.active {
+      border-color: #df0303;
+      background: #fff5f5;
+      box-shadow: 0 4px 14px rgba(223, 3, 3, 0.12);
+
+      .res-title {
+        color: #df0303;
+        font-weight: 700;
+      }
+    }
+
+    &.highlight-chs:not(.active) {
+      border-color: #fca5a5;
+      background: #fffafa;
+    }
+
+    .rec-badge {
+      position: absolute;
+      top: -9px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #df0303;
+      color: #ffffff;
+      font-size: 8px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      box-shadow: 0 2px 5px rgba(223, 3, 3, 0.35);
+    }
+
+    .res-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .res-tag {
+      font-size: 0.72rem;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    .res-bitrate {
+      font-size: 0.72rem;
+      color: #64748b;
+    }
+  }
+}
+
+/* 3. Codec Card Grid */
+.codec-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+
+  @media (max-width: 575px) {
+    grid-template-columns: 1fr;
+  }
+
+  .codec-card {
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px 14px;
+    background: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    outline: none;
+
+    &:hover {
+      border-color: #cbd5e1;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    &.active {
+      border-color: #010c3a;
+      background: #f8faff;
+      box-shadow: 0 4px 14px rgba(1, 12, 58, 0.1);
+
+      .codec-name {
+        color: #010c3a;
+      }
+    }
+
+    .codec-name {
+      font-size: 0.95rem;
+      color: #0f172a;
+    }
+
+    .codec-savings {
+      font-size: 0.78rem;
+    }
+  }
+}
+
+/* Retention Badge Pill */
+.retention-badge-pill {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #df0303;
+  background: #fff5f5;
+  border: 1px solid #fecaca;
+  border-radius: 20px;
+  padding: 4px 14px;
+  user-select: none;
+}
+
+/* 5. Advanced Settings Card */
+.advanced-settings-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+
+  .custom-select {
+    border-color: #cbd5e1;
+    font-size: 0.82rem;
+    font-weight: 500;
+    border-radius: 8px;
+    background-color: #ffffff;
+
+    &:focus {
+      border-color: #010c3a;
+      box-shadow: 0 0 0 0.2rem rgba(1, 12, 58, 0.12);
+    }
+  }
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: High-Tech Sizing Outputs & Hardware Recommendation
+   ========================================================================== */
+.sizing-results-card {
+  background: linear-gradient(165deg, #010c3a 0%, #081a5c 55%, #030d36 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px -15px rgba(1, 12, 58, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+
+  @media (max-width: 991px) {
+    position: static !important;
+    margin-top: 24px;
+  }
+
+  .calc-icon-glow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: rgba(223, 3, 3, 0.2);
+    color: #ff6b6b;
+    border: 1px solid rgba(223, 3, 3, 0.3);
+    font-size: 14px;
+  }
+
+  .live-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    color: #34d399;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      animation: pulseGlow 1.8s infinite;
+    }
+  }
+
+  /* Hero Storage Readout Box */
+  .storage-hero-box {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    .metric-eyebrow {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #94a3b8;
+    }
+
+    .metric-main-value {
+      .number-val {
+        font-size: 3.4rem;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -1.5px;
+        background: linear-gradient(135deg, #ffffff 40%, #fed7aa 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .unit-val {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: #df0303;
+        margin-left: 4px;
+        text-shadow: 0 0 20px rgba(223, 3, 3, 0.5);
+      }
+    }
+
+    .metric-sub-caption {
+      font-size: 0.8rem;
+      color: #cbd5e1;
+      font-weight: 500;
+    }
+
+    .retention-meter-wrap {
+      .progress-glow {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        overflow: hidden;
+
+        .bg-gradient-danger {
+          background: linear-gradient(90deg, #df0303 0%, #f59e0b 100%) !important;
+          box-shadow: 0 0 10px rgba(223, 3, 3, 0.4);
+        }
+      }
+    }
+  }
+
+  /* Specifications List */
+  .specs-chips-list {
+    .spec-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.07);
+        border-color: rgba(255, 255, 255, 0.15);
+      }
+
+      .spec-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        flex-shrink: 0;
+
+        &.hdd-icon {
+          background: rgba(139, 92, 246, 0.15);
+          color: #c4b5fd;
+          border: 1px solid rgba(139, 92, 246, 0.25);
+        }
+
+        &.nvr-icon {
+          background: rgba(245, 158, 11, 0.15);
+          color: #fcd34d;
+          border: 1px solid rgba(245, 158, 11, 0.25);
+        }
+
+        &.poe-icon {
+          background: rgba(16, 185, 129, 0.15);
+          color: #6ee7b7;
+          border: 1px solid rgba(16, 185, 129, 0.25);
+        }
+      }
+
+      .spec-label {
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #94a3b8;
+      }
+
+      .spec-val-primary {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: #ffffff;
+        line-height: 1.25;
+        margin-top: 1px;
+      }
+
+      .spec-val-secondary {
+        font-size: 0.74rem;
+        color: #cbd5e1;
+        line-height: 1.2;
+        margin-top: 1px;
+      }
+    }
+  }
+
+  /* Dual Micro-Stat Cards */
+  .micro-stat-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+    padding: 10px 12px;
+
+    .micro-stat-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .micro-stat-val {
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .micro-stat-sub {
+      font-size: 0.72rem;
+      color: #94a3b8;
+    }
+  }
+
+  /* Action Buttons Stack */
+  .action-buttons-stack {
+    .calc-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 11px 16px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      margin-bottom: 8px;
+    }
+
+    .btn-whatsapp-boq {
+      background: #25d366;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+      border: none;
+
+      &:hover {
+        background: #20bd5a;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
+        color: #ffffff;
+      }
+    }
+
+    .btn-audit-cta {
+      background: linear-gradient(135deg, #df0303 0%, #b80000 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(223, 3, 3, 0.3);
+      border: none;
+
+      &:hover {
+        background: linear-gradient(135deg, #f01414 0%, #cc0202 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 18px rgba(223, 3, 3, 0.45);
+        color: #ffffff;
+      }
+    }
+
+    .calc-btn-sm {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+
+      &.btn-outline-copy {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        color: #ffffff;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.14);
+          border-color: rgba(255, 255, 255, 0.25);
+        }
+      }
+
+      &.btn-outline-call {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        color: #ffffff;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.14);
+          border-color: rgba(255, 255, 255, 0.25);
+        }
+      }
+    }
+  }
+
+  /* Trust Footer */
+  .trust-footer {
+    .trust-stars {
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+    }
+  }
+}
+
+/* ==========================================================================
+   FAQ Accordion Container
+   ========================================================================== */
 .faq-accordion-container {
   .faq-item {
     background: #ffffff;
@@ -63,7 +717,7 @@
     transition: all 0.3s ease;
 
     &.open {
-      border-color: #0d6efd;
+      border-color: #010c3a;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
 
@@ -83,7 +737,7 @@
 
       i {
         font-size: 14px;
-        color: #0d6efd;
+        color: #df0303;
       }
     }
 
@@ -112,5 +766,21 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+    box-shadow: 0 0 8px #10b981;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
   }
 }
