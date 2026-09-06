@@ -52,11 +52,13 @@
   position: relative;
   transition: background 0.3s ease;
 
-  &.cat-network-camera, &.cat-cctv {
+  &.cat-network-camera,
+  &.cat-cctv {
     background: linear-gradient(135deg, #010c3a 0%, #002d5b 100%);
   }
 
-  &.cat-nvr, &.cat-dvr {
+  &.cat-nvr,
+  &.cat-dvr {
     background: linear-gradient(135deg, #002d5b 0%, #0f172a 100%);
   }
 
