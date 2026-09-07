@@ -76,7 +76,7 @@
     @else {
       <!-- Top Action Navigation Bar -->
       <div class="stage2-top-bar mb-3">
-        <button class="back-to-categories-btn" (click)="returnToCategoryLanding()">
+        <button type="button" class="back-to-categories-btn" (click)="returnToCategoryLanding()">
           <i class="fa fa-arrow-left"></i> Back to All Categories
         </button>
 
@@ -88,7 +88,11 @@
 
       <!-- Mobile Filter Toggle Button -->
       <div class="mobile-filter-bar d-lg-none mb-4">
-        <button class="theme-btn btn-style-one filter-toggle-btn" (click)="toggleMobileFilter()">
+        <button
+          type="button"
+          class="theme-btn btn-style-one filter-toggle-btn"
+          (click)="toggleMobileFilter()"
+        >
           <span class="txt">
             <i class="fa fa-filter"></i>
             {{ isMobileFilterOpen() ? 'Hide Filters' : 'Filter Products' }}
@@ -114,7 +118,7 @@
                 selectedBrands().size > 0 ||
                 searchQuery()
               ) {
-                <button class="clear-all-btn" (click)="clearAllFiltersInDetailMode()">
+                <button type="button" class="clear-all-btn" (click)="clearAllFiltersInDetailMode()">
                   Clear All
                 </button>
               }
@@ -132,7 +136,14 @@
                   class="form-control"
                 />
                 @if (searchQuery()) {
-                  <button class="clear-search-icon" (click)="clearSearch()">×</button>
+                  <button
+                    type="button"
+                    class="clear-search-icon"
+                    (click)="clearSearch()"
+                    aria-label="Clear search input"
+                  >
+                    ×
+                  </button>
                 } @else {
                   <i class="fa fa-search search-icon"></i>
                 }
@@ -152,25 +163,49 @@
                   @if (searchQuery()) {
                     <span class="chip-item">
                       "{{ searchQuery() }}"
-                      <button (click)="clearSearch()">×</button>
+                      <button
+                        type="button"
+                        (click)="clearSearch()"
+                        aria-label="Remove search filter"
+                      >
+                        ×
+                      </button>
                     </span>
                   }
                   @for (cat of selectedCategories(); track cat) {
                     <span class="chip-item">
                       {{ cat }}
-                      <button (click)="removeCategoryFilter(cat)">×</button>
+                      <button
+                        type="button"
+                        (click)="removeCategoryFilter(cat)"
+                        [attr.aria-label]="'Remove category filter ' + cat"
+                      >
+                        ×
+                      </button>
                     </span>
                   }
                   @for (subCat of selectedSubCategories(); track subCat) {
                     <span class="chip-item chip-subcat">
                       {{ subCat }}
-                      <button (click)="removeSubCategoryFilter(subCat)">×</button>
+                      <button
+                        type="button"
+                        (click)="removeSubCategoryFilter(subCat)"
+                        [attr.aria-label]="'Remove sub-category filter ' + subCat"
+                      >
+                        ×
+                      </button>
                     </span>
                   }
                   @for (brand of selectedBrands(); track brand) {
                     <span class="chip-item">
                       {{ brand }}
-                      <button (click)="removeBrandFilter(brand)">×</button>
+                      <button
+                        type="button"
+                        (click)="removeBrandFilter(brand)"
+                        [attr.aria-label]="'Remove brand filter ' + brand"
+                      >
+                        ×
+                      </button>
                     </span>
                   }
                 </div>
@@ -195,7 +230,9 @@
                     </label>
 
                     <!-- ONLY SHOW SUB-CATEGORIES WHEN THIS CATEGORY IS CHECKED -->
-                    @if (selectedCategories().has(catItem.category) && catItem.subcategories.length > 0) {
+                    @if (
+                      selectedCategories().has(catItem.category) && catItem.subcategories.length > 0
+                    ) {
                       <div class="subcategory-nested-list ps-3 ms-1 mt-1">
                         @for (subCat of catItem.subcategories; track subCat) {
                           <label class="custom-checkbox subcategory-checkbox">
@@ -320,6 +357,7 @@
 
                     @if (group.products.length > 2) {
                       <button
+                        type="button"
                         class="show-all-toggle-btn"
                         (click)="toggleShowAllGroup(group.subCategory)"
                       >
