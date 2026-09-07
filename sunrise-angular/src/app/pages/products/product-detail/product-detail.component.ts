@@ -10,7 +10,7 @@ import { SITE_DATA } from '../../../core/constants/site-data';
   standalone: true,
   imports: [RouterLink, NgOptimizedImage],
   templateUrl: './product-detail.component.html',
-  styleUrl: './product-detail.component.scss'
+  styleUrl: './product-detail.component.scss',
 })
 export class ProductDetailComponent implements OnInit {
   protected productService = inject(ProductService);
@@ -21,10 +21,11 @@ export class ProductDetailComponent implements OnInit {
 
   slug = signal<string>('');
 
+  // Performance Optimization: Use O(1) productsBySlugMap lookup instead of scanning array with find()
   product = computed(() => {
     const s = this.slug();
     if (!s) return undefined;
-    return this.productService.products().find(p => p.slug === s);
+    return this.productService.productsBySlugMap().get(s);
   });
 
   loading = computed(() => this.productService.loading());
@@ -36,7 +37,7 @@ export class ProductDetailComponent implements OnInit {
     if (!prod) return '';
 
     const phone = this.siteData.social.whatsapp.replace('https://wa.me/', '');
-    
+
     // Page URL computation (SSR-safe)
     let currentUrl = `${this.siteData.contact.website}/products/${prod.category_slug}/${prod.slug}`;
     if (isPlatformBrowser(this.platformId) && this.document.location?.href) {
@@ -79,10 +80,20 @@ export class ProductDetailComponent implements OnInit {
     if (s.includes('nvr') || s.includes('recorder') || s.includes('dvr')) {
       return 'fa fa-server';
     }
-    if (s.includes('epabx') || s.includes('intercom') || s.includes('phone') || s.includes('telecom')) {
+    if (
+      s.includes('epabx') ||
+      s.includes('intercom') ||
+      s.includes('phone') ||
+      s.includes('telecom')
+    ) {
       return 'fa fa-phone';
     }
-    if (s.includes('biometric') || s.includes('access') || s.includes('security') || s.includes('lock')) {
+    if (
+      s.includes('biometric') ||
+      s.includes('access') ||
+      s.includes('security') ||
+      s.includes('lock')
+    ) {
       return 'fa fa-id-card-o';
     }
     if (s.includes('cable') || s.includes('network') || s.includes('wire')) {

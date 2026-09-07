@@ -161,14 +161,12 @@ export class ProductCatalogComponent implements OnInit {
     return '';
   });
 
-  // Active Category Description computed signal
+  // Active Category Description computed signal — search in pre-computed categoryList (small array) instead of all products
   activeCategoryDescription = computed(() => {
     const catName = this.activeCategoryName();
-    if (catName) {
-      const match = this.productService.products().find((p) => p.category === catName);
-      return match?.category_description || '';
-    }
-    return '';
+    if (!catName) return '';
+    const match = this.categoryList().find((c) => c.name === catName);
+    return match?.description || '';
   });
 
   // Filtered products computed signal:
@@ -275,10 +273,20 @@ export class ProductCatalogComponent implements OnInit {
     if (s.includes('nvr') || s.includes('recorder') || s.includes('dvr')) {
       return 'fa fa-server';
     }
-    if (s.includes('epabx') || s.includes('intercom') || s.includes('phone') || s.includes('telecom')) {
+    if (
+      s.includes('epabx') ||
+      s.includes('intercom') ||
+      s.includes('phone') ||
+      s.includes('telecom')
+    ) {
       return 'fa fa-phone';
     }
-    if (s.includes('biometric') || s.includes('access') || s.includes('security') || s.includes('lock')) {
+    if (
+      s.includes('biometric') ||
+      s.includes('access') ||
+      s.includes('security') ||
+      s.includes('lock')
+    ) {
       return 'fa fa-id-card-o';
     }
     if (s.includes('cable') || s.includes('network') || s.includes('wire')) {
