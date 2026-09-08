@@ -20,14 +20,23 @@ export class ProductService {
   // Computed signals derived from products list
   readonly categories = computed(() => {
     const list = this._products();
-    const unique = new Set(list.map(p => p.category));
+    const unique = new Set(list.map((p) => p.category));
     return Array.from(unique);
   });
 
   readonly brands = computed(() => {
     const list = this._products();
-    const unique = new Set(list.map(p => p.brand));
+    const unique = new Set(list.map((p) => p.brand));
     return Array.from(unique);
+  });
+
+  // Performance Optimization: O(1) hash map lookup for product by slug instead of O(N) array scans
+  readonly productMapBySlug = computed(() => {
+    const map = new Map<string, Product>();
+    for (const p of this._products()) {
+      map.set(p.slug, p);
+    }
+    return map;
   });
 
   /**
@@ -50,7 +59,10 @@ export class ProductService {
         this._loading.set(false);
       },
       error: (err) => {
-        console.warn('Django REST API fetch failed, falling back to local products.json asset:', err);
+        console.warn(
+          'Django REST API fetch failed, falling back to local products.json asset:',
+          err,
+        );
         // Fallback to static JSON asset
         this.http.get<ProductCatalogResponse>('assets/data/products.json').subscribe({
           next: (fallbackResponse) => {
@@ -61,9 +73,9 @@ export class ProductService {
             console.error('Failed to load products:', fallbackErr);
             this._error.set('Failed to load products catalog. Please try again later.');
             this._loading.set(false);
-          }
+          },
         });
-      }
+      },
     });
   }
 
@@ -71,9 +83,6 @@ export class ProductService {
    * Returns a computed signal finding a product by its URL slug.
    */
   getProductBySlug(slug: string): Signal<Product | undefined> {
-    return computed(() => {
-      const list = this._products();
-      return list.find(p => p.slug === slug);
-    });
+    return computed(() => this.productMapBySlug().get(slug));
   }
 }
