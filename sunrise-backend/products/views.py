@@ -1,6 +1,6 @@
 from django.db.models import Count, Q, Prefetch
 from rest_framework import viewsets
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAdminUser
 from .models import Category, SubCategory, Brand, Product, Inquiry
 from .serializers import (
     CategorySerializer, BrandSerializer,
@@ -79,6 +79,13 @@ class InquiryViewSet(viewsets.ModelViewSet):
     """
     queryset = Inquiry.objects.all()
     serializer_class = InquirySerializer
-    permission_classes = [AllowAny]
     http_method_names = ['get', 'post', 'head', 'options']
 
+    def get_permissions(self):
+        """
+        Allow public submission of inquiries, but restrict listing and viewing
+        sensitive customer PII/inquiry details to administrative staff.
+        """
+        if self.action == 'create':
+            return [AllowAny()]
+        return [IsAdminUser()]
