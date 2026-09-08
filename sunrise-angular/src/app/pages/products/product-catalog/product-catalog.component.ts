@@ -122,15 +122,16 @@ export class ProductCatalogComponent implements OnInit {
 
     for (const p of products) {
       const catName = p.category;
-      if (!map.has(catName)) {
-        map.set(catName, {
+      let item = map.get(catName);
+      if (!item) {
+        item = {
           slug: p.category_slug,
           desc: p.category_description || '',
           prods: new Set(),
           subcats: new Set(),
-        });
+        };
+        map.set(catName, item);
       }
-      const item = map.get(catName)!;
       item.prods.add(p.id);
       if (p.sub_category) {
         item.subcats.add(p.sub_category);
@@ -162,17 +163,19 @@ export class ProductCatalogComponent implements OnInit {
   });
 
   // Active Category Description computed signal
+  // Bolt Optimization: Search categoryList() (O(C) categories) instead of full products() catalog (O(N) products).
   activeCategoryDescription = computed(() => {
     const catName = this.activeCategoryName();
     if (catName) {
-      const match = this.productService.products().find((p) => p.category === catName);
-      return match?.category_description || '';
+      const match = this.categoryList().find((c) => c.name === catName);
+      return match?.description || '';
     }
     return '';
   });
 
   // Filtered products computed signal:
-  // If selectedCategories() is empty, show 0 products as requested!
+  // Bolt Optimization: Short-circuit early using O(1) Set lookups (category, sub-category, brand)
+  // before performing multi-field string lowercasing & search matches, avoiding redundant calculations.
   filteredProducts = computed(() => {
     const products = this.productService.products();
     const query = this.searchQuery().trim().toLowerCase();
@@ -185,19 +188,26 @@ export class ProductCatalogComponent implements OnInit {
     }
 
     return products.filter((p) => {
-      const matchesSearch =
-        !query ||
+      if (!cats.has(p.category)) {
+        return false;
+      }
+      if (subCats.size > 0 && !subCats.has(p.sub_category)) {
+        return false;
+      }
+      if (brands.size > 0 && !brands.has(p.brand)) {
+        return false;
+      }
+      if (!query) {
+        return true;
+      }
+
+      return (
         p.name.toLowerCase().includes(query) ||
         (p.model_number && p.model_number.toLowerCase().includes(query)) ||
         p.brand.toLowerCase().includes(query) ||
         p.category.toLowerCase().includes(query) ||
-        p.short_description.toLowerCase().includes(query);
-
-      const matchesCat = cats.has(p.category);
-      const matchesSubCat = subCats.size === 0 || subCats.has(p.sub_category);
-      const matchesBrand = brands.size === 0 || brands.has(p.brand);
-
-      return matchesSearch && matchesCat && matchesSubCat && matchesBrand;
+        p.short_description.toLowerCase().includes(query)
+      );
     });
   });
 
@@ -275,10 +285,20 @@ export class ProductCatalogComponent implements OnInit {
     if (s.includes('nvr') || s.includes('recorder') || s.includes('dvr')) {
       return 'fa fa-server';
     }
-    if (s.includes('epabx') || s.includes('intercom') || s.includes('phone') || s.includes('telecom')) {
+    if (
+      s.includes('epabx') ||
+      s.includes('intercom') ||
+      s.includes('phone') ||
+      s.includes('telecom')
+    ) {
       return 'fa fa-phone';
     }
-    if (s.includes('biometric') || s.includes('access') || s.includes('security') || s.includes('lock')) {
+    if (
+      s.includes('biometric') ||
+      s.includes('access') ||
+      s.includes('security') ||
+      s.includes('lock')
+    ) {
       return 'fa fa-id-card-o';
     }
     if (s.includes('cable') || s.includes('network') || s.includes('wire')) {
