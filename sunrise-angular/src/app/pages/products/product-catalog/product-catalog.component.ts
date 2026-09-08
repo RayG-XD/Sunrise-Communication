@@ -68,16 +68,19 @@ export class ProductCatalogComponent implements OnInit {
   });
 
   // Hierarchical Category Tree for Sidebar Filter (Categories -> Nested SubCategories)
+  // Performance Optimization: Single Map lookup per product avoids redundant get/has operations.
   categoriesWithSubCategories = computed<CategoryTreeItem[]>(() => {
     const products = this.productService.products();
     const map = new Map<string, { slug: string; subcats: Set<string> }>();
 
     for (const p of products) {
-      if (!map.has(p.category)) {
-        map.set(p.category, { slug: p.category_slug, subcats: new Set() });
+      let entry = map.get(p.category);
+      if (!entry) {
+        entry = { slug: p.category_slug, subcats: new Set() };
+        map.set(p.category, entry);
       }
       if (p.sub_category) {
-        map.get(p.category)!.subcats.add(p.sub_category);
+        entry.subcats.add(p.sub_category);
       }
     }
 
@@ -113,6 +116,7 @@ export class ProductCatalogComponent implements OnInit {
   });
 
   // Category Overview Cards list for Stage 1 Landing View
+  // Performance Optimization: Single Map get/set per product avoids redundant lookups.
   categoryList = computed<CategoryCardItem[]>(() => {
     const products = this.productService.products();
     const map = new Map<
@@ -122,15 +126,16 @@ export class ProductCatalogComponent implements OnInit {
 
     for (const p of products) {
       const catName = p.category;
-      if (!map.has(catName)) {
-        map.set(catName, {
+      let item = map.get(catName);
+      if (!item) {
+        item = {
           slug: p.category_slug,
           desc: p.category_description || '',
           prods: new Set(),
           subcats: new Set(),
-        });
+        };
+        map.set(catName, item);
       }
-      const item = map.get(catName)!;
       item.prods.add(p.id);
       if (p.sub_category) {
         item.subcats.add(p.sub_category);
@@ -153,10 +158,11 @@ export class ProductCatalogComponent implements OnInit {
   });
 
   // Active Category Name computed signal
+  // Performance Optimization: Use iterator value directly without allocating a new array.
   activeCategoryName = computed(() => {
     const activeCats = this.selectedCategories();
     if (activeCats.size === 1) {
-      return Array.from(activeCats)[0];
+      return activeCats.values().next().value || '';
     }
     return '';
   });
@@ -172,36 +178,44 @@ export class ProductCatalogComponent implements OnInit {
   });
 
   // Filtered products computed signal:
-  // If selectedCategories() is empty, show 0 products as requested!
+  // Performance Optimization: Early exit for exact Set matches before performing string operations and lowercasing.
   filteredProducts = computed(() => {
     const products = this.productService.products();
-    const query = this.searchQuery().trim().toLowerCase();
     const cats = this.selectedCategories();
-    const subCats = this.selectedSubCategories();
-    const brands = this.selectedBrands();
 
     if (cats.size === 0) {
       return [];
     }
 
+    const rawQuery = this.searchQuery().trim();
+    const query = rawQuery ? rawQuery.toLowerCase() : '';
+    const subCats = this.selectedSubCategories();
+    const brands = this.selectedBrands();
+
+    const hasSubCats = subCats.size > 0;
+    const hasBrands = brands.size > 0;
+
     return products.filter((p) => {
-      const matchesSearch =
-        !query ||
-        p.name.toLowerCase().includes(query) ||
-        (p.model_number && p.model_number.toLowerCase().includes(query)) ||
-        p.brand.toLowerCase().includes(query) ||
-        p.category.toLowerCase().includes(query) ||
-        p.short_description.toLowerCase().includes(query);
+      if (!cats.has(p.category)) return false;
+      if (hasSubCats && !subCats.has(p.sub_category)) return false;
+      if (hasBrands && !brands.has(p.brand)) return false;
 
-      const matchesCat = cats.has(p.category);
-      const matchesSubCat = subCats.size === 0 || subCats.has(p.sub_category);
-      const matchesBrand = brands.size === 0 || brands.has(p.brand);
+      if (query) {
+        return (
+          p.name.toLowerCase().includes(query) ||
+          (p.model_number && p.model_number.toLowerCase().includes(query)) ||
+          p.brand.toLowerCase().includes(query) ||
+          p.category.toLowerCase().includes(query) ||
+          p.short_description.toLowerCase().includes(query)
+        );
+      }
 
-      return matchesSearch && matchesCat && matchesSubCat && matchesBrand;
+      return true;
     });
   });
 
   // Group filtered products by sub-category heading (e.g. 6 MP, 5 MP, 4 MP, 2 MP, 8 MP)
+  // Performance Optimization: Cache Map lookup reference during grouping loop.
   groupedProductsBySubCategory = computed<ProductSubGroup[]>(() => {
     const filtered = this.filteredProducts();
     const groupMap = new Map<string, { slug: string; list: Product[] }>();
@@ -210,10 +224,12 @@ export class ProductCatalogComponent implements OnInit {
       const subName = p.sub_category || 'General';
       const subSlug = p.sub_category_slug || 'general';
 
-      if (!groupMap.has(subName)) {
-        groupMap.set(subName, { slug: subSlug, list: [] });
+      let group = groupMap.get(subName);
+      if (!group) {
+        group = { slug: subSlug, list: [] };
+        groupMap.set(subName, group);
       }
-      groupMap.get(subName)!.list.push(p);
+      group.list.push(p);
     }
 
     const groups: ProductSubGroup[] = [];
@@ -275,10 +291,20 @@ export class ProductCatalogComponent implements OnInit {
     if (s.includes('nvr') || s.includes('recorder') || s.includes('dvr')) {
       return 'fa fa-server';
     }
-    if (s.includes('epabx') || s.includes('intercom') || s.includes('phone') || s.includes('telecom')) {
+    if (
+      s.includes('epabx') ||
+      s.includes('intercom') ||
+      s.includes('phone') ||
+      s.includes('telecom')
+    ) {
       return 'fa fa-phone';
     }
-    if (s.includes('biometric') || s.includes('access') || s.includes('security') || s.includes('lock')) {
+    if (
+      s.includes('biometric') ||
+      s.includes('access') ||
+      s.includes('security') ||
+      s.includes('lock')
+    ) {
       return 'fa fa-id-card-o';
     }
     if (s.includes('cable') || s.includes('network') || s.includes('wire')) {
