@@ -1,6 +1,7 @@
 import {
   Component,
   OnInit,
+  OnDestroy,
   inject,
   signal,
   computed,
@@ -44,10 +45,11 @@ export interface ProductSubGroup {
   // dirty checking runs across the entire catalog and filter trees on unrelated DOM events.
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProductCatalogComponent implements OnInit {
+export class ProductCatalogComponent implements OnInit, OnDestroy {
   protected productService = inject(ProductService);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
+  private searchDebounceTimer?: ReturnType<typeof setTimeout>;
 
   // Filter signals
   searchQuery = signal<string>('');
@@ -275,10 +277,20 @@ export class ProductCatalogComponent implements OnInit {
     if (s.includes('nvr') || s.includes('recorder') || s.includes('dvr')) {
       return 'fa fa-server';
     }
-    if (s.includes('epabx') || s.includes('intercom') || s.includes('phone') || s.includes('telecom')) {
+    if (
+      s.includes('epabx') ||
+      s.includes('intercom') ||
+      s.includes('phone') ||
+      s.includes('telecom')
+    ) {
       return 'fa fa-phone';
     }
-    if (s.includes('biometric') || s.includes('access') || s.includes('security') || s.includes('lock')) {
+    if (
+      s.includes('biometric') ||
+      s.includes('access') ||
+      s.includes('security') ||
+      s.includes('lock')
+    ) {
       return 'fa fa-id-card-o';
     }
     if (s.includes('cable') || s.includes('network') || s.includes('wire')) {
@@ -295,11 +307,18 @@ export class ProductCatalogComponent implements OnInit {
 
   onSearchInput(event: Event): void {
     const val = (event.target as HTMLInputElement).value;
+    // Bolt Optimization: searchQuery signal is set immediately for instantaneous 0ms UI filtering
     this.searchQuery.set(val);
     if (this.isLandingPageMode()) {
       this.isLandingPageMode.set(false);
     }
-    this.syncQueryParams();
+    // Debounce Router URL query param updates during search typing to prevent Angular Router thrashing
+    if (this.searchDebounceTimer) {
+      clearTimeout(this.searchDebounceTimer);
+    }
+    this.searchDebounceTimer = setTimeout(() => {
+      this.syncQueryParams();
+    }, 300);
   }
 
   toggleCategory(category: string): void {
@@ -420,7 +439,17 @@ export class ProductCatalogComponent implements OnInit {
     this.isMobileFilterOpen.update((v) => !v);
   }
 
+  ngOnDestroy(): void {
+    if (this.searchDebounceTimer) {
+      clearTimeout(this.searchDebounceTimer);
+    }
+  }
+
   private syncQueryParams(): void {
+    if (this.searchDebounceTimer) {
+      clearTimeout(this.searchDebounceTimer);
+      this.searchDebounceTimer = undefined;
+    }
     const queryParams: Record<string, string | null> = {};
 
     if (this.searchQuery().trim()) {
