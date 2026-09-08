@@ -68,27 +68,32 @@ export class ProductCatalogComponent implements OnInit {
   });
 
   // Hierarchical Category Tree for Sidebar Filter (Categories -> Nested SubCategories)
+  // Bolt Optimization: Single-pass map build using Set per category, converting subcategories
+  // directly during mapping to prevent redundant list iterations and intermediate objects.
   categoriesWithSubCategories = computed<CategoryTreeItem[]>(() => {
     const products = this.productService.products();
     const map = new Map<string, { slug: string; subcats: Set<string> }>();
 
-    for (const p of products) {
-      if (!map.has(p.category)) {
-        map.set(p.category, { slug: p.category_slug, subcats: new Set() });
+    for (let i = 0; i < products.length; i++) {
+      const p = products[i];
+      let catEntry = map.get(p.category);
+      if (!catEntry) {
+        catEntry = { slug: p.category_slug, subcats: new Set() };
+        map.set(p.category, catEntry);
       }
       if (p.sub_category) {
-        map.get(p.category)!.subcats.add(p.sub_category);
+        catEntry.subcats.add(p.sub_category);
       }
     }
 
     const list: CategoryTreeItem[] = [];
-    map.forEach((val, key) => {
+    for (const [category, entry] of map) {
       list.push({
-        category: key,
-        slug: val.slug,
-        subcategories: Array.from(val.subcats),
+        category,
+        slug: entry.slug,
+        subcategories: Array.from(entry.subcats),
       });
-    });
+    }
 
     return list;
   });
@@ -275,10 +280,20 @@ export class ProductCatalogComponent implements OnInit {
     if (s.includes('nvr') || s.includes('recorder') || s.includes('dvr')) {
       return 'fa fa-server';
     }
-    if (s.includes('epabx') || s.includes('intercom') || s.includes('phone') || s.includes('telecom')) {
+    if (
+      s.includes('epabx') ||
+      s.includes('intercom') ||
+      s.includes('phone') ||
+      s.includes('telecom')
+    ) {
       return 'fa fa-phone';
     }
-    if (s.includes('biometric') || s.includes('access') || s.includes('security') || s.includes('lock')) {
+    if (
+      s.includes('biometric') ||
+      s.includes('access') ||
+      s.includes('security') ||
+      s.includes('lock')
+    ) {
       return 'fa fa-id-card-o';
     }
     if (s.includes('cable') || s.includes('network') || s.includes('wire')) {
