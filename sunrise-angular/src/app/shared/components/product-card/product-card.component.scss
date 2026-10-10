@@ -142,18 +142,22 @@
   }
 }
 
-.card-action-link {
+.card-action-bar {
   margin-top: auto;
-  padding-top: 8px;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #f1f5f9;
 
   .view-details-link {
-    font-size: 13px;
+    font-size: 12.5px;
     font-weight: 600;
     color: #010c3a;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
     transition: color 0.2s ease;
 
     i {
@@ -161,4 +165,31 @@
       transition: transform 0.2s ease;
     }
   }
+
+  .card-whatsapp-btn {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #15803d;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s ease;
+
+    i {
+      font-size: 12px;
+    }
+
+    &:hover {
+      background: #25d366;
+      color: #ffffff;
+      border-color: #25d366;
+      box-shadow: 0 2px 6px rgba(37, 211, 102, 0.3);
+    }
+  }
 }
+

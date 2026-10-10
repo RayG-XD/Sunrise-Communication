@@ -7,7 +7,7 @@
           <img [ngSrc]="product().image_url" [alt]="product().name" width="300" height="180" priority />
         </div>
       } @else {
-        <!-- CSS Gradient Placeholder (No AI Image Files) -->
+        <!-- CSS Gradient Placeholder -->
         <div class="product-css-placeholder" [class]="'cat-' + product().category_slug">
           <div class="icon-circle">
             <i [class]="getCategoryIcon(product().category_slug)"></i>
@@ -17,7 +17,7 @@
     </div>
   </a>
 
-  <!-- Card Body Content (Minimal & Sleek) -->
+  <!-- Card Body Content -->
   <div class="card-body-content">
     <div class="brand-row">
       <span class="brand-badge-pill">{{ product().brand }}</span>
@@ -33,10 +33,21 @@
       </a>
     </h3>
 
-    <!-- Action Link -->
-    <div class="card-action-link">
+    <!-- Action Link & Quick WhatsApp Quote -->
+    <div class="card-action-bar">
       <a [routerLink]="['/products', product().category_slug, product().slug]" class="view-details-link">
-        View Details <i class="fa fa-angle-right"></i>
+        Details <i class="fa fa-angle-right"></i>
+      </a>
+      <a
+        [href]="getWhatsappUrl()"
+        (click)="onWhatsappClick($event)"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="card-whatsapp-btn"
+        title="Inquire on WhatsApp"
+        aria-label="Inquire on WhatsApp"
+      >
+        <i class="fa fa-whatsapp"></i> Quick Quote
       </a>
     </div>
   </div>

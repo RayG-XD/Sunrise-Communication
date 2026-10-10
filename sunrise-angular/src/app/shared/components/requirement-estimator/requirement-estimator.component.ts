@@ -243,7 +243,28 @@ export class RequirementEstimatorComponent implements OnInit {
     });
   }
 
+  // Proposal Personalization Modal
+  showProposalModal = signal<boolean>(false);
+  clientOrg = signal<string>('');
+  clientName = signal<string>('');
+  clientDesignation = signal<string>('Hon. Secretary');
+  clientPhone = signal<string>('');
+  clientEmail = signal<string>('');
+  downloadToast = signal<boolean>(false);
+
+  openProposalModal(): void {
+    this.showProposalModal.set(true);
+  }
+
+  closeProposalModal(): void {
+    this.showProposalModal.set(false);
+  }
+
   downloadProposalPdf(): void {
+    this.openProposalModal();
+  }
+
+  submitAndDownloadProposal(skipPersonalization: boolean = false): void {
     const premiseNames: Record<PremiseType, string> = {
       society: 'Cooperative Housing Society (CHS)',
       office: 'Corporate Office / Commercial Complex',
@@ -252,6 +273,8 @@ export class RequirementEstimatorComponent implements OnInit {
       residential: 'Residential Villa / Bungalow',
       healthcare: 'Hospital / Healthcare Facility / Clinic'
     };
+
+    const isCustomized = !skipPersonalization && (!!this.clientOrg().trim() || !!this.clientName().trim() || !!this.clientPhone().trim());
 
     this.proposalGenerator.generateEstimatorBoqPdf({
       premiseTypeName: premiseNames[this.selectedPremise()],
@@ -273,18 +296,31 @@ export class RequirementEstimatorComponent implements OnInit {
       lanPoints: this.lanPoints(),
       needAmc: this.needAmc(),
       proposalUrl: this.shareableUrl(),
+      clientOrganization: isCustomized ? this.clientOrg().trim() : undefined,
+      clientName: isCustomized ? this.clientName().trim() : undefined,
+      clientDesignation: isCustomized ? this.clientDesignation().trim() : undefined,
+      clientPhone: isCustomized ? this.clientPhone().trim() : undefined,
+      clientEmail: isCustomized ? this.clientEmail().trim() : undefined,
+      clientLocation: this.premiseLocation() || 'Thane / Mumbai MMR',
     });
 
-    // Auto-log lead to backend CRM
+    // Auto-log qualified lead to backend CRM
     this.inquiryService.submitInquiry({
       inquiry_type: 'estimator',
-      name: 'Website Visitor (Estimator Proposal PDF Downloaded)',
-      phone: SITE_DATA.contact.primaryPhone,
+      name: isCustomized && this.clientName().trim() ? this.clientName().trim() : 'Website Visitor (Estimator Proposal Downloaded)',
+      phone: isCustomized && this.clientPhone().trim() ? this.clientPhone().trim() : SITE_DATA.contact.primaryPhone,
+      email: isCustomized && this.clientEmail().trim() ? this.clientEmail().trim() : undefined,
+      organization: isCustomized ? this.clientOrg().trim() : undefined,
+      designation: isCustomized ? this.clientDesignation().trim() : undefined,
       locality: this.premiseLocation() || 'Thane / Mumbai MMR',
       project_type: premiseNames[this.selectedPremise()],
       systems_required: this.getSelectedSystemsList(),
       message: this.formattedBoqText(),
     });
+
+    this.showProposalModal.set(false);
+    this.downloadToast.set(true);
+    setTimeout(() => this.downloadToast.set(false), 4000);
   }
 
   onWhatsappQuoteClick(): void {

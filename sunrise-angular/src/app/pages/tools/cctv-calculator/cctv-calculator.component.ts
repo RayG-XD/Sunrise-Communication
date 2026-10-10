@@ -473,9 +473,32 @@ export class CctvCalculatorComponent implements OnInit, OnDestroy {
     });
   }
 
+  // Proposal Personalization Modal
+  showProposalModal = signal<boolean>(false);
+  clientOrg = signal<string>('');
+  clientName = signal<string>('');
+  clientDesignation = signal<string>('Hon. Secretary');
+  clientPhone = signal<string>('');
+  clientEmail = signal<string>('');
+  clientLocation = signal<string>('Thane (West)');
+  downloadToast = signal<boolean>(false);
+
+  openProposalModal(): void {
+    this.showProposalModal.set(true);
+  }
+
+  closeProposalModal(): void {
+    this.showProposalModal.set(false);
+  }
+
   downloadBoqPdf(): void {
+    this.openProposalModal();
+  }
+
+  submitAndDownloadProposal(skipPersonalization: boolean = false): void {
     const resObj = this.resolutions.find((r) => r.id === this.resolution());
     const codecObj = this.codecs.find((c) => c.id === this.codec());
+    const isCustomized = !skipPersonalization && (!!this.clientOrg().trim() || !!this.clientName().trim() || !!this.clientPhone().trim());
 
     this.proposalGenerator.generateCctvBoqPdf({
       cameraCount: this.cameraCount(),
@@ -504,18 +527,31 @@ export class CctvCalculatorComponent implements OnInit, OnDestroy {
       effectiveBitrateMbps: this.effectiveBitratePerCameraMbps(),
       dailyStorageGb: this.dailyStoragePerCameraGb(),
       calculationUrl: this.shareableUrl(),
+      clientOrganization: isCustomized ? this.clientOrg().trim() : undefined,
+      clientName: isCustomized ? this.clientName().trim() : undefined,
+      clientDesignation: isCustomized ? this.clientDesignation().trim() : undefined,
+      clientPhone: isCustomized ? this.clientPhone().trim() : undefined,
+      clientEmail: isCustomized ? this.clientEmail().trim() : undefined,
+      clientLocation: isCustomized ? this.clientLocation().trim() : undefined,
     });
 
-    // Persist calculation inquiry to backend CRM
+    // Ingest qualified lead into backend CRM
     this.inquiryService.submitInquiry({
       inquiry_type: 'cctv_calculator',
-      name: 'Website Visitor (CCTV BOQ PDF Downloaded)',
-      phone: this.siteData.contact.primaryPhone,
-      locality: 'Thane / Mumbai MMR',
+      name: isCustomized && this.clientName().trim() ? this.clientName().trim() : 'Website Visitor (CCTV BOQ Downloaded)',
+      phone: isCustomized && this.clientPhone().trim() ? this.clientPhone().trim() : this.siteData.contact.primaryPhone,
+      email: isCustomized && this.clientEmail().trim() ? this.clientEmail().trim() : undefined,
+      organization: isCustomized ? this.clientOrg().trim() : undefined,
+      designation: isCustomized ? this.clientDesignation().trim() : undefined,
+      locality: isCustomized && this.clientLocation().trim() ? this.clientLocation().trim() : 'Thane / Mumbai MMR',
       project_type: `${this.cameraCount()} Cameras @ ${resObj?.name} (${this.recordingDays()} Days)`,
       systems_required: ['CCTV'],
       message: this.formattedSummary(),
     });
+
+    this.showProposalModal.set(false);
+    this.downloadToast.set(true);
+    setTimeout(() => this.downloadToast.set(false), 4000);
   }
 
   onWhatsappQuoteClick(): void {

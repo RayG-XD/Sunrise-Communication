@@ -3,6 +3,7 @@ import { isPlatformBrowser, DOCUMENT, NgOptimizedImage } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ProductService } from '../../../core/services/product.service';
 import { SeoService } from '../../../core/services/seo.service';
+import { InquiryService } from '../../../core/services/inquiry.service';
 import { SITE_DATA } from '../../../core/constants/site-data';
 
 @Component({
@@ -15,6 +16,7 @@ import { SITE_DATA } from '../../../core/constants/site-data';
 export class ProductDetailComponent implements OnInit {
   protected productService = inject(ProductService);
   private seoService = inject(SeoService);
+  private inquiryService = inject(InquiryService);
   private route = inject(ActivatedRoute);
   private document = inject(DOCUMENT);
   private platformId = inject(PLATFORM_ID);
@@ -46,6 +48,20 @@ export class ProductDetailComponent implements OnInit {
     const message = `Hi Sunrise Communication, I'm interested in the ${prod.name} (${prod.model_number || ''}). Can I get more details? Link: ${currentUrl}`;
     return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   });
+
+  onWhatsappClick(): void {
+    const prod = this.product();
+    if (!prod) return;
+    this.inquiryService.submitInquiry({
+      inquiry_type: 'product',
+      name: 'Website Visitor (Product Detail WhatsApp Inquiry)',
+      phone: this.siteData.contact.primaryPhone,
+      locality: 'Thane / Mumbai MMR',
+      project_type: `${prod.brand} ${prod.name} [${prod.model_number || 'N/A'}]`,
+      systems_required: [prod.category],
+      message: `Product detail inquiry for ${prod.brand} ${prod.name} (${prod.model_number || ''})`,
+    });
+  }
 
   constructor() {
     effect(() => {

@@ -1,7 +1,9 @@
-import { Component, ChangeDetectionStrategy, input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { Product } from '../../../core/models/product.model';
+import { InquiryService } from '../../../core/services/inquiry.service';
+import { SITE_DATA } from '../../../core/constants/site-data';
 
 @Component({
   selector: 'app-product-card',
@@ -9,15 +11,46 @@ import { Product } from '../../../core/models/product.model';
   imports: [RouterLink, NgOptimizedImage],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.scss',
-  // Bolt Optimization: OnPush change detection avoids unnecessary component re-evaluations
-  // when parent lists (e.g. product catalog filtering/search) trigger change detection.
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductCardComponent {
   product = input.required<Product>();
+  private inquiryService = inject(InquiryService);
+  siteData = SITE_DATA;
+
+  getWhatsappUrl(): string {
+    const prod = this.product();
+    const phone = this.siteData.social.whatsapp.replace('https://wa.me/', '');
+    const modelStr = prod.model_number ? ` [Model: ${prod.model_number}]` : '';
+    const message = [
+      `*Product Price & Installation Inquiry*`,
+      ``,
+      `Hello Sunrise Communication, I would like to inquire about pricing, stock availability, and installation for:`,
+      `📦 *Product:* ${prod.brand} ${prod.name}${modelStr}`,
+      `🏷️ *Category:* ${prod.category}${prod.sub_category ? ' > ' + prod.sub_category : ''}`,
+      ``,
+      `Please provide best quotation and site installation details.`
+    ].join('\n');
+    return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+  }
+
+  onWhatsappClick(event: MouseEvent): void {
+    event.stopPropagation();
+    const prod = this.product();
+    const modelStr = prod.model_number ? ` [Model: ${prod.model_number}]` : '';
+    this.inquiryService.submitInquiry({
+      inquiry_type: 'product',
+      name: 'Website Visitor (Product Card WhatsApp Quote)',
+      phone: this.siteData.contact.primaryPhone,
+      locality: 'Thane / Mumbai MMR',
+      project_type: `${prod.brand} ${prod.name}${modelStr}`,
+      systems_required: [prod.category],
+      message: `Direct WhatsApp inquiry for ${prod.brand} ${prod.name}${modelStr}`,
+    });
+  }
 
   /**
-   * Helper to return flaticon / icofont class based on category
+   * Helper to return icon class based on category
    */
   getCategoryIcon(categorySlug: string): string {
     const s = (categorySlug || '').toLowerCase();

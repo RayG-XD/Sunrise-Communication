@@ -571,4 +571,153 @@
       </div>
     </div>
   </div>
+
+  <!-- Proposal Personalization Modal -->
+  @if (showProposalModal()) {
+    <div class="proposal-modal-backdrop" (click)="closeProposalModal()">
+      <div class="proposal-modal-dialog" (click)="$event.stopPropagation()">
+        <div class="modal-header">
+          <div>
+            <h4 class="modal-title d-flex align-items-center gap-2">
+              <i class="fa fa-file-pdf-o text-danger"></i>
+              <span>Customize Official BOQ Proposal</span>
+            </h4>
+            <p class="modal-subtitle">
+              Add your Housing Society or Enterprise details for a committee-ready procurement proposal.
+            </p>
+          </div>
+          <button type="button" class="modal-close-btn" (click)="closeProposalModal()" aria-label="Close dialog">&times;</button>
+        </div>
+
+        <form (ngSubmit)="submitAndDownloadProposal(false)">
+          <div class="modal-body">
+            <div class="form-group mb-3">
+              <label class="form-label small fw-bold text-dark">
+                Housing Society / Organization Name <span class="text-danger">*</span>
+              </label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                [ngModel]="clientOrg()"
+                (ngModelChange)="clientOrg.set($event)"
+                name="clientOrg"
+                placeholder="e.g. Neelkanth Palms CHS / Lodha Amara / Acme Corp"
+                required
+              />
+            </div>
+
+            <div class="row g-2 mb-3">
+              <div class="col-7">
+                <label class="form-label small fw-bold text-dark">
+                  Contact Person <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="text"
+                  class="form-control form-control-sm"
+                  [ngModel]="clientName()"
+                  (ngModelChange)="clientName.set($event)"
+                  name="clientName"
+                  placeholder="e.g. Rajesh Patil"
+                  required
+                />
+              </div>
+              <div class="col-5">
+                <label class="form-label small fw-bold text-dark">Designation</label>
+                <select
+                  class="form-select form-select-sm"
+                  [ngModel]="clientDesignation()"
+                  (ngModelChange)="clientDesignation.set($event)"
+                  name="clientDesignation"
+                >
+                  <option value="Hon. Secretary">Hon. Secretary</option>
+                  <option value="Chairman">Chairman</option>
+                  <option value="Treasurer">Treasurer</option>
+                  <option value="Committee Member">Committee Member</option>
+                  <option value="Facility Manager">Facility Manager</option>
+                  <option value="IT Administrator">IT Administrator</option>
+                  <option value="Property Owner">Property Owner</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row g-2 mb-3">
+              <div class="col-7">
+                <label class="form-label small fw-bold text-dark">
+                  Direct Mobile <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="tel"
+                  class="form-control form-control-sm"
+                  [ngModel]="clientPhone()"
+                  (ngModelChange)="clientPhone.set($event)"
+                  name="clientPhone"
+                  placeholder="e.g. 98200 12345"
+                  required
+                />
+              </div>
+              <div class="col-5">
+                <label class="form-label small fw-bold text-dark">Locality / Area</label>
+                <input
+                  type="text"
+                  class="form-control form-control-sm"
+                  [ngModel]="clientLocation()"
+                  (ngModelChange)="clientLocation.set($event)"
+                  name="clientLocation"
+                  placeholder="e.g. Thane (West)"
+                />
+              </div>
+            </div>
+
+            <div class="form-group mb-2">
+              <label class="form-label small fw-bold text-dark">
+                Email Address <span class="text-muted fw-normal">(Optional for delivery)</span>
+              </label>
+              <input
+                type="email"
+                class="form-control form-control-sm"
+                [ngModel]="clientEmail()"
+                (ngModelChange)="clientEmail.set($event)"
+                name="clientEmail"
+                placeholder="e.g. committee@society.com"
+              />
+            </div>
+          </div>
+
+          <div class="modal-footer d-flex justify-content-between align-items-center">
+            <button
+              type="button"
+              class="btn-skip-link"
+              (click)="submitAndDownloadProposal(true)"
+            >
+              Skip & download generic preview &rarr;
+            </button>
+            <div class="d-flex gap-2">
+              <button
+                type="button"
+                class="btn btn-sm btn-light border"
+                (click)="closeProposalModal()"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                class="btn btn-sm btn-danger fw-bold px-3 d-flex align-items-center gap-1.5"
+              >
+                <i class="fa fa-print"></i>
+                <span>Generate Official Proposal (PDF)</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  }
+
+  <!-- Toast Notification on Download -->
+  @if (downloadToast()) {
+    <div class="floating-proposal-toast animate-slide-up">
+      <i class="fa fa-check-circle text-success me-2"></i>
+      <span>Official BOQ proposal generated! Check your print/save dialog.</span>
+    </div>
+  }
 </section>

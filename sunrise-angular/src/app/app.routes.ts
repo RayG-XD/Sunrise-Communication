@@ -51,6 +51,11 @@ export const routes: Routes = [
     title: 'CCTV Storage & Hard Drive (HDD) Calculator | Sunrise Communication'
   },
   {
+    path: 'tools/cctv-calculator',
+    redirectTo: 'tools/cctv-storage-calculator',
+    pathMatch: 'full'
+  },
+  {
     path: 'locations/cctv-installation-thane-west',
     loadComponent: () => import('./pages/locations/local-landing/local-landing.component').then(m => m.LocalLandingComponent)
   },
