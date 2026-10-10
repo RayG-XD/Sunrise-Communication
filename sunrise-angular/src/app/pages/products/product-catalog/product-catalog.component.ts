@@ -1,6 +1,7 @@
 import {
   Component,
   OnInit,
+  OnDestroy,
   inject,
   signal,
   computed,
@@ -44,10 +45,11 @@ export interface ProductSubGroup {
   // dirty checking runs across the entire catalog and filter trees on unrelated DOM events.
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProductCatalogComponent implements OnInit {
+export class ProductCatalogComponent implements OnInit, OnDestroy {
   protected productService = inject(ProductService);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
+  private searchDebounceTimer: ReturnType<typeof setTimeout> | null = null;
 
   // Filter signals
   searchQuery = signal<string>('');
@@ -299,7 +301,13 @@ export class ProductCatalogComponent implements OnInit {
     if (this.isLandingPageMode()) {
       this.isLandingPageMode.set(false);
     }
-    this.syncQueryParams();
+    if (this.searchDebounceTimer) {
+      clearTimeout(this.searchDebounceTimer);
+    }
+    this.searchDebounceTimer = setTimeout(() => {
+      this.syncQueryParams();
+      this.searchDebounceTimer = null;
+    }, 300);
   }
 
   toggleCategory(category: string): void {
@@ -420,7 +428,19 @@ export class ProductCatalogComponent implements OnInit {
     this.isMobileFilterOpen.update((v) => !v);
   }
 
+  ngOnDestroy(): void {
+    if (this.searchDebounceTimer) {
+      clearTimeout(this.searchDebounceTimer);
+      this.searchDebounceTimer = null;
+    }
+  }
+
   private syncQueryParams(): void {
+    if (this.searchDebounceTimer) {
+      clearTimeout(this.searchDebounceTimer);
+      this.searchDebounceTimer = null;
+    }
+
     const queryParams: Record<string, string | null> = {};
 
     if (this.searchQuery().trim()) {

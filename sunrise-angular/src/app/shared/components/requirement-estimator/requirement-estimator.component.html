@@ -360,9 +360,12 @@
             <p>Our senior technical engineers will review your configuration and provide a detailed itemized commercial quotation.</p>
           </div>
           <div class="cta-buttons">
-            <a [href]="whatsappQuoteUrl()" target="_blank" rel="noopener noreferrer" class="whatsapp-quote-btn">
+            <a [href]="whatsappQuoteUrl()" (click)="onWhatsappQuoteClick()" target="_blank" rel="noopener noreferrer" class="whatsapp-quote-btn">
               <i class="fa fa-whatsapp"></i> Get Instant WhatsApp Quote
             </a>
+            <button class="pdf-proposal-btn" (click)="downloadProposalPdf()" type="button">
+              <i class="fa fa-file-pdf-o"></i> Download Proposal (PDF)
+            </button>
             <button class="copy-boq-btn" (click)="copyBoqToClipboard()" type="button">
               <i class="fa fa-copy"></i> Copy BOQ Spec
             </button>

@@ -142,6 +142,7 @@ class Inquiry(models.Model):
     INQUIRY_TYPES = [
         ('society_audit', 'Society Site Audit Request'),
         ('cctv_calculator', 'CCTV Calculator BOQ Spec'),
+        ('estimator', 'Requirement Estimator BOQ Spec'),
         ('contact', 'General Contact Inquiry'),
         ('product', 'Product Inquiry'),
     ]

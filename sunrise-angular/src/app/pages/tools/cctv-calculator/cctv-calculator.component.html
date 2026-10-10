@@ -351,6 +351,7 @@
             <!-- Primary WhatsApp BOQ -->
             <a
               [href]="whatsappQuoteUrl()"
+              (click)="onWhatsappQuoteClick()"
               target="_blank"
               rel="noopener noreferrer"
               class="calc-btn btn-whatsapp-boq"
@@ -358,6 +359,16 @@
               <i class="fa fa-whatsapp"></i>
               <span>Send BOQ & Get Formal Quote</span>
             </a>
+
+            <!-- Download Branded PDF BOQ Button -->
+            <button
+              type="button"
+              class="calc-btn btn-pdf-boq"
+              (click)="downloadBoqPdf()"
+            >
+              <i class="fa fa-file-pdf-o"></i>
+              <span>Download Official BOQ Proposal (PDF)</span>
+            </button>
 
             <!-- Secondary Site Audit Form Link -->
             <a

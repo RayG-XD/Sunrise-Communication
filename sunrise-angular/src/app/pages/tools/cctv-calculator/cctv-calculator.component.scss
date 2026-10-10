@@ -644,6 +644,26 @@
       }
     }
 
+    .btn-pdf-boq {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.05) 100%);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+
+      i {
+        color: #f87171;
+        font-size: 15px;
+      }
+
+      &:hover {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.08) 100%);
+        border-color: rgba(255, 255, 255, 0.4);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+        color: #ffffff;
+      }
+    }
+
     .btn-audit-cta {
       background: linear-gradient(135deg, #df0303 0%, #b80000 100%);
       color: #ffffff;

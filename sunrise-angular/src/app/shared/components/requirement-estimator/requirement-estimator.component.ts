@@ -2,6 +2,8 @@ import { Component, signal, computed, inject, PLATFORM_ID } from '@angular/core'
 import { CommonModule, isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SITE_DATA } from '../../../core/constants/site-data';
+import { ProposalGeneratorService } from '../../../core/services/proposal-generator.service';
+import { InquiryService } from '../../../core/services/inquiry.service';
 
 export type PremiseType = 'society' | 'office' | 'warehouse' | 'retail' | 'residential' | 'healthcare';
 
@@ -15,6 +17,8 @@ export type PremiseType = 'society' | 'office' | 'warehouse' | 'retail' | 'resid
 export class RequirementEstimatorComponent {
   private platformId = inject(PLATFORM_ID);
   private document = inject(DOCUMENT);
+  private proposalGenerator = inject(ProposalGeneratorService);
+  private inquiryService = inject(InquiryService);
 
   // Step State
   currentStep = signal<number>(1);
@@ -127,6 +131,82 @@ export class RequirementEstimatorComponent {
         setTimeout(() => this.copiedToast.set(false), 3500);
       });
     }
+
+    // Auto-log lead to backend CRM
+    this.inquiryService.submitInquiry({
+      inquiry_type: 'estimator',
+      name: 'Website Visitor (Estimator BOQ Copied)',
+      phone: SITE_DATA.contact.primaryPhone,
+      locality: this.premiseLocation() || 'Thane / Mumbai MMR',
+      project_type: `${this.selectedPremise().toUpperCase()} Estimate (${this.cameraCount()} Cams, ${this.flatCount()} Flats)`,
+      systems_required: this.getSelectedSystemsList(),
+      message: this.formattedBoqText(),
+    });
+  }
+
+  downloadProposalPdf(): void {
+    const premiseNames: Record<PremiseType, string> = {
+      society: 'Cooperative Housing Society (CHS)',
+      office: 'Corporate Office / Commercial Complex',
+      warehouse: 'Industrial Warehouse / Factory',
+      retail: 'Retail Store / Showroom',
+      residential: 'Residential Villa / Bungalow',
+      healthcare: 'Hospital / Healthcare Facility / Clinic'
+    };
+
+    this.proposalGenerator.generateEstimatorBoqPdf({
+      premiseTypeName: premiseNames[this.selectedPremise()],
+      location: this.premiseLocation() || 'Thane / Mumbai MMR',
+      needCctv: this.needCctv(),
+      cameraCount: this.cameraCount(),
+      storageDays: this.storageDays(),
+      recommendedNvr: this.recommendedNvr(),
+      recommendedHdd: this.recommendedHdd(),
+      needIntercom: this.needIntercom(),
+      flatCount: this.flatCount(),
+      wingCount: this.wingCount(),
+      recommendedIntercom: this.recommendedIntercom(),
+      needBiometrics: this.needBiometrics(),
+      doorCount: this.doorCount(),
+      employeeCount: this.employeeCount(),
+      recommendedBiometric: this.recommendedBiometric(),
+      needNetworking: this.needNetworking(),
+      lanPoints: this.lanPoints(),
+      needAmc: this.needAmc(),
+    });
+
+    // Auto-log lead to backend CRM
+    this.inquiryService.submitInquiry({
+      inquiry_type: 'estimator',
+      name: 'Website Visitor (Estimator Proposal PDF Downloaded)',
+      phone: SITE_DATA.contact.primaryPhone,
+      locality: this.premiseLocation() || 'Thane / Mumbai MMR',
+      project_type: premiseNames[this.selectedPremise()],
+      systems_required: this.getSelectedSystemsList(),
+      message: this.formattedBoqText(),
+    });
+  }
+
+  onWhatsappQuoteClick(): void {
+    this.inquiryService.submitInquiry({
+      inquiry_type: 'estimator',
+      name: 'Website Visitor (Estimator WhatsApp Quote Clicked)',
+      phone: SITE_DATA.contact.primaryPhone,
+      locality: this.premiseLocation() || 'Thane / Mumbai MMR',
+      project_type: `${this.selectedPremise().toUpperCase()} (${this.cameraCount()} Cams)`,
+      systems_required: this.getSelectedSystemsList(),
+      message: this.formattedBoqText(),
+    });
+  }
+
+  private getSelectedSystemsList(): string[] {
+    const list: string[] = [];
+    if (this.needCctv()) list.push('CCTV');
+    if (this.needIntercom()) list.push('Intercom');
+    if (this.needBiometrics()) list.push('Biometrics');
+    if (this.needNetworking()) list.push('Cabling');
+    if (this.needAmc()) list.push('AMC');
+    return list;
   }
 
   setPremise(type: PremiseType) {

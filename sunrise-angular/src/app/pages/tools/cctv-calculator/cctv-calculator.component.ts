@@ -3,6 +3,8 @@ import { CommonModule, isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { SeoService } from '../../../core/services/seo.service';
+import { ProposalGeneratorService } from '../../../core/services/proposal-generator.service';
+import { InquiryService } from '../../../core/services/inquiry.service';
 import { SITE_DATA } from '../../../core/constants/site-data';
 
 export type ResolutionOption = '1080p' | '3mp' | '4mp' | '5mp' | '8mp';
@@ -20,6 +22,8 @@ export class CctvCalculatorComponent implements OnInit {
   private seoService = inject(SeoService);
   private document = inject(DOCUMENT);
   private platformId = inject(PLATFORM_ID);
+  private proposalGenerator = inject(ProposalGeneratorService);
+  private inquiryService = inject(InquiryService);
 
   siteData = SITE_DATA;
   copiedToast = signal<boolean>(false);
@@ -357,6 +361,75 @@ export class CctvCalculatorComponent implements OnInit {
         setTimeout(() => this.copiedToast.set(false), 3500);
       });
     }
+
+    // Persist calculation inquiry to backend CRM
+    const resObj = this.resolutions.find((r) => r.id === this.resolution());
+    this.inquiryService.submitInquiry({
+      inquiry_type: 'cctv_calculator',
+      name: 'Website Visitor (CCTV BOQ Copied)',
+      phone: this.siteData.contact.primaryPhone,
+      locality: 'Thane / Mumbai MMR',
+      project_type: `${this.cameraCount()} Cameras @ ${resObj?.name} (${this.recordingDays()} Days)`,
+      systems_required: ['CCTV'],
+      message: this.formattedSummary(),
+    });
+  }
+
+  downloadBoqPdf(): void {
+    const resObj = this.resolutions.find((r) => r.id === this.resolution());
+    const codecObj = this.codecs.find((c) => c.id === this.codec());
+
+    this.proposalGenerator.generateCctvBoqPdf({
+      cameraCount: this.cameraCount(),
+      resolutionName: resObj?.name || '4 MP',
+      resolutionBaseBitrate: resObj?.baseBitrateMbps || 4,
+      codecName: codecObj?.name || 'H.265+',
+      recordingDays: this.recordingDays(),
+      recordingMode: this.recordingMode(),
+      fps: this.fps(),
+      audioRecording: this.audioRecording(),
+      totalStorageTb: this.totalStorageRequiredTb(),
+      totalStorageGb: this.totalStorageRequiredGb(),
+      recommendedHdd: {
+        main: this.recommendedHddConfig().main,
+        detail: this.recommendedHddConfig().detail,
+      },
+      recommendedNvr: {
+        main: this.recommendedNvr().main,
+        detail: this.recommendedNvr().detail,
+      },
+      recommendedPoE: {
+        main: this.recommendedPoESwitch().main,
+        detail: this.recommendedPoESwitch().detail,
+      },
+      totalBandwidthMbps: this.totalBandwidthMbps(),
+      effectiveBitrateMbps: this.effectiveBitratePerCameraMbps(),
+      dailyStorageGb: this.dailyStoragePerCameraGb(),
+    });
+
+    // Persist calculation inquiry to backend CRM
+    this.inquiryService.submitInquiry({
+      inquiry_type: 'cctv_calculator',
+      name: 'Website Visitor (CCTV BOQ PDF Downloaded)',
+      phone: this.siteData.contact.primaryPhone,
+      locality: 'Thane / Mumbai MMR',
+      project_type: `${this.cameraCount()} Cameras @ ${resObj?.name} (${this.recordingDays()} Days)`,
+      systems_required: ['CCTV'],
+      message: this.formattedSummary(),
+    });
+  }
+
+  onWhatsappQuoteClick(): void {
+    const resObj = this.resolutions.find((r) => r.id === this.resolution());
+    this.inquiryService.submitInquiry({
+      inquiry_type: 'cctv_calculator',
+      name: 'Website Visitor (WhatsApp Quote Clicked)',
+      phone: this.siteData.contact.primaryPhone,
+      locality: 'Thane / Mumbai MMR',
+      project_type: `${this.cameraCount()} Cameras @ ${resObj?.name} (${this.recordingDays()} Days)`,
+      systems_required: ['CCTV'],
+      message: this.formattedSummary(),
+    });
   }
 
   toggleFaq(index: number) {

@@ -468,6 +468,44 @@
     }
   }
 
+  .pdf-proposal-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    font-weight: 600;
+    height: 44px;
+    padding: 0 18px;
+    border-radius: 8px;
+    border: 1px solid #df0303;
+    color: #df0303;
+    background: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+
+    i {
+      font-size: 15px;
+      color: #df0303;
+    }
+
+    &:hover {
+      background: #df0303;
+      border-color: #df0303;
+      color: #ffffff;
+      transform: translateY(-1px);
+
+      i {
+        color: #ffffff;
+      }
+    }
+
+    @media (max-width: 767px) {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
   .copy-boq-btn {
     display: inline-flex;
     align-items: center;
