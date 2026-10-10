@@ -380,7 +380,7 @@
               <span>Book Technical Site Audit for this Setup</span>
             </a>
 
-            <!-- Utility Row: Copy + Call -->
+            <!-- Utility Row: Copy + Share -->
             <div class="d-flex gap-2 mt-2">
               <button
                 type="button"
@@ -388,9 +388,21 @@
                 (click)="copyToClipboard()"
               >
                 <i class="fa" [class.fa-check]="copiedToast()" [class.fa-copy]="!copiedToast()"></i>
-                <span>{{ copiedToast() ? 'Copied to Clipboard!' : 'Copy Technical Summary' }}</span>
+                <span>{{ copiedToast() ? 'Copied to Clipboard!' : 'Copy Summary' }}</span>
               </button>
 
+              <button
+                type="button"
+                class="calc-btn-sm btn-outline-share flex-fill"
+                (click)="copyShareLink()"
+              >
+                <i class="fa" [class.fa-check]="shareToast()" [class.fa-share-alt]="!shareToast()"></i>
+                <span>{{ shareToast() ? 'Link Copied!' : 'Share Sizing Link' }}</span>
+              </button>
+            </div>
+
+            <!-- Direct Phone Consultation Row -->
+            <div class="d-flex gap-2 mt-2">
               <a
                 [href]="'tel:' + siteData.contact.primaryPhone"
                 class="calc-btn-sm btn-outline-call flex-fill"

@@ -1,7 +1,7 @@
-import { Component, OnInit, signal, computed, inject, PLATFORM_ID, effect } from '@angular/core';
+import { Component, OnInit, OnDestroy, signal, computed, inject, PLATFORM_ID, effect } from '@angular/core';
 import { CommonModule, isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { RouterLink, ActivatedRoute, Router } from '@angular/router';
 import { SeoService } from '../../../core/services/seo.service';
 import { ProposalGeneratorService } from '../../../core/services/proposal-generator.service';
 import { InquiryService } from '../../../core/services/inquiry.service';
@@ -18,17 +18,22 @@ export type RecordingMode = 'continuous' | 'motion';
   templateUrl: './cctv-calculator.component.html',
   styleUrl: './cctv-calculator.component.scss',
 })
-export class CctvCalculatorComponent implements OnInit {
+export class CctvCalculatorComponent implements OnInit, OnDestroy {
   private seoService = inject(SeoService);
   private document = inject(DOCUMENT);
   private platformId = inject(PLATFORM_ID);
   private proposalGenerator = inject(ProposalGeneratorService);
   private inquiryService = inject(InquiryService);
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
 
   siteData = SITE_DATA;
   copiedToast = signal<boolean>(false);
+  shareToast = signal<boolean>(false);
   activeFaqIndex = signal<number | null>(0);
   activePreset = signal<string>('society');
+  private syncUrlTimer: ReturnType<typeof setTimeout> | null = null;
+  private isApplyingRouteParams = false;
 
   // Input Signals
   cameraCount = signal<number>(16);
@@ -279,6 +284,18 @@ export class CctvCalculatorComponent implements OnInit {
     this.recordingDays.set(days);
   }
 
+  shareableUrl = computed(() => {
+    const base = `${this.siteData.contact.website}/tools/cctv-storage-calculator`;
+    const params = new URLSearchParams();
+    params.set('cams', this.cameraCount().toString());
+    params.set('res', this.resolution());
+    params.set('codec', this.codec());
+    params.set('days', this.recordingDays().toString());
+    if (this.recordingMode() !== 'continuous') params.set('mode', this.recordingMode());
+    if (this.fps() !== 15) params.set('fps', this.fps().toString());
+    return `${base}?${params.toString()}`;
+  });
+
   formattedSummary = computed(() => {
     const resObj = this.resolutions.find((r) => r.id === this.resolution());
     const codecObj = this.codecs.find((c) => c.id === this.codec());
@@ -297,13 +314,13 @@ export class CctvCalculatorComponent implements OnInit {
       `📍 *Turnkey Supply, Installation & AMC by:*`,
       `Sunrise Communication — Room No. 10, Amar Bldg, Charai, Thane (West)`,
       `📞 *Call / WhatsApp:* +91 93238 48622 / +91 99875 55399`,
-      `🌐 *Online Tool:* https://sunrisecommunication.in/tools/cctv-storage-calculator`,
+      `🌐 *Online Tool:* ${this.shareableUrl()}`,
     ].join('\n');
   });
 
   whatsappQuoteUrl = computed(() => {
     const phone = this.siteData.social.whatsapp.replace('https://wa.me/', '');
-    const msg = `Hi Sunrise Communication, I used your CCTV Storage Calculator tool and calculated my requirement:\n\n${this.formattedSummary()}\n\nPlease provide an itemized quote & schedule a technical site survey.`;
+    const msg = `Hi Sunrise Communication, I used your CCTV Storage Calculator tool and calculated my requirement:\n\n${this.formattedSummary()}\n\n🔗 *Direct Configuration Link:* ${this.shareableUrl()}\n\nPlease provide an itemized quote & schedule a technical site survey.`;
     return `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
   });
 
@@ -315,10 +332,91 @@ export class CctvCalculatorComponent implements OnInit {
       }
       this.seoService.updateForCctvCalculator(pageUrl);
     });
+
+    effect(() => {
+      // Track signals for URL synchronization
+      this.cameraCount();
+      this.resolution();
+      this.codec();
+      this.recordingDays();
+      this.recordingMode();
+      this.fps();
+      this.syncQueryParams();
+    });
   }
 
   ngOnInit(): void {
-    // Initialized
+    this.route.queryParams.subscribe((params) => {
+      this.isApplyingRouteParams = true;
+      try {
+        if (params['cams']) {
+          const c = parseInt(params['cams'], 10);
+          if (!isNaN(c) && c >= 1 && c <= 64) this.cameraCount.set(c);
+        }
+        if (params['res'] && ['1080p', '3mp', '4mp', '5mp', '8mp'].includes(params['res'])) {
+          this.resolution.set(params['res'] as ResolutionOption);
+        }
+        if (params['codec'] && ['h264', 'h265', 'h265plus'].includes(params['codec'])) {
+          this.codec.set(params['codec'] as CodecOption);
+        }
+        if (params['days']) {
+          const d = parseInt(params['days'], 10);
+          if (!isNaN(d) && d >= 1 && d <= 365) this.recordingDays.set(d);
+        }
+        if (params['mode'] && ['continuous', 'motion'].includes(params['mode'])) {
+          this.recordingMode.set(params['mode'] as RecordingMode);
+        }
+        if (params['fps']) {
+          const f = parseInt(params['fps'], 10);
+          if (!isNaN(f) && f >= 5 && f <= 30) this.fps.set(f);
+        }
+      } finally {
+        setTimeout(() => {
+          this.isApplyingRouteParams = false;
+        }, 50);
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.syncUrlTimer) {
+      clearTimeout(this.syncUrlTimer);
+      this.syncUrlTimer = null;
+    }
+  }
+
+  private syncQueryParams(): void {
+    if (this.isApplyingRouteParams || !isPlatformBrowser(this.platformId)) return;
+    if (this.syncUrlTimer) {
+      clearTimeout(this.syncUrlTimer);
+    }
+    this.syncUrlTimer = setTimeout(() => {
+      const queryParams: Record<string, string | number | null> = {
+        cams: this.cameraCount(),
+        res: this.resolution(),
+        codec: this.codec(),
+        days: this.recordingDays(),
+        mode: this.recordingMode() !== 'continuous' ? this.recordingMode() : null,
+        fps: this.fps() !== 15 ? this.fps() : null,
+      };
+
+      this.router.navigate([], {
+        relativeTo: this.route,
+        queryParams,
+        queryParamsHandling: 'merge',
+        replaceUrl: true,
+      });
+      this.syncUrlTimer = null;
+    }, 350);
+  }
+
+  copyShareLink(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      navigator.clipboard.writeText(this.shareableUrl()).then(() => {
+        this.shareToast.set(true);
+        setTimeout(() => this.shareToast.set(false), 3500);
+      });
+    }
   }
 
   setPreset(type: 'society' | 'office' | 'warehouse' | 'retail') {
@@ -405,6 +503,7 @@ export class CctvCalculatorComponent implements OnInit {
       totalBandwidthMbps: this.totalBandwidthMbps(),
       effectiveBitrateMbps: this.effectiveBitratePerCameraMbps(),
       dailyStorageGb: this.dailyStoragePerCameraGb(),
+      calculationUrl: this.shareableUrl(),
     });
 
     // Persist calculation inquiry to backend CRM

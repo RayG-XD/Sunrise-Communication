@@ -1,3 +1,6 @@
+import logging
+from django.conf import settings
+from django.core.mail import send_mail
 from django.db.models import Count, Q, Prefetch
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny, IsAdminUser
@@ -8,6 +11,8 @@ from .serializers import (
     InquirySerializer
 )
 from .filters import ProductFilter
+
+logger = logging.getLogger(__name__)
 
 
 class CategoryViewSet(viewsets.ReadOnlyModelViewSet):
@@ -86,4 +91,47 @@ class InquiryViewSet(viewsets.ModelViewSet):
         if self.action == 'create':
             return [AllowAny()]
         return [IsAdminUser()]
+
+    def perform_create(self, serializer):
+        inquiry = serializer.save()
+        self._notify_admin(inquiry)
+
+    def _notify_admin(self, inquiry):
+        try:
+            inquiry_type_label = inquiry.get_inquiry_type_display() if hasattr(inquiry, 'get_inquiry_type_display') else inquiry.inquiry_type
+            subject = f"[New Lead - {inquiry_type_label}] {inquiry.name} ({inquiry.phone})"
+            lines = [
+                "A new lead has been received via the Sunrise Communication web portal.",
+                "",
+                f"Type: {inquiry_type_label}",
+                f"Name: {inquiry.name}",
+                f"Phone: {inquiry.phone}",
+                f"Email: {inquiry.email or 'N/A'}",
+                f"Organization / Society: {inquiry.organization or 'N/A'}",
+                f"Designation: {inquiry.designation or 'N/A'}",
+                f"Locality: {inquiry.locality or 'N/A'}",
+                f"Project Type: {inquiry.project_type or 'N/A'}",
+                f"Scale: {inquiry.flat_count} Flats / {inquiry.wing_count} Wings" if inquiry.flat_count else "",
+                f"Preferred Time: {inquiry.preferred_time or 'N/A'}",
+                f"Systems Required: {', '.join(inquiry.systems_required) if inquiry.systems_required else 'N/A'}",
+                "",
+                "Message / Specifications:",
+                f"{inquiry.message}",
+                "",
+                f"Timestamp: {inquiry.created_at.strftime('%Y-%m-%d %H:%M:%S') if inquiry.created_at else 'N/A'}",
+            ]
+            message_body = "\n".join([line for line in lines if line is not None])
+            from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', 'noreply@sunrisecommunication.in')
+            recipient_list = ['sunrisecommunication1555@gmail.com']
+
+            send_mail(
+                subject=subject,
+                message=message_body,
+                from_email=from_email,
+                recipient_list=recipient_list,
+                fail_silently=True,
+            )
+        except Exception as e:
+            logger.warning("Lead notification email dispatch failed silently: %s", e)
+
 
