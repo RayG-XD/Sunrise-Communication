@@ -370,6 +370,107 @@ export class SeoService {
   }
 
   /**
+   * Generates integrated @graph Schema for Security System Requirement & BOQ Estimator Tool
+   * (Combines LocalBusiness + WebApplication + FAQPage + BreadcrumbList)
+   */
+  updateForRequirementEstimator(pageUrl: string): void {
+    const title = 'Security System Requirement & BOQ Estimator | Sunrise Communication';
+    const description = 'Estimate CCTV cameras, NVR storage, EPABX intercom lines, biometrics, and AMC packages with automated Technical Bill of Quantities (BOQ) sizing for housing societies & offices in Thane & Mumbai.';
+    const keywords = 'Security System Estimator, CCTV BOQ Calculator, Society Intercom Sizing, CCTV Camera Estimator Thane, Housing Society BOQ Generator, Security System Cost Estimator Mumbai';
+
+    this.updateMeta(title, description, keywords, pageUrl, 'website');
+
+    const localBusinessNode = this.getBaseLocalBusinessNode();
+
+    // WebApplication Schema Node
+    const webAppNode = {
+      '@type': 'WebApplication',
+      '@id': `${pageUrl}#app`,
+      name: 'Security System Requirement & BOQ Estimator',
+      url: pageUrl,
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'All Web Browsers',
+      browserRequirements: 'Requires JavaScript. Requires HTML5.',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'INR'
+      },
+      creator: {
+        '@id': `${SITE_DATA.contact.website}/#localbusiness`
+      },
+      description: 'Engineering requirement estimator for housing societies and commercial facilities to calculate camera counts, NVR channels, storage capacities, intercom drops, and export PDF proposals.'
+    };
+
+    // FAQPage Schema Node
+    const faqNode = {
+      '@type': 'FAQPage',
+      '@id': `${pageUrl}#faq`,
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'How accurate is this requirement and BOQ estimator?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'This estimator uses real-world engineering standards based on 25+ years of installations in Thane and Mumbai MMR. It calculates exact camera counts, NVR channels, surveillance-grade hard drive storage, EPABX intercom lines, and network drops.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Can this estimate be used for Housing Society AGM / Committee approvals?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes! You can generate and download a structured Technical Bill of Quantities (BOQ) PDF directly from this tool. Housing society secretaries and facility managers frequently use our itemized estimates for managing committee review and society tender discussions.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Do you provide on-site survey verification after using the estimator?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes. Once you calculate your requirements, our senior field engineers in Charai, Thane West can conduct a physical on-site survey to inspect existing conduit pathways, riser shafts, and power distribution.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Are AMC options included in the estimated package?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes. You can toggle Annual Maintenance Contract (AMC) coverage in the estimator to include quarterly preventive checkups, on-call breakdown support, and routine maintenance for both CCTV and intercom networks.'
+          }
+        }
+      ]
+    };
+
+    // BreadcrumbList Node
+    const breadcrumbNode = {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: SITE_DATA.contact.website
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Tools & Utilities',
+          item: `${SITE_DATA.contact.website}/tools/security-system-estimator`
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: 'Requirement Estimator',
+          item: pageUrl
+        }
+      ]
+    };
+
+    this.injectGraph([localBusinessNode, webAppNode, faqNode, breadcrumbNode]);
+  }
+
+  /**
    * Generates integrated @graph Schema for Local Landing / Geo Silo Pages
    * (Combines LocalBusiness + Service + FAQPage + BreadcrumbList)
    */

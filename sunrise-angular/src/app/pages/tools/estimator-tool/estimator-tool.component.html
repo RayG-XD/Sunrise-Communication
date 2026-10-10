@@ -1,0 +1,120 @@
+<!-- Page Title / Breadcrumb Banner -->
+<section class="page-title estimator-banner">
+  <div class="auto-container">
+    <h1>Security System Requirement & BOQ Estimator</h1>
+    <ul class="bread-crumb clearfix">
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/services">Services</a></li>
+      <li><a routerLink="/tools/security-system-estimator">Tools</a></li>
+      <li class="active">Requirement Estimator</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Standalone Tool Content Section -->
+<section class="estimator-tool-page-section py-5">
+  <div class="auto-container">
+    
+    <!-- Tool Header Intro Strip -->
+    <div class="tool-intro-box mb-4 p-4 rounded-4 bg-white border shadow-sm">
+      <div class="row align-items-center g-3">
+        <div class="col-lg-8 col-md-12">
+          <span class="badge bg-danger text-white px-3 py-1 rounded-pill mb-2">ENGINEERING TOOL</span>
+          <h2 class="h3 fw-bold text-dark mb-2">Estimate CCTV, Intercom & AMC Infrastructure in Minutes</h2>
+          <p class="text-muted mb-0">
+            Select your premise type, scale, and required systems below to automatically derive hardware specifications, storage calculations, and an itemized Technical Bill of Quantities (BOQ). Designed for Housing Society Managing Committees, Commercial Facilities & Integrators across Thane and Mumbai MMR.
+          </p>
+        </div>
+        <div class="col-lg-4 col-md-12 text-lg-end">
+          <div class="d-inline-flex flex-column align-items-lg-end">
+            <span class="badge bg-light text-dark border px-3 py-2 rounded-pill mb-1">
+              <i class="fa fa-shield text-danger me-1"></i> 25+ Years Integrator Expertise
+            </span>
+            <span class="small text-muted">CP Plus • Hikvision • Matrix • Essl</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Requirement Estimator Engine -->
+    <div class="estimator-component-container mb-5">
+      <app-requirement-estimator></app-requirement-estimator>
+    </div>
+
+    <!-- Cross-Link Utility Banners -->
+    <div class="row g-3 mb-5">
+      <div class="col-md-6 col-12">
+        <div class="p-4 bg-white rounded-3 border h-100 d-flex flex-column justify-content-between shadow-sm">
+          <div>
+            <span class="badge bg-primary text-white mb-2">STORAGE SIZING</span>
+            <h3 class="h5 fw-bold text-dark mb-1"><i class="fa fa-calculator text-primary me-2"></i> Dedicated CCTV HDD Calculator</h3>
+            <p class="text-muted small mb-3">Calculate exact Terabytes (TB), recording retention days, and network bandwidth for 1080p to 4K surveillance cameras with H.265+ compression.</p>
+          </div>
+          <a routerLink="/tools/cctv-storage-calculator" class="btn btn-outline-primary btn-sm fw-bold align-self-start">
+            Open Storage Calculator <i class="fa fa-arrow-right ms-1"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-12">
+        <div class="p-4 bg-white rounded-3 border h-100 d-flex flex-column justify-content-between shadow-sm">
+          <div>
+            <span class="badge bg-danger text-white mb-2">RECURRING PROTECTION</span>
+            <h3 class="h5 fw-bold text-dark mb-1"><i class="fa fa-shield text-danger me-2"></i> Dedicated AMC Contracts Hub</h3>
+            <p class="text-muted small mb-3">Explore comprehensive vs. non-comprehensive Annual Maintenance Contracts (AMC) with 4 quarterly preventive visits and priority breakdown SLAs.</p>
+          </div>
+          <a routerLink="/services/security-system-amc-contracts" class="btn btn-outline-danger btn-sm fw-bold align-self-start">
+            Explore AMC Hub <i class="fa fa-arrow-right ms-1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Estimator FAQs Accordion (AEO Optimized) -->
+    <div class="faq-accordion-section mb-5">
+      <div class="section-title-wrapper text-center mb-4">
+        <span class="sub-title">Frequently Asked Questions</span>
+        <h2 class="section-heading">Estimator Technical FAQs</h2>
+        <p class="section-desc">Key details about BOQ sizing, committee approvals, and physical site verification.</p>
+      </div>
+
+      <div class="faq-accordion-container">
+        @for (faq of faqs; track faq.question; let i = $index) {
+          <div class="faq-item" [class.open]="activeFaqIndex() === i">
+            <button class="faq-question-btn" (click)="toggleFaq(i)">
+              <span>{{ faq.question }}</span>
+              <i class="fa" [class.fa-plus]="activeFaqIndex() !== i" [class.fa-minus]="activeFaqIndex() === i"></i>
+            </button>
+            @if (activeFaqIndex() === i) {
+              <div class="faq-answer-content">
+                <p>{{ faq.answer }}</p>
+              </div>
+            }
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Notice / Disclaimer -->
+    <div class="service-notice-disclaimer my-4 p-3 bg-light rounded border text-muted small">
+      <p class="mb-0">
+        <strong><i class="fa fa-info-circle text-primary"></i> Please Note:</strong> Specifications, channel counts, and estimated costs generated by this tool are indicative engineering estimates. Final bill of materials, exact cable lengths, and commercial terms are confirmed following an on-site technical inspection and formal written agreement.
+      </p>
+    </div>
+
+    <!-- Final Call to Action -->
+    <div class="consultation-cta-strip text-center p-5 rounded-4 bg-white border shadow-sm">
+      <h3 class="fw-bold mb-2">Need an On-Site Survey for Your Building?</h3>
+      <p class="text-muted max-w-600 mx-auto mb-4">Our senior field engineers conduct physical site audits across Thane, Mumbai, and Navi Mumbai to measure exact cabling pathways and optimize hardware placements.</p>
+      <div class="cta-btns d-flex justify-content-center gap-3 flex-wrap">
+        <a [href]="siteData.social.whatsapp" target="_blank" rel="noopener noreferrer" class="theme-btn btn-style-one">
+          <span class="txt"><i class="fa fa-whatsapp me-2"></i> Inquire via WhatsApp</span>
+        </a>
+        <a [href]="'tel:' + siteData.contact.primaryPhone" class="theme-btn btn-style-four">
+          <span class="txt"><i class="fa fa-phone me-2"></i> Call: {{ siteData.contact.primaryPhone }}</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>

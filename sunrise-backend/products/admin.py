@@ -1,5 +1,7 @@
+import csv
 import json
 from django.contrib import admin, messages
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import path
 from django.utils.html import format_html
@@ -280,6 +282,7 @@ class InquiryAdmin(admin.ModelAdmin):
     list_editable = ['status']
     date_hierarchy = 'created_at'
     ordering = ['-created_at']
+    actions = ['export_inquiries_to_csv']
 
     fieldsets = [
         ('Lead Information', {
@@ -328,6 +331,43 @@ class InquiryAdmin(admin.ModelAdmin):
             color, obj.get_status_display()
         )
     status_badge.short_description = 'Status'
+
+    @admin.action(description="Export selected inquiries to CSV")
+    def export_inquiries_to_csv(self, request, queryset):
+        response = HttpResponse(content_type='text/csv; charset=utf-8')
+        response['Content-Disposition'] = 'attachment; filename="sunrise_inquiries.csv"'
+        
+        writer = csv.writer(response)
+        writer.writerow([
+            'Reference ID', 'Date & Time (UTC)', 'Inquiry Type', 'Status',
+            'Name', 'Phone', 'Email', 'Designation', 'Society / Organization',
+            'Locality', 'Project Type', 'Flat Count', 'Wing Count',
+            'Preferred Time', 'Systems Required', 'Message / Summary', 'Internal Notes'
+        ])
+        
+        for item in queryset:
+            systems = ", ".join(item.systems_required) if isinstance(item.systems_required, list) else str(item.systems_required or '')
+            writer.writerow([
+                str(item.id),
+                item.created_at.strftime('%Y-%m-%d %H:%M:%S'),
+                item.get_inquiry_type_display(),
+                item.get_status_display(),
+                item.name,
+                item.phone,
+                item.email,
+                item.designation,
+                item.organization,
+                item.locality,
+                item.project_type,
+                item.flat_count or '',
+                item.wing_count or '',
+                item.preferred_time,
+                systems,
+                item.message,
+                item.notes
+            ])
+            
+        return response
 
 
 admin.site.site_header = 'Sunrise Communication — Admin Panel'

@@ -714,5 +714,175 @@ export const SERVICE_CLUSTERS_DATA: Record<string, ServiceClusterData> = {
       description: 'Professional Cat6 network cabling, society intercom multi-pair telephone wiring, and security rack dressing in Thane, Mumbai, and Navi Mumbai. Call +91 93238 48622.',
       keywords: 'CCTV Cabling Thane, Society Intercom Wiring Mumbai, EPABX Cable Dressing Thane, Security Rack Setup Mahape, Biometric Wiring BKC, Cat6 PoE Cabling Wagle Estate'
     }
+  },
+  'security-system-amc-contracts': {
+    slug: 'security-system-amc-contracts',
+    name: 'Security Systems & Telecom AMC Contracts',
+    heroTitle: 'Annual Maintenance Contracts (AMC) for CCTV & Intercom in Thane & Mumbai',
+    tagline: 'Scheduled Quarterly Preventive Servicing & Priority On-Call Breakdown Support for Housing Societies & Commercial Facilities',
+    directAnswerAeo: 'Sunrise Communication provides Annual Maintenance Contracts (AMC) for CCTV cameras, EPABX intercoms, and biometric systems in Thane, Mumbai, and Navi Mumbai. We offer both Comprehensive and Non-Comprehensive AMC agreements with scheduled quarterly servicing and priority breakdown support.',
+    categoryIcon: 'fa-shield',
+    shortDescription: 'Ensure continuous protection with scheduled preventive servicing, camera cleaning, voltage tests, storage audits, and prompt technician support across Thane, Mumbai, and Navi Mumbai.',
+    authorizedBrands: ['CP Plus', 'Hikvision', 'Dahua', 'Matrix', 'Essl', 'Beetel', 'WD Purple', 'Seagate SkyHawk'],
+    offerings: [
+      {
+        title: 'Housing Society CCTV & Intercom AMC',
+        description: 'Comprehensive quarterly preventive servicing of cameras, NVRs, HDDs, and society telephone intercom networks.',
+        icon: 'fa-building',
+        features: [
+          '4 Scheduled Quarterly Preventive Visits per Contract Year',
+          'Camera Lens Cleaning & Field of View Alignment',
+          'Storage & Continuous Recording Evidentiary Audit',
+          'Telephone Intercom Riser Cabling & Krone DP Testing'
+        ]
+      },
+      {
+        title: 'Non-Comprehensive AMC Plan',
+        description: 'Covers scheduled preventive maintenance checkups and all on-call labor for breakdown troubleshooting.',
+        icon: 'fa-wrench',
+        features: [
+          'Routine Preventive Maintenance Checkups',
+          'Priority Technician Dispatch for System Outages',
+          'Replacement Hardware Sourced at Prevailing Rates upon Approval',
+          'Ideal for Established Housing Societies and Offices'
+        ]
+      },
+      {
+        title: 'Comprehensive AMC Plan',
+        description: 'Includes scheduled preventive servicing plus repair/replacement of approved components defined in the signed SLA.',
+        icon: 'fa-shield',
+        features: [
+          'Scheduled Preventive Servicing Included',
+          'Repair / Replacement of Approved Hardware Items',
+          'Predictable Annual Maintenance Budget for Managing Committees',
+          'Obsolescence & Third-Party Damage Exclusions Apply'
+        ]
+      },
+      {
+        title: 'Pre-AMC Health Audit & Takeover Service',
+        description: 'Detailed inspection of existing third-party installations before contract execution.',
+        icon: 'fa-check-square-o',
+        features: [
+          'Individual Camera & Extension Line Audits',
+          'Pre-contract Snag List & Rectification Proposal',
+          'Port-by-Port Cable Tagging and Documentation',
+          'Smooth Handover for Society Managing Committees'
+        ]
+      }
+    ],
+    caseStudies: [
+      {
+        title: '32-Camera Surveillance Maintenance Takeover',
+        location: 'Panchpakhadi, Thane (West)',
+        premiseType: 'Residential Cooperative Housing Society (CHS)',
+        challenge: 'A society faced unrecorded gaps, flickering night-vision feeds, and lack of support from their previous contractor.',
+        solution: 'Conducted a physical takeover audit, replaced loose connectors, re-calibrated power supplies, and instituted a quarterly servicing schedule.',
+        hardwareDeployed: ['Connector Replacement', 'Power Supply Servicing', 'Storage SMART Diagnostics', 'Quarterly Maintenance'],
+        resultMetrics: 'Restored 100% camera uptime and verified 30 days of continuous recording history.'
+      },
+      {
+        title: 'Intercom & CCTV Maintenance for Commercial Hub',
+        location: 'Wagle Industrial Estate, Thane',
+        premiseType: 'Corporate Commercial Office',
+        challenge: 'Frequent voice cross-talk on intercom extensions and power supply drops during business hours.',
+        solution: 'Re-terminated Krone DP blocks, cleaned security rack ventilation, and implemented structured quarterly preventive visits.',
+        hardwareDeployed: ['DP Box Re-termination', 'Power Distribution Optimization', 'Periodic Preventive Servicing'],
+        resultMetrics: 'Zero voice cross-talk and consistent uptime across all office extensions.'
+      }
+    ],
+    comparisonMatrix: {
+      title: 'Comprehensive AMC vs. Non-Comprehensive AMC',
+      subtitle: 'Key distinctions to assist Housing Society Managing Committees in selecting the appropriate contract structure.',
+      headers: ['Service Parameter', 'Non-Comprehensive AMC', 'Comprehensive AMC'],
+      rows: [
+        {
+          feature: 'Scheduled Preventive Servicing',
+          col1: '4 Quarterly visits included per contract year',
+          col2: '4 Quarterly visits included per contract year',
+          verdict: 'Both plans include routine quarterly preventive maintenance.'
+        },
+        {
+          feature: 'Breakdown Technician Labor',
+          col1: 'Included for on-call breakdown troubleshooting',
+          col2: 'Included for on-call breakdown troubleshooting',
+          verdict: 'Both plans include technician visits for reported faults.'
+        },
+        {
+          feature: 'Replacement Hardware & Spares',
+          col1: 'Billed separately at actuals upon committee quotation approval',
+          col2: 'Repair / replacement of approved eligible items per signed agreement',
+          verdict: 'Comprehensive provides predictable hardware budgeting.'
+        },
+        {
+          feature: 'Exclusions (Physical / External Damage)',
+          col1: 'Hardware billed upon committee approval',
+          col2: 'Excludes rodent cuts, water damage, electrical grid surges & obsolete models',
+          verdict: 'Standard industry exclusions apply to preserve contract integrity.'
+        }
+      ]
+    },
+    amcPlans: [
+      {
+        title: 'Non-Comprehensive AMC',
+        badge: 'Most Popular for Societies',
+        priceHint: 'Custom Quote on Site Audit',
+        description: 'Scheduled quarterly preventive servicing and on-call technician support. Replacement hardware supplied at prevailing rates upon committee approval.',
+        features: [
+          '4 Scheduled Quarterly Preventive Visits',
+          'Camera Cleaning & Angle Alignment',
+          'NVR/DVR Recording Health & Hard Drive SMART Diagnostics',
+          'Telephone Intercom Line & Krone DP Box Inspection',
+          'Priority Breakdown Technician Dispatch',
+          'Replacement Hardware Sourced at Prevailing Rates upon Approval'
+        ],
+        sla: 'Priority On-Call Breakdown Dispatch in Thane & Mumbai MMR'
+      },
+      {
+        title: 'Comprehensive AMC',
+        badge: 'Turnkey Hardware Coverage',
+        priceHint: 'Custom Quote on Site Audit',
+        description: 'Scheduled preventive servicing plus repair/replacement of approved eligible components defined explicitly in the signed SLA.',
+        features: [
+          '4 Scheduled Quarterly Preventive Visits',
+          'Deep Cleaning, Voltage Calibration & Cable Checks',
+          'Repair / Replacement of Approved Hardware Items in Signed Scope',
+          'Pre-contract Snag Rectification Assessment',
+          'Obsolescence & External Physical Damage Exclusions Apply',
+          'Dedicated Account Support & Committee Handover Records'
+        ],
+        sla: 'Priority Emergency Breakdown Dispatch in Thane & Mumbai MMR'
+      }
+    ],
+    faqs: [
+      {
+        question: 'What is the difference between Comprehensive and Non-Comprehensive AMC?',
+        answer: 'A Non-Comprehensive AMC covers all routine quarterly preventive maintenance checkups and on-call technician labor for troubleshooting; if any component requires replacement, it is billed separately at prevailing rates upon committee approval. A Comprehensive AMC covers both servicing labor and the repair or replacement of specific eligible hardware components explicitly listed in the signed contract agreement.'
+      },
+      {
+        question: 'Can Sunrise Communication take over maintenance for a system installed by another vendor?',
+        answer: 'Yes. We conduct a one-time physical inspection of your existing CCTV or Intercom infrastructure to verify equipment health, identify any existing snags, and provide an initial audit report before formal agreement execution.'
+      },
+      {
+        question: 'What events or conditions are typically excluded from AMC coverage?',
+        answer: 'In line with standard industry practices, AMC coverage excludes damage caused by third-party civil/electrical construction, rodent cuts, water leakage/flooding, lightning/grid surges beyond standard surge protectors, and equipment that has reached end-of-life or been discontinued by original manufacturers.'
+      },
+      {
+        question: 'How frequently are preventive maintenance checkups conducted?',
+        answer: 'Under our standard annual agreement, our engineers conduct 4 quarterly visits (once every 3 months) to clean lenses, verify recording status, test power supplies, and inspect intercom distribution lines.'
+      },
+      {
+        question: 'What document governs the final terms and response times?',
+        answer: 'All specific response timelines, replacement parts eligibility, quarterly visit dates, and commercial terms are strictly governed by the formal signed Annual Maintenance Contract Agreement entered into between the Client and Sunrise Communication.'
+      }
+    ],
+    serviceAreasThane: ['Charai', 'Naupada', 'Panchpakhadi', 'Ghodbunder Road', 'Majiwada', 'Vasant Vihar', 'Wagle Industrial Estate', 'Hiranandani Estate', 'Kolshet', 'Vartak Nagar'],
+    serviceAreasMumbai: ['Mulund', 'Bhandup', 'Ghatkopar', 'Powai', 'Andheri', 'BKC', 'Lower Parel', 'Worli', 'Malad', 'Borivali'],
+    serviceAreasNaviMumbai: ['Vashi', 'Mahape (TTC MIDC)', 'Airoli Knowledge Park', 'Kopar Khairane', 'Ghansoli', 'Nerul', 'Belapur', 'Kharghar'],
+    seo: {
+      title: 'CCTV & Intercom AMC Contracts in Thane, Mumbai | Sunrise Communication',
+      description: 'Annual Maintenance Contracts (AMC) for CCTV cameras and housing society intercoms in Thane, Mumbai & Navi Mumbai. Non-comprehensive and comprehensive AMC for residential societies and offices.',
+      keywords: 'CCTV AMC Thane, Society Intercom AMC Mumbai, Housing Society AMC Contract, CCTV Maintenance Charai Naupada, EPABX AMC Wagle Estate, Security System AMC Maharashtra'
+    }
   }
 };
+

@@ -1,8 +1,7 @@
 import { Component, signal, inject, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { firstValueFrom } from 'rxjs';
+import { InquiryService } from '../../../core/services/inquiry.service';
 import { SITE_DATA } from '../../../core/constants/site-data';
 import { environment } from '../../../../environments/environment';
 import emailjs from '@emailjs/browser';
@@ -16,7 +15,7 @@ import emailjs from '@emailjs/browser';
 })
 export class SocietyAuditFormComponent {
   private fb = inject(FormBuilder);
-  private http = inject(HttpClient);
+  private inquiryService = inject(InquiryService);
   siteData = SITE_DATA;
 
   @Input() title: string = 'Book a Technical Site Audit & BOQ Sizing';
@@ -104,25 +103,21 @@ export class SocietyAuditFormComponent {
         if (formVal.needCabling) systems.push('Cabling');
         if (formVal.needAmc) systems.push('AMC');
 
-        // 1. Post to Django CRM backend if accessible
-        try {
-          await firstValueFrom(this.http.post(`${environment.apiUrl}/inquiries/`, {
-            inquiry_type: 'society_audit',
-            name: formVal.contactPerson,
-            phone: formVal.phone,
-            designation: formVal.designation,
-            organization: formVal.societyName,
-            locality: formVal.locality,
-            project_type: formVal.projectType,
-            flat_count: formVal.flatCount,
-            wing_count: formVal.wingCount,
-            preferred_time: formVal.preferredTime,
-            systems_required: systems,
-            message: summary
-          }));
-        } catch (backendErr) {
-          console.warn('Backend inquiry API not reachable or failed, falling back to EmailJS:', backendErr);
-        }
+        // 1. Post to Django CRM backend via unified InquiryService
+        await this.inquiryService.submitInquiry({
+          inquiry_type: 'society_audit',
+          name: formVal.contactPerson || '',
+          phone: formVal.phone || '',
+          designation: formVal.designation || '',
+          organization: formVal.societyName || '',
+          locality: formVal.locality || '',
+          project_type: formVal.projectType || '',
+          flat_count: formVal.flatCount || null,
+          wing_count: formVal.wingCount || null,
+          preferred_time: formVal.preferredTime || '',
+          systems_required: systems,
+          message: summary
+        });
 
         // 2. EmailJS Notification
         const { serviceId, templateId, publicKey } = environment.emailjs;

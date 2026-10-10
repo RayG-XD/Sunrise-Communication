@@ -99,6 +99,20 @@
     </image:image>
   </url>
 
+  <!-- Security System AMC Contracts Hub -->
+  <url>
+    <loc>https://sunrisecommunication.in/services/security-system-amc-contracts</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://sunrisecommunication.in/assets/images/icons/service-cctv.svg</image:loc>
+      <image:title>CCTV &amp; Society Intercom AMC Contracts Thane Mumbai</image:title>
+      <image:caption>Annual Maintenance Contracts with 4 quarterly preventive visits and on-call breakdown dispatch for housing societies.</image:caption>
+      <image:geo_location>Thane, Mumbai, Maharashtra</image:geo_location>
+    </image:image>
+  </url>
+
   <!-- About Us -->
   <url>
     <loc>https://sunrisecommunication.in/about</loc>
@@ -117,6 +131,20 @@
       <image:loc>https://sunrisecommunication.in/assets/images/resource/service-1.png</image:loc>
       <image:title>CCTV Storage &amp; Hard Drive (HDD) Sizing Calculator</image:title>
       <image:caption>Calculate surveillance hard drive capacity in TB for CP Plus, Hikvision, and Dahua systems with H.265+ compression.</image:caption>
+      <image:geo_location>Thane, Mumbai, Maharashtra</image:geo_location>
+    </image:image>
+  </url>
+
+  <!-- Security System Requirement & BOQ Estimator Tool -->
+  <url>
+    <loc>https://sunrisecommunication.in/tools/security-system-estimator</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.92</priority>
+    <image:image>
+      <image:loc>https://sunrisecommunication.in/assets/images/resource/service-1.png</image:loc>
+      <image:title>Security System Requirement &amp; BOQ Estimator</image:title>
+      <image:caption>Calculate CCTV, Intercom, Biometrics, and AMC infrastructure with automated Technical BOQ sizing for housing societies and commercial offices.</image:caption>
       <image:geo_location>Thane, Mumbai, Maharashtra</image:geo_location>
     </image:image>
   </url>
@@ -160,6 +188,34 @@
       <image:title>Security Systems &amp; Biometrics in Navi Mumbai</image:title>
       <image:caption>Commercial CCTV, Essl AI face recognition attendance, and intercom in Vashi, Mahape, Airoli, Belapur.</image:caption>
       <image:geo_location>Navi Mumbai, Maharashtra</image:geo_location>
+    </image:image>
+  </url>
+
+  <!-- Location Silo: Ghodbunder Road Thane -->
+  <url>
+    <loc>https://sunrisecommunication.in/locations/cctv-intercom-ghodbunder-road-thane</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://sunrisecommunication.in/assets/images/resource/service-1.png</image:loc>
+      <image:title>CCTV Camera Installation &amp; Society Intercom Ghodbunder Road Thane</image:title>
+      <image:caption>High-rise gated society IP surveillance, optical fiber backbones &amp; lift intercoms in Hiranandani Estate, Kolshet, Kasarvadavali.</image:caption>
+      <image:geo_location>Ghodbunder Road, Thane, Maharashtra</image:geo_location>
+    </image:image>
+  </url>
+
+  <!-- Location Silo: Mulund Mumbai -->
+  <url>
+    <loc>https://sunrisecommunication.in/locations/cctv-intercom-installation-mulund</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://sunrisecommunication.in/assets/images/icons/service-epabx.svg</image:loc>
+      <image:title>CCTV Installation &amp; Society Intercom Mulund West &amp; East</image:title>
+      <image:caption>Cooperative housing society intercom recabling, CCTV installations and AMC maintenance in Mulund &amp; Nahur.</image:caption>
+      <image:geo_location>Mulund, Mumbai, Maharashtra</image:geo_location>
     </image:image>
   </url>
 

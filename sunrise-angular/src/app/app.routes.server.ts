@@ -34,7 +34,15 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Prerender
   },
   {
+    path: 'services/security-system-amc-contracts',
+    renderMode: RenderMode.Prerender
+  },
+  {
     path: 'tools/cctv-storage-calculator',
+    renderMode: RenderMode.Prerender
+  },
+  {
+    path: 'tools/security-system-estimator',
     renderMode: RenderMode.Prerender
   },
   {
@@ -47,6 +55,14 @@ export const serverRoutes: ServerRoute[] = [
   },
   {
     path: 'locations/security-systems-navi-mumbai',
+    renderMode: RenderMode.Prerender
+  },
+  {
+    path: 'locations/cctv-intercom-ghodbunder-road-thane',
+    renderMode: RenderMode.Prerender
+  },
+  {
+    path: 'locations/cctv-intercom-installation-mulund',
     renderMode: RenderMode.Prerender
   },
   {

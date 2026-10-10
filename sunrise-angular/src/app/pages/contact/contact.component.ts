@@ -1,8 +1,7 @@
 import { Component, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { firstValueFrom } from 'rxjs';
+import { InquiryService } from '../../core/services/inquiry.service';
 import { PageTitleComponent } from '../../shared/components/page-title.component';
 import { SocietyAuditFormComponent } from '../../shared/components/society-audit-form/society-audit-form.component';
 import { SITE_DATA } from '../../core/constants/site-data';
@@ -17,7 +16,7 @@ import emailjs from '@emailjs/browser';
 })
 export class ContactComponent {
   private fb = inject(FormBuilder);
-  private http = inject(HttpClient);
+  private inquiryService = inject(InquiryService);
   
   siteData = SITE_DATA;
   activeTab = signal<'society' | 'general'>('society');
@@ -68,19 +67,15 @@ export class ContactComponent {
       this.lastSubmittedData.set(formData);
 
       try {
-        // 1. Post to Django CRM backend if online
-        try {
-          await firstValueFrom(this.http.post(`${environment.apiUrl}/inquiries/`, {
-            inquiry_type: 'contact',
-            name: formData.username,
-            email: formData.email,
-            phone: formData.phone,
-            organization: formData.company || '',
-            message: formData.message
-          }));
-        } catch (backendErr) {
-          console.warn('Backend inquiry API not reachable, falling back to EmailJS/WhatsApp:', backendErr);
-        }
+        // 1. Post to Django CRM backend via unified InquiryService
+        await this.inquiryService.submitInquiry({
+          inquiry_type: 'contact',
+          name: formData.username || '',
+          email: formData.email || '',
+          phone: formData.phone || '',
+          organization: formData.company || '',
+          message: formData.message || ''
+        });
 
         // 2. EmailJS Notification
         const { serviceId, templateId, publicKey } = environment.emailjs;

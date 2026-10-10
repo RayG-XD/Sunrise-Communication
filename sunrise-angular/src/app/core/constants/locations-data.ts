@@ -240,5 +240,151 @@ export const LOCAL_LANDING_DATA: Record<string, LocalLandingData> = {
         answer: 'Yes. Our Essl and Matrix biometric terminals support automatic real-time push data and export attendance logs directly to standard HR/payroll ERP systems.'
       }
     ]
+  },
+  'cctv-intercom-ghodbunder-road-thane': {
+    slug: 'cctv-intercom-ghodbunder-road-thane',
+    regionName: 'Ghodbunder Road, Thane',
+    heroTitle: 'CCTV Camera Sales, Installation & AMC on Ghodbunder Road, Thane',
+    heroSubtitle: 'Turnkey IP surveillance, optical fiber networks, and housing society intercoms for high-rise gated townships in Hiranandani Estate, Kasarvadavali, Kolshet & Ovala.',
+    metaTitle: 'CCTV Camera Installation & Society Intercom Ghodbunder Road Thane | Sunrise Communication',
+    metaDescription: 'Expert CCTV installation, society intercom repair & AMC contracts across Ghodbunder Road Thane (Hiranandani Estate, Kolshet, Kasarvadavali, Ovala). 25+ yrs exp. Call +91 93238 48622.',
+    metaKeywords: 'CCTV Installation Ghodbunder Road, Society Intercom Hiranandani Estate, CCTV AMC Kasarvadavali, CCTV Contractor Kolshet Road Thane, Housing Society Intercom Ovala',
+    overviewHeading: 'Trusted Security Integrator for Ghodbunder Road Gated Townships',
+    overviewText: 'Ghodbunder Road hosts many of Thane\'s largest multi-wing high-rise complexes and gated communities. From Hiranandani Estate and Brahmand to Kolshet and Kasarvadavali, Sunrise Communication delivers robust IP surveillance networks, long-distance optical fiber backbones, and multi-tier telephone intercom infrastructure engineered specifically for high-rise residential societies.',
+    keyLandmarks: [
+      'Hiranandani Estate & The Walk',
+      'Kolshet Road & Lodha Amara',
+      'Kasarvadavali & Hypercity',
+      'Brahmand & Rosa Gardenia',
+      'Ovala & Gaimukh Waterfront',
+      'Waghbil & Suraj Water Park',
+      'Anand Nagar & Vijay Nagari'
+    ],
+    localMicroMarkets: [
+      'Hiranandani Estate', 'Kolshet Road', 'Kasarvadavali', 'Brahmand',
+      'Waghbil', 'Ovala', 'Anand Nagar', 'Gaimukh', 'Vijay Nagari',
+      'Haware City', 'Rosa Bella', 'Ruturaj Complex'
+    ],
+    featuredServices: [
+      {
+        title: 'Housing Society CCTV Networks',
+        description: 'Multi-tower IP camera infrastructure with 4K recording, ColorVu night vision, and dedicated lift traveling cables.',
+        icon: 'fa-video-camera',
+        route: '/services/cctv-surveillance-systems'
+      },
+      {
+        title: 'Multi-Wing Society Intercoms',
+        description: 'Multi-pair telephone cabling, gatekeeper consoles, and Matrix EPABX systems connecting hundreds of flats.',
+        icon: 'fa-phone',
+        route: '/services/epabx-intercom-solutions'
+      },
+      {
+        title: 'Dedicated AMC Contracts',
+        description: 'Non-comprehensive and comprehensive annual maintenance contracts with 4 quarterly preventive visits.',
+        icon: 'fa-shield',
+        route: '/services/security-system-amc-contracts'
+      },
+      {
+        title: 'Biometric Access & Boom Barriers',
+        description: 'RFID vehicle boom barriers, clubhouse touchless face recognition, and EM door locks for society offices.',
+        icon: 'fa-id-card-o',
+        route: '/services/biometric-access-control'
+      }
+    ],
+    localCaseStudy: {
+      title: '48-Camera IP Surveillance & Optical Fiber Backbone for Gated High-Rise Society',
+      societyOrClient: 'Residential High-Rise Complex (3 Towers), Ghodbunder Road, Thane',
+      challenge: 'Long cable distances between 3 towers (over 300 meters) caused severe signal degradation on legacy coaxial wiring, with frequent lift camera feed drops.',
+      solution: 'Deployed single-mode optical fiber media converters linking all 3 towers to a central security console, installed 48 CP Plus 4MP Smart IP cameras, and fitted specialized flat lift traveling cables.',
+      hardwareInstalled: ['48x CP Plus 4MP IR IP Cameras', '1x 64-Channel 4K NVR', '4x Single-Mode Fiber Media Converters', '3x Lift Traveling Cat6 Cables', '24TB WD Purple Storage'],
+      result: 'Flawless 4K video across all 3 towers with zero packet drop and uninterrupted lift cabin coverage across 28 floors.'
+    },
+    localFaqs: [
+      {
+        question: 'How fast can your team dispatch to Ghodbunder Road housing societies for emergency service?',
+        answer: 'Our mobile technical field units operate directly across Thane West and can arrive at housing societies along Ghodbunder Road within 30 to 45 minutes for reported breakdowns.'
+      },
+      {
+        question: 'Can you install CCTV cameras inside high-rise lift elevators without cables twisting?',
+        answer: 'Yes. We deploy specialized flexible lift traveling cables (steel-reinforced multi-core Cat6) designed specifically to flex with lift car motion over 20 to 30 floors without mechanical breakage or signal degradation.'
+      },
+      {
+        question: 'Do you offer AMC maintenance for societies on Ghodbunder Road installed by another contractor?',
+        answer: 'Yes. We conduct a physical pre-AMC audit to inspect camera health, power supplies, and cabling before formalizing an annual agreement.'
+      }
+    ]
+  },
+  'cctv-intercom-installation-mulund': {
+    slug: 'cctv-intercom-installation-mulund',
+    regionName: 'Mulund (West & East), Mumbai',
+    heroTitle: 'CCTV Camera Sales, Installation & Intercom AMC in Mulund',
+    heroSubtitle: 'Turnkey surveillance systems, copper telephone intercom recabling, and biometrics for housing societies and commercial establishments across Mulund West, Mulund East & Nahur.',
+    metaTitle: 'CCTV Installation & Society Intercom in Mulund West & East | Sunrise Communication',
+    metaDescription: 'Professional CCTV camera installation, intercom rewiring & AMC for housing societies in Mulund West, Mulund East, Nahur & LBS Marg. Fast dispatch from Thane HQ. Call +91 93238 48622.',
+    metaKeywords: 'CCTV Installation Mulund West, Society Intercom Mulund East, CCTV AMC Mulund, Intercom Repair Nahur, Hikvision Dealer Mulund, Housing Society Security Mulund Mumbai',
+    overviewHeading: 'Premier Security & Intercom Solutions for Mulund Societies',
+    overviewText: 'Located immediately adjacent to our Charai Thane headquarters, Mulund represents one of our core service corridors. We have served hundreds of Cooperative Housing Societies across Mulund West, Mulund East, Nahur, and LBS Marg for over 25 years. We specialize in rewiring older societies undergoing redevelopment or infrastructure upgrades with concealed Cat6 PoE CCTV networks and reliable multi-pair intercom lines.',
+    keyLandmarks: [
+      'Mulund West Station & MG Road',
+      'Mulund East & Mithagar Road',
+      'LBS Marg & Johnson & Johnson',
+      'Nahur Station & GMLR Hub',
+      'Yogi Hills & Swapna Nagari',
+      'Devidayal Road & Paanch Rasta',
+      'Sarvodaya Nagar & PK Road'
+    ],
+    localMicroMarkets: [
+      'Mulund West', 'Mulund East', 'Nahur', 'LBS Marg',
+      'Yogi Hills', 'Devidayal Road', 'Paanch Rasta', 'Sarvodaya Nagar',
+      'Mithagar', 'Navghar', 'Ghati Pada'
+    ],
+    featuredServices: [
+      {
+        title: 'Society Intercom Cabling & Upgrades',
+        description: 'Multi-pair telephone cable replacement, Krone distribution boxes, and Matrix EPABX systems for residential buildings.',
+        icon: 'fa-phone',
+        route: '/services/epabx-intercom-solutions'
+      },
+      {
+        title: 'CCTV Surveillance & NVR Setup',
+        description: 'Perimeter, lift cabin, and stilt parking HD cameras with 30-day police-compliant storage arrays.',
+        icon: 'fa-video-camera',
+        route: '/services/cctv-surveillance-systems'
+      },
+      {
+        title: 'Comprehensive & Non-Comprehensive AMC',
+        description: '4 quarterly preventive visits and emergency breakdown troubleshooting for housing societies.',
+        icon: 'fa-shield',
+        route: '/services/security-system-amc-contracts'
+      },
+      {
+        title: 'Biometrics & Society Clubhouse Access',
+        description: 'Touchless AI face recognition and 600lbs fail-safe electromagnetic door locks for society offices.',
+        icon: 'fa-id-card-o',
+        route: '/services/biometric-access-control'
+      }
+    ],
+    localCaseStudy: {
+      title: '40-Flat CHS Intercom Re-Cabling & 16-Camera HD Surveillance Modernization',
+      societyOrClient: 'Cooperative Housing Society, Devidayal Road, Mulund (West)',
+      challenge: 'A 25-year-old society suffered from heavily corroded internal telephone wires, frequent intercom hums, and blind spots around the rear perimeter and parking stilt.',
+      solution: 'Conducted complete duct re-cabling using Delton jelly-filled telephone cable with Krone DP boxes, paired with a 16-camera CP Plus Full HD surveillance setup and 30-day storage.',
+      hardwareInstalled: ['1x Matrix 48-Port Intercom EPABX', 'Delton 10-Pair Armoured Telephone Cable', '16x CP Plus 2MP Night-Vision Cameras', '1x 16-Ch NVR with 4TB HDD'],
+      result: 'Restored crystal-clear flat-to-gate communication and eliminated 100% of blind spots with 30-day evidentiary recording.'
+    },
+    localFaqs: [
+      {
+        question: 'How quickly can your technicians attend to inquiries or site visits in Mulund?',
+        answer: 'Because Mulund directly borders Thane West, our senior technicians cross the check naka and reach societies in Mulund West or East within 15 to 20 minutes from our Charai headquarters.'
+      },
+      {
+        question: 'Can you rewire building intercom cables without damaging society walls?',
+        answer: 'Yes. We utilize existing electrical shafts and surface-mounted heavy-duty PVC casings or concealed conduits to ensure clean aesthetics without damaging interior or exterior plaster.'
+      },
+      {
+        question: 'Do you supply genuine CP Plus and Hikvision cameras with manufacturer warranty in Mulund?',
+        answer: 'Yes, Sunrise Communication supplies 100% genuine, OEM-boxed products with manufacturer warranties and authorized serial numbers.'
+      }
+    ]
   }
 };

@@ -37,6 +37,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/services/service-cluster/service-cluster.component').then(m => m.ServiceClusterComponent)
   },
   {
+    path: 'services/security-system-amc-contracts',
+    loadComponent: () => import('./pages/services/service-cluster/service-cluster.component').then(m => m.ServiceClusterComponent)
+  },
+  {
     path: 'services/detail',
     loadComponent: () => import('./pages/services-detail/services-detail.component').then(m => m.ServicesDetailComponent),
     title: 'CCTV & Security System Installations | Sunrise Communication'
@@ -56,6 +60,16 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'tools/security-system-estimator',
+    loadComponent: () => import('./pages/tools/estimator-tool/estimator-tool.component').then(m => m.EstimatorToolComponent),
+    title: 'Security System Requirement & BOQ Estimator | Sunrise Communication'
+  },
+  {
+    path: 'tools/requirement-estimator',
+    redirectTo: 'tools/security-system-estimator',
+    pathMatch: 'full'
+  },
+  {
     path: 'locations/cctv-installation-thane-west',
     loadComponent: () => import('./pages/locations/local-landing/local-landing.component').then(m => m.LocalLandingComponent)
   },
@@ -65,6 +79,14 @@ export const routes: Routes = [
   },
   {
     path: 'locations/security-systems-navi-mumbai',
+    loadComponent: () => import('./pages/locations/local-landing/local-landing.component').then(m => m.LocalLandingComponent)
+  },
+  {
+    path: 'locations/cctv-intercom-ghodbunder-road-thane',
+    loadComponent: () => import('./pages/locations/local-landing/local-landing.component').then(m => m.LocalLandingComponent)
+  },
+  {
+    path: 'locations/cctv-intercom-installation-mulund',
     loadComponent: () => import('./pages/locations/local-landing/local-landing.component').then(m => m.LocalLandingComponent)
   },
   {
