@@ -528,6 +528,25 @@
       transform: translateY(-1px);
     }
 
+    &.share-blueprint-btn {
+      border-color: #0284c7;
+      color: #0284c7;
+
+      i {
+        color: #0284c7;
+      }
+
+      &:hover {
+        background: #0284c7;
+        border-color: #0284c7;
+        color: #ffffff;
+
+        i {
+          color: #ffffff;
+        }
+      }
+    }
+
     @media (max-width: 767px) {
       width: 100%;
       justify-content: center;

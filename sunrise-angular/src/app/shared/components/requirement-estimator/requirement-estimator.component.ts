@@ -1,6 +1,7 @@
-import { Component, signal, computed, inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, signal, computed, inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { SITE_DATA } from '../../../core/constants/site-data';
 import { ProposalGeneratorService } from '../../../core/services/proposal-generator.service';
 import { InquiryService } from '../../../core/services/inquiry.service';
@@ -14,15 +15,17 @@ export type PremiseType = 'society' | 'office' | 'warehouse' | 'retail' | 'resid
   templateUrl: './requirement-estimator.component.html',
   styleUrl: './requirement-estimator.component.scss'
 })
-export class RequirementEstimatorComponent {
+export class RequirementEstimatorComponent implements OnInit {
   private platformId = inject(PLATFORM_ID);
   private document = inject(DOCUMENT);
   private proposalGenerator = inject(ProposalGeneratorService);
   private inquiryService = inject(InquiryService);
+  private route = inject(ActivatedRoute);
 
   // Step State
   currentStep = signal<number>(1);
   copiedToast = signal<boolean>(false);
+  shareToast = signal<boolean>(false);
 
   // Configuration Signals
   selectedPremise = signal<PremiseType>('society');
@@ -119,10 +122,106 @@ export class RequirementEstimatorComponent {
     ].filter(Boolean).join('\n');
   });
 
+  shareableUrl = computed(() => {
+    const base = `${SITE_DATA.contact.website}/`;
+    const params = new URLSearchParams();
+    params.set('premise', this.selectedPremise());
+    if (this.premiseLocation()) params.set('loc', this.premiseLocation());
+    if (this.needCctv()) {
+      params.set('cctv', '1');
+      params.set('cams', this.cameraCount().toString());
+      params.set('days', this.storageDays().toString());
+    }
+    if (this.needIntercom()) {
+      params.set('intercom', '1');
+      params.set('flats', this.flatCount().toString());
+      params.set('wings', this.wingCount().toString());
+    }
+    if (this.needBiometrics()) {
+      params.set('bio', '1');
+      params.set('doors', this.doorCount().toString());
+      params.set('users', this.employeeCount().toString());
+    }
+    if (this.needNetworking()) {
+      params.set('lan', '1');
+      params.set('points', this.lanPoints().toString());
+    }
+    if (this.needAmc()) {
+      params.set('amc', '1');
+    }
+    params.set('step', '4');
+    return `${base}?${params.toString()}#estimator`;
+  });
+
   // Dynamic WhatsApp Lead Generation Link
   whatsappQuoteUrl = computed(() => {
-    return `https://wa.me/919323848622?text=${encodeURIComponent(this.formattedBoqText())}`;
+    const phone = SITE_DATA.social.whatsapp.replace('https://wa.me/', '');
+    const message = [
+      `*New Turnkey Requirement via Sunrise Estimator*`,
+      ``,
+      this.formattedBoqText(),
+      ``,
+      `🔗 *Direct Interactive Blueprint Link:* ${this.shareableUrl()}`,
+      ``,
+      `Please provide an official itemized quotation and schedule a technical site survey.`
+    ].join('\n');
+    return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   });
+
+  ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => {
+      if (params['premise'] && ['society', 'office', 'warehouse', 'retail', 'residential', 'healthcare'].includes(params['premise'])) {
+        this.selectedPremise.set(params['premise'] as PremiseType);
+      }
+      if (params['loc']) this.premiseLocation.set(params['loc']);
+      if (params['cctv'] !== undefined) this.needCctv.set(params['cctv'] === '1' || params['cctv'] === 'true');
+      if (params['cams']) {
+        const c = parseInt(params['cams'], 10);
+        if (!isNaN(c) && c >= 1) this.cameraCount.set(c);
+      }
+      if (params['days']) {
+        const d = parseInt(params['days'], 10);
+        if (!isNaN(d) && d >= 1) this.storageDays.set(d);
+      }
+      if (params['intercom'] !== undefined) this.needIntercom.set(params['intercom'] === '1' || params['intercom'] === 'true');
+      if (params['flats']) {
+        const f = parseInt(params['flats'], 10);
+        if (!isNaN(f) && f >= 1) this.flatCount.set(f);
+      }
+      if (params['wings']) {
+        const w = parseInt(params['wings'], 10);
+        if (!isNaN(w) && w >= 1) this.wingCount.set(w);
+      }
+      if (params['bio'] !== undefined) this.needBiometrics.set(params['bio'] === '1' || params['bio'] === 'true');
+      if (params['doors']) {
+        const d = parseInt(params['doors'], 10);
+        if (!isNaN(d) && d >= 1) this.doorCount.set(d);
+      }
+      if (params['users']) {
+        const u = parseInt(params['users'], 10);
+        if (!isNaN(u) && u >= 1) this.employeeCount.set(u);
+      }
+      if (params['lan'] !== undefined) this.needNetworking.set(params['lan'] === '1' || params['lan'] === 'true');
+      if (params['points']) {
+        const p = parseInt(params['points'], 10);
+        if (!isNaN(p) && p >= 1) this.lanPoints.set(p);
+      }
+      if (params['amc'] !== undefined) this.needAmc.set(params['amc'] === '1' || params['amc'] === 'true');
+      if (params['step']) {
+        const s = parseInt(params['step'], 10);
+        if (!isNaN(s) && s >= 1 && s <= 4) this.currentStep.set(s);
+      }
+    });
+  }
+
+  copyShareLink(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      navigator.clipboard.writeText(this.shareableUrl()).then(() => {
+        this.shareToast.set(true);
+        setTimeout(() => this.shareToast.set(false), 3500);
+      });
+    }
+  }
 
   copyBoqToClipboard() {
     if (isPlatformBrowser(this.platformId)) {
@@ -173,6 +272,7 @@ export class RequirementEstimatorComponent {
       needNetworking: this.needNetworking(),
       lanPoints: this.lanPoints(),
       needAmc: this.needAmc(),
+      proposalUrl: this.shareableUrl(),
     });
 
     // Auto-log lead to backend CRM

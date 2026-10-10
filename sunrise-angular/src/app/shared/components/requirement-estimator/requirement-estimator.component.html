@@ -369,6 +369,10 @@
             <button class="copy-boq-btn" (click)="copyBoqToClipboard()" type="button">
               <i class="fa fa-copy"></i> Copy BOQ Spec
             </button>
+            <button class="copy-boq-btn share-blueprint-btn" (click)="copyShareLink()" type="button">
+              <i class="fa" [class.fa-check]="shareToast()" [class.fa-share-alt]="!shareToast()"></i>
+              {{ shareToast() ? 'Link Copied!' : 'Share Blueprint Link' }}
+            </button>
             <button class="copy-boq-btn" (click)="goToStep(1)" type="button">
               <i class="fa fa-refresh"></i> Recalculate
             </button>
@@ -378,6 +382,12 @@
         @if (copiedToast()) {
           <div class="alert alert-success mt-3 text-center animate-fade-in" role="alert">
             <i class="fa fa-check-circle"></i> <strong>BOQ Copied to Clipboard!</strong> Ready to paste into your Housing Society / Committee WhatsApp group or email.
+          </div>
+        }
+
+        @if (shareToast()) {
+          <div class="alert alert-info mt-3 text-center animate-fade-in" role="alert">
+            <i class="fa fa-check-circle"></i> <strong>Interactive Blueprint Link Copied!</strong> Anyone opening this link can view this exact configured proposal.
           </div>
         }
 
