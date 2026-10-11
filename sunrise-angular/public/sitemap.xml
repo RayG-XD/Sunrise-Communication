@@ -5,7 +5,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://sunrisecommunication.in/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -33,7 +33,7 @@
   <!-- All Services Overview -->
   <url>
     <loc>https://sunrisecommunication.in/services</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
     <image:image>
@@ -102,7 +102,7 @@
   <!-- Security System AMC Contracts Hub -->
   <url>
     <loc>https://sunrisecommunication.in/services/security-system-amc-contracts</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
@@ -116,7 +116,7 @@
   <!-- About Us -->
   <url>
     <loc>https://sunrisecommunication.in/about</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
@@ -138,7 +138,7 @@
   <!-- Security System Requirement & BOQ Estimator Tool -->
   <url>
     <loc>https://sunrisecommunication.in/tools/security-system-estimator</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.92</priority>
     <image:image>
@@ -194,7 +194,7 @@
   <!-- Location Silo: Ghodbunder Road Thane -->
   <url>
     <loc>https://sunrisecommunication.in/locations/cctv-intercom-ghodbunder-road-thane</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
     <image:image>
@@ -208,7 +208,7 @@
   <!-- Location Silo: Mulund Mumbai -->
   <url>
     <loc>https://sunrisecommunication.in/locations/cctv-intercom-installation-mulund</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
     <image:image>
@@ -254,7 +254,7 @@
   <!-- Contact Us -->
   <url>
     <loc>https://sunrisecommunication.in/contact</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
