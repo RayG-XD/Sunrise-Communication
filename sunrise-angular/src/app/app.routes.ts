@@ -111,8 +111,17 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/guides/guide-detail/guide-detail.component').then(m => m.GuideDetailComponent)
   },
   {
+    path: 'guides/housing-society-agm-approval-toolkit',
+    loadComponent: () => import('./pages/guides/guide-detail/guide-detail.component').then(m => m.GuideDetailComponent)
+  },
+  {
     path: 'guides/:slug',
     loadComponent: () => import('./pages/guides/guide-detail/guide-detail.component').then(m => m.GuideDetailComponent)
+  },
+  {
+    path: 'review',
+    loadComponent: () => import('./pages/review/review.component').then(m => m.ReviewComponent),
+    title: 'Review Sunrise Communication on Google | 5-Star Customer Feedback'
   },
   {
     path: 'contact',

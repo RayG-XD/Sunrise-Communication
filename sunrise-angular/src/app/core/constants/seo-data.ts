@@ -70,6 +70,16 @@ export const PAGE_SEO_DATA: Record<string, Partial<SeoMetaData>> = {
     description: 'Calculate equipment requirements, camera counts, intercom lines, and estimated BOQ for housing societies, offices, and commercial spaces in Thane, Mumbai & Navi Mumbai.',
     keywords: 'Security System Estimator, CCTV BOQ Calculator, Society Intercom Estimator, Security System Sizing Thane, CCTV Camera Count Estimator'
   },
+  '/guides/housing-society-agm-approval-toolkit': {
+    title: 'Housing Society AGM CCTV & Intercom Approval Toolkit | Sunrise Communication',
+    description: 'Statutory guide & tender toolkit for society secretaries in Maharashtra: Sinking Fund bye-laws, copy-paste AGM resolution text, and 3-vendor technical evaluation matrix.',
+    keywords: 'Society AGM CCTV Approval, CHS SGM Intercom Resolution, Maharashtra Co-operative Societies Act CCTV Tender, 3 Vendor Quotation Matrix Society, Sinking Fund Security Upgrade Thane'
+  },
+  '/review': {
+    title: 'Review Sunrise Communication on Google Maps | 5.0 Star Customer Feedback',
+    description: 'Share your feedback for Sunrise Communication on Google Maps. Help housing societies and businesses across Thane & Mumbai discover certified security & telecom engineering.',
+    keywords: 'Sunrise Communication Google Review, Review Sunrise Communication Thane, CCTV Contractor Feedback Thane, EPABX Service Review Mumbai'
+  },
   '/contact': {
     title: 'Contact Us | Sunrise Communication',
     description: 'Get in touch with Sunrise Communication in Thane for all your security camera, access control, and telecom wiring needs. Call us at +91 93238 48622 / +91 99875 55399.',

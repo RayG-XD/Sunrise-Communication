@@ -1,0 +1,22 @@
+.review-page-section {
+  min-height: 70vh;
+
+  .stars-gold {
+    letter-spacing: 4px;
+  }
+
+  .qr-booster-box {
+    border: 1px dashed #cbd5e1;
+    background-color: #f8fafc;
+  }
+
+  .qr-visual img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+
+  .form-control:focus {
+    border-color: #df0303;
+    box-shadow: 0 0 0 0.25rem rgba(223, 3, 3, 0.15);
+  }
+}

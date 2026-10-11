@@ -251,6 +251,22 @@
     <priority>0.85</priority>
   </url>
 
+  <!-- Guide: Society AGM CCTV Approval Toolkit -->
+  <url>
+    <loc>https://sunrisecommunication.in/guides/housing-society-agm-approval-toolkit</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+
+  <!-- Review Sunrise Communication on Google -->
+  <url>
+    <loc>https://sunrisecommunication.in/review</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
   <!-- Contact Us -->
   <url>
     <loc>https://sunrisecommunication.in/contact</loc>

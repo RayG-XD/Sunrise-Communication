@@ -163,5 +163,80 @@ export const TECHNICAL_GUIDES_DATA: Record<string, TechnicalGuideItem> = {
         answer: 'Sunrise Communication AMC includes 4 mandatory quarterly preventive maintenance visits per year plus unlimited breakdown call-outs.'
       }
     ]
+  },
+
+  'housing-society-agm-approval-toolkit': {
+    slug: 'housing-society-agm-approval-toolkit',
+    title: 'Housing Society AGM / SGM Approval Toolkit: CCTV & Intercom Tender Guide, Resolution Boilerplate & 3-Vendor Comparison',
+    heroSubtitle: 'A step-by-step statutory and technical guide for Society Secretaries, Chairmen, and Treasurers in Maharashtra to obtain smooth Managing Committee and AGM approval for security system upgrades.',
+    readTime: '8 min read',
+    publishedDate: '2026-10-11',
+    category: 'CCTV Surveillance',
+    metaTitle: 'Housing Society AGM CCTV & Intercom Approval Toolkit | Sunrise Communication',
+    metaDescription: 'Complete tender guide for housing societies in Maharashtra: Sinking Fund bye-laws, copy-paste AGM resolution text, 3-vendor technical evaluation matrix, and GST audit checklist.',
+    metaKeywords: 'Society AGM CCTV Approval, CHS SGM Intercom Resolution, Maharashtra Co-operative Societies Act CCTV Tender, 3 Vendor Quotation Matrix Society, Sinking Fund Security Upgrade Thane',
+    summary: 'Navigating Managing Committee approval and AGM voting for society security systems requires compliance with Maharashtra Co-operative Societies bye-laws, clear budget allocation from the Repair or Sinking Fund, and a transparent comparative evaluation.',
+    keyTakeaways: [
+      'Under Maharashtra Co-operative Societies Model Bye-Laws, major capital expenditures exceeding prescribed limits require General Body (AGM/SGM) approval and minimum 3 competitive quotations.',
+      'Societies can legally fund compound CCTV surveillance and intercom rewiring from the Sinking Fund or Major Repair Fund with proper general body resolution.',
+      'Always evaluate bids using a structured 3-vendor technical matrix (comparing conduit specifications, 24/7 surveillance hard drives, and Krone DP box terminations rather than just headline price).',
+      'Insist on an official GST Tax Invoice with statutory HSN/SAC codes and registered company bank transfer to satisfy statutory society audits.'
+    ],
+    sections: [
+      {
+        heading: '1. Maharashtra Co-operative Societies Bye-Laws & Tendering Process',
+        paragraphs: [
+          'Under the Model Bye-Laws for Cooperative Housing Societies in Maharashtra, the Managing Committee has the duty to maintain society property and ensure the physical security of members. When planning capital upgrades (such as installing compound CCTV surveillance or replacing an obsolete building intercom network), the committee should follow standard governance steps:',
+          '(1) Tabling the proposal in the monthly Managing Committee (MC) meeting to invite minimum three technical quotations. (2) Preparing an itemized comparative statement highlighting technical specifications and warranties. (3) Presenting the agenda item in the Annual General Body Meeting (AGM) or Special General Meeting (SGM) for formal member approval and fund allocation.'
+        ],
+        checklist: [
+          'Step 1: Conduct site survey with certified security integrator and finalize Bill of Quantities (BOQ)',
+          'Step 2: Collect minimum three comparative itemized quotations from registered vendors',
+          'Step 3: Include specific agenda item in the official AGM / SGM notice issued to all members',
+          'Step 4: Record passed resolution with sanction budget in official Managing Committee minutes book'
+        ]
+      },
+      {
+        heading: '2. Ready-to-Use AGM / SGM Resolution Boilerplate for Notice Boards',
+        paragraphs: [
+          'Managing Committee Secretaries can use the following standard draft resolution text when preparing the meeting agenda and minutes book:',
+          '"Resolved that the General Body hereby approves the proposal submitted by the Managing Committee for upgrading the Society compound CCTV surveillance system and building EPABX intercom cabling network. Further resolved that an expenditure not exceeding Rs. [Sanctioned Amount] is hereby approved to be disbursed from the Society Repair Fund / Sinking Fund. The Managing Committee (Secretary & Treasurer) is hereby authorized to award the work order to M/s Sunrise Communication - Sales and Services upon verification of technical compliance, statutory GST registration, and OEM manufacturer warranty terms."'
+        ]
+      },
+      {
+        heading: '3. The 3-Vendor Technical Evaluation Matrix',
+        paragraphs: [
+          'Societies often receive cut-rate quotes from local electricians who compromise on engineering standards. Use this comparison checklist to protect the society from future breakdown disputes:',
+          'A. Cable Protection: Sunrise specifies heavy ISI-certified rigid PVC conduit with saddle clamping every 1 meter. Cheap contractors use loose exposed wires tied to water pipes that perish in sunlight and get chewed by rodents. B. Hard Drive Reliability: Sunrise supplies Western Digital Purple or Seagate SkyHawk 24/7 surveillance drives. Cheap quotes sneak in refurbished desktop PC drives that crash in 6 months. C. Intercom Termination: Sunrise terminates multi-pair risers into moisture-sealed Krone DP boxes with gel crimps. Cheap electricians twist wires with PVC tape that oxidizes during monsoon.'
+        ]
+      },
+      {
+        heading: '4. Society Accounting & Handover Documentation Checklist',
+        paragraphs: [
+          'For smooth annual statutory society audit clearance, the Managing Committee must ensure the vendor delivers the following completion deliverables:',
+          'Official GST Tax Invoice clearly stating vendor GSTIN and HSN/SAC codes; stamped OEM warranty cards for NVR, cameras, and PBX; physical line schematic diagram showing cable route and camera numbering; and an administrative sign-off handover certificate.'
+        ],
+        checklist: [
+          'Tax Invoice with GSTIN & Statutory HSN Codes',
+          'OEM Warranty Certificates (1 to 3 Years)',
+          'Line Schematic Diagram & Camera Numbering Chart',
+          'Society Committee Completion Handover Certificate'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: 'Can a housing society use Sinking Fund for CCTV installation in Maharashtra?',
+        answer: 'Yes, with General Body (AGM/SGM) resolution approval, societies in Maharashtra can allocate funds from the Major Repair Fund or Sinking Fund for essential capital security infrastructure.'
+      },
+      {
+        question: 'How many quotations are mandatory before awarding a society security contract?',
+        answer: 'Model bye-laws recommend obtaining a minimum of three competitive quotations to ensure transparency and accountability for housing society audit compliance.'
+      },
+      {
+        question: 'Does Sunrise Communication provide formal itemized quotations for committee meetings?',
+        answer: 'Yes! Sunrise Communication provides comprehensive, itemized technical BOQ quotations with brand models, conduit specifications, and warranty terms ready for presentation in Managing Committee meetings.'
+      }
+    ]
   }
 };

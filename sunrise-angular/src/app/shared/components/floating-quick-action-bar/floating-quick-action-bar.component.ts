@@ -53,6 +53,10 @@ export class FloatingQuickActionBarComponent {
       message = 'Hi Sunrise Communication, I would like to inquire about Biometric Attendance & Access Control systems.';
     } else if (url.includes('structured-networking-cabling')) {
       message = 'Hi Sunrise Communication, I would like to inquire about Structured Network and Telecom Cabling.';
+    } else if (url.includes('housing-society-agm-approval-toolkit')) {
+      message = 'Hi Sunrise Communication, our Managing Committee is preparing an AGM/SGM tender and would like a formal technical quotation.';
+    } else if (url.includes('review')) {
+      message = 'Hi Sunrise Communication, I would like to share customer feedback and connect with your technical support team.';
     }
 
     return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;

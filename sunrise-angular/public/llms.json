@@ -123,8 +123,16 @@
     {
       "title": "Housing Society CCTV & EPABX AMC Checklist",
       "canonicalUrl": "https://sunrisecommunication.in/guides/cctv-amc-checklist-for-societies"
+    },
+    {
+      "title": "Housing Society AGM / SGM Approval & Tender Toolkit",
+      "canonicalUrl": "https://sunrisecommunication.in/guides/housing-society-agm-approval-toolkit"
     }
   ],
+  "reviewBooster": {
+    "canonicalUrl": "https://sunrisecommunication.in/review",
+    "googleMapsWriteReview": "https://search.google.com/local/writereview?placeid=ChIJ3cWKTgW55zsR7LNNnnxIBGQ"
+  },
   "leadGenerationWebhook": {
     "protocol": "WhatsApp URI Intent",
     "endpoint": "https://wa.me/919323848622?text={encoded_message}"

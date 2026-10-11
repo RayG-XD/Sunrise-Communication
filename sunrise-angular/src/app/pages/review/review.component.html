@@ -1,0 +1,130 @@
+<app-page-title title="Rate & Review Sunrise Communication" breadcrumb="Google Review" bgImage="assets/images/background/about-banner.jpg"></app-page-title>
+
+<section class="review-page-section py-5 bg-light">
+  <div class="auto-container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10 col-sm-12">
+        
+        <!-- Main Review Booster Card -->
+        <div class="card border-0 shadow-lg rounded-4 p-4 p-md-5 text-center bg-white mb-4" data-aos="fade-up">
+          
+          <!-- Reputation Pill -->
+          <div class="mb-3">
+            <span class="badge bg-danger-subtle text-danger px-3 py-2 rounded-pill fw-bold fs-6">
+              <i class="fa fa-google me-1"></i> VERIFIED GOOGLE BUSINESS PROFILE
+            </span>
+          </div>
+
+          <!-- Gold Stars -->
+          <div class="stars-gold text-warning fs-2 mb-2">
+            ⭐⭐⭐⭐⭐
+          </div>
+          <h1 class="h2 fw-bold text-dark mb-2">5.0 / 5.0 Stars (93+ Reviews)</h1>
+          <p class="text-muted fs-6 mb-4 max-w-600 mx-auto">
+            Thank you for trusting Sunrise Communication for your CCTV, Intercom, EPABX, and Security Systems. Your feedback helps other housing societies and businesses in Thane & Mumbai find reliable engineering services!
+          </p>
+
+          <!-- Primary 1-Tap Google Review Action Button -->
+          <div class="d-grid gap-3 max-w-500 mx-auto mb-4">
+            <a 
+              [href]="googleReviewUrl" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn btn-danger btn-lg py-3 fw-bold fs-5 rounded-pill shadow-sm d-flex align-items-center justify-content-center gap-2"
+            >
+              <i class="fa fa-google fs-4"></i> Leave a 5-Star Review on Google Maps &rsaquo;
+            </a>
+
+            <div class="d-flex gap-2 justify-content-center flex-wrap">
+              <a [href]="googleMapsUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm rounded-pill px-3 py-2">
+                <i class="fa fa-map-marker text-danger me-1"></i> View Our Profile on Google Maps
+              </a>
+              <button type="button" class="btn btn-outline-primary btn-sm rounded-pill px-3 py-2" (click)="copyReviewLink()">
+                <i class="fa fa-link me-1"></i> {{ isCopied() ? 'Link Copied!' : 'Copy Review Link' }}
+              </button>
+            </div>
+          </div>
+
+          <!-- QR Code Display for Field Technicians -->
+          <div class="qr-booster-box p-4 bg-light rounded-4 border mt-3 max-w-500 mx-auto">
+            <div class="d-flex align-items-center justify-content-center gap-3 flex-wrap">
+              <div class="qr-visual bg-white p-2 rounded-3 border shadow-sm">
+                <!-- Google Review QR Code via verified Google API chart -->
+                <img 
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https%3A%2F%2Fsearch.google.com%2Flocal%2Fwritereview%3Fplaceid%3DChIJ3cWKTgW55zsR7LNNnnxIBGQ" 
+                  alt="Scan to Review Sunrise Communication on Google Maps" 
+                  width="130" 
+                  height="130" 
+                  loading="lazy"
+                  class="d-block"
+                />
+              </div>
+              <div class="text-start">
+                <strong class="d-block text-dark fs-6 mb-1">
+                  <i class="fa fa-qrcode text-danger me-1"></i> Scan with Smartphone
+                </strong>
+                <p class="text-muted small mb-2">
+                  Open your camera and point it here to instantly open our Google Review form.
+                </p>
+                <span class="badge bg-white text-secondary border">For Managing Committees & Residents</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Private Suggestions / Help Desk Fallback Card -->
+        <div class="card border rounded-4 p-4 bg-white shadow-sm" data-aos="fade-up" data-aos-delay="100">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="p-3 bg-secondary-subtle text-secondary rounded-circle fs-4 d-flex align-items-center justify-content-center" style="width: 48px; height: 48px;">
+              <i class="fa fa-commenting-o"></i>
+            </div>
+            <div>
+              <h3 class="h5 fw-bold text-dark mb-0">Have a Service Request or Private Suggestion?</h3>
+              <small class="text-muted">Speak directly with our senior management team in Charai, Thane West.</small>
+            </div>
+          </div>
+
+          @if (feedbackSent()) {
+            <div class="alert alert-success d-flex align-items-center gap-2 rounded-3 mb-0">
+              <i class="fa fa-check-circle fs-4 text-success"></i>
+              <div>
+                <strong>Thank you!</strong> Your message has been received by our technical management team. We will attend to your request promptly.
+              </div>
+            </div>
+          } @else {
+            <form [formGroup]="feedbackForm" (ngSubmit)="onSubmitFeedback()">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold text-dark">Your Name *</label>
+                  <input type="text" formControlName="name" class="form-control" placeholder="e.g. Rajesh Sharma" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold text-dark">Mobile Number *</label>
+                  <input type="tel" formControlName="phone" class="form-control" placeholder="10-digit mobile number" />
+                </div>
+                <div class="col-12">
+                  <label class="form-label small fw-semibold text-dark">Society or Company Name (Optional)</label>
+                  <input type="text" formControlName="societyOrOrg" class="form-control" placeholder="e.g. Prem Kunj CHS, Charai" />
+                </div>
+                <div class="col-12">
+                  <label class="form-label small fw-semibold text-dark">Message / Suggestion *</label>
+                  <textarea formControlName="feedback" class="form-control" rows="3" placeholder="Tell us how we can serve you better..."></textarea>
+                </div>
+                <div class="col-12 d-flex justify-content-between align-items-center flex-wrap gap-2 pt-2">
+                  <button type="submit" [disabled]="isSubmittingFeedback()" class="btn btn-primary fw-bold px-4 py-2 rounded-pill">
+                    {{ isSubmittingFeedback() ? 'Sending...' : 'Send Private Message' }}
+                  </button>
+                  <a [href]="siteData.social.whatsapp" target="_blank" rel="noopener noreferrer" class="btn btn-outline-success fw-bold px-3 py-2 rounded-pill small">
+                    <i class="fa fa-whatsapp"></i> Chat on WhatsApp
+                  </a>
+                </div>
+              </div>
+            </form>
+          }
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

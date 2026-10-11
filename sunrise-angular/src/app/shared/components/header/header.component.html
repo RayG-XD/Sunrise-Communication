@@ -117,6 +117,8 @@
               </ul>
             </li>
             <li routerLinkActive="current"><a routerLink="/guides" (click)="closeAllMenus()">Guides</a></li>
+            <li routerLinkActive="current"><a routerLink="/guides/housing-society-agm-approval-toolkit" (click)="closeAllMenus()">AGM Tender Toolkit</a></li>
+            <li routerLinkActive="current"><a routerLink="/review" (click)="closeAllMenus()">Google Reviews</a></li>
             <li routerLinkActive="current"><a routerLink="/contact" (click)="closeAllMenus()">Contact Us</a></li>
           </ul>
         </div>
@@ -165,6 +167,14 @@
                 <li><span class="icon fa fa-envelope"></span><span>{{ siteData.contact.email }}</span></li>
                 <li><span class="icon fa fa-clock-o"></span><span>{{ siteData.contact.workingHours }}</span></li>
               </ul>
+            </div>
+            <div class="sidebar-action-buttons my-3">
+              <a routerLink="/review" class="btn btn-outline-danger btn-sm w-100 mb-2 fw-semibold" (click)="toggleSidebar()">
+                <i class="fa fa-google me-1"></i> Review Us on Google (5.0 ⭐)
+              </a>
+              <a routerLink="/guides/housing-society-agm-approval-toolkit" class="btn btn-outline-secondary btn-sm w-100 mb-2 fw-semibold" (click)="toggleSidebar()">
+                <i class="fa fa-file-text-o me-1"></i> Society AGM Tender Toolkit
+              </a>
             </div>
             <!-- Social Box -->
             <ul class="social-box">

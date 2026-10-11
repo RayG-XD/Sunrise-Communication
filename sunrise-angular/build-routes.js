@@ -38,6 +38,8 @@ const routes = [
   'guides/housing-society-cctv-installation-guide',
   'guides/society-intercom-copper-vs-ip-pbx-guide',
   'guides/cctv-amc-checklist-for-societies',
+  'guides/housing-society-agm-approval-toolkit',
+  'review',
   'contact',
   '404'
 ];

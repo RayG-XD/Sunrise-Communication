@@ -40,10 +40,22 @@
                 <a [href]="siteData.gbp.mapsUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">
                   <i class="fa fa-map-marker"></i> Get Directions
                 </a>
-                <a [href]="siteData.gbp.reviewUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline-danger btn-sm">
+                <a routerLink="/review" class="btn btn-outline-danger btn-sm">
                   <i class="fa fa-google"></i> Review Us
                 </a>
               </div>
+            </div>
+
+            <!-- Society Audit & Accounting Compliance Badge -->
+            <div class="society-audit-compliance-card mb-3 p-3 bg-white rounded border shadow-sm">
+              <span class="badge bg-danger-subtle text-danger mb-2 small fw-bold">
+                <i class="fa fa-shield me-1"></i> SOCIETY AUDIT COMPLIANT
+              </span>
+              <ul class="list-unstyled mb-0 small text-muted">
+                <li class="mb-1"><i class="fa fa-check text-success me-1"></i> <strong>GST Registered:</strong> Official Tax Invoices & HSN Codes</li>
+                <li class="mb-1"><i class="fa fa-check text-success me-1"></i> <strong>MSME Certified:</strong> Udyam recognized enterprise</li>
+                <li><i class="fa fa-check text-success me-1"></i> <strong>Bank RTGS/NEFT:</strong> In entity name for society audit clearance</li>
+              </ul>
             </div>
 
             <a href="#contact-forms" class="btn btn-danger w-100 fw-bold py-2 mb-3 d-flex align-items-center justify-content-center gap-2 shadow-sm">
