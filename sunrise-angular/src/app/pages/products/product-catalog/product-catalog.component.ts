@@ -154,6 +154,11 @@ export class ProductCatalogComponent implements OnInit, OnDestroy {
     return result;
   });
 
+  // Featured high-demand products for landing overview
+  featuredProducts = computed<Product[]>(() => {
+    return this.productService.products().slice(0, 4);
+  });
+
   // Active Category Name computed signal
   activeCategoryName = computed(() => {
     const activeCats = this.selectedCategories();
@@ -281,7 +286,7 @@ export class ProductCatalogComponent implements OnInit, OnDestroy {
       return 'fa fa-phone';
     }
     if (s.includes('biometric') || s.includes('access') || s.includes('security') || s.includes('lock')) {
-      return 'fa fa-id-card-o';
+      return 'fa fa-lock';
     }
     if (s.includes('cable') || s.includes('network') || s.includes('wire')) {
       return 'fa fa-sitemap';

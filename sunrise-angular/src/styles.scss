@@ -19,6 +19,14 @@ body {
   overflow-x: hidden;
 }
 
+/* Guarantee AOS elements are never stuck invisible on route transition or quick scrolling */
+[data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
 /* Mobile Clearance for Fixed Quick Action Bar */
 @media (max-width: 991px) {
   body {
@@ -582,3 +590,422 @@ body.mobile-menu-visible {
     transform: translateY(-3px);
   }
 }
+
+/* =========================================================
+   GLOBAL MODERN UI UTILITIES & BOOTSTRAP 5 SHIMS
+   ========================================================= */
+
+/* Permanently eliminate rotated legacy template polygons */
+.color-layer-one,
+.color-layer-two,
+.color-layer-three,
+.pattern-layer {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Subtle Modern Badges */
+.bg-danger-subtle {
+  background-color: rgba(223, 3, 3, 0.1) !important;
+  color: #df0303 !important;
+  border: 1px solid rgba(223, 3, 3, 0.2) !important;
+}
+
+.bg-primary-subtle {
+  background-color: rgba(1, 12, 58, 0.08) !important;
+  color: #010c3a !important;
+  border: 1px solid rgba(1, 12, 58, 0.16) !important;
+}
+
+.bg-success-subtle {
+  background-color: rgba(22, 163, 74, 0.1) !important;
+  color: #15803d !important;
+  border: 1px solid rgba(22, 163, 74, 0.2) !important;
+}
+
+.bg-warning-subtle {
+  background-color: rgba(245, 158, 11, 0.12) !important;
+  color: #b45309 !important;
+  border: 1px solid rgba(245, 158, 11, 0.22) !important;
+}
+
+.bg-info-subtle {
+  background-color: rgba(6, 182, 212, 0.1) !important;
+  color: #0e7490 !important;
+  border: 1px solid rgba(6, 182, 212, 0.2) !important;
+}
+
+/* Rounded Utilities */
+.rounded-4 {
+  border-radius: 16px !important;
+}
+
+.rounded-3 {
+  border-radius: 12px !important;
+}
+
+.rounded-2 {
+  border-radius: 8px !important;
+}
+
+/* Enhanced Elevation & Shadows */
+.shadow-sm {
+  box-shadow: 0 2px 8px rgba(1, 12, 58, 0.05) !important;
+}
+
+.shadow-md {
+  box-shadow: 0 8px 24px rgba(1, 12, 58, 0.08) !important;
+}
+
+.shadow-lg {
+  box-shadow: 0 16px 36px rgba(1, 12, 58, 0.12) !important;
+}
+
+/* Micro-interaction Hover Lift */
+.hover-lift {
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+
+  &:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 12px 28px rgba(1, 12, 58, 0.09) !important;
+  }
+}
+
+/* Modern Form Controls Polish */
+.form-control,
+.form-select {
+  border-radius: 10px !important;
+  border: 1px solid #cbd5e1 !important;
+  padding: 10px 14px !important;
+  font-size: 14px !important;
+  color: #1e293b !important;
+  transition: all 0.2s ease !important;
+
+  &:focus {
+    border-color: #df0303 !important;
+    box-shadow: 0 0 0 3px rgba(223, 3, 3, 0.12) !important;
+    outline: none !important;
+  }
+}
+
+.form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 0.75rem center !important;
+  background-size: 16px 12px !important;
+  padding-right: 2.25rem !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+}
+
+/* Modern Range Slider Controls */
+.form-range,
+.custom-slider {
+  width: 100% !important;
+  height: 8px !important;
+  padding: 0 !important;
+  background: #e2e8f0 !important;
+  border-radius: 4px !important;
+  outline: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  cursor: pointer !important;
+
+  &::-webkit-slider-runnable-track {
+    width: 100% !important;
+    height: 8px !important;
+    background: #e2e8f0 !important;
+    border-radius: 4px !important;
+    border: none !important;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    width: 22px !important;
+    height: 22px !important;
+    border-radius: 50% !important;
+    background: #df0303 !important;
+    cursor: pointer !important;
+    border: 3px solid #ffffff !important;
+    box-shadow: 0 2px 8px rgba(223, 3, 3, 0.4) !important;
+    margin-top: -7px !important;
+    transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+
+    &:hover {
+      transform: scale(1.15) !important;
+      box-shadow: 0 4px 12px rgba(223, 3, 3, 0.5) !important;
+    }
+  }
+
+  &::-moz-range-track {
+    width: 100% !important;
+    height: 8px !important;
+    background: #e2e8f0 !important;
+    border-radius: 4px !important;
+    border: none !important;
+  }
+
+  &::-moz-range-thumb {
+    width: 22px !important;
+    height: 22px !important;
+    border-radius: 50% !important;
+    background: #df0303 !important;
+    cursor: pointer !important;
+    border: 3px solid #ffffff !important;
+    box-shadow: 0 2px 8px rgba(223, 3, 3, 0.4) !important;
+    transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+
+    &:hover {
+      transform: scale(1.15) !important;
+      box-shadow: 0 4px 12px rgba(223, 3, 3, 0.5) !important;
+    }
+  }
+}
+
+/* Universal Page Banner Polish (For components not using app-page-title) */
+.service-cluster-banner,
+.estimator-banner,
+.cctv-calc-banner,
+.product-detail-banner,
+.local-hero-banner,
+.guide-hero-banner {
+  position: relative !important;
+  background: linear-gradient(135deg, #010c3a 0%, #06154d 60%, #0a1f68 100%) !important;
+  padding: 64px 0 48px !important;
+  color: #ffffff !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  overflow: hidden !important;
+
+  &::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px) !important;
+    background-size: 32px 32px !important;
+    opacity: 0.7 !important;
+    pointer-events: none !important;
+  }
+
+  &::after {
+    content: '' !important;
+    position: absolute !important;
+    left: -100px !important;
+    top: -100px !important;
+    width: 380px !important;
+    height: 380px !important;
+    border-radius: 50% !important;
+    background: radial-gradient(circle, rgba(223, 3, 3, 0.28) 0%, rgba(223, 3, 3, 0) 70%) !important;
+    filter: blur(40px) !important;
+    pointer-events: none !important;
+  }
+
+  .auto-container {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  h1 {
+    font-size: clamp(1.6rem, 3.2vw, 2.35rem) !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin-bottom: 12px !important;
+    letter-spacing: -0.3px !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35) !important;
+  }
+
+  .bread-crumb {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 6px 14px !important;
+    background: rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 20px !important;
+    backdrop-filter: blur(6px) !important;
+    list-style: none !important;
+    margin: 0 !important;
+
+    li {
+      color: rgba(255, 255, 255, 0.75) !important;
+      font-size: 13px !important;
+      font-weight: 500 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+
+      a {
+        color: rgba(255, 255, 255, 0.9) !important;
+        text-decoration: none !important;
+        transition: color 0.2s ease !important;
+
+        &:hover {
+          color: #ff4757 !important;
+        }
+      }
+
+      &.active {
+        color: #ff6b81 !important;
+        font-weight: 600 !important;
+      }
+
+      &:not(:last-child)::after {
+        content: '›' !important;
+        color: rgba(255, 255, 255, 0.4) !important;
+        font-size: 14px !important;
+        margin-left: 2px !important;
+      }
+    }
+  }
+}
+
+/* =========================================================
+   Bootstrap 5 Margin, Padding & Flex Utilities Compatibility
+   (Project template uses Bootstrap 4 base which lacks me-*, ms-*, etc.)
+   ========================================================= */
+.me-0 { margin-right: 0 !important; }
+.me-1 { margin-right: 0.25rem !important; }
+.me-2 { margin-right: 0.5rem !important; }
+.me-3 { margin-right: 1rem !important; }
+.me-4 { margin-right: 1.5rem !important; }
+.me-5 { margin-right: 3rem !important; }
+.me-auto { margin-right: auto !important; }
+
+.ms-0 { margin-left: 0 !important; }
+.ms-1 { margin-left: 0.25rem !important; }
+.ms-2 { margin-left: 0.5rem !important; }
+.ms-3 { margin-left: 1rem !important; }
+.ms-4 { margin-left: 1.5rem !important; }
+.ms-5 { margin-left: 3rem !important; }
+.ms-auto { margin-left: auto !important; }
+
+.pe-0 { padding-right: 0 !important; }
+.pe-1 { padding-right: 0.25rem !important; }
+.pe-2 { padding-right: 0.5rem !important; }
+.pe-3 { padding-right: 1rem !important; }
+.pe-4 { padding-right: 1.5rem !important; }
+.pe-5 { padding-right: 3rem !important; }
+
+.ps-0 { padding-left: 0 !important; }
+.ps-1 { padding-left: 0.25rem !important; }
+.ps-2 { padding-left: 0.5rem !important; }
+.ps-3 { padding-left: 1rem !important; }
+.ps-4 { padding-left: 1.5rem !important; }
+.ps-5 { padding-left: 3rem !important; }
+
+.gap-1 { gap: 0.25rem !important; }
+.gap-2 { gap: 0.5rem !important; }
+.gap-3 { gap: 1rem !important; }
+.gap-4 { gap: 1.5rem !important; }
+.gap-5 { gap: 3rem !important; }
+
+.rounded-4 { border-radius: 16px !important; }
+.rounded-3 { border-radius: 12px !important; }
+.rounded-2 { border-radius: 8px !important; }
+.rounded-pill { border-radius: 50rem !important; }
+.transition-all { transition: all 0.25s ease-in-out !important; }
+
+/* Typography & Font Size Utilities (Bootstrap 5 Shims for Bootstrap 4 compatibility) */
+.fs-1 { font-size: 2.25rem !important; }
+.fs-2 { font-size: 1.85rem !important; }
+.fs-3 { font-size: 1.5rem !important; }
+.fs-4 { font-size: 1.25rem !important; }
+.fs-5 { font-size: 1.1rem !important; }
+.fs-6 { font-size: 0.95rem !important; }
+
+/* Font Weight Utilities */
+.fw-bold { font-weight: 700 !important; }
+.fw-semibold { font-weight: 600 !important; }
+.fw-medium { font-weight: 500 !important; }
+.fw-normal { font-weight: 400 !important; }
+.fw-light { font-weight: 300 !important; }
+
+/* Subtle Background Color Utilities */
+.bg-danger-subtle { background-color: #fee2e2 !important; color: #991b1b !important; }
+.bg-primary-subtle { background-color: #e0e7ff !important; color: #1e40af !important; }
+.bg-success-subtle { background-color: #dcfce7 !important; color: #166534 !important; }
+.bg-warning-subtle { background-color: #fef3c7 !important; color: #92400e !important; }
+.bg-info-subtle { background-color: #e0f2fe !important; color: #075985 !important; }
+.bg-light-subtle { background-color: #f1f5f9 !important; color: #334155 !important; }
+
+/* Font Awesome 4.3 Shims for missing icon classes */
+.fa-industry:before { content: "\f085" !important; } /* Industrial gears/cogs */
+.fa-id-badge:before, .fa-id-card:before, .fa-id-card-o:before { content: "\f007" !important; } /* fa-user */
+.fa-shopping-bag:before { content: "\f07a" !important; } /* fa-shopping-cart */
+.fa-fingerprint:before { content: "\f023" !important; } /* fa-lock */
+.fa-stethoscope:before { content: "\f0f1" !important; } /* fa-medkit */
+.fa-sliders:before { content: "\f1de" !important; }
+.fa-tachometer:before { content: "\f0e4" !important; } /* fa-dashboard */
+.fa-user-circle:before, .fa-user-circle-o:before { content: "\f007" !important; } /* fa-user */
+.fa-award:before { content: "\f091" !important; } /* fa-trophy */
+
+/* Corporate Brand Text Alignment */
+.text-primary { color: #010c3a !important; }
+a.text-primary:hover { color: #df0303 !important; }
+.fa-certificate:before { content: "\f0a3" !important; } /* fa-certificate */
+.fa-hdd-o:before, .fa-hdd:before { content: "\f0a0" !important; } /* fa-hdd-o */
+.fa-shield-halved:before, .fa-shield-alt:before { content: "\f132" !important; } /* fa-shield */
+
+/* Brand Color Palette Alignment (Replaces generic Bootstrap 4/5 blues with Crimson & Navy) */
+.btn-primary {
+  background-color: #df0303 !important;
+  border-color: #df0303 !important;
+  color: #ffffff !important;
+  transition: all 0.25s ease !important;
+
+  &:hover, &:focus, &:active {
+    background-color: #b80202 !important;
+    border-color: #b80202 !important;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(223, 3, 3, 0.25) !important;
+  }
+}
+
+.btn-outline-primary {
+  color: #df0303 !important;
+  border-color: #df0303 !important;
+  background-color: transparent !important;
+  transition: all 0.25s ease !important;
+
+  &:hover, &:focus, &:active {
+    background-color: #df0303 !important;
+    border-color: #df0303 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(223, 3, 3, 0.2) !important;
+  }
+}
+
+.btn-outline-danger {
+  color: #df0303 !important;
+  border-color: #df0303 !important;
+
+  &:hover, &:focus, &:active {
+    background-color: #df0303 !important;
+    border-color: #df0303 !important;
+    color: #ffffff !important;
+  }
+}
+
+/* Subtle Card Hover Elevation */
+.hover-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+  &:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 12px 28px rgba(1, 12, 58, 0.08) !important;
+  }
+}
+
+/* Form focus ring brand alignment */
+.form-control:focus, .form-select:focus {
+  border-color: #df0303 !important;
+  box-shadow: 0 0 0 0.2rem rgba(223, 3, 3, 0.15) !important;
+}
+
+
+

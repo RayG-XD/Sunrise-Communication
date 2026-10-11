@@ -14,7 +14,8 @@ import emailjs from '@emailjs/browser';
   selector: 'app-contact',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, RouterLink, PageTitleComponent, SocietyAuditFormComponent, QuickCallbackComponent],
-  templateUrl: './contact.component.html'
+  templateUrl: './contact.component.html',
+  styleUrl: './contact.component.scss'
 })
 export class ContactComponent {
   private fb = inject(FormBuilder);

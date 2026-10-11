@@ -8,6 +8,7 @@ import { SITE_DATA } from '../../core/constants/site-data';
   standalone: true,
   imports: [PageTitleComponent],
   templateUrl: './about.component.html',
+  styleUrl: './about.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AboutComponent implements OnInit, OnDestroy {

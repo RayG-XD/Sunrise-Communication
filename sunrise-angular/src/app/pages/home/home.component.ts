@@ -9,6 +9,7 @@ import { SITE_DATA } from '../../core/constants/site-data';
   standalone: true,
   imports: [RouterLink, RequirementEstimatorComponent, QuickCallbackComponent],
   templateUrl: './home.component.html',
+  styleUrl: './home.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomeComponent {

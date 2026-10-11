@@ -4,20 +4,21 @@
 
     <swiper-slide>
       <div class="slide" style="background-image: url('assets/images/main-slider/slider_1.jpg');">
-        <div class="color-layer-one"></div>
-        <div class="color-layer-two"></div>
-        <div class="color-layer-three"></div>
+        <div class="slide-dark-overlay"></div>
+        <div class="slide-mesh-glow"></div>
         <div class="auto-container">
           <div class="content-boxed">
             <div class="inner-box">
-              <div class="title" data-aos="fade-up" data-aos-delay="0">Sunrise Communication</div>
+              <div class="title" data-aos="fade-up" data-aos-delay="0">
+                <span class="title-pill"><span class="pill-dot"></span> Since 1999 • Thane & Mumbai</span>
+              </div>
               <h1 data-aos="fade-up" data-aos-delay="200">CCTV, EPABX & Security Systems in Thane & Mumbai</h1>
               <div class="hero-trust-proof-badge" data-aos="fade-up" data-aos-delay="300">
-                <span>⭐ 5.0 Rating (93+ Reviews)</span> • <span>Est. 1999 (25+ Years Exp)</span>
+                <span>⭐ 5.0 Rating (93+ Reviews)</span> <span class="badge-sep">•</span> <span>25+ Years Experience</span>
               </div>
               <div class="btns-box" data-aos="fade-up" data-aos-delay="400">
-                <a routerLink="/about" class="theme-btn btn-style-two"><span class="txt">Read More <i class="fa fa-arrow-right ms-1"></i></span></a>
-                <a routerLink="/contact" class="theme-btn btn-style-three"><span class="txt">Contact Now <i class="fa fa-arrow-right ms-1"></i></span></a>
+                <a routerLink="/services" class="theme-btn btn-style-two"><span class="txt">Explore Solutions <i class="fa fa-arrow-right ms-1"></i></span></a>
+                <a routerLink="/contact" class="theme-btn btn-style-three"><span class="txt">Book Free Site Survey <i class="fa fa-calendar-check-o ms-1"></i></span></a>
               </div>
             </div>
           </div>
@@ -27,20 +28,21 @@
 
     <swiper-slide>
       <div class="slide" style="background-image: url('assets/images/main-slider/slider_2.jpg');">
-        <div class="color-layer-one"></div>
-        <div class="color-layer-two"></div>
-        <div class="color-layer-three"></div>
+        <div class="slide-dark-overlay"></div>
+        <div class="slide-mesh-glow"></div>
         <div class="auto-container">
           <div class="content-boxed">
             <div class="inner-box">
-              <div class="title" data-aos="fade-up" data-aos-delay="0">Sunrise Communication</div>
+              <div class="title" data-aos="fade-up" data-aos-delay="0">
+                <span class="title-pill"><span class="pill-dot"></span> Certified Integrator</span>
+              </div>
               <h2 data-aos="fade-up" data-aos-delay="200" class="hero-slide-heading">Turnkey Surveillance & Society Intercoms</h2>
               <div class="hero-trust-proof-badge" data-aos="fade-up" data-aos-delay="300">
-                <span>⭐ 5.0 Rating (93+ Reviews)</span> • <span>24/7 Breakdown Dispatch</span>
+                <span>⭐ 5.0 Rating (93+ Reviews)</span> <span class="badge-sep">•</span> <span>24/7 Breakdown Dispatch</span>
               </div>
               <div class="btns-box" data-aos="fade-up" data-aos-delay="400">
-                <a routerLink="/about" class="theme-btn btn-style-two"><span class="txt">Read More <i class="fa fa-arrow-right ms-1"></i></span></a>
-                <a routerLink="/contact" class="theme-btn btn-style-three"><span class="txt">Contact Now <i class="fa fa-arrow-right ms-1"></i></span></a>
+                <a routerLink="/services/security-system-amc-contracts" class="theme-btn btn-style-two"><span class="txt">Explore AMC Hub <i class="fa fa-shield ms-1"></i></span></a>
+                <a [href]="siteData.social.whatsapp" target="_blank" rel="noopener noreferrer" class="theme-btn btn-style-three"><span class="txt">WhatsApp Chat <i class="fa fa-whatsapp ms-1"></i></span></a>
               </div>
             </div>
           </div>
@@ -53,7 +55,7 @@
 <!-- End Main Hero Section -->
 
 <!-- Core Services Grid Section -->
-<section class="services-section" style="background-image: url('assets/images/background/pattern-2.png')">
+<section class="services-section">
   <div class="auto-container">
 
     <!-- Upper Section: 4 Core Services -->
@@ -202,101 +204,109 @@
       </p>
     </div>
 
-    <!-- Brand Cards Grid -->
-    <div class="row g-3 row-cols-2 row-cols-md-4">
+    <!-- Brand Cards Grid (Symmetrical 4x2 Responsive Grid) -->
+    <div class="row g-3">
       
       <!-- Brand 1: CP Plus -->
-      <div class="col" data-aos="fade-up" data-aos-delay="50">
+      <div class="col-xl-3 col-lg-3 col-md-6 col-6" data-aos="fade-up" data-aos-delay="50">
         <a routerLink="/products" class="text-decoration-none">
-          <div class="p-3 bg-light rounded-4 border text-center h-100 transition-all hover-lift">
-            <span class="badge bg-danger text-white px-2 py-1 rounded-pill small fw-bold mb-2">GOLD INTEGRATOR</span>
-            <h4 class="h6 fw-bold text-dark mb-1">CP PLUS</h4>
-            <small class="text-muted d-block mb-2">ColorVu IP & 4K Surveillance</small>
-            <span class="text-danger small fw-semibold">View Products &rsaquo;</span>
+          <div class="oem-partner-card">
+            <div class="oem-icon-circle"><i class="fa fa-video-camera"></i></div>
+            <span class="oem-badge badge-gold">GOLD INTEGRATOR</span>
+            <h4 class="oem-title">CP PLUS</h4>
+            <p class="oem-desc">ColorVu IP & 4K Surveillance</p>
+            <span class="oem-link">View Products <i class="fa fa-angle-right"></i></span>
           </div>
         </a>
       </div>
 
       <!-- Brand 2: Hikvision -->
-      <div class="col" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-xl-3 col-lg-3 col-md-6 col-6" data-aos="fade-up" data-aos-delay="100">
         <a routerLink="/products" class="text-decoration-none">
-          <div class="p-3 bg-light rounded-4 border text-center h-100 transition-all hover-lift">
-            <span class="badge bg-danger text-white px-2 py-1 rounded-pill small fw-bold mb-2">AUTHORIZED</span>
-            <h4 class="h6 fw-bold text-dark mb-1">HIKVISION</h4>
-            <small class="text-muted d-block mb-2">AcuSense AI & DarkFighter</small>
-            <span class="text-danger small fw-semibold">View Products &rsaquo;</span>
+          <div class="oem-partner-card">
+            <div class="oem-icon-circle"><i class="fa fa-eye"></i></div>
+            <span class="oem-badge badge-auth">AUTHORIZED</span>
+            <h4 class="oem-title">HIKVISION</h4>
+            <p class="oem-desc">AcuSense AI & DarkFighter</p>
+            <span class="oem-link">View Products <i class="fa fa-angle-right"></i></span>
           </div>
         </a>
       </div>
 
       <!-- Brand 3: Matrix Comsec -->
-      <div class="col" data-aos="fade-up" data-aos-delay="150">
+      <div class="col-xl-3 col-lg-3 col-md-6 col-6" data-aos="fade-up" data-aos-delay="150">
         <a routerLink="/products" class="text-decoration-none">
-          <div class="p-3 bg-light rounded-4 border text-center h-100 transition-all hover-lift">
-            <span class="badge bg-primary text-white px-2 py-1 rounded-pill small fw-bold mb-2">TELECOM PARTNER</span>
-            <h4 class="h6 fw-bold text-dark mb-1">MATRIX COMSEC</h4>
-            <small class="text-muted d-block mb-2">Hybrid IP-PBX & EPABX</small>
-            <span class="text-danger small fw-semibold">View Products &rsaquo;</span>
+          <div class="oem-partner-card">
+            <div class="oem-icon-circle"><i class="fa fa-phone"></i></div>
+            <span class="oem-badge badge-telecom">TELECOM PARTNER</span>
+            <h4 class="oem-title">MATRIX COMSEC</h4>
+            <p class="oem-desc">Hybrid IP-PBX & EPABX</p>
+            <span class="oem-link">View Products <i class="fa fa-angle-right"></i></span>
           </div>
         </a>
       </div>
 
       <!-- Brand 4: eSSL -->
-      <div class="col" data-aos="fade-up" data-aos-delay="200">
+      <div class="col-xl-3 col-lg-3 col-md-6 col-6" data-aos="fade-up" data-aos-delay="200">
         <a routerLink="/products" class="text-decoration-none">
-          <div class="p-3 bg-light rounded-4 border text-center h-100 transition-all hover-lift">
-            <span class="badge bg-success text-white px-2 py-1 rounded-pill small fw-bold mb-2">ACCESS CONTROL</span>
-            <h4 class="h6 fw-bold text-dark mb-1">eSSL SECURITY</h4>
-            <small class="text-muted d-block mb-2">AI Face & Biometrics</small>
-            <span class="text-danger small fw-semibold">View Products &rsaquo;</span>
+          <div class="oem-partner-card">
+            <div class="oem-icon-circle"><i class="fa fa-lock"></i></div>
+            <span class="oem-badge badge-access">ACCESS CONTROL</span>
+            <h4 class="oem-title">eSSL SECURITY</h4>
+            <p class="oem-desc">AI Face & Biometrics</p>
+            <span class="oem-link">View Products <i class="fa fa-angle-right"></i></span>
           </div>
         </a>
       </div>
 
       <!-- Brand 5: Dahua -->
-      <div class="col" data-aos="fade-up" data-aos-delay="250">
+      <div class="col-xl-3 col-lg-3 col-md-6 col-6" data-aos="fade-up" data-aos-delay="250">
         <a routerLink="/products" class="text-decoration-none">
-          <div class="p-3 bg-light rounded-4 border text-center h-100 transition-all hover-lift">
-            <span class="badge bg-dark text-white px-2 py-1 rounded-pill small fw-bold mb-2">SURVEILLANCE</span>
-            <h4 class="h6 fw-bold text-dark mb-1">DAHUA</h4>
-            <small class="text-muted d-block mb-2">Smart Dual Light & HDCVI</small>
-            <span class="text-danger small fw-semibold">View Products &rsaquo;</span>
+          <div class="oem-partner-card">
+            <div class="oem-icon-circle"><i class="fa fa-shield"></i></div>
+            <span class="oem-badge badge-surv">SURVEILLANCE</span>
+            <h4 class="oem-title">DAHUA</h4>
+            <p class="oem-desc">Smart Dual Light & HDCVI</p>
+            <span class="oem-link">View Products <i class="fa fa-angle-right"></i></span>
           </div>
         </a>
       </div>
 
       <!-- Brand 6: Finolex -->
-      <div class="col" data-aos="fade-up" data-aos-delay="300">
+      <div class="col-xl-3 col-lg-3 col-md-6 col-6" data-aos="fade-up" data-aos-delay="300">
         <a routerLink="/products" class="text-decoration-none">
-          <div class="p-3 bg-light rounded-4 border text-center h-100 transition-all hover-lift">
-            <span class="badge bg-info text-dark px-2 py-1 rounded-pill small fw-bold mb-2">SOLID COPPER</span>
-            <h4 class="h6 fw-bold text-dark mb-1">FINOLEX</h4>
-            <small class="text-muted d-block mb-2">ISI Cat6 & Multi-Pair Cable</small>
-            <span class="text-danger small fw-semibold">View Products &rsaquo;</span>
+          <div class="oem-partner-card">
+            <div class="oem-icon-circle"><i class="fa fa-sitemap"></i></div>
+            <span class="oem-badge badge-copper">SOLID COPPER</span>
+            <h4 class="oem-title">FINOLEX</h4>
+            <p class="oem-desc">ISI Cat6 & Multi-Pair Cable</p>
+            <span class="oem-link">View Products <i class="fa fa-angle-right"></i></span>
           </div>
         </a>
       </div>
 
       <!-- Brand 7: D-Link -->
-      <div class="col" data-aos="fade-up" data-aos-delay="350">
+      <div class="col-xl-3 col-lg-3 col-md-6 col-6" data-aos="fade-up" data-aos-delay="350">
         <a routerLink="/products" class="text-decoration-none">
-          <div class="p-3 bg-light rounded-4 border text-center h-100 transition-all hover-lift">
-            <span class="badge bg-secondary text-white px-2 py-1 rounded-pill small fw-bold mb-2">NETWORKING</span>
-            <h4 class="h6 fw-bold text-dark mb-1">D-LINK</h4>
-            <small class="text-muted d-block mb-2">Gigabit PoE & Patch Racks</small>
-            <span class="text-danger small fw-semibold">View Products &rsaquo;</span>
+          <div class="oem-partner-card">
+            <div class="oem-icon-circle"><i class="fa fa-server"></i></div>
+            <span class="oem-badge badge-net">NETWORKING</span>
+            <h4 class="oem-title">D-LINK</h4>
+            <p class="oem-desc">Gigabit PoE & Patch Racks</p>
+            <span class="oem-link">View Products <i class="fa fa-angle-right"></i></span>
           </div>
         </a>
       </div>
 
       <!-- Brand 8: Syntel -->
-      <div class="col" data-aos="fade-up" data-aos-delay="400">
+      <div class="col-xl-3 col-lg-3 col-md-6 col-6" data-aos="fade-up" data-aos-delay="400">
         <a routerLink="/products" class="text-decoration-none">
-          <div class="p-3 bg-light rounded-4 border text-center h-100 transition-all hover-lift">
-            <span class="badge bg-warning text-dark px-2 py-1 rounded-pill small fw-bold mb-2">EPABX SYSTEMS</span>
-            <h4 class="h6 fw-bold text-dark mb-1">SYNTEL TELECOM</h4>
-            <small class="text-muted d-block mb-2">Multi-Wing Society Intercoms</small>
-            <span class="text-danger small fw-semibold">View Products &rsaquo;</span>
+          <div class="oem-partner-card">
+            <div class="oem-icon-circle"><i class="fa fa-headphones"></i></div>
+            <span class="oem-badge badge-epabx">EPABX SYSTEMS</span>
+            <h4 class="oem-title">SYNTEL TELECOM</h4>
+            <p class="oem-desc">Multi-Wing Society Intercoms</p>
+            <span class="oem-link">View Products <i class="fa fa-angle-right"></i></span>
           </div>
         </a>
       </div>
@@ -304,13 +314,18 @@
     </div>
 
     <!-- Assurance Strip -->
-    <div class="mt-4 p-3 bg-light rounded-3 border d-flex justify-content-between align-items-center flex-wrap gap-2 text-center text-md-start">
-      <div class="d-flex align-items-center gap-2">
-        <i class="fa fa-shield text-danger fs-4"></i>
-        <span class="text-dark small fw-semibold">Direct Manufacturer Warranty & Genuine Component Seal on every installation</span>
+    <div class="oem-assurance-ribbon mt-4">
+      <div class="d-flex align-items-center gap-3">
+        <div class="assurance-icon-box">
+          <i class="fa fa-shield"></i>
+        </div>
+        <div>
+          <strong class="d-block text-dark">Direct Manufacturer Warranty & Genuine Component Seal</strong>
+          <small class="text-muted">100% brand-sealed hardware tested before deployment on every housing society installation.</small>
+        </div>
       </div>
-      <a routerLink="/products" class="btn btn-outline-danger btn-sm fw-bold">
-        Browse Complete Hardware Catalog &rsaquo;
+      <a routerLink="/products" class="theme-btn btn-style-two btn-sm">
+        <span class="txt">Browse Complete Catalog <i class="fa fa-arrow-right ms-1"></i></span>
       </a>
     </div>
 
@@ -319,32 +334,42 @@
 <!-- End Authorized OEM Hardware & Technology Partners Strip -->
 
 <!-- Interactive Requirement Estimator Section -->
-<section class="home-estimator-section py-5" style="background-color: #f1f5f9;">
+<section class="home-estimator-section py-5">
   <div class="auto-container">
     <app-requirement-estimator></app-requirement-estimator>
 
     <!-- Additional Quick Utility Banners -->
     <div class="row g-3 mt-3">
       <div class="col-md-6 col-12">
-        <div class="p-3 bg-white rounded-3 border d-flex align-items-center justify-content-between flex-wrap gap-2 shadow-sm">
-          <div>
-            <strong class="d-block text-dark"><i class="fa fa-calculator text-primary me-2"></i> CCTV Storage & HDD Calculator</strong>
-            <small class="text-muted">Calculate exact TB storage & bandwidth for CP Plus, Hikvision & Dahua.</small>
+        <div class="utility-promo-card">
+          <div class="d-flex align-items-center gap-3">
+            <div class="promo-icon-circle bg-blue">
+              <i class="fa fa-calculator"></i>
+            </div>
+            <div>
+              <strong class="d-block promo-title">CCTV Storage & HDD Sizing Calculator</strong>
+              <small class="promo-desc">Calculate exact Terabytes & retention days for CP Plus, Hikvision & Dahua.</small>
+            </div>
           </div>
-          <a routerLink="/tools/cctv-storage-calculator" class="btn btn-outline-primary btn-sm fw-bold">
+          <a routerLink="/tools/cctv-storage-calculator" class="promo-action-btn btn-blue">
             Open Tool <i class="fa fa-arrow-right ms-1"></i>
           </a>
         </div>
       </div>
 
       <div class="col-md-6 col-12">
-        <div class="p-3 bg-white rounded-3 border d-flex align-items-center justify-content-between flex-wrap gap-2 shadow-sm">
-          <div>
-            <strong class="d-block text-dark"><i class="fa fa-building text-danger me-2"></i> Housing Society Site Audit Form</strong>
-            <small class="text-muted">Book a technical on-site survey for Intercom, CCTV & AMC.</small>
+        <div class="utility-promo-card">
+          <div class="d-flex align-items-center gap-3">
+            <div class="promo-icon-circle bg-red">
+              <i class="fa fa-building-o"></i>
+            </div>
+            <div>
+              <strong class="d-block promo-title">Housing Society Site Survey Booking</strong>
+              <small class="promo-desc">Book an on-site engineer survey for Intercom, CCTV & AMC quotation.</small>
+            </div>
           </div>
-          <a routerLink="/contact" class="btn btn-outline-danger btn-sm fw-bold">
-            Schedule Audit <i class="fa fa-arrow-right ms-1"></i>
+          <a routerLink="/contact" class="promo-action-btn btn-red">
+            Schedule Survey <i class="fa fa-arrow-right ms-1"></i>
           </a>
         </div>
       </div>
@@ -354,7 +379,7 @@
 </section>
 
 <!-- Offering / Solution Packages Section -->
-<section class="offering-section" style="background-image: url('assets/images/background/pattern-3.png')">
+<section class="offering-section">
   <div class="auto-container">
     <div class="sec-title light centered text-center mb-5" data-aos="fade-up">
       <span class="badge bg-danger text-white px-3 py-1 rounded-pill mb-2">SOLUTIONS</span>
@@ -367,10 +392,10 @@
       <!-- Offering Block 1 -->
       <div class="price-block col-xl-4 col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="0">
         <div class="inner-box">
-          <div class="upper-box" style="background-image: url('assets/images/background/pattern-4.png')">
-            <ul class="icon-list">
-              <li><span class="icon"><img loading="lazy" src="assets/images/icons/service-1.svg" alt="Housing Society EPABX and Intercom Systems Thane" /></span></li>
-            </ul>
+          <div class="upper-box">
+            <div class="offering-icon-badge">
+              <i class="fa fa-phone"></i>
+            </div>
             <h4>TELECOMMUNICATION<span>Intercom & EPABX Exchanges for Residential & Commercial</span></h4>
           </div>
           <div class="lower-box">
@@ -390,10 +415,10 @@
       <!-- Offering Block 2 -->
       <div class="price-block col-xl-4 col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="150">
         <div class="inner-box">
-          <div class="upper-box" style="background-image: url('assets/images/background/pattern-4.png')">
-            <ul class="icon-list">
-              <li><span class="icon"><img loading="lazy" src="assets/images/icons/service-2.svg" alt="CCTV Camera and NVR Surveillance Systems Mumbai" /></span></li>
-            </ul>
+          <div class="upper-box">
+            <div class="offering-icon-badge">
+              <i class="fa fa-video-camera"></i>
+            </div>
             <h4>SURVEILLANCE SERVICES<span>High-Definition 4K Camera Networks & 30-Day Backup</span></h4>
           </div>
           <div class="lower-box">
@@ -413,10 +438,10 @@
       <!-- Offering Block 3 -->
       <div class="price-block col-xl-4 col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="300">
         <div class="inner-box">
-          <div class="upper-box" style="background-image: url('assets/images/background/pattern-4.png')">
-            <ul class="icon-list">
-              <li><span class="icon"><img loading="lazy" src="assets/images/icons/service-3.svg" alt="Biometric Attendance and EM Lock Access Control Systems" /></span></li>
-            </ul>
+          <div class="upper-box">
+            <div class="offering-icon-badge">
+              <i class="fa fa-shield"></i>
+            </div>
             <h4>ACCESS & CABLING<span>Touchless Biometrics, EM Locks & Structured LAN</span></h4>
           </div>
           <div class="lower-box">
@@ -454,21 +479,21 @@
 
       <!-- Review Card 1 -->
       <div class="col-lg-6 col-md-12 col-sm-12" data-aos="fade-up">
-        <div class="p-4 bg-light rounded-4 border h-100 d-flex flex-column shadow-sm">
-          <div class="d-flex justify-content-between align-items-center mb-3">
-            <div class="stars-gold text-warning fs-6">⭐⭐⭐⭐⭐</div>
-            <span class="badge bg-white text-dark border"><i class="fa fa-google text-danger me-1"></i> Verified Review</span>
+        <div class="home-review-card">
+          <div class="review-card-header">
+            <div class="review-stars">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            </div>
+            <span class="verified-badge"><i class="fa fa-google text-danger me-1"></i> Verified Google Review</span>
           </div>
-          <p class="text-dark fs-6 fst-italic flex-grow-1 mb-3">
+          <p class="review-quote">
             "Outstanding service for our housing society intercom and CCTV setup. The Sunrise Communication team completed the wiring across 4 wings cleanly and on schedule. Highly recommended for societies in Thane!"
           </p>
-          <div class="d-flex align-items-center gap-3 pt-3 border-top">
-            <div class="avatar-icon d-flex align-items-center justify-content-center bg-danger text-white rounded-circle fw-bold" style="width: 42px; height: 42px;">
-              PK
-            </div>
-            <div>
-              <strong class="d-block text-dark">Managing Committee, Prem Kunj CHS</strong>
-              <small class="text-muted"><i class="fa fa-map-marker text-danger me-1"></i> Panchpakhadi, Thane (West)</small>
+          <div class="review-author-strip">
+            <div class="author-avatar bg-red">PK</div>
+            <div class="author-info">
+              <strong class="author-name">Managing Committee, Prem Kunj CHS</strong>
+              <span class="author-loc"><i class="fa fa-map-marker text-danger me-1"></i> Panchpakhadi, Thane (West)</span>
             </div>
           </div>
         </div>
@@ -476,21 +501,21 @@
 
       <!-- Review Card 2 -->
       <div class="col-lg-6 col-md-12 col-sm-12" data-aos="fade-up" data-aos-delay="100">
-        <div class="p-4 bg-light rounded-4 border h-100 d-flex flex-column shadow-sm">
-          <div class="d-flex justify-content-between align-items-center mb-3">
-            <div class="stars-gold text-warning fs-6">⭐⭐⭐⭐⭐</div>
-            <span class="badge bg-white text-dark border"><i class="fa fa-google text-danger me-1"></i> Verified Review</span>
+        <div class="home-review-card">
+          <div class="review-card-header">
+            <div class="review-stars">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            </div>
+            <span class="verified-badge"><i class="fa fa-google text-danger me-1"></i> Verified Google Review</span>
           </div>
-          <p class="text-dark fs-6 fst-italic flex-grow-1 mb-3">
+          <p class="review-quote">
             "We had multiple recurring issues with our 3-tower high-rise cameras on Ghodbunder Road. Mr. Tanaji Pol and his team replaced the failing wiring with optical fiber and resolved all lift camera blind spots. Very professional."
           </p>
-          <div class="d-flex align-items-center gap-3 pt-3 border-top">
-            <div class="avatar-icon d-flex align-items-center justify-content-center bg-danger text-white rounded-circle fw-bold" style="width: 42px; height: 42px;">
-              GB
-            </div>
-            <div>
-              <strong class="d-block text-dark">Gated High-Rise Society Committee</strong>
-              <small class="text-muted"><i class="fa fa-map-marker text-danger me-1"></i> Ghodbunder Road, Thane</small>
+          <div class="review-author-strip">
+            <div class="author-avatar bg-navy">GB</div>
+            <div class="author-info">
+              <strong class="author-name">Gated High-Rise Society Committee</strong>
+              <span class="author-loc"><i class="fa fa-map-marker text-danger me-1"></i> Ghodbunder Road, Thane</span>
             </div>
           </div>
         </div>
@@ -498,21 +523,21 @@
 
       <!-- Review Card 3 -->
       <div class="col-lg-6 col-md-12 col-sm-12" data-aos="fade-up" data-aos-delay="200">
-        <div class="p-4 bg-light rounded-4 border h-100 d-flex flex-column shadow-sm">
-          <div class="d-flex justify-content-between align-items-center mb-3">
-            <div class="stars-gold text-warning fs-6">⭐⭐⭐⭐⭐</div>
-            <span class="badge bg-white text-dark border"><i class="fa fa-google text-danger me-1"></i> Verified Review</span>
+        <div class="home-review-card">
+          <div class="review-card-header">
+            <div class="review-stars">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            </div>
+            <span class="verified-badge"><i class="fa fa-google text-danger me-1"></i> Verified Google Review</span>
           </div>
-          <p class="text-dark fs-6 fst-italic flex-grow-1 mb-3">
+          <p class="review-quote">
             "Prompt emergency response when our building intercom exchange failed. They re-terminated the distribution DP box and restored flat-to-gate communication within hours. Best telecom service in Mulund & Thane."
           </p>
-          <div class="d-flex align-items-center gap-3 pt-3 border-top">
-            <div class="avatar-icon d-flex align-items-center justify-content-center bg-danger text-white rounded-circle fw-bold" style="width: 42px; height: 42px;">
-              MS
-            </div>
-            <div>
-              <strong class="d-block text-dark">Society Secretary</strong>
-              <small class="text-muted"><i class="fa fa-map-marker text-danger me-1"></i> Devidayal Road, Mulund (West)</small>
+          <div class="review-author-strip">
+            <div class="author-avatar bg-red">MS</div>
+            <div class="author-info">
+              <strong class="author-name">Society Secretary</strong>
+              <span class="author-loc"><i class="fa fa-map-marker text-danger me-1"></i> Devidayal Road, Mulund (West)</span>
             </div>
           </div>
         </div>
@@ -520,21 +545,21 @@
 
       <!-- Review Card 4 -->
       <div class="col-lg-6 col-md-12 col-sm-12" data-aos="fade-up" data-aos-delay="300">
-        <div class="p-4 bg-light rounded-4 border h-100 d-flex flex-column shadow-sm">
-          <div class="d-flex justify-content-between align-items-center mb-3">
-            <div class="stars-gold text-warning fs-6">⭐⭐⭐⭐⭐</div>
-            <span class="badge bg-white text-dark border"><i class="fa fa-google text-danger me-1"></i> Verified Review</span>
+        <div class="home-review-card">
+          <div class="review-card-header">
+            <div class="review-stars">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            </div>
+            <span class="verified-badge"><i class="fa fa-google text-danger me-1"></i> Verified Google Review</span>
           </div>
-          <p class="text-dark fs-6 fst-italic flex-grow-1 mb-3">
+          <p class="review-quote">
             "We have Sunrise Communication handling our office biometric access control and CCTV AMC for over 4 years in Wagle Estate. Their quarterly preventive maintenance visits are always on time."
           </p>
-          <div class="d-flex align-items-center gap-3 pt-3 border-top">
-            <div class="avatar-icon d-flex align-items-center justify-content-center bg-danger text-white rounded-circle fw-bold" style="width: 42px; height: 42px;">
-              WE
-            </div>
-            <div>
-              <strong class="d-block text-dark">Facility Operations Head</strong>
-              <small class="text-muted"><i class="fa fa-map-marker text-danger me-1"></i> Wagle Industrial Estate, Thane</small>
+          <div class="review-author-strip">
+            <div class="author-avatar bg-navy">WE</div>
+            <div class="author-info">
+              <strong class="author-name">Facility Operations Head</strong>
+              <span class="author-loc"><i class="fa fa-map-marker text-danger me-1"></i> Wagle Industrial Estate, Thane</span>
             </div>
           </div>
         </div>
@@ -543,9 +568,11 @@
     </div>
 
     <!-- Review Direct Action Button -->
-    <div class="text-center mt-5">
-      <a [href]="siteData.gbp.mapsUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline-danger btn-lg px-4 py-2 fw-bold">
-        <i class="fa fa-google me-2"></i> Read All 93+ Verified Reviews on Google Maps <i class="fa fa-external-link ms-1 small"></i>
+    <div class="text-center mt-4">
+      <a [href]="siteData.gbp.mapsUrl" target="_blank" rel="noopener noreferrer" class="google-reviews-action-btn">
+        <span class="google-icon-pill"><i class="fa fa-google"></i></span>
+        <span>Read All 93+ Verified Reviews on Google Maps</span>
+        <i class="fa fa-arrow-right ms-2"></i>
       </a>
     </div>
 

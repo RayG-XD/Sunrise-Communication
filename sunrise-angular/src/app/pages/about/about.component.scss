@@ -8,6 +8,7 @@
 
   .about-animated-showcase {
     position: relative;
+    height: auto !important;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(1, 12, 58, 0.08);
@@ -151,6 +152,16 @@
         left: 0;
         top: 2px;
         font-size: 18px;
+        box-shadow: none !important;
+        background: transparent !important;
+
+        &::after {
+          display: none !important;
+        }
+      }
+
+      &::after {
+        display: none !important;
       }
 
       strong {
@@ -176,16 +187,24 @@
       transition: all 0.3s ease;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
 
-      .icon-box-wrapper {
+      .facility-icon-circle, .icon-box-wrapper {
         width: 60px;
         height: 60px;
         border-radius: 14px;
         background: #fff5f5;
+        border: 1px solid #fee2e2;
+        color: #df0303;
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        font-size: 24px;
         margin-bottom: 16px;
         transition: all 0.3s ease;
+
+        i {
+          color: #df0303;
+          transition: color 0.3s ease;
+        }
       }
 
       h5 {
@@ -206,8 +225,12 @@
         box-shadow: 0 12px 28px rgba(1, 12, 58, 0.08);
         border-color: rgba(223, 3, 3, 0.25);
 
-        .icon-box-wrapper {
+        .facility-icon-circle, .icon-box-wrapper {
           background: #df0303;
+          border-color: #df0303;
+          color: #ffffff;
+          transform: scale(1.06);
+
           i {
             color: #ffffff !important;
           }
@@ -220,6 +243,16 @@
 .team-section {
   padding: 70px 0;
   background-color: #ffffff;
+
+  .founder-card {
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 30px rgba(1, 12, 58, 0.06);
+
+    &:hover {
+      box-shadow: 0 16px 36px rgba(1, 12, 58, 0.12);
+      transform: translateY(-3px);
+    }
+  }
 
   .team-block {
     .inner-box {

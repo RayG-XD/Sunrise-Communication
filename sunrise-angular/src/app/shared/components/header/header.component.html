@@ -72,7 +72,10 @@
           </nav>
 
           <!-- Outer Box with Quick Action / Sidebar Trigger -->
-          <div class="outer-box clearfix">
+          <div class="outer-box clearfix d-flex align-items-center gap-2">
+            <a routerLink="/contact" class="header-quote-btn d-none d-lg-inline-flex align-items-center gap-2">
+              <i class="fa fa-calendar-check-o"></i> <span>Get a Quote</span>
+            </a>
             <button class="navSidebar-button" (click)="toggleSidebar()" type="button" aria-label="Toggle quick contact sidebar" title="Quick Contact & Hours">
               <i class="fa fa-th"></i>
             </button>

@@ -4,15 +4,52 @@
 
 .guide-card {
   border-color: #e2e8f0;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-    border-color: #0d6efd;
+    transform: translateY(-5px);
+    box-shadow: 0 16px 32px rgba(1, 12, 58, 0.08);
+    border-color: rgba(223, 3, 3, 0.3);
+
+    .guide-title-link {
+      color: #df0303;
+    }
+
+    .guide-action-btn {
+      background: #df0303;
+      border-color: #df0303;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(223, 3, 3, 0.25);
+    }
   }
 
-  .hover-primary:hover {
-    color: #0d6efd !important;
+  .guide-title-link {
+    color: #010c3a;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    line-height: 1.4;
+  }
+
+  .card-takeaways {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 3px solid #df0303 !important;
+  }
+
+  .guide-action-btn {
+    border: 1.5px solid #010c3a;
+    color: #010c3a;
+    background: transparent;
+    border-radius: 10px;
+    font-size: 13.5px;
+    transition: all 0.25s ease;
+
+    &:hover {
+      background: #df0303;
+      border-color: #df0303;
+      color: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(223, 3, 3, 0.25);
+    }
   }
 }

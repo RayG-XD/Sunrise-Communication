@@ -6,33 +6,55 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink],
   template: `
-    <section class="page-title" [style.background-image]="'url(' + bgImage() + ')'">
+    <section class="page-title">
+      <div class="tech-pattern-grid" aria-hidden="true"></div>
+      <div class="tech-glow-accent" aria-hidden="true"></div>
       <div class="auto-container">
-        <h1>{{ title() }}</h1>
-        <ul class="bread-crumb clearfix">
-          <li><a routerLink="/"><i class="fa fa-home"></i> Home</a></li>
-          <li>{{ breadcrumb() }}</li>
-        </ul>
+        <div class="page-title-inner">
+          <div class="title-meta-badge">
+            <span class="badge-dot"></span>
+            <span>Enterprise Security & Telecom Solutions</span>
+          </div>
+          <h1>{{ title() }}</h1>
+          <nav aria-label="breadcrumb">
+            <ul class="bread-crumb clearfix">
+              <li><a routerLink="/"><i class="fa fa-home"></i> Home</a></li>
+              <li class="active">{{ breadcrumb() }}</li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </section>
   `,
   styles: [`
     .page-title {
       position: relative;
-      background-size: cover;
-      background-position: center;
-      padding: 60px 0 45px;
+      background: linear-gradient(135deg, #010c3a 0%, #06154d 60%, #0a1f68 100%);
+      padding: 64px 0 48px;
       overflow: hidden;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
-      &::before {
+      .tech-pattern-grid {
         position: absolute;
-        content: '';
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(135deg, rgba(1, 12, 58, 0.94) 0%, rgba(13, 27, 84, 0.88) 100%) !important;
-        z-index: 1;
+        inset: 0;
+        background-image: 
+          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 32px 32px;
+        opacity: 0.7;
+        pointer-events: none;
+      }
+
+      .tech-glow-accent {
+        position: absolute;
+        left: -100px;
+        top: -100px;
+        width: 380px;
+        height: 380px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(223, 3, 3, 0.28) 0%, rgba(223, 3, 3, 0) 70%);
+        filter: blur(40px);
+        pointer-events: none;
       }
 
       .auto-container {
@@ -40,49 +62,86 @@ import { RouterLink } from '@angular/router';
         z-index: 2;
       }
 
-      h1 {
-        color: #ffffff;
-        font-size: 28px;
-        font-weight: 700;
-        margin-bottom: 8px;
-        line-height: 1.25;
+      .page-title-inner {
+        max-width: 900px;
+      }
 
-        @media (max-width: 767px) {
-          font-size: 22px;
+      .title-meta-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 11.5px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9);
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+        backdrop-filter: blur(8px);
+
+        .badge-dot {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: #ff4757;
+          box-shadow: 0 0 8px #ff4757;
         }
       }
 
+      h1 {
+        color: #ffffff;
+        font-size: clamp(1.6rem, 3.2vw, 2.35rem);
+        font-weight: 700;
+        margin-bottom: 12px;
+        line-height: 1.25;
+        letter-spacing: -0.3px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+      }
+
       .bread-crumb {
-        display: flex;
+        display: inline-flex;
         align-items: center;
         flex-wrap: wrap;
         gap: 8px;
         margin: 0;
-        padding: 0;
+        padding: 6px 14px;
         list-style: none;
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        backdrop-filter: blur(6px);
 
         li {
-          color: rgba(255, 255, 255, 0.8);
-          font-size: 13.5px;
+          color: rgba(255, 255, 255, 0.75);
+          font-size: 13px;
           font-weight: 500;
           display: inline-flex;
           align-items: center;
-          gap: 8px;
+          gap: 6px;
 
           a {
-            color: #ffffff;
+            color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
             transition: color 0.2s ease;
 
             &:hover {
-              color: #df0303;
+              color: #ff4757;
             }
           }
 
+          &.active {
+            color: #ff6b81;
+            font-weight: 600;
+          }
+
           &:not(:last-child)::after {
-            content: '/';
+            content: '›';
             color: rgba(255, 255, 255, 0.4);
-            font-size: 12px;
+            font-size: 14px;
+            margin-left: 2px;
           }
         }
       }
@@ -92,5 +151,5 @@ import { RouterLink } from '@angular/router';
 export class PageTitleComponent {
   title = input.required<string>();
   breadcrumb = input.required<string>();
-  bgImage = input<string>('assets/images/background/7.jpg');
+  bgImage = input<string>('');
 }

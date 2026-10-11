@@ -1,7 +1,5 @@
 .guide-hero-banner {
-  background: linear-gradient(135deg, rgba(1, 12, 58, 0.94) 0%, rgba(13, 27, 84, 0.9) 100%), url('/assets/images/background/10.jpg');
-  background-size: cover;
-  background-position: center;
+  background: linear-gradient(135deg, #010c3a 0%, #06154d 60%, #0a1f68 100%);
   padding: 80px 0 50px;
 }
 
@@ -83,4 +81,43 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.summary-callout {
+  background: #f8fafc;
+  border-left: 4px solid #df0303 !important;
+  border-radius: 12px;
+}
+
+.key-takeaways-card {
+  background: #eff6ff !important;
+  border: 1px solid #bfdbfe !important;
+  border-radius: 14px;
+
+  h4 {
+    color: #1e40af !important;
+  }
+
+  i.fa-arrow-right {
+    color: #2563eb !important;
+  }
+}
+
+.checklist-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+
+  li {
+    i {
+      color: #10b981 !important;
+    }
+  }
+}
+
+.author-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(1, 12, 58, 0.04);
 }

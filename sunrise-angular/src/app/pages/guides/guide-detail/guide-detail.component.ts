@@ -35,6 +35,11 @@ export class GuideDetailComponent implements OnInit {
     return `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
   });
 
+  otherGuides = computed(() => {
+    const currentSlug = this.slug();
+    return Object.values(TECHNICAL_GUIDES_DATA).filter((item) => item.slug !== currentSlug);
+  });
+
   constructor() {
     effect(() => {
       const g = this.guide();

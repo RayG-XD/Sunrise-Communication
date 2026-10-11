@@ -7,7 +7,8 @@ import { SITE_DATA } from '../../core/constants/site-data';
   selector: 'app-services-detail',
   standalone: true,
   imports: [RouterLink, PageTitleComponent],
-  templateUrl: './services-detail.component.html'
+  templateUrl: './services-detail.component.html',
+  styleUrl: './services-detail.component.scss'
 })
 export class ServicesDetailComponent {
   siteData = SITE_DATA;

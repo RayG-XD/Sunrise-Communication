@@ -120,7 +120,7 @@
                   <a 
                     routerLink="/contact"
                     fragment="contact-forms"
-                    class="btn btn-outline-danger fw-semibold px-3 py-2 rounded-pill d-flex align-items-center gap-2"
+                    class="btn-survey-cta"
                   >
                     <i class="fa fa-calendar-check-o"></i> Book Technical Site Survey
                   </a>
@@ -132,6 +132,29 @@
         </div>
 
       </div>
+
+      <!-- Related Hardware Ecosystem Section -->
+      @if (relatedProducts().length > 0) {
+        <div class="related-products-container mt-5 pt-4 border-top">
+          <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-4">
+            <div>
+              <span class="badge bg-danger text-white px-3 py-1 rounded-pill mb-1">COMPATIBLE HARDWARE</span>
+              <h3 class="h4 fw-bold text-dark mb-0">Frequently Installed Together</h3>
+            </div>
+            <a routerLink="/products" class="btn btn-outline-danger btn-sm rounded-pill px-3">
+              View All Products &rsaquo;
+            </a>
+          </div>
+
+          <div class="row g-4">
+            @for (rel of relatedProducts(); track rel.id) {
+              <div class="col-lg-4 col-md-6 col-12">
+                <app-product-card [product]="rel"></app-product-card>
+              </div>
+            }
+          </div>
+        </div>
+      }
     </div>
   </section>
 

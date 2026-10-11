@@ -1,6 +1,7 @@
 import { Component, OnInit, inject, signal, computed, effect, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser, DOCUMENT, NgOptimizedImage } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ProductCardComponent } from '../../../shared/components/product-card/product-card.component';
 import { ProductService } from '../../../core/services/product.service';
 import { SeoService } from '../../../core/services/seo.service';
 import { InquiryService } from '../../../core/services/inquiry.service';
@@ -9,7 +10,7 @@ import { SITE_DATA } from '../../../core/constants/site-data';
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [RouterLink, NgOptimizedImage],
+  imports: [RouterLink, NgOptimizedImage, ProductCardComponent],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.scss'
 })
@@ -27,6 +28,14 @@ export class ProductDetailComponent implements OnInit {
     const s = this.slug();
     if (!s) return undefined;
     return this.productService.products().find(p => p.slug === s);
+  });
+
+  relatedProducts = computed(() => {
+    const current = this.product();
+    if (!current) return [];
+    return this.productService.products()
+      .filter(p => p.slug !== current.slug && (p.category === current.category || p.brand === current.brand))
+      .slice(0, 3);
   });
 
   loading = computed(() => this.productService.loading());

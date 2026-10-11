@@ -2,26 +2,51 @@
   display: block;
 }
 
-/* Hero Section Refinements */
+/* =========================================================
+   1. HERO SECTION (MAIN SLIDER)
+   ========================================================= */
 .main-slider {
   position: relative;
   background-color: #010c3a;
+  overflow: hidden;
 
   .slide {
     position: relative;
-    padding: 140px 0 120px;
+    padding: 100px 0 90px;
     background-size: cover;
     background-position: center;
+    display: flex;
+    align-items: center;
+    min-height: 520px;
 
-    &::before {
+    @media (max-width: 991px) {
+      padding: 70px 0 60px;
+      min-height: 440px;
+    }
+
+    .slide-dark-overlay {
       position: absolute;
-      content: '';
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, rgba(1, 12, 58, 0.94) 0%, rgba(1, 12, 58, 0.85) 50%, rgba(13, 27, 84, 0.8) 100%) !important;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(1, 12, 58, 0.94) 0%,
+        rgba(1, 12, 58, 0.84) 45%,
+        rgba(13, 27, 84, 0.72) 100%
+      );
       z-index: 1;
+    }
+
+    .slide-mesh-glow {
+      position: absolute;
+      top: -120px;
+      left: -80px;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(223, 3, 3, 0.22) 0%, rgba(223, 3, 3, 0) 70%);
+      filter: blur(50px);
+      z-index: 1;
+      pointer-events: none;
     }
 
     .color-layer-one,
@@ -35,84 +60,111 @@
       position: relative;
       z-index: 2;
     }
-
-    @media (max-width: 767px) {
-      padding: 90px 0 70px;
-    }
   }
 
   .content-boxed {
     position: relative;
     z-index: 10;
-    max-width: 760px;
+    max-width: 780px;
 
     .title {
-      font-size: 14.5px;
-      font-weight: 700;
-      color: #ff4d4d;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+
+      .title-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        backdrop-filter: blur(10px);
+        padding: 5px 14px;
+        border-radius: 20px;
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+
+        .pill-dot {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: #ff4757;
+          box-shadow: 0 0 8px #ff4757;
+        }
+      }
     }
 
     h1, h2, .hero-slide-heading {
       color: #ffffff !important;
-      font-size: clamp(2rem, 4.5vw, 3.4rem);
+      font-size: clamp(1.9rem, 4vw, 3rem);
       font-weight: 800;
       line-height: 1.18;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+      letter-spacing: -0.5px;
+      text-transform: capitalize;
+      margin-bottom: 14px;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
     }
 
     .hero-trust-proof-badge {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      padding: 8px 18px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
+      padding: 7px 18px;
       border-radius: 30px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.25);
       color: #ffffff;
       font-size: 13.5px;
       font-weight: 600;
-      margin: 12px 0 24px;
+      margin: 10px 0 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+
+      .badge-sep {
+        opacity: 0.5;
+      }
     }
 
     .btns-box {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
+      align-items: center;
     }
   }
 }
 
-/* Services Grid Enhancements */
+/* =========================================================
+   2. CORE SERVICES 4-GRID SECTION
+   ========================================================= */
 .services-section {
-  padding: 80px 0;
+  padding: 75px 0;
+  background-color: #f8fafc;
+  background-size: cover;
 
   .service-block {
-    margin-bottom: 30px;
+    margin-bottom: 24px;
 
     .inner-box {
       position: relative;
       background: #ffffff;
-      border: 1px solid #eef2f6;
+      border: 1px solid #e2e8f0;
       border-radius: 16px;
-      padding: 32px 24px 28px;
+      padding: 30px 24px 26px;
       height: 100%;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 4px 16px rgba(1, 12, 58, 0.04);
 
       .service-icon-box {
-        width: 60px;
-        height: 60px;
-        border-radius: 12px;
-        background: #fff5f5;
+        width: 62px;
+        height: 62px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, rgba(223, 3, 3, 0.08) 0%, rgba(223, 3, 3, 0.02) 100%);
+        border: 1px solid rgba(223, 3, 3, 0.15);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -123,11 +175,12 @@
           width: 32px;
           height: 32px;
           object-fit: contain;
+          transition: transform 0.3s ease;
         }
       }
 
       h4 {
-        margin-bottom: 12px;
+        margin-bottom: 10px;
         font-size: 18px;
         font-weight: 700;
         line-height: 1.35;
@@ -143,7 +196,7 @@
         color: #64748b;
         font-size: 13.5px;
         line-height: 1.6;
-        margin-bottom: 20px;
+        margin-bottom: 22px;
         flex-grow: 1;
       }
 
@@ -157,6 +210,9 @@
         align-items: center;
         gap: 6px;
         transition: all 0.2s ease;
+        padding-top: 8px;
+        border-top: 1px dashed #f1f5f9;
+        width: 100%;
 
         i {
           transition: transform 0.2s ease;
@@ -166,10 +222,13 @@
       &:hover {
         transform: translateY(-6px);
         box-shadow: 0 16px 36px rgba(223, 3, 3, 0.12);
-        border-color: rgba(223, 3, 3, 0.25);
+        border-color: rgba(223, 3, 3, 0.35);
 
         .service-icon-box {
           background: #df0303;
+          border-color: #df0303;
+          transform: scale(1.05);
+
           img {
             filter: brightness(0) invert(1);
           }
@@ -189,20 +248,23 @@
     }
   }
 
+  /* Who We Are Lower Section */
   .lower-section {
-    padding-top: 50px;
+    padding-top: 45px;
 
     .who-we-are-image-wrapper {
       position: relative;
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 12px 32px rgba(1, 12, 58, 0.08);
+      border: 1px solid #e2e8f0;
 
       img {
         width: 100%;
         height: auto;
         display: block;
         border-radius: 16px;
+        background: #f8fafc;
       }
     }
 
@@ -213,23 +275,32 @@
       margin: 24px 0;
 
       .feature-bullet-item {
-        background: #f8fafc;
+        background: #ffffff;
         border: 1px solid #e2e8f0;
-        border-radius: 10px;
-        padding: 12px 14px;
+        border-radius: 12px;
+        padding: 14px 16px;
         display: flex;
         align-items: flex-start;
-        gap: 10px;
+        gap: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+        transition: all 0.25s ease;
+
+        &:hover {
+          border-color: #010c3a;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 16px rgba(1, 12, 58, 0.06);
+        }
 
         i {
           color: #df0303;
-          margin-top: 3px;
-          font-size: 14px;
+          margin-top: 2px;
+          font-size: 16px;
         }
 
         strong {
           color: #010c3a;
-          font-size: 13.5px;
+          font-size: 14px;
+          font-weight: 700;
           display: block;
           margin-bottom: 2px;
         }
@@ -245,21 +316,310 @@
   }
 }
 
-/* What We Offer Pricing / Cards */
+/* =========================================================
+   3. CERTIFIED OEM PARTNERS STRIP (SYMMETRICAL 4x2 GRID)
+   ========================================================= */
+.home-brand-partners-section {
+  padding: 60px 0;
+  background: #ffffff;
+
+  .oem-partner-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 20px 14px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+
+    .oem-icon-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      color: #010c3a;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      margin: 0 auto 10px;
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    }
+
+    &:hover {
+      background: #ffffff;
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(1, 12, 58, 0.08);
+      border-color: rgba(223, 3, 3, 0.3);
+
+      .oem-icon-circle {
+        background: #df0303;
+        color: #ffffff;
+        border-color: #df0303;
+        transform: scale(1.08);
+        box-shadow: 0 4px 12px rgba(223, 3, 3, 0.3);
+      }
+
+      .oem-title {
+        color: #df0303;
+      }
+
+      .oem-link {
+        color: #df0303;
+        i {
+          transform: translateX(4px);
+        }
+      }
+    }
+
+    .oem-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 12px;
+      margin: 0 auto 10px;
+
+      &.badge-gold {
+        background: #fff3cd;
+        color: #856404;
+        border: 1px solid #ffeeba;
+      }
+      &.badge-auth {
+        background: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+      &.badge-telecom {
+        background: #cfe2ff;
+        color: #084298;
+        border: 1px solid #b6d4fe;
+      }
+      &.badge-access {
+        background: #d1e7dd;
+        color: #0f5132;
+        border: 1px solid #badbcc;
+      }
+      &.badge-surv {
+        background: #e2e3e5;
+        color: #383d41;
+        border: 1px solid #d6d8db;
+      }
+      &.badge-copper {
+        background: #cff4fc;
+        color: #055160;
+        border: 1px solid #b6effb;
+      }
+      &.badge-net {
+        background: #e9ecef;
+        color: #495057;
+        border: 1px solid #ced4da;
+      }
+      &.badge-epabx {
+        background: #fff3cd;
+        color: #664d03;
+        border: 1px solid #ffe69c;
+      }
+    }
+
+    .oem-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #010c3a;
+      margin-bottom: 4px;
+      transition: color 0.2s ease;
+    }
+
+    .oem-desc {
+      font-size: 12px;
+      color: #64748b;
+      margin-bottom: 12px;
+      line-height: 1.35;
+      flex-grow: 1;
+    }
+
+    .oem-link {
+      font-size: 12px;
+      font-weight: 600;
+      color: #64748b;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      transition: all 0.2s ease;
+
+      i {
+        transition: transform 0.2s ease;
+      }
+    }
+  }
+
+  .oem-assurance-ribbon {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    .assurance-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(223, 3, 3, 0.1);
+      color: #df0303;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+  }
+}
+
+/* =========================================================
+   4. ESTIMATOR UTILITY BANNERS
+   ========================================================= */
+.home-estimator-section {
+  background-color: #f1f5f9;
+
+  .utility-promo-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 18px 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    box-shadow: 0 4px 14px rgba(1, 12, 58, 0.04);
+    transition: all 0.25s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(1, 12, 58, 0.08);
+      border-color: #cbd5e1;
+    }
+
+    .promo-icon-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+
+      &.bg-blue {
+        background: rgba(1, 12, 58, 0.08);
+        color: #010c3a;
+      }
+      &.bg-red {
+        background: rgba(223, 3, 3, 0.08);
+        color: #df0303;
+      }
+    }
+
+    .promo-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #010c3a;
+    }
+
+    .promo-desc {
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    .promo-action-btn {
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+
+      &.btn-blue {
+        background: #f8fafc;
+        border: 1px solid #cbd5e1;
+        color: #010c3a;
+
+        &:hover {
+          background: #010c3a;
+          color: #ffffff;
+          border-color: #010c3a;
+        }
+      }
+
+      &.btn-red {
+        background: #fff5f5;
+        border: 1px solid #fecaca;
+        color: #df0303;
+
+        &:hover {
+          background: #df0303;
+          color: #ffffff;
+          border-color: #df0303;
+        }
+      }
+    }
+  }
+}
+
+/* =========================================================
+   5. WHAT WE DELIVER / SOLUTIONS SECTION (DARK THEME)
+   ========================================================= */
 .offering-section {
   padding: 80px 0;
-  background-color: #010c3a !important;
-  background-size: cover;
+  background: linear-gradient(135deg, #010c3a 0%, #06154d 60%, #0a1f68 100%) !important;
   position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 36px 36px;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .auto-container {
+    position: relative;
+    z-index: 2;
+  }
 
   .sec-title {
     h2 {
       color: #ffffff !important;
       font-size: 32px;
       font-weight: 700;
+      letter-spacing: -0.3px;
     }
     p {
       color: rgba(255, 255, 255, 0.8) !important;
+      font-size: 15px;
     }
   }
 
@@ -272,52 +632,66 @@
       height: 100%;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
       background: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+
+        .offering-icon-badge {
+          background: #df0303;
+          color: #ffffff;
+          transform: scale(1.08);
+          box-shadow: 0 6px 20px rgba(223, 3, 3, 0.4);
+        }
+      }
 
       .upper-box {
-        padding: 28px 24px;
-        min-height: 180px;
+        padding: 30px 24px;
+        min-height: 170px;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        background: linear-gradient(135deg, #010c3a 0%, #002d5b 100%) !important;
+        background: linear-gradient(135deg, #010c3a 0%, #0d1b54 100%) !important;
         position: relative;
 
         &::before, &::after {
           display: none !important;
         }
 
-        .icon-list {
-          margin-bottom: 12px;
-          li {
-            width: 56px;
-            height: 56px;
-            padding: 10px;
-            background: #ffffff;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        .offering-icon-badge {
+          width: 58px;
+          height: 58px;
+          border-radius: 16px;
+          background: rgba(223, 3, 3, 0.18);
+          border: 1px solid rgba(223, 3, 3, 0.35);
+          color: #ff5252;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 24px;
+          margin-bottom: 16px;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 
-            img {
-              width: 32px;
-              height: 32px;
-              object-fit: contain;
-            }
+          i {
+            transition: transform 0.3s ease;
           }
         }
 
         h4 {
-          font-size: 17px;
+          font-size: 16px;
           font-weight: 700;
           color: #ffffff !important;
           margin: 0;
+          letter-spacing: 0.5px;
 
           span {
             display: block;
-            font-size: 13px;
+            font-size: 12.5px;
             font-weight: 400;
             margin-top: 6px;
             color: rgba(255, 255, 255, 0.8) !important;
@@ -336,21 +710,27 @@
         .price-list {
           list-style: none;
           padding: 0;
-          margin: 0 0 20px;
+          margin: 0 0 22px;
 
           li {
-            font-size: 14px;
+            position: relative !important;
+            font-size: 13.5px;
             color: #475569;
-            padding: 8px 0;
+            padding: 9px 0 9px 26px !important;
             border-bottom: 1px solid #f1f5f9;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            display: block !important;
+            line-height: 1.45;
 
             &::before {
-              content: '✓';
-              color: #df0303;
-              font-weight: 700;
+              position: absolute !important;
+              left: 0 !important;
+              top: 9px !important;
+              content: '✓' !important;
+              color: #df0303 !important;
+              font-family: inherit !important;
+              font-weight: 800 !important;
+              font-size: 14px !important;
+              line-height: 1 !important;
             }
           }
         }
@@ -365,3 +745,154 @@
     }
   }
 }
+
+/* =========================================================
+   6. VERIFIED GOOGLE REVIEWS SECTION
+   ========================================================= */
+.home-reviews-section {
+  padding: 80px 0;
+  background-color: #ffffff;
+
+  .home-review-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 28px 24px 22px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 18px rgba(1, 12, 58, 0.04);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 36px rgba(1, 12, 58, 0.09);
+      border-color: #cbd5e1;
+    }
+
+    .review-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+
+      .review-stars {
+        color: #f59e0b;
+        font-size: 16px;
+        letter-spacing: 2px;
+      }
+
+      .verified-badge {
+        font-size: 11px;
+        font-weight: 600;
+        color: #475569;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        padding: 4px 10px;
+        border-radius: 14px;
+        display: inline-flex;
+        align-items: center;
+      }
+    }
+
+    .review-quote {
+      color: #334155;
+      font-size: 14px;
+      line-height: 1.65;
+      font-style: italic;
+      flex-grow: 1;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .review-author-strip {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid #f1f5f9;
+
+      .author-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 14px;
+        color: #ffffff;
+        flex-shrink: 0;
+
+        &.bg-red {
+          background: linear-gradient(135deg, #df0303 0%, #b80202 100%);
+        }
+        &.bg-navy {
+          background: linear-gradient(135deg, #010c3a 0%, #0d1b54 100%);
+        }
+      }
+
+      .author-info {
+        .author-name {
+          display: block;
+          color: #010c3a;
+          font-size: 14px;
+          font-weight: 700;
+          line-height: 1.3;
+        }
+
+        .author-loc {
+          font-size: 12px;
+          color: #64748b;
+          display: flex;
+          align-items: center;
+          margin-top: 2px;
+        }
+      }
+    }
+  }
+
+  .google-reviews-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    border-radius: 30px;
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    color: #010c3a;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(1, 12, 58, 0.06);
+    transition: all 0.25s ease;
+
+    .google-icon-pill {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ea4335;
+      font-size: 14px;
+      border: 1px solid #e2e8f0;
+    }
+
+    &:hover {
+      background: #010c3a;
+      color: #ffffff;
+      border-color: #010c3a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(1, 12, 58, 0.15);
+
+      .google-icon-pill {
+        background: #ffffff;
+      }
+    }
+  }
+}
+

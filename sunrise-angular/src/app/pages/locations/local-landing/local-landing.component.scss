@@ -1,7 +1,5 @@
 .local-hero-banner {
-  background: linear-gradient(135deg, rgba(1, 12, 58, 0.94) 0%, rgba(13, 27, 84, 0.9) 100%), url('/assets/images/background/about-banner.jpg');
-  background-size: cover;
-  background-position: center;
+  background: linear-gradient(135deg, #010c3a 0%, #06154d 60%, #0a1f68 100%);
   padding: 80px 0 50px;
 }
 
@@ -40,26 +38,41 @@
   }
 }
 
+.local-quick-contact-card {
+  background: linear-gradient(135deg, #010c3a 0%, #0d1b54 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 16px 36px rgba(1, 12, 58, 0.15) !important;
+}
+
 .local-service-card {
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   border-color: #e2e8f0;
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-    border-color: #0d6efd;
+    transform: translateY(-5px);
+    box-shadow: 0 16px 32px rgba(1, 12, 58, 0.08);
+    border-color: rgba(223, 3, 3, 0.3);
+
+    .icon-circle {
+      background: #df0303;
+      transform: scale(1.08);
+
+      i {
+        color: #ffffff !important;
+      }
+    }
   }
 
   .icon-circle {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    background: #e7f1ff;
-    color: #0d6efd;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: #fff5f5;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
+    font-size: 22px;
+    transition: all 0.25s ease;
   }
 }
 
@@ -67,14 +80,14 @@
   .faq-item {
     background: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 10px;
+    border-radius: 12px;
     margin-bottom: 12px;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
 
     &.open {
-      border-color: #0d6efd;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border-color: #df0303;
+      box-shadow: 0 6px 18px rgba(223, 3, 3, 0.08);
     }
 
     .faq-question-btn {
@@ -83,9 +96,9 @@
       padding: 16px 20px;
       background: transparent;
       border: none;
-      font-size: 16px;
-      font-weight: 600;
-      color: #0f172a;
+      font-size: 15.5px;
+      font-weight: 700;
+      color: #010c3a;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -93,14 +106,15 @@
 
       i {
         font-size: 14px;
-        color: #0d6efd;
+        color: #df0303;
+        transition: transform 0.2s ease;
       }
     }
 
     .faq-answer-content {
-      padding: 0 20px 16px;
+      padding: 0 20px 18px;
       color: #475569;
-      font-size: 15px;
+      font-size: 14.5px;
       line-height: 1.6;
 
       p {

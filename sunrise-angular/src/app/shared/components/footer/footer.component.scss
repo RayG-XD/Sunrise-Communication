@@ -5,6 +5,11 @@
   padding: 60px 0 0;
   overflow: hidden;
 
+  .pattern-layer-one,
+  .pattern-layer-two {
+    display: none !important;
+  }
+
   .footer-top {
     position: relative;
     z-index: 2;

@@ -407,14 +407,14 @@ export const SERVICE_CLUSTERS_DATA: Record<string, ServiceClusterData> = {
     heroTitle: 'Biometric Attendance Machines & Access Control Systems in Thane & Mumbai',
     tagline: 'AI Face Recognition, Optical Fingerprint, RFID Cards, and Reliable EM Door Locks',
     directAnswerAeo: 'Sunrise Communication supplies and installs biometric attendance systems, facial recognition terminals, and electromagnetic (EM) door lock access systems in Thane, Mumbai, and Navi Mumbai. We supply Essl, Matrix, and Hikvision systems for office and society access management.',
-    categoryIcon: 'fa-id-card-o',
+    categoryIcon: 'fa-lock',
     shortDescription: 'Manage staff attendance tracking, secure restricted entry points, and streamline access control with modern biometric readers.',
     authorizedBrands: ['Essl Security', 'Matrix COSEC', 'Hikvision', 'Realtime', 'e-Survey', 'CP Plus'],
     offerings: [
       {
         title: 'Facial Recognition Attendance Terminals',
         description: 'Contactless facial recognition terminals for fast, hygienic employee attendance recording.',
-        icon: 'fa-id-badge',
+        icon: 'fa-user',
         features: [
           '3D Live Anti-Spoofing Technology',
           'Capacity options from 500 to 10,000+ templates',
@@ -425,7 +425,7 @@ export const SERVICE_CLUSTERS_DATA: Record<string, ServiceClusterData> = {
       {
         title: 'Fingerprint & RFID Card Time-Attendance',
         description: 'Durable optical fingerprint readers and card punch terminals for offices, workshops, and retail stores.',
-        icon: 'fa-id-card-o',
+        icon: 'fa-credit-card',
         features: [
           'High-precision Optical Fingerprint Sensors',
           'RFID Proximity / Smart Card Integration',
@@ -593,7 +593,7 @@ export const SERVICE_CLUSTERS_DATA: Record<string, ServiceClusterData> = {
       {
         title: 'Biometrics, Access Control & VDP Wiring',
         description: 'Dedicated low-voltage wiring for biometric terminals, EM magnetic door locks, push buttons, and Video Door Phones.',
-        icon: 'fa-id-badge',
+        icon: 'fa-lock',
         features: [
           'Shielded Multi-Core Wiring for Biometric Readers',
           'Heavy-Duty Power Lines for 600lbs/1200lbs EM Locks',
