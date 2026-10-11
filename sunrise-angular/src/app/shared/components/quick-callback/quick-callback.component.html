@@ -1,0 +1,131 @@
+<div class="quick-callback-card">
+  <div class="card-header-area">
+    <div class="badge-tag"><i class="fa fa-bolt text-danger"></i> Fast Response</div>
+    <h3 class="callback-heading">{{ heading }}</h3>
+    <p class="callback-subheading">{{ subheading }}</p>
+  </div>
+
+  @if (successMessage()) {
+    <div class="alert alert-success d-flex align-items-center gap-2 mt-3 animate-fade-in" role="alert">
+      <i class="fa fa-check-circle fs-4 text-success"></i>
+      <div>
+        <strong>Thank you!</strong> {{ successMessage() }}
+        <div class="mt-2">
+          <a [href]="getWhatsAppDirectUrl()" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-success text-white fw-bold">
+            <i class="fa fa-whatsapp me-1"></i> Open in WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  }
+
+  @if (errorMessage()) {
+    <div class="alert alert-warning mt-3 animate-fade-in" role="alert">
+      <p class="mb-2"><i class="fa fa-exclamation-triangle text-warning me-1"></i> {{ errorMessage() }}</p>
+      <a [href]="getWhatsAppDirectUrl()" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-success text-white fw-bold">
+        <i class="fa fa-whatsapp me-1"></i> Connect on WhatsApp Instead
+      </a>
+    </div>
+  }
+
+  <form [formGroup]="callbackForm" (ngSubmit)="onSubmit()" class="callback-form-inner mt-3">
+    <div class="row g-3">
+      
+      <!-- Name Input -->
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="form-group-item">
+          <label for="cb-name" class="form-label-small">Your Name <span class="text-danger">*</span></label>
+          <div class="input-with-icon">
+            <i class="fa fa-user input-icon"></i>
+            <input
+              type="text"
+              id="cb-name"
+              formControlName="name"
+              class="form-control callback-input"
+              placeholder="e.g. Rajesh Sharma"
+              [class.is-invalid]="callbackForm.get('name')?.invalid && callbackForm.get('name')?.touched"
+            />
+          </div>
+          @if (callbackForm.get('name')?.invalid && callbackForm.get('name')?.touched) {
+            <small class="text-danger d-block mt-1">Please enter your name</small>
+          }
+        </div>
+      </div>
+
+      <!-- Phone Input -->
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="form-group-item">
+          <label for="cb-phone" class="form-label-small">Mobile Number <span class="text-danger">*</span></label>
+          <div class="input-with-icon">
+            <i class="fa fa-phone input-icon"></i>
+            <input
+              type="tel"
+              id="cb-phone"
+              formControlName="phone"
+              class="form-control callback-input"
+              placeholder="e.g. 98200 12345"
+              [class.is-invalid]="callbackForm.get('phone')?.invalid && callbackForm.get('phone')?.touched"
+            />
+          </div>
+          @if (callbackForm.get('phone')?.invalid && callbackForm.get('phone')?.touched) {
+            <small class="text-danger d-block mt-1">Valid 10-digit number required</small>
+          }
+        </div>
+      </div>
+
+      <!-- Service Dropdown -->
+      <div class="col-lg-4 col-md-12 col-12">
+        <div class="form-group-item">
+          <label for="cb-service" class="form-label-small">Required System / Service <span class="text-danger">*</span></label>
+          <div class="input-with-icon">
+            <i class="fa fa-cogs input-icon"></i>
+            <select
+              id="cb-service"
+              formControlName="serviceNeeded"
+              class="form-select callback-input"
+            >
+              @for (svc of serviceOptions; track svc) {
+                <option [value]="svc">{{ svc }}</option>
+              }
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit & Alternative Action Row -->
+      <div class="col-12 mt-3 d-flex flex-wrap align-items-center justify-content-between gap-3">
+        <div class="trust-indicator d-flex align-items-center gap-2">
+          <i class="fa fa-shield text-danger fs-5"></i>
+          <span class="small text-muted">25+ Years Experience • Direct Engineer Callback</span>
+        </div>
+
+        <div class="btn-group-action d-flex gap-2">
+          <a
+            [href]="getWhatsAppDirectUrl()"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-outline-success btn-whatsapp-direct"
+            title="Chat directly on WhatsApp"
+          >
+            <i class="fa fa-whatsapp"></i> Chat on WhatsApp
+          </a>
+
+          <button
+            type="submit"
+            class="theme-btn btn-style-one btn-submit-callback"
+            [disabled]="isSubmitting()"
+          >
+            <span class="txt">
+              @if (isSubmitting()) {
+                <i class="fa fa-spinner fa-spin me-1"></i> Submitting...
+              } @else {
+                <i class="fa fa-phone me-1"></i> Request Technical Callback
+              }
+            </span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </form>
+</div>

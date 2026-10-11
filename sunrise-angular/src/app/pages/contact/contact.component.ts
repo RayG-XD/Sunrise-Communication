@@ -4,6 +4,7 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { InquiryService } from '../../core/services/inquiry.service';
 import { PageTitleComponent } from '../../shared/components/page-title.component';
 import { SocietyAuditFormComponent } from '../../shared/components/society-audit-form/society-audit-form.component';
+import { QuickCallbackComponent } from '../../shared/components/quick-callback/quick-callback.component';
 import { SITE_DATA } from '../../core/constants/site-data';
 import { environment } from '../../../environments/environment';
 import emailjs from '@emailjs/browser';
@@ -11,7 +12,7 @@ import emailjs from '@emailjs/browser';
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, PageTitleComponent, SocietyAuditFormComponent],
+  imports: [CommonModule, ReactiveFormsModule, PageTitleComponent, SocietyAuditFormComponent, QuickCallbackComponent],
   templateUrl: './contact.component.html'
 })
 export class ContactComponent {
@@ -19,7 +20,7 @@ export class ContactComponent {
   private inquiryService = inject(InquiryService);
   
   siteData = SITE_DATA;
-  activeTab = signal<'society' | 'general'>('society');
+  activeTab = signal<'society' | 'general' | 'callback'>('society');
   isSubmitting = signal(false);
   successMessage = signal('');
   errorMessage = signal('');

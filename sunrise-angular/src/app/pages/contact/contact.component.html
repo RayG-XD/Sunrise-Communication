@@ -90,12 +90,27 @@
           <i class="fa fa-building me-1"></i> Housing Society & Office Site Audit
         </button>
         <button type="button" class="btn px-4 py-2 fw-bold rounded-pill transition-all"
+                [class.btn-warning]="activeTab() === 'callback'"
+                [class.text-dark]="activeTab() === 'callback'"
+                [class.btn-outline-secondary]="activeTab() !== 'callback'"
+                (click)="activeTab.set('callback')">
+          <i class="fa fa-bolt me-1 text-danger"></i> 10-Second Quick Callback
+        </button>
+        <button type="button" class="btn px-4 py-2 fw-bold rounded-pill transition-all"
                 [class.btn-primary]="activeTab() === 'general'"
                 [class.btn-outline-secondary]="activeTab() !== 'general'"
                 (click)="activeTab.set('general')">
           <i class="fa fa-envelope-o me-1"></i> General Message / Quick Inquiry
         </button>
       </div>
+
+      <!-- TAB: Fast-Track Quick Callback -->
+      @if (activeTab() === 'callback') {
+        <app-quick-callback
+          heading="Fast-Track Technical Callback"
+          subheading="Leave your contact number below and an engineer from our Charai, Thane headquarters will call you within 10 minutes."
+        ></app-quick-callback>
+      }
 
       <!-- TAB 1: Housing Society & Commercial Site Audit Form -->
       @if (activeTab() === 'society') {

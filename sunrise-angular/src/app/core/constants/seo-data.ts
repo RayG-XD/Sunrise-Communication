@@ -60,6 +60,16 @@ export const PAGE_SEO_DATA: Record<string, Partial<SeoMetaData>> = {
     description: 'Calculate exact CCTV storage requirements in TB for CP Plus, Hikvision, & Dahua cameras with H.265+ compression. Sizing tool for housing societies & offices in Thane & Mumbai.',
     keywords: 'CCTV Storage Calculator, CCTV HDD Calculator, CCTV Hard Disk Sizing, 16 Camera CCTV Storage, H.265+ Storage Calculation, WD Purple Sizing Thane'
   },
+  '/services/security-system-amc-contracts': {
+    title: 'CCTV & Intercom AMC Contracts for Housing Societies in Thane, Mumbai | Sunrise Communication',
+    description: 'Comprehensive & Non-Comprehensive Annual Maintenance Contracts (AMC) for CCTV cameras, EPABX intercom systems, and biometrics in Thane, Mumbai & Navi Mumbai. Call +91 93238 48622.',
+    keywords: 'CCTV AMC Thane, Society Intercom AMC Mumbai, Security System Maintenance Contract, Housing Society AMC Panchpakhadi, EPABX Maintenance Naupada, CCTV Annual Maintenance Contract'
+  },
+  '/tools/security-system-estimator': {
+    title: 'Housing Society & Office Security Requirement Estimator | Sunrise Communication',
+    description: 'Calculate equipment requirements, camera counts, intercom lines, and estimated BOQ for housing societies, offices, and commercial spaces in Thane, Mumbai & Navi Mumbai.',
+    keywords: 'Security System Estimator, CCTV BOQ Calculator, Society Intercom Estimator, Security System Sizing Thane, CCTV Camera Count Estimator'
+  },
   '/contact': {
     title: 'Contact Us | Sunrise Communication',
     description: 'Get in touch with Sunrise Communication in Thane for all your security camera, access control, and telecom wiring needs. Call us at +91 93238 48622 / +91 99875 55399.',
@@ -108,6 +118,8 @@ export const STRUCTURED_DATA_BASE = {
     availableLanguage: ['English', 'Hindi', 'Marathi']
   },
   sameAs: [
+    SITE_DATA.gbp.mapsUrl,
+    'https://maps.google.com/maps?cid=7206965003768673260',
     SITE_DATA.social.facebook,
     SITE_DATA.social.linkedin,
     SITE_DATA.social.instagram,
@@ -127,11 +139,19 @@ export const STRUCTURED_DATA_BASE = {
       },
       {
         '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: 'Security System Annual Maintenance Contracts (AMC)' }
+      },
+      {
+        '@type': 'Offer',
         itemOffered: { '@type': 'Service', name: 'Biometric & Access Control Systems' }
       },
       {
         '@type': 'Offer',
         itemOffered: { '@type': 'Service', name: 'Network & Telecom Wiring' }
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: 'Interactive Security Requirement Estimator & BOQ' }
       }
     ]
   }

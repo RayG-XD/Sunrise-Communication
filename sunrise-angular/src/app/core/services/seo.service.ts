@@ -685,6 +685,29 @@ export class SeoService {
         bestRating: '5',
         worstRating: '1'
       },
+      review: [
+        {
+          '@type': 'Review',
+          author: { '@type': 'Person', name: 'Managing Committee, Prem Kunj CHS' },
+          datePublished: '2026-06-15',
+          reviewBody: 'Outstanding service for our housing society intercom and CCTV setup. The Sunrise Communication team completed the wiring across 4 wings cleanly and on schedule.',
+          reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }
+        },
+        {
+          '@type': 'Review',
+          author: { '@type': 'Person', name: 'Gated High-Rise Society Committee' },
+          datePublished: '2026-07-20',
+          reviewBody: 'Replaced failing wiring with optical fiber and resolved all lift camera blind spots across 3 towers on Ghodbunder Road. Very professional.',
+          reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }
+        },
+        {
+          '@type': 'Review',
+          author: { '@type': 'Person', name: 'Society Secretary, Mulund West' },
+          datePublished: '2026-08-04',
+          reviewBody: 'Prompt emergency response when our building intercom exchange failed. Restored flat-to-gate communication within hours. Best telecom service in Mulund & Thane.',
+          reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }
+        }
+      ],
       knowsAbout: [
         'CCTV Surveillance Systems',
         'High-Definition IP Cameras',
@@ -727,7 +750,13 @@ export class SeoService {
         { '@type': 'City', name: 'Navi Mumbai' },
         { '@type': 'Place', name: 'Charai, Thane West' },
         { '@type': 'Place', name: 'Naupada, Thane' },
+        { '@type': 'Place', name: 'Panchpakhadi, Thane West' },
+        { '@type': 'Place', name: 'Teen Hath Naka, Thane' },
         { '@type': 'Place', name: 'Ghodbunder Road, Thane' },
+        { '@type': 'Place', name: 'Hiranandani Estate, Thane' },
+        { '@type': 'Place', name: 'Kolshet Road, Thane' },
+        { '@type': 'Place', name: 'Mulund West, Mumbai' },
+        { '@type': 'Place', name: 'Mulund East, Mumbai' },
         { '@type': 'Place', name: 'Wagle Industrial Estate' },
         { '@type': 'Place', name: 'Mahape, Navi Mumbai' },
         { '@type': 'Place', name: 'Vashi, Navi Mumbai' },

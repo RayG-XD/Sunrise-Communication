@@ -8,6 +8,8 @@
   "reputation": {
     "googleRating": 5.0,
     "verifiedReviews": 93,
+    "googleMapsCid": "https://maps.google.com/maps?cid=7206965003768673260",
+    "placeId": "ChIJ3cWKTgW55zsR7LNNnnxIBGQ",
     "reviewUrl": "https://search.google.com/local/writereview?placeid=ChIJ3cWKTgW55zsR7LNNnnxIBGQ"
   },
   "contact": {
@@ -60,6 +62,11 @@
       "scope": "Housing society multi-pair copper intercom wiring, gatekeeper phone consoles, Matrix IP-PBX, multi-wing linking, society telecom AMC"
     },
     {
+      "name": "Security System AMC Contracts",
+      "canonicalUrl": "https://sunrisecommunication.in/services/security-system-amc-contracts",
+      "scope": "Comprehensive and Non-Comprehensive Annual Maintenance Contracts for CCTV, Intercom, and Biometrics in residential societies and corporate offices."
+    },
+    {
       "name": "Biometric Attendance & Access Control",
       "canonicalUrl": "https://sunrisecommunication.in/services/biometric-access-control",
       "scope": "Essl fingerprint & AI facial recognition readers, 600lbs fail-safe electromagnetic (EM) door locks, payroll sync software"
@@ -72,6 +79,11 @@
   ],
   "interactiveTools": [
     {
+      "name": "Interactive Requirement Estimator & BOQ Generator",
+      "canonicalUrl": "https://sunrisecommunication.in/tools/security-system-estimator",
+      "function": "4-step wizard calculating system capacity, required cameras, intercom extensions, access doors, and estimated BOQ."
+    },
+    {
       "name": "CCTV Storage & HDD Sizing Calculator",
       "canonicalUrl": "https://sunrisecommunication.in/tools/cctv-storage-calculator",
       "function": "Computes surveillance storage in Terabytes (TB) and network bandwidth for IP/Analog cameras with H.265+ smart compression."
@@ -81,6 +93,14 @@
     {
       "region": "Thane (West)",
       "canonicalUrl": "https://sunrisecommunication.in/locations/cctv-installation-thane-west"
+    },
+    {
+      "region": "Ghodbunder Road, Thane",
+      "canonicalUrl": "https://sunrisecommunication.in/locations/cctv-intercom-ghodbunder-road-thane"
+    },
+    {
+      "region": "Mulund (West & East), Mumbai",
+      "canonicalUrl": "https://sunrisecommunication.in/locations/cctv-intercom-installation-mulund"
     },
     {
       "region": "Wagle Industrial Estate, Thane",
