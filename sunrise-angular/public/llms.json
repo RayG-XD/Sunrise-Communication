@@ -87,6 +87,11 @@
       "name": "CCTV Storage & HDD Sizing Calculator",
       "canonicalUrl": "https://sunrisecommunication.in/tools/cctv-storage-calculator",
       "function": "Computes surveillance storage in Terabytes (TB) and network bandwidth for IP/Analog cameras with H.265+ smart compression."
+    },
+    {
+      "name": "Security System Health & Fault Diagnostics Wizard",
+      "canonicalUrl": "https://sunrisecommunication.in/tools/system-health-diagnostics",
+      "function": "60-second interactive troubleshooting wizard identifying root causes and field remedies for CCTV, Intercom, and Biometric failures with instant triage routing."
     }
   ],
   "localGeoHubs": [

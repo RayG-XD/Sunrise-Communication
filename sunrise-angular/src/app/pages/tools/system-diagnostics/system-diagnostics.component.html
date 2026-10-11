@@ -1,0 +1,277 @@
+<app-page-title 
+  title="Security System Health & Fault Diagnostics" 
+  breadcrumb="Fault Diagnostics" 
+  bgImage="assets/images/background/10.jpg">
+</app-page-title>
+
+<!-- Diagnostic Tool Main Section -->
+<section class="diagnostic-section py-5">
+  <div class="auto-container">
+
+    <!-- Header Intro Banner -->
+    <div class="diagnostic-header-card text-center mb-5">
+      <div class="badge-pill mb-3">
+        <span class="pulse-indicator"></span>
+        <span class="badge-label">Interactive Field Engineering Diagnostic</span>
+      </div>
+      <h2 class="section-title">60-Second Security & Telecom Fault Triage Wizard</h2>
+      <p class="section-subtitle max-w-800 mx-auto">
+        Experiencing pitch-black camera screens, continuous NVR beeping, humming society intercom phones, or jammed electromagnetic door locks? 
+        Select your system and symptom below to instantly uncover the probable root cause, technician diagnostic steps, and recommended engineering solutions.
+      </p>
+    </div>
+
+    <!-- Step 1: System Selection Tabs -->
+    <div class="step-card mb-4">
+      <div class="step-indicator">
+        <span class="step-num">Step 1</span>
+        <span class="step-title">Select Affected Security System</span>
+      </div>
+      <div class="systems-grid">
+        @for (sys of diagnosticSystems; track sys.id) {
+          <button 
+            type="button" 
+            class="system-tab-btn" 
+            [class.active]="selectedSystemId() === sys.id"
+            (click)="selectSystem(sys.id)">
+            <div class="sys-icon-box">
+              <i class="fa" [ngClass]="sys.icon"></i>
+            </div>
+            <div class="sys-meta">
+              <span class="sys-name">{{ sys.name }}</span>
+              <span class="sys-desc">{{ sys.description }}</span>
+            </div>
+            <div class="sys-check">
+              <i class="fa fa-check-circle"></i>
+            </div>
+          </button>
+        }
+      </div>
+    </div>
+
+    <!-- Step 2: Symptom Selection Cards -->
+    <div class="step-card mb-4">
+      <div class="step-indicator">
+        <span class="step-num">Step 2</span>
+        <span class="step-title">Select Observed Technical Symptom</span>
+      </div>
+      <div class="symptoms-grid">
+        @for (symptom of currentSystem().symptoms; track symptom.id) {
+          <div 
+            class="symptom-card" 
+            [class.active]="selectedSymptomId() === symptom.id"
+            (click)="selectSymptom(symptom.id)">
+            <div class="symptom-top">
+              <span class="severity-pill" [ngClass]="'severity-' + symptom.severity.toLowerCase()">
+                <i class="fa fa-exclamation-circle me-1"></i> {{ symptom.severity }} Priority
+              </span>
+              <span class="radio-indicator">
+                <i class="fa" [ngClass]="selectedSymptomId() === symptom.id ? 'fa-dot-circle-o' : 'fa-circle-o'"></i>
+              </span>
+            </div>
+            <p class="symptom-label">{{ symptom.label }}</p>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Step 3: Instant Diagnostic Assessment & Engineering Analysis -->
+    <div class="diagnosis-result-card mb-5">
+      <div class="result-header">
+        <div class="result-badge">
+          <i class="fa fa-stethoscope"></i> Technical Assessment
+        </div>
+        <div class="result-title-row">
+          <h3 class="result-heading">{{ currentSymptom().label }}</h3>
+          <span class="priority-badge" [ngClass]="'priority-' + currentSymptom().severity.toLowerCase()">
+            <i class="fa fa-shield me-1"></i> {{ currentSymptom().severity }} Risk Level
+          </span>
+        </div>
+        <p class="result-context">
+          Identified across <strong>{{ currentSystem().name }}</strong> infrastructure. Below is the field root-cause analysis based on 25+ years of Mumbai & Thane installation telemetry.
+        </p>
+      </div>
+
+      <div class="analysis-grid">
+        <!-- Root Cause -->
+        <div class="analysis-box root-cause">
+          <div class="analysis-icon">
+            <i class="fa fa-search"></i>
+          </div>
+          <div class="analysis-content">
+            <h4 class="analysis-title">Probable Technical Root Cause</h4>
+            <p class="analysis-text">{{ currentSymptom().probableCause }}</p>
+          </div>
+        </div>
+
+        <!-- Recommended Action -->
+        <div class="analysis-box recommended-action">
+          <div class="analysis-icon">
+            <i class="fa fa-wrench"></i>
+          </div>
+          <div class="analysis-content">
+            <h4 class="analysis-title">Recommended Engineering Action</h4>
+            <p class="analysis-text">{{ currentSymptom().recommendedAction }}</p>
+          </div>
+        </div>
+
+        <!-- Preventive Advice -->
+        <div class="analysis-box preventive-advice">
+          <div class="analysis-icon">
+            <i class="fa fa-shield"></i>
+          </div>
+          <div class="analysis-content">
+            <h4 class="analysis-title">Long-Term Preventive Protection</h4>
+            <p class="analysis-text">{{ currentSymptom().preventiveAdvice }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Triage Bar -->
+      <div class="triage-action-bar">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-6">
+            <div class="triage-callout">
+              <h4 class="triage-callout-title">
+                <i class="fa fa-phone text-danger me-2"></i> Need Urgent Field Engineer Dispatch?
+              </h4>
+              <p class="triage-callout-text">
+                Speak directly with our senior hardware specialist for immediate triage, spare replacement, or an on-site diagnostic inspection across Thane, Mulund & Mumbai MMR.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mt-3">
+                <a [href]="getWhatsAppTriageUrl()" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+                  <i class="fa fa-whatsapp me-2"></i> WhatsApp Diagnostic Report
+                </a>
+                <a [href]="'tel:' + siteData.contact.primaryPhone" class="btn btn-phone">
+                  <i class="fa fa-phone me-2"></i> Call: {{ siteData.contact.primaryPhone }}
+                </a>
+                <a routerLink="/services/security-system-amc-contracts" class="btn btn-outline-secondary btn-sm mt-1">
+                  <i class="fa fa-shield me-1"></i> View AMC Maintenance Contracts
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Schedule Diagnostic Inspection Mini-Form -->
+          <div class="col-lg-6">
+            <div class="lead-capture-box">
+              <h4 class="lead-box-title">
+                <i class="fa fa-calendar-check-o me-2 text-danger"></i> Schedule Diagnostic Inspection
+              </h4>
+              <p class="lead-box-sub">Submit your details to dispatch an engineer to your society or premises.</p>
+
+              @if (leadSubmitted()) {
+                <div class="alert alert-success d-flex align-items-center mb-0 mt-3 p-3 rounded-3" role="alert">
+                  <i class="fa fa-check-circle fa-2x me-3 text-success"></i>
+                  <div>
+                    <h5 class="alert-heading fw-bold mb-1">Diagnostic Request Received</h5>
+                    <p class="mb-0 small">Our field engineering coordinator will contact you promptly to confirm the on-site inspection schedule.</p>
+                  </div>
+                </div>
+              } @else {
+                <form [formGroup]="leadForm" (ngSubmit)="onSubmitDiagnosticLead()" class="diag-lead-form">
+                  <div class="row g-2">
+                    <div class="col-sm-6">
+                      <input 
+                        type="text" 
+                        class="form-control diag-input" 
+                        placeholder="Your Name *" 
+                        formControlName="name"
+                        [class.is-invalid]="leadForm.get('name')?.touched && leadForm.get('name')?.invalid">
+                    </div>
+                    <div class="col-sm-6">
+                      <input 
+                        type="tel" 
+                        class="form-control diag-input" 
+                        placeholder="Phone Number *" 
+                        formControlName="phone"
+                        [class.is-invalid]="leadForm.get('phone')?.touched && leadForm.get('phone')?.invalid">
+                    </div>
+                    <div class="col-sm-6">
+                      <input 
+                        type="text" 
+                        class="form-control diag-input" 
+                        placeholder="Society / Company Name" 
+                        formControlName="societyOrOrg">
+                    </div>
+                    <div class="col-sm-6">
+                      <select class="form-select diag-input" formControlName="location">
+                        <option value="Thane West">Thane West (Ghodbunder / Panchpakhadi / Naupada)</option>
+                        <option value="Thane East">Thane East / Kopri</option>
+                        <option value="Mulund / Bhandup">Mulund / Bhandup</option>
+                        <option value="Navi Mumbai">Navi Mumbai / Airoli / Vashi</option>
+                        <option value="Mumbai Suburbs">Mumbai Central / Eastern Suburbs</option>
+                      </select>
+                    </div>
+                    <div class="col-12 mt-2">
+                      <button 
+                        type="submit" 
+                        class="btn btn-submit-diag w-100" 
+                        [disabled]="isSubmittingLead()">
+                        @if (isSubmittingLead()) {
+                          <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                          Submitting Request...
+                        } @else {
+                          <i class="fa fa-paper-plane me-2"></i> Book Field Inspection
+                        }
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Engineering Diagnostic Knowledge & FAQ Cards -->
+    <div class="diagnostic-faq-section mt-5">
+      <div class="text-center mb-4">
+        <h3 class="fw-bold text-dark">Frequently Diagnosed Telecom & Security Failures</h3>
+        <p class="text-muted max-w-700 mx-auto">
+          Common real-world field scenarios observed across housing societies and commercial offices in Thane and Mumbai MMR.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="faq-card h-100 p-4 rounded-4 bg-white border shadow-xs">
+            <div class="faq-icon-pill mb-3">
+              <i class="fa fa-hdd-o text-danger"></i>
+            </div>
+            <h5 class="fw-bold text-dark mb-2">Why Do CCTV Hard Drives Fail So Often?</h5>
+            <p class="text-muted small mb-0">
+              Surveillance systems write video data 24 hours a day, 365 days a year. Standard desktop computer hard drives are not built for continuous thermal wear and fail within 12–18 months. Always specify 24/7 surveillance-rated drives like WD Purple or Seagate SkyHawk with AllFrame firmware.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="faq-card h-100 p-4 rounded-4 bg-white border shadow-xs">
+            <div class="faq-icon-pill mb-3">
+              <i class="fa fa-tint text-primary"></i>
+            </div>
+            <h5 class="fw-bold text-dark mb-2">How Does Monsoon Rain Affect Intercom Lines?</h5>
+            <p class="text-muted small mb-0">
+              During Mumbai monsoons, moisture condenses inside open building duct risers and floor junction boxes. Unsealed screw terminals short-circuit, causing loud 50Hz electrical hums or completely dead extensions. We solve this permanently using weatherproof Krone DP boxes with silicone gel crimps.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="faq-card h-100 p-4 rounded-4 bg-white border shadow-xs">
+            <div class="faq-icon-pill mb-3">
+              <i class="fa fa-bolt text-warning"></i>
+            </div>
+            <h5 class="fw-bold text-dark mb-2">Why Does an Elevator Camera Video Flicker?</h5>
+            <p class="text-muted small mb-0">
+              Elevator shafts contain high-voltage 415V three-phase motors and variable frequency drives (VFD) that emit severe electromagnetic interference. Standard cables pick up inductive voltage spikes, causing horizontal rolling bars. We deploy steel-armoured shielded elevator Cat6 cables with ground loop isolators.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

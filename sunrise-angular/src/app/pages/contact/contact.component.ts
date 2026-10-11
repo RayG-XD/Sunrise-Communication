@@ -7,12 +7,13 @@ import { SocietyAuditFormComponent } from '../../shared/components/society-audit
 import { QuickCallbackComponent } from '../../shared/components/quick-callback/quick-callback.component';
 import { SITE_DATA } from '../../core/constants/site-data';
 import { environment } from '../../../environments/environment';
+import { RouterLink } from '@angular/router';
 import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, PageTitleComponent, SocietyAuditFormComponent, QuickCallbackComponent],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, PageTitleComponent, SocietyAuditFormComponent, QuickCallbackComponent],
   templateUrl: './contact.component.html'
 })
 export class ContactComponent {
@@ -25,6 +26,12 @@ export class ContactComponent {
   successMessage = signal('');
   errorMessage = signal('');
   lastSubmittedData = signal<any>(null);
+
+  get emergencyWhatsAppUrl(): string {
+    const phone = this.siteData.social.whatsapp.replace('https://wa.me/', '');
+    const text = '*EMERGENCY BREAKDOWN DISPATCH — SUNRISE COMMUNICATION*\n🚨 *Urgent:* Equipment Breakdown / Line Outage\n📍 *Premises:* Thane / Mumbai MMR\n👨‍🔧 *Request:* Immediate field engineer dispatch required.';
+    return `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+  }
   
   contactForm = this.fb.group({
     username: ['', Validators.required],

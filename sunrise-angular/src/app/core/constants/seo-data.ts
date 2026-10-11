@@ -70,6 +70,11 @@ export const PAGE_SEO_DATA: Record<string, Partial<SeoMetaData>> = {
     description: 'Calculate equipment requirements, camera counts, intercom lines, and estimated BOQ for housing societies, offices, and commercial spaces in Thane, Mumbai & Navi Mumbai.',
     keywords: 'Security System Estimator, CCTV BOQ Calculator, Society Intercom Estimator, Security System Sizing Thane, CCTV Camera Count Estimator'
   },
+  '/tools/system-health-diagnostics': {
+    title: 'Security System Health & Fault Diagnostics Wizard | Sunrise Communication',
+    description: 'Troubleshoot CCTV night vision failure, NVR continuous beeping, EPABX intercom humming lines, and jammed biometric EM door locks with our 60-second diagnostic triage wizard in Thane & Mumbai.',
+    keywords: 'CCTV Troubleshooting Thane, NVR Beeping Fix, Intercom Humming Noise Repair Mumbai, EM Lock Jammed Troubleshooting, Security System Diagnostics, CCTV Camera Offline Thane'
+  },
   '/guides/housing-society-agm-approval-toolkit': {
     title: 'Housing Society AGM CCTV & Intercom Approval Toolkit | Sunrise Communication',
     description: 'Statutory guide & tender toolkit for society secretaries in Maharashtra: Sinking Fund bye-laws, copy-paste AGM resolution text, and 3-vendor technical evaluation matrix.',

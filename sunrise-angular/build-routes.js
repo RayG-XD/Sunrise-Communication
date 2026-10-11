@@ -29,6 +29,7 @@ const routes = [
   'services/detail',
   'tools/cctv-storage-calculator',
   'tools/security-system-estimator',
+  'tools/system-health-diagnostics',
   'locations/cctv-installation-thane-west',
   'locations/society-intercom-wagle-estate',
   'locations/security-systems-navi-mumbai',

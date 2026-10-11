@@ -70,6 +70,16 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'tools/system-health-diagnostics',
+    loadComponent: () => import('./pages/tools/system-diagnostics/system-diagnostics.component').then(m => m.SystemDiagnosticsComponent),
+    title: 'Security System Health & Fault Diagnostics | Sunrise Communication'
+  },
+  {
+    path: 'tools/system-diagnostics',
+    redirectTo: 'tools/system-health-diagnostics',
+    pathMatch: 'full'
+  },
+  {
     path: 'locations/cctv-installation-thane-west',
     loadComponent: () => import('./pages/locations/local-landing/local-landing.component').then(m => m.LocalLandingComponent)
   },

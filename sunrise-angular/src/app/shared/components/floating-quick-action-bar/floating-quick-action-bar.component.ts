@@ -35,6 +35,8 @@ export class FloatingQuickActionBarComponent {
       message = 'Hi Sunrise Communication, our Housing Society is inquiring about an Annual Maintenance Contract (AMC) for CCTV/Intercom systems.';
     } else if (url.includes('security-system-estimator')) {
       message = 'Hi Sunrise Communication, I used your Requirement Estimator and would like to discuss our estimated BOQ.';
+    } else if (url.includes('system-health-diagnostics')) {
+      message = 'Hi Sunrise Communication, I ran your Security System Health Diagnostic tool and would like to request technical triage for our equipment.';
     } else if (url.includes('cctv-storage-calculator')) {
       message = 'Hi Sunrise Communication, I used your CCTV Storage Calculator and would like to discuss surveillance storage & HDD sizing.';
     } else if (url.includes('ghodbunder-road')) {

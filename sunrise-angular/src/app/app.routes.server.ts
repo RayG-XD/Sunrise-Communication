@@ -46,6 +46,10 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Prerender
   },
   {
+    path: 'tools/system-health-diagnostics',
+    renderMode: RenderMode.Prerender
+  },
+  {
     path: 'locations/cctv-installation-thane-west',
     renderMode: RenderMode.Prerender
   },

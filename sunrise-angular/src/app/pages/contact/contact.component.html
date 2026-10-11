@@ -28,8 +28,30 @@
                 <a [href]="siteData.contact.website" target="_blank" rel="noopener noreferrer">{{ siteData.contact.website }}</a>
               </li>
             </ul>
-            <div class="timing">
+            <div class="timing mb-3">
               <strong>Open 24 Hours (Mon – Sun)</strong> • Emergency Breakdown Support
+            </div>
+
+            <!-- Emergency Breakdown & Priority Dispatch Triage Card -->
+            <div class="emergency-dispatch-card mb-3 p-3 rounded-3 border" style="background: linear-gradient(135deg, #fef2f2 0%, #fff1f2 100%); border-color: #fecaca !important;">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <span class="badge bg-danger text-white fw-bold">
+                  <i class="fa fa-ambulance me-1"></i> EMERGENCY BREAKDOWN HOTLINE
+                </span>
+                <span class="text-danger fw-bold small"><i class="fa fa-clock-o"></i> 4-Hr AMC Dispatch</span>
+              </div>
+              <p class="small text-dark mb-2">
+                Facing sudden security camera blackout, NVR disk failure, or society intercom line silence?
+              </p>
+              <div class="d-grid gap-2">
+                <a routerLink="/tools/system-health-diagnostics" class="btn btn-sm btn-outline-danger fw-bold text-start d-flex align-items-center justify-content-between">
+                  <span><i class="fa fa-stethoscope me-1"></i> 60-Sec Fault Diagnostic Wizard</span>
+                  <i class="fa fa-arrow-right"></i>
+                </a>
+                <a [href]="emergencyWhatsAppUrl" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-success fw-bold d-flex align-items-center justify-content-center gap-1">
+                  <i class="fa fa-whatsapp"></i> Priority WhatsApp Dispatch
+                </a>
+              </div>
             </div>
 
             <!-- Google Reputation & Review Link -->
