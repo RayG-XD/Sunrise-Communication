@@ -176,7 +176,13 @@
                   class="form-control"
                 />
                 @if (searchQuery()) {
-                  <button class="clear-search-icon" (click)="clearSearch()">×</button>
+                  <button
+                    class="clear-search-icon"
+                    (click)="clearSearch()"
+                    aria-label="Clear search query"
+                  >
+                    ×
+                  </button>
                 } @else {
                   <i class="fa fa-search search-icon"></i>
                 }
@@ -196,25 +202,40 @@
                   @if (searchQuery()) {
                     <span class="chip-item">
                       "{{ searchQuery() }}"
-                      <button (click)="clearSearch()">×</button>
+                      <button (click)="clearSearch()" aria-label="Remove search filter">×</button>
                     </span>
                   }
                   @for (cat of selectedCategories(); track cat) {
                     <span class="chip-item">
                       {{ cat }}
-                      <button (click)="removeCategoryFilter(cat)">×</button>
+                      <button
+                        (click)="removeCategoryFilter(cat)"
+                        [attr.aria-label]="'Remove category filter ' + cat"
+                      >
+                        ×
+                      </button>
                     </span>
                   }
                   @for (subCat of selectedSubCategories(); track subCat) {
                     <span class="chip-item chip-subcat">
                       {{ subCat }}
-                      <button (click)="removeSubCategoryFilter(subCat)">×</button>
+                      <button
+                        (click)="removeSubCategoryFilter(subCat)"
+                        [attr.aria-label]="'Remove subcategory filter ' + subCat"
+                      >
+                        ×
+                      </button>
                     </span>
                   }
                   @for (brand of selectedBrands(); track brand) {
                     <span class="chip-item">
                       {{ brand }}
-                      <button (click)="removeBrandFilter(brand)">×</button>
+                      <button
+                        (click)="removeBrandFilter(brand)"
+                        [attr.aria-label]="'Remove brand filter ' + brand"
+                      >
+                        ×
+                      </button>
                     </span>
                   }
                 </div>
@@ -239,7 +260,9 @@
                     </label>
 
                     <!-- ONLY SHOW SUB-CATEGORIES WHEN THIS CATEGORY IS CHECKED -->
-                    @if (selectedCategories().has(catItem.category) && catItem.subcategories.length > 0) {
+                    @if (
+                      selectedCategories().has(catItem.category) && catItem.subcategories.length > 0
+                    ) {
                       <div class="subcategory-nested-list ps-3 ms-1 mt-1">
                         @for (subCat of catItem.subcategories; track subCat) {
                           <label class="custom-checkbox subcategory-checkbox">
