@@ -317,11 +317,13 @@
         <div class="row clearfix align-items-center">
           <div class="col-lg-5 col-md-12 text-center text-lg-start mb-3 mb-lg-0">
             <div class="rating-badge-large">
-              <span class="stars-gold">⭐⭐⭐⭐⭐</span>
+              <div class="gold-stars d-inline-flex gap-1 mb-2 fs-5">
+                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+              </div>
               <h3>5.0 / 5.0 Stars</h3>
               <p class="rating-sub">Based on <strong>93+ Verified Customer Reviews</strong> on Google</p>
-              <a [href]="siteData.gbp.reviewUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline-danger btn-sm mt-2">
-                <i class="fa fa-google"></i> Write a Google Review
+              <a [href]="siteData.gbp.reviewUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline-danger btn-sm mt-2 rounded-pill px-3 fw-bold">
+                <i class="fa fa-google me-1"></i> Write a Google Review
               </a>
             </div>
           </div>
@@ -346,33 +348,36 @@
         <div class="row clearfix areas-grid">
           
           <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
-            <div class="area-region-card">
+            <div class="area-region-card region-thane">
+              <div class="region-top-bar"></div>
               <h4><i class="fa fa-map-marker text-danger"></i> Thane Region (HQ Hub)</h4>
               <div class="pills-container">
                 @for (loc of cluster.serviceAreasThane; track loc) {
-                  <span class="locality-pill">{{ loc }}</span>
+                  <span class="locality-pill"><span class="pill-bullet bg-danger"></span>{{ loc }}</span>
                 }
               </div>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
-            <div class="area-region-card">
-              <h4><i class="fa fa-map-marker text-danger"></i> Mumbai Suburbs</h4>
+            <div class="area-region-card region-mumbai">
+              <div class="region-top-bar"></div>
+              <h4><i class="fa fa-map-marker text-primary"></i> Mumbai Suburbs</h4>
               <div class="pills-container">
                 @for (loc of cluster.serviceAreasMumbai; track loc) {
-                  <span class="locality-pill">{{ loc }}</span>
+                  <span class="locality-pill"><span class="pill-bullet bg-primary"></span>{{ loc }}</span>
                 }
               </div>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
-            <div class="area-region-card">
-              <h4><i class="fa fa-map-marker text-danger"></i> Navi Mumbai Corridor</h4>
+            <div class="area-region-card region-navimumbai">
+              <div class="region-top-bar"></div>
+              <h4><i class="fa fa-map-marker text-success"></i> Navi Mumbai Corridor</h4>
               <div class="pills-container">
                 @for (loc of cluster.serviceAreasNaviMumbai; track loc) {
-                  <span class="locality-pill">{{ loc }}</span>
+                  <span class="locality-pill"><span class="pill-bullet bg-success"></span>{{ loc }}</span>
                 }
               </div>
             </div>
@@ -382,9 +387,9 @@
       </div>
 
       <!-- 11. SERVICE NOTICE & DISCLAIMER -->
-      <div class="service-notice-disclaimer my-4 p-3 bg-light rounded border text-muted small">
-        <p class="mb-0">
-          <strong><i class="fa fa-info-circle text-primary"></i> Please Note:</strong> Technical specifications, hardware models, AMC coverage terms, response times, and estimated costs are indicative and customized based on actual site survey, infrastructure feasibility, and finalized written agreements.
+      <div class="service-notice-callout my-4 p-4 rounded-4 border">
+        <p class="mb-0 text-secondary small leading-relaxed">
+          <strong class="text-dark d-inline-flex align-items-center gap-1"><i class="fa fa-info-circle text-primary"></i> Please Note:</strong> Technical specifications, hardware models, AMC coverage terms, response times, and estimated costs are indicative and customized based on actual site survey, infrastructure feasibility, and finalized written agreements.
         </p>
       </div>
 

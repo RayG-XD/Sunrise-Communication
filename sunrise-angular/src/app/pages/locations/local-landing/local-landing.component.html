@@ -4,7 +4,9 @@
   <section class="page-title local-hero-banner">
     <div class="auto-container">
       <div class="rating-pill-badge mb-2">
-        <span class="stars-gold">⭐⭐⭐⭐⭐</span>
+        <span class="gold-stars me-1">
+          <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+        </span>
         <span>5.0 Star Rated Local Security Partner in {{ loc.regionName }}</span>
       </div>
       <h1>{{ loc.heroTitle }}</h1>
@@ -48,7 +50,9 @@
 
         <div class="col-lg-4 col-md-12">
           <div class="local-quick-contact-card p-4 rounded-4 shadow bg-dark text-white text-center">
-            <div class="rating-stars text-warning fs-5 mb-1">⭐⭐⭐⭐⭐</div>
+            <div class="gold-stars justify-content-center fs-5 mb-2">
+              <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+            </div>
             <h3 class="h5 text-white mb-2">Need a Fast Site Audit in {{ loc.regionName }}?</h3>
             <p class="text-light small mb-3">Our field technicians can conduct an on-site survey and prepare an itemized BOQ within hours.</p>
             
@@ -82,7 +86,8 @@
       <div class="row g-4">
         @for (service of loc.featuredServices; track service.title) {
           <div class="col-lg-3 col-md-6 col-12">
-            <div class="local-service-card p-4 rounded-4 bg-white border shadow-sm h-100 d-flex flex-column transition-all">
+            <div class="local-service-card p-4 rounded-4 bg-white border shadow-sm h-100 d-flex flex-column transition-all position-relative overflow-hidden">
+              <div class="card-top-accent"></div>
               <div class="icon-circle mb-3">
                 <i class="fa {{ service.icon }} text-danger fs-3"></i>
               </div>
@@ -120,18 +125,21 @@
               <p class="text-muted small mb-0">{{ loc.localCaseStudy.solution }}</p>
             </div>
 
-            <div class="alert alert-success p-2 small mb-0">
-              <strong><i class="fa fa-check-circle"></i> Outcome:</strong> {{ loc.localCaseStudy.result }}
+            <div class="alert alert-success p-2.5 small mb-0 d-flex align-items-center gap-2">
+              <i class="fa fa-check-circle fs-5 text-success flex-shrink-0"></i>
+              <span><strong>Outcome:</strong> {{ loc.localCaseStudy.result }}</span>
             </div>
           </div>
 
           <div class="col-lg-5 col-md-12">
-            <div class="p-3 bg-white rounded-3 border">
-              <h4 class="h6 fw-bold text-dark mb-3 border-bottom pb-2">Hardware & Infrastructure Deployed:</h4>
-              <ul class="list-unstyled mb-0">
+            <div class="p-4 bg-white rounded-4 border shadow-sm">
+              <span class="badge bg-danger-subtle text-danger px-2.5 py-1 rounded-pill mb-2 fw-bold small">
+                <i class="fa fa-server me-1"></i> Hardware & Infrastructure Deployed
+              </span>
+              <ul class="list-unstyled mb-0 mt-2">
                 @for (item of loc.localCaseStudy.hardwareInstalled; track item) {
-                  <li class="py-1 text-secondary small d-flex align-items-center">
-                    <i class="fa fa-check text-success me-2"></i> {{ item }}
+                  <li class="py-1.5 text-secondary small d-flex align-items-center">
+                    <i class="fa fa-check-circle text-success me-2"></i> {{ item }}
                   </li>
                 }
               </ul>

@@ -6,6 +6,7 @@ import { PageTitleComponent } from '../../shared/components/page-title.component
   selector: 'app-not-found',
   standalone: true,
   imports: [RouterLink, PageTitleComponent],
-  templateUrl: './not-found.component.html'
+  templateUrl: './not-found.component.html',
+  styleUrl: './not-found.component.scss'
 })
 export class NotFoundComponent {}

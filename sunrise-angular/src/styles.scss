@@ -943,6 +943,8 @@ body.mobile-menu-visible {
 .fa-tachometer:before { content: "\f0e4" !important; } /* fa-dashboard */
 .fa-user-circle:before, .fa-user-circle-o:before { content: "\f007" !important; } /* fa-user */
 .fa-award:before { content: "\f091" !important; } /* fa-trophy */
+.fa-commenting:before, .fa-commenting-o:before { content: "\f0e5" !important; } /* fa-comment-o */
+.fa-tools:before { content: "\f0ad" !important; } /* fa-wrench */
 
 /* Corporate Brand Text Alignment */
 .text-primary { color: #010c3a !important; }
@@ -950,6 +952,18 @@ a.text-primary:hover { color: #df0303 !important; }
 .fa-certificate:before { content: "\f0a3" !important; } /* fa-certificate */
 .fa-hdd-o:before, .fa-hdd:before { content: "\f0a0" !important; } /* fa-hdd-o */
 .fa-shield-halved:before, .fa-shield-alt:before { content: "\f132" !important; } /* fa-shield */
+
+/* Glowing Golden Stars for Customer Reviews */
+.gold-stars {
+  display: inline-flex;
+  gap: 3px;
+  align-items: center;
+
+  i {
+    color: #f59e0b !important;
+    text-shadow: 0 1px 3px rgba(245, 158, 11, 0.35);
+  }
+}
 
 /* Brand Color Palette Alignment (Replaces generic Bootstrap 4/5 blues with Crimson & Navy) */
 .btn-primary {

@@ -128,9 +128,46 @@
 
     .btns-box {
       display: flex;
-      gap: 14px;
+      gap: 16px;
       flex-wrap: wrap;
       align-items: center;
+
+      .btn-style-two {
+        background: linear-gradient(135deg, #df0303 0%, #b80202 100%) !important;
+        border: none !important;
+        color: #ffffff !important;
+        font-weight: 700;
+        font-size: 14.5px;
+        padding: 13px 28px;
+        border-radius: 50px;
+        box-shadow: 0 4px 18px rgba(223, 3, 3, 0.4);
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 24px rgba(223, 3, 3, 0.55);
+        }
+      }
+
+      .btn-style-three {
+        background: rgba(255, 255, 255, 0.12) !important;
+        border: 1.5px solid rgba(255, 255, 255, 0.45) !important;
+        color: #ffffff !important;
+        font-weight: 700;
+        font-size: 14.5px;
+        padding: 12px 28px;
+        border-radius: 50px;
+        backdrop-filter: blur(8px);
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: #ffffff !important;
+          color: #010c3a !important;
+          border-color: #ffffff !important;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 24px rgba(255, 255, 255, 0.25);
+        }
+      }
     }
   }
 }
@@ -754,6 +791,7 @@
   background-color: #ffffff;
 
   .home-review-card {
+    position: relative;
     background: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 16px;
@@ -763,11 +801,28 @@
     flex-direction: column;
     box-shadow: 0 4px 18px rgba(1, 12, 58, 0.04);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #df0303 0%, #010c3a 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
 
     &:hover {
       transform: translateY(-5px);
       box-shadow: 0 16px 36px rgba(1, 12, 58, 0.09);
       border-color: #cbd5e1;
+
+      &::before {
+        opacity: 1;
+      }
     }
 
     .review-card-header {

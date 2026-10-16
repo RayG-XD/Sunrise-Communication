@@ -42,8 +42,8 @@ export const routes: Routes = [
   },
   {
     path: 'services/detail',
-    loadComponent: () => import('./pages/services-detail/services-detail.component').then(m => m.ServicesDetailComponent),
-    title: 'CCTV & Security System Installations | Sunrise Communication'
+    redirectTo: 'services/cctv-surveillance-systems',
+    pathMatch: 'full'
   },
   {
     path: 'services/:slug',

@@ -1,1 +1,119 @@
-/* not found styles */
+.error-section {
+  background-color: #f8fafc;
+  min-height: 60vh;
+}
+
+.max-w-850 {
+  max-width: 850px;
+}
+
+.max-w-600 {
+  max-width: 600px;
+}
+
+/* Radar Scan Animation Target */
+.radar-scan-target {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(223, 3, 3, 0.08) 0%, rgba(1, 12, 58, 0.05) 100%);
+  border: 2px dashed rgba(223, 3, 3, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  .radar-sweep {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg at 50% 50%, rgba(223, 3, 3, 0.25) 0deg, transparent 60deg, transparent 360deg);
+    animation: radarSpin 3s linear infinite;
+  }
+
+  .radar-crosshair-h {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1px;
+    background: rgba(223, 3, 3, 0.3);
+  }
+
+  .radar-crosshair-v {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: rgba(223, 3, 3, 0.3);
+  }
+
+  .radar-icon-box {
+    position: relative;
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #010c3a;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgba(1, 12, 58, 0.2);
+  }
+}
+
+@keyframes radarSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-code-numeral {
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
+  font-weight: 900;
+  color: #010c3a;
+  line-height: 1;
+  letter-spacing: -2px;
+  background: linear-gradient(135deg, #010c3a 40%, #df0303 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Quick Nav Cards */
+.quick-nav-card {
+  background: #f8fafc;
+  border-color: #e2e8f0 !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+  .nav-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s ease;
+  }
+
+  strong {
+    transition: color 0.2s ease;
+  }
+
+  &:hover {
+    background: #ffffff;
+    border-color: rgba(223, 3, 3, 0.35) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(1, 12, 58, 0.06);
+
+    .nav-icon {
+      transform: scale(1.1);
+    }
+
+    strong {
+      color: #df0303 !important;
+    }
+  }
+}

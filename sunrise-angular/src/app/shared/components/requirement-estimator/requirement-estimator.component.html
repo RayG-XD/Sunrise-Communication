@@ -85,8 +85,8 @@
             <label><i class="fa fa-map-marker"></i> Location / Pincode:</label>
             <input type="text" [ngModel]="premiseLocation()" (ngModelChange)="premiseLocation.set($event)" class="form-control form-control-sm" placeholder="e.g. Charai Thane, Vashi, Andheri" />
           </div>
-          <button class="theme-btn btn-style-one next-btn" (click)="goToStep(2)">
-            <span class="txt">Next: Select Services &rsaquo;</span>
+          <button class="estimator-next-btn" (click)="goToStep(2)">
+            <span>Next: Select Services</span> <i class="fa fa-arrow-right ms-2"></i>
           </button>
         </div>
       </div>
@@ -166,10 +166,12 @@
 
         </div>
 
-        <div class="step-footer mt-4 d-flex justify-content-between">
-          <button class="btn btn-outline-secondary btn-sm" (click)="goToStep(1)">&lsaquo; Back</button>
-          <button class="theme-btn btn-style-one next-btn" (click)="goToStep(3)">
-            <span class="txt">Next: Scope & Numbers &rsaquo;</span>
+        <div class="step-footer mt-4 d-flex justify-content-between align-items-center">
+          <button class="estimator-back-btn" (click)="goToStep(1)">
+            <i class="fa fa-arrow-left me-2"></i> <span>Back</span>
+          </button>
+          <button class="estimator-next-btn" (click)="goToStep(3)">
+            <span>Next: Scope & Numbers</span> <i class="fa fa-arrow-right ms-2"></i>
           </button>
         </div>
       </div>
@@ -199,11 +201,11 @@
             <div class="col-lg-6 col-md-6 col-sm-12">
               <div class="param-box">
                 <label class="param-label"><i class="fa fa-hdd-o"></i> Desired Video Backup Duration: <strong>{{ storageDays() }} Days</strong></label>
-                <div class="btn-group w-100 btn-group-sm" role="group">
-                  <button type="button" class="btn" [class.btn-danger]="storageDays() === 15" [class.btn-outline-secondary]="storageDays() !== 15" (click)="storageDays.set(15)">15 Days</button>
-                  <button type="button" class="btn" [class.btn-danger]="storageDays() === 30" [class.btn-outline-secondary]="storageDays() !== 30" (click)="storageDays.set(30)">30 Days</button>
-                  <button type="button" class="btn" [class.btn-danger]="storageDays() === 45" [class.btn-outline-secondary]="storageDays() !== 45" (click)="storageDays.set(45)">45 Days</button>
-                  <button type="button" class="btn" [class.btn-danger]="storageDays() === 60" [class.btn-outline-secondary]="storageDays() !== 60" (click)="storageDays.set(60)">60 Days</button>
+                <div class="estimator-segmented-group" role="group">
+                  <button type="button" class="segmented-btn" [class.active]="storageDays() === 15" (click)="storageDays.set(15)">15 Days</button>
+                  <button type="button" class="segmented-btn" [class.active]="storageDays() === 30" (click)="storageDays.set(30)">30 Days</button>
+                  <button type="button" class="segmented-btn" [class.active]="storageDays() === 45" (click)="storageDays.set(45)">45 Days</button>
+                  <button type="button" class="segmented-btn" [class.active]="storageDays() === 60" (click)="storageDays.set(60)">60 Days</button>
                 </div>
               </div>
             </div>
@@ -226,11 +228,11 @@
             <div class="col-lg-6 col-md-6 col-sm-12">
               <div class="param-box">
                 <label class="param-label"><i class="fa fa-cubes"></i> Number of Building Wings: <strong>{{ wingCount() }} Wing(s)</strong></label>
-                <div class="btn-group w-100 btn-group-sm" role="group">
-                  <button type="button" class="btn" [class.btn-danger]="wingCount() === 1" [class.btn-outline-secondary]="wingCount() !== 1" (click)="wingCount.set(1)">1 Wing</button>
-                  <button type="button" class="btn" [class.btn-danger]="wingCount() === 2" [class.btn-outline-secondary]="wingCount() !== 2" (click)="wingCount.set(2)">2 Wings</button>
-                  <button type="button" class="btn" [class.btn-danger]="wingCount() === 4" [class.btn-outline-secondary]="wingCount() !== 4" (click)="wingCount.set(4)">4 Wings</button>
-                  <button type="button" class="btn" [class.btn-danger]="wingCount() === 6" [class.btn-outline-secondary]="wingCount() !== 6" (click)="wingCount.set(6)">6+ Wings</button>
+                <div class="estimator-segmented-group" role="group">
+                  <button type="button" class="segmented-btn" [class.active]="wingCount() === 1" (click)="wingCount.set(1)">1 Wing</button>
+                  <button type="button" class="segmented-btn" [class.active]="wingCount() === 2" (click)="wingCount.set(2)">2 Wings</button>
+                  <button type="button" class="segmented-btn" [class.active]="wingCount() === 4" (click)="wingCount.set(4)">4 Wings</button>
+                  <button type="button" class="segmented-btn" [class.active]="wingCount() === 6" (click)="wingCount.set(6)">6+ Wings</button>
                 </div>
               </div>
             </div>
@@ -263,10 +265,12 @@
 
         </div>
 
-        <div class="step-footer mt-4 d-flex justify-content-between">
-          <button class="btn btn-outline-secondary btn-sm" (click)="goToStep(2)">&lsaquo; Back</button>
-          <button class="theme-btn btn-style-one next-btn" (click)="goToStep(4)">
-            <span class="txt">Generate Architecture &rsaquo;</span>
+        <div class="step-footer mt-4 d-flex justify-content-between align-items-center">
+          <button class="estimator-back-btn" (click)="goToStep(2)">
+            <i class="fa fa-arrow-left me-2"></i> <span>Back</span>
+          </button>
+          <button class="estimator-next-btn" (click)="goToStep(4)">
+            <span>Generate Architecture</span> <i class="fa fa-arrow-right ms-2"></i>
           </button>
         </div>
       </div>

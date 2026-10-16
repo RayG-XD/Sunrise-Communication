@@ -16,8 +16,8 @@
           </div>
 
           <!-- Gold Stars -->
-          <div class="stars-gold text-warning fs-2 mb-2">
-            ⭐⭐⭐⭐⭐
+          <div class="gold-stars fs-2 mb-2 justify-content-center">
+            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
           </div>
           <h1 class="h2 fw-bold text-dark mb-2">5.0 / 5.0 Stars (93+ Reviews)</h1>
           <p class="text-muted fs-6 mb-4 max-w-600 mx-auto">
@@ -30,7 +30,7 @@
               [href]="googleReviewUrl" 
               target="_blank" 
               rel="noopener noreferrer" 
-              class="btn btn-danger btn-lg py-3 fw-bold fs-5 rounded-pill shadow-sm d-flex align-items-center justify-content-center gap-2"
+              class="btn btn-danger btn-lg py-3 fw-bold fs-5 rounded-pill shadow-sm d-flex align-items-center justify-content-center gap-2 google-action-btn"
             >
               <i class="fa fa-google fs-4"></i> Leave a 5-Star Review on Google Maps &rsaquo;
             </a>
@@ -76,8 +76,8 @@
         <!-- Private Suggestions / Help Desk Fallback Card -->
         <div class="card border rounded-4 p-4 bg-white shadow-sm mb-4" data-aos="fade-up" data-aos-delay="100">
           <div class="d-flex align-items-center gap-3 mb-3">
-            <div class="p-3 bg-danger-subtle text-danger rounded-circle fs-4 d-flex align-items-center justify-content-center" style="width: 48px; height: 48px;">
-              <i class="fa fa-commenting-o"></i>
+            <div class="p-3 bg-danger-subtle text-danger rounded-circle fs-4 d-flex align-items-center justify-content-center flex-shrink-0" style="width: 48px; height: 48px;">
+              <i class="fa fa-comments-o"></i>
             </div>
             <div>
               <h3 class="h5 fw-bold text-dark mb-0">Have a Service Request or Private Suggestion?</h3>
@@ -134,17 +134,54 @@
           </div>
           <div class="row g-3">
             <div class="col-md-6 col-12">
-              <div class="p-3 bg-light rounded-3 h-100">
-                <div class="text-warning small mb-1">★★★★★</div>
-                <p class="small text-muted mb-2 fst-italic">"Outstanding service for our housing society intercom and CCTV setup. The wiring across 4 wings was done cleanly and on schedule."</p>
-                <strong class="d-block small text-dark">— Prem Kunj CHS, Panchpakhadi</strong>
+              <div class="p-3 bg-light rounded-3 h-100 d-flex flex-column justify-content-between border">
+                <div>
+                  <div class="d-flex align-items-center justify-content-between mb-2">
+                    <span class="gold-stars small"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+                    <span class="badge bg-success-subtle text-success border-0 px-2 py-0.5 rounded-pill small"><i class="fa fa-check-circle me-1"></i> Verified</span>
+                  </div>
+                  <p class="small text-muted mb-2 fst-italic">"Outstanding service for our housing society intercom and CCTV setup. The wiring across 4 wings was done cleanly and on schedule."</p>
+                </div>
+                <strong class="d-block small text-dark mt-2 border-top pt-2">— Prem Kunj CHS, Panchpakhadi</strong>
               </div>
             </div>
+
             <div class="col-md-6 col-12">
-              <div class="p-3 bg-light rounded-3 h-100">
-                <div class="text-warning small mb-1">★★★★★</div>
-                <p class="small text-muted mb-2 fst-italic">"Replaced failing camera wiring with fiber optic and resolved all lift camera blind spots. Very professional team in Thane."</p>
-                <strong class="d-block small text-dark">— High-Rise Society Committee, Ghodbunder Rd</strong>
+              <div class="p-3 bg-light rounded-3 h-100 d-flex flex-column justify-content-between border">
+                <div>
+                  <div class="d-flex align-items-center justify-content-between mb-2">
+                    <span class="gold-stars small"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+                    <span class="badge bg-success-subtle text-success border-0 px-2 py-0.5 rounded-pill small"><i class="fa fa-check-circle me-1"></i> Verified</span>
+                  </div>
+                  <p class="small text-muted mb-2 fst-italic">"Replaced failing camera wiring with fiber optic and resolved all lift camera blind spots. Very professional team in Thane."</p>
+                </div>
+                <strong class="d-block small text-dark mt-2 border-top pt-2">— High-Rise Society Committee, Ghodbunder Rd</strong>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-12">
+              <div class="p-3 bg-light rounded-3 h-100 d-flex flex-column justify-content-between border">
+                <div>
+                  <div class="d-flex align-items-center justify-content-between mb-2">
+                    <span class="gold-stars small"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+                    <span class="badge bg-success-subtle text-success border-0 px-2 py-0.5 rounded-pill small"><i class="fa fa-check-circle me-1"></i> Verified</span>
+                  </div>
+                  <p class="small text-muted mb-2 fst-italic">"Sunrise Communication has managed our society CCTV AMC for 3+ years. Breakdown response within 24 hours is reliably honored."</p>
+                </div>
+                <strong class="d-block small text-dark mt-2 border-top pt-2">— Neelkanth Valley CHS, Charai</strong>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-12">
+              <div class="p-3 bg-light rounded-3 h-100 d-flex flex-column justify-content-between border">
+                <div>
+                  <div class="d-flex align-items-center justify-content-between mb-2">
+                    <span class="gold-stars small"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+                    <span class="badge bg-success-subtle text-success border-0 px-2 py-0.5 rounded-pill small"><i class="fa fa-check-circle me-1"></i> Verified</span>
+                  </div>
+                  <p class="small text-muted mb-2 fst-italic">"Implemented a 16-door biometric access control and IP surveillance system. Highly knowledgeable engineers with neat cable dressing."</p>
+                </div>
+                <strong class="d-block small text-dark mt-2 border-top pt-2">— Commercial Tech Park, Wagle Estate</strong>
               </div>
             </div>
           </div>

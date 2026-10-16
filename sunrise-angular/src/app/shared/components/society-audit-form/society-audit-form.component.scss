@@ -1,6 +1,22 @@
 .society-audit-form-wrapper {
   background-color: #ffffff;
-  border-color: #e2e8f0;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(1, 12, 58, 0.05);
+
+  .form-control, .form-select {
+    background-color: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 13.5px;
+    color: #010c3a;
+    transition: all 0.2s ease;
+
+    &:focus {
+      background-color: #ffffff;
+      border-color: #df0303;
+      box-shadow: 0 0 0 0.2rem rgba(223, 3, 3, 0.12);
+    }
+  }
 }
 
 .max-w-650 {
@@ -18,25 +34,88 @@
   span {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 6px 14px;
+    gap: 7px;
+    padding: 7px 16px;
     border-radius: 30px;
-    background-color: #f1f5f9;
-    border: 1px solid #cbd5e1;
+    background-color: #f8fafc;
+    border: 1.5px solid #cbd5e1;
     color: #334155;
-    font-size: 13.5px;
+    font-size: 13px;
     font-weight: 600;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+    i {
+      font-size: 13px;
+      color: #64748b;
+      transition: color 0.2s ease;
+    }
   }
 
   input[type="checkbox"]:checked + span {
-    background-color: #e0f2fe;
-    border-color: #0284c7;
-    color: #0369a1;
-    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.15);
+    background-color: #fff5f5;
+    border-color: #df0303;
+    color: #df0303;
+    box-shadow: 0 2px 8px rgba(223, 3, 3, 0.18);
+
+    i {
+      color: #df0303;
+    }
   }
 
   &:hover span {
-    border-color: #0284c7;
+    border-color: #df0303;
+    background-color: #ffffff;
+  }
+}
+
+.audit-submit-btn {
+  background: linear-gradient(135deg, #df0303 0%, #b80202 100%);
+  color: #ffffff;
+  border: none;
+  height: 46px;
+  padding: 0 26px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(223, 3, 3, 0.28);
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, #b80202 0%, #8f0202 100%);
+    box-shadow: 0 6px 20px rgba(223, 3, 3, 0.38);
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+}
+
+.audit-whatsapp-btn {
+  background: #25d366;
+  color: #ffffff;
+  border: none;
+  height: 46px;
+  padding: 0 24px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.28);
+
+  &:hover {
+    background: #1eb954;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.38);
+    transform: translateY(-2px);
+    color: #ffffff;
   }
 }

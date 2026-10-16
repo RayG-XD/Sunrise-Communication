@@ -1,13 +1,28 @@
 .review-page-section {
   min-height: 70vh;
+  background-color: #f8fafc;
 
-  .stars-gold {
-    letter-spacing: 4px;
+  .google-action-btn {
+    background: linear-gradient(135deg, #df0303 0%, #b80202 100%);
+    border: none;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 14px rgba(223, 3, 3, 0.3);
+
+    &:hover {
+      background: linear-gradient(135deg, #b80202 0%, #8f0202 100%);
+      box-shadow: 0 8px 24px rgba(223, 3, 3, 0.4);
+      transform: translateY(-2px);
+    }
   }
 
   .qr-booster-box {
-    border: 1px dashed #cbd5e1;
+    border: 1.5px dashed #cbd5e1;
     background-color: #f8fafc;
+    transition: border-color 0.2s ease;
+
+    &:hover {
+      border-color: #df0303;
+    }
   }
 
   .qr-visual img {
@@ -15,8 +30,36 @@
     image-rendering: crisp-edges;
   }
 
-  .form-control:focus {
-    border-color: #df0303;
-    box-shadow: 0 0 0 0.25rem rgba(223, 3, 3, 0.15);
+  .form-control {
+    background-color: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 13.5px;
+    color: #010c3a;
+    transition: all 0.2s ease;
+
+    &:focus {
+      background-color: #ffffff;
+      border-color: #df0303;
+      box-shadow: 0 0 0 0.2rem rgba(223, 3, 3, 0.12);
+    }
+  }
+
+  .card {
+    border-color: #e2e8f0;
+    transition: all 0.25s ease;
+  }
+
+  .bg-light.rounded-3 {
+    background-color: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+    transition: all 0.25s ease;
+
+    &:hover {
+      background-color: #ffffff !important;
+      border-color: rgba(223, 3, 3, 0.3) !important;
+      box-shadow: 0 6px 18px rgba(1, 12, 58, 0.06);
+      transform: translateY(-2px);
+    }
   }
 }

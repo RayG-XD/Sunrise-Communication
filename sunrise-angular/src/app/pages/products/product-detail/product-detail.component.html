@@ -35,13 +35,41 @@
               @if (prod.image_url) {
                 <img [ngSrc]="prod.image_url" [alt]="prod.name" width="600" height="400" priority />
               } @else {
-                <!-- CSS Gradient Placeholder (No AI Images) -->
+                <!-- High-Tech Hardware HUD Visualizer -->
                 <div class="detail-css-placeholder" [class]="'cat-' + prod.category_slug">
-                  <div class="placeholder-icon-circle">
-                    <i [class]="getCategoryIcon(prod.category_slug)"></i>
+                  <div class="tech-grid-overlay"></div>
+                  <div class="hud-corner hud-corner-tl"></div>
+                  <div class="hud-corner hud-corner-tr"></div>
+                  <div class="hud-corner hud-corner-bl"></div>
+                  <div class="hud-corner hud-corner-br"></div>
+                  
+                  <div class="hud-top-bar">
+                    <span class="hud-badge oem-verified">
+                      <span class="pulse-dot"></span> OEM Verified Hardware
+                    </span>
+                    <span class="hud-badge spec-grade">Enterprise Spec</span>
                   </div>
-                  <span class="placeholder-brand">{{ prod.brand }}</span>
-                  <span class="placeholder-subcat">{{ prod.sub_category }}</span>
+
+                  <div class="hud-reticle-container">
+                    <div class="reticle-ring-outer"></div>
+                    <div class="reticle-ring-inner"></div>
+                    <div class="reticle-crosshair-h"></div>
+                    <div class="reticle-crosshair-v"></div>
+                    <div class="placeholder-icon-circle">
+                      <i [class]="getCategoryIcon(prod.category_slug)"></i>
+                    </div>
+                  </div>
+
+                  <div class="hud-product-info">
+                    <span class="placeholder-brand">{{ prod.brand }}</span>
+                    <span class="placeholder-subcat">{{ prod.sub_category || prod.category }}</span>
+                  </div>
+
+                  <div class="hud-telemetry-pills">
+                    <span class="telemetry-pill"><i class="fa fa-shield"></i> Genuine OEM</span>
+                    <span class="telemetry-pill"><i class="fa fa-wrench"></i> Expert Install</span>
+                    <span class="telemetry-pill"><i class="fa fa-refresh"></i> AMC Available</span>
+                  </div>
                 </div>
               }
             </div>

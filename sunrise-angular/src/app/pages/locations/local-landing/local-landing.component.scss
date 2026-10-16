@@ -48,10 +48,26 @@
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   border-color: #e2e8f0;
 
+  .card-top-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #df0303, #ff4d4d);
+    opacity: 0.85;
+    transition: opacity 0.25s ease;
+  }
+
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 16px 32px rgba(1, 12, 58, 0.08);
-    border-color: rgba(223, 3, 3, 0.3);
+    border-color: rgba(223, 3, 3, 0.35);
+
+    .card-top-accent {
+      opacity: 1;
+      height: 4px;
+    }
 
     .icon-circle {
       background: #df0303;
