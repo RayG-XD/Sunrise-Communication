@@ -7,7 +7,8 @@ import {
   computed,
   ChangeDetectionStrategy,
 } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../../core/services/product.service';
 import { ProductCardComponent } from '../../../shared/components/product-card/product-card.component';
 import { PageTitleComponent } from '../../../shared/components/page-title.component';
@@ -48,7 +49,7 @@ export interface ProductSubGroup {
 export class ProductCatalogComponent implements OnInit, OnDestroy {
   protected productService = inject(ProductService);
   private route = inject(ActivatedRoute);
-  private router = inject(Router);
+  private location = inject(Location);
   private searchDebounceTimer: ReturnType<typeof setTimeout> | null = null;
 
   // Filter signals
@@ -456,37 +457,26 @@ export class ProductCatalogComponent implements OnInit, OnDestroy {
       this.searchDebounceTimer = null;
     }
 
-    const queryParams: Record<string, string | null> = {};
+    const params = new URLSearchParams();
 
     if (this.searchQuery().trim()) {
-      queryParams['q'] = this.searchQuery().trim();
-    } else {
-      queryParams['q'] = null;
+      params.set('q', this.searchQuery().trim());
     }
 
     if (this.selectedCategories().size > 0) {
-      queryParams['category'] = Array.from(this.selectedCategories()).join(',');
-    } else {
-      queryParams['category'] = null;
+      params.set('category', Array.from(this.selectedCategories()).join(','));
     }
 
     if (this.selectedSubCategories().size > 0) {
-      queryParams['sub_category'] = Array.from(this.selectedSubCategories()).join(',');
-    } else {
-      queryParams['sub_category'] = null;
+      params.set('sub_category', Array.from(this.selectedSubCategories()).join(','));
     }
 
     if (this.selectedBrands().size > 0) {
-      queryParams['brand'] = Array.from(this.selectedBrands()).join(',');
-    } else {
-      queryParams['brand'] = null;
+      params.set('brand', Array.from(this.selectedBrands()).join(','));
     }
 
-    this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams,
-      queryParamsHandling: 'merge',
-      replaceUrl: true,
-    });
+    const currentPath = this.location.path().split('?')[0] || '/products';
+    const queryString = params.toString();
+    this.location.replaceState(currentPath, queryString);
   }
 }

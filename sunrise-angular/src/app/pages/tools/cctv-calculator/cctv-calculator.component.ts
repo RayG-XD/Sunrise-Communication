@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, signal, computed, inject, PLATFORM_ID, effect } from '@angular/core';
-import { CommonModule, isPlatformBrowser, DOCUMENT } from '@angular/common';
+import { CommonModule, isPlatformBrowser, DOCUMENT, Location } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterLink, ActivatedRoute, Router } from '@angular/router';
+import { RouterLink, ActivatedRoute } from '@angular/router';
 import { SeoService } from '../../../core/services/seo.service';
 import { ProposalGeneratorService } from '../../../core/services/proposal-generator.service';
 import { InquiryService } from '../../../core/services/inquiry.service';
@@ -26,7 +26,7 @@ export class CctvCalculatorComponent implements OnInit, OnDestroy {
   private proposalGenerator = inject(ProposalGeneratorService);
   private inquiryService = inject(InquiryService);
   private route = inject(ActivatedRoute);
-  private router = inject(Router);
+  private location = inject(Location);
 
   siteData = SITE_DATA;
   copiedToast = signal<boolean>(false);
@@ -392,23 +392,23 @@ export class CctvCalculatorComponent implements OnInit, OnDestroy {
       clearTimeout(this.syncUrlTimer);
     }
     this.syncUrlTimer = setTimeout(() => {
-      const queryParams: Record<string, string | number | null> = {
-        cams: this.cameraCount(),
-        res: this.resolution(),
-        codec: this.codec(),
-        days: this.recordingDays(),
-        mode: this.recordingMode() !== 'continuous' ? this.recordingMode() : null,
-        fps: this.fps() !== 15 ? this.fps() : null,
-      };
+      const params = new URLSearchParams();
+      params.set('cams', this.cameraCount().toString());
+      params.set('res', this.resolution());
+      params.set('codec', this.codec());
+      params.set('days', this.recordingDays().toString());
+      if (this.recordingMode() !== 'continuous') {
+        params.set('mode', this.recordingMode());
+      }
+      if (this.fps() !== 15) {
+        params.set('fps', this.fps().toString());
+      }
 
-      this.router.navigate([], {
-        relativeTo: this.route,
-        queryParams,
-        queryParamsHandling: 'merge',
-        replaceUrl: true,
-      });
+      const queryString = params.toString();
+      const currentPath = this.location.path().split('?')[0] || '/tools/cctv-storage-calculator';
+      this.location.replaceState(currentPath, queryString);
       this.syncUrlTimer = null;
-    }, 350);
+    }, 250);
   }
 
   copyShareLink(): void {
