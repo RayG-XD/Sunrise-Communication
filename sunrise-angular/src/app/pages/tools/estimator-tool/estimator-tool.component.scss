@@ -1,63 +1,21 @@
-.estimator-banner {
-  background-color: #0b1528;
-  padding: 60px 0 40px;
-  color: #fff;
-  text-align: center;
-
-  h1 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: #ffffff;
-
-    @media (max-width: 768px) {
-      font-size: 1.6rem;
-    }
-  }
-
-  .bread-crumb {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: inline-flex;
-    gap: 8px;
-    font-size: 0.95rem;
-
-    li {
-      color: rgba(255, 255, 255, 0.7);
-
-      a {
-        color: rgba(255, 255, 255, 0.85);
-        text-decoration: none;
-        transition: color 0.2s;
-
-        &:hover {
-          color: #ff3838;
-        }
-      }
-
-      &.active {
-        color: #ff4757;
-        font-weight: 600;
-      }
-
-      &:not(:last-child)::after {
-        content: '/';
-        margin-left: 8px;
-        color: rgba(255, 255, 255, 0.4);
-      }
-    }
-  }
-}
-
 .estimator-tool-page-section {
   background-color: #f8fafc;
 }
 
 .tool-intro-box {
   background: #ffffff;
-  border-left: 4px solid #df0303 !important;
   border: 1px solid #e2e8f0;
+  position: relative;
+  overflow: hidden;
+
+  .card-top-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #df0303 0%, #010c3a 100%);
+  }
 }
 
 .intro-trust-card {
@@ -103,7 +61,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: #ff3838;
+      color: #df0303;
       margin-bottom: 6px;
     }
 
@@ -133,11 +91,15 @@
       transition: all 0.2s ease;
 
       &.open {
-        border-color: #ff3838;
-        box-shadow: 0 4px 12px rgba(255, 56, 56, 0.08);
+        border-color: #df0303;
+        box-shadow: 0 4px 14px rgba(223, 3, 3, 0.08);
 
         .faq-question-btn {
-          color: #ff3838;
+          color: #df0303;
+
+          i {
+            color: #df0303;
+          }
         }
       }
 

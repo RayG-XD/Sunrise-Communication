@@ -3,12 +3,13 @@ import { CommonModule, isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { SeoService } from '../../../core/services/seo.service';
 import { RequirementEstimatorComponent } from '../../../shared/components/requirement-estimator/requirement-estimator.component';
+import { PageTitleComponent } from '../../../shared/components/page-title.component';
 import { SITE_DATA } from '../../../core/constants/site-data';
 
 @Component({
   selector: 'app-estimator-tool',
   standalone: true,
-  imports: [CommonModule, RouterLink, RequirementEstimatorComponent],
+  imports: [CommonModule, RouterLink, RequirementEstimatorComponent, PageTitleComponent],
   templateUrl: './estimator-tool.component.html',
   styleUrl: './estimator-tool.component.scss'
 })

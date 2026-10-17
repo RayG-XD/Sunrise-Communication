@@ -34,6 +34,16 @@ import { RouterLink } from '@angular/router';
       overflow: hidden;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #df0303 0%, #ff4757 50%, #010c3a 100%);
+      }
+
       .tech-pattern-grid {
         position: absolute;
         inset: 0;
