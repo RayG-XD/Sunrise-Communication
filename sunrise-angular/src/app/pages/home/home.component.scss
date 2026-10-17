@@ -777,6 +777,39 @@
           .theme-btn {
             width: 100%;
           }
+
+          .package-action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 44px;
+            padding: 0 20px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #df0303 0%, #b80202 100%);
+            color: #ffffff;
+            font-size: 13.5px;
+            font-weight: 700;
+            text-decoration: none;
+            border: none;
+            box-shadow: 0 4px 14px rgba(223, 3, 3, 0.28);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+            i {
+              transition: transform 0.2s ease;
+            }
+
+            &:hover {
+              background: linear-gradient(135deg, #b80202 0%, #8f0202 100%);
+              transform: translateY(-2px);
+              box-shadow: 0 8px 22px rgba(223, 3, 3, 0.4);
+              color: #ffffff;
+
+              i {
+                transform: translateX(3px);
+              }
+            }
+          }
         }
       }
     }

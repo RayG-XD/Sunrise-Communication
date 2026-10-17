@@ -141,24 +141,26 @@
                 <h5>Our Services</h5>
               </div>
               <ul class="service-list">
-                <li><a routerLink="/services/cctv-surveillance-systems">CCTV Surveillance & AMC</a></li>
-                <li><a routerLink="/services/epabx-intercom-solutions">EPABX & Society Intercom</a></li>
-                <li><a routerLink="/services/biometric-access-control">Biometrics & Access Control</a></li>
-                <li><a routerLink="/services/structured-networking-cabling">Security & Telecom Cabling</a></li>
-                <li><a routerLink="/tools/cctv-storage-calculator"><i class="fa fa-calculator text-warning"></i> CCTV Storage Calculator</a></li>
-                <li><a routerLink="/products">Hardware & Product Catalog</a></li>
+                <li><a routerLink="/services/cctv-surveillance-systems" routerLinkActive="active-link"><i class="fa fa-video-camera text-danger me-2"></i> CCTV Surveillance & AMC</a></li>
+                <li><a routerLink="/services/epabx-intercom-solutions" routerLinkActive="active-link"><i class="fa fa-phone text-danger me-2"></i> EPABX & Society Intercom</a></li>
+                <li><a routerLink="/services/biometric-access-control" routerLinkActive="active-link"><i class="fa fa-lock text-danger me-2"></i> Biometrics & Access Control</a></li>
+                <li><a routerLink="/services/structured-networking-cabling" routerLinkActive="active-link"><i class="fa fa-sitemap text-danger me-2"></i> Security & Telecom Cabling</a></li>
+                <li><a routerLink="/tools/cctv-storage-calculator"><i class="fa fa-calculator text-warning me-2"></i> CCTV Storage Calculator</a></li>
+                <li><a routerLink="/products"><i class="fa fa-th-large text-danger me-2"></i> Hardware & Product Catalog</a></li>
               </ul>
             </div>
           </div>
 
-          <!-- Broucher Widget -->
+          <!-- Brochure Widget -->
           <div class="sidebar-widget broucher-widget">
             <div class="widget-content">
               <div class="sidebar-title">
                 <h5>Our Company Brochure</h5>
               </div>
               <div class="text">Inquire about our detailed product catalogs and customized BOQ solutions for security and communication systems across Thane and Mumbai.</div>
-              <a [href]="siteData.social.whatsapp" target="_blank" rel="noopener noreferrer" class="theme-btn btn-style-four"><span class="txt">Request Catalog on WhatsApp</span></a>
+              <a [href]="siteData.social.whatsapp" target="_blank" rel="noopener noreferrer" class="brochure-whatsapp-btn">
+                <i class="fa fa-whatsapp"></i> <span>Request Catalog on WhatsApp</span>
+              </a>
             </div>
           </div>
 

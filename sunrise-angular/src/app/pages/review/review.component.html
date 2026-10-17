@@ -6,7 +6,8 @@
       <div class="col-lg-8 col-md-10 col-sm-12">
         
         <!-- Main Review Booster Card -->
-        <div class="card border-0 shadow-lg rounded-4 p-4 p-md-5 text-center bg-white mb-4" data-aos="fade-up">
+        <div class="card border-0 shadow-lg rounded-4 p-4 p-md-5 text-center bg-white mb-4 position-relative overflow-hidden" data-aos="fade-up">
+          <div class="card-top-accent"></div>
           
           <!-- Reputation Pill -->
           <div class="mb-3">
@@ -30,16 +31,17 @@
               [href]="googleReviewUrl" 
               target="_blank" 
               rel="noopener noreferrer" 
-              class="btn btn-danger btn-lg py-3 fw-bold fs-5 rounded-pill shadow-sm d-flex align-items-center justify-content-center gap-2 google-action-btn"
+              class="google-action-btn"
             >
-              <i class="fa fa-google fs-4"></i> Leave a 5-Star Review on Google Maps &rsaquo;
+              <i class="fa fa-google fs-4"></i>
+              <span>Leave a 5-Star Review on Google Maps &rsaquo;</span>
             </a>
 
             <div class="d-flex gap-2 justify-content-center flex-wrap">
-              <a [href]="googleMapsUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm rounded-pill px-3 py-2">
+              <a [href]="googleMapsUrl" target="_blank" rel="noopener noreferrer" class="review-pill-btn secondary-btn">
                 <i class="fa fa-map-marker text-danger me-1"></i> View Our Profile on Google Maps
               </a>
-              <button type="button" class="btn btn-outline-danger btn-sm rounded-pill px-3 py-2" (click)="copyReviewLink()">
+              <button type="button" class="review-pill-btn outline-btn" (click)="copyReviewLink()">
                 <i class="fa fa-link me-1"></i> {{ isCopied() ? 'Link Copied!' : 'Copy Review Link' }}
               </button>
             </div>
@@ -74,7 +76,8 @@
         </div>
 
         <!-- Private Suggestions / Help Desk Fallback Card -->
-        <div class="card border rounded-4 p-4 bg-white shadow-sm mb-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card border rounded-4 p-4 bg-white shadow-sm mb-4 position-relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-top-accent"></div>
           <div class="d-flex align-items-center gap-3 mb-3">
             <div class="p-3 bg-danger-subtle text-danger rounded-circle fs-4 d-flex align-items-center justify-content-center flex-shrink-0" style="width: 48px; height: 48px;">
               <i class="fa fa-comments-o"></i>
@@ -112,10 +115,10 @@
                   <textarea formControlName="feedback" class="form-control" rows="3" placeholder="Tell us how we can serve you better..."></textarea>
                 </div>
                 <div class="col-12 d-flex justify-content-between align-items-center flex-wrap gap-2 pt-2">
-                  <button type="submit" [disabled]="isSubmittingFeedback()" class="btn btn-danger fw-bold px-4 py-2 rounded-pill shadow-sm">
-                    {{ isSubmittingFeedback() ? 'Sending...' : 'Send Private Message' }}
+                  <button type="submit" [disabled]="isSubmittingFeedback()" class="review-submit-btn">
+                    <i class="fa fa-paper-plane me-1"></i> {{ isSubmittingFeedback() ? 'Sending...' : 'Send Private Message' }}
                   </button>
-                  <a [href]="siteData.social.whatsapp" target="_blank" rel="noopener noreferrer" class="btn btn-outline-success fw-bold px-3 py-2 rounded-pill small">
+                  <a [href]="siteData.social.whatsapp" target="_blank" rel="noopener noreferrer" class="review-whatsapp-btn">
                     <i class="fa fa-whatsapp"></i> Chat on WhatsApp
                   </a>
                 </div>
@@ -125,7 +128,8 @@
         </div>
 
         <!-- Verified Reviews Showcase Strip -->
-        <div class="card border rounded-4 p-4 bg-white shadow-sm" data-aos="fade-up" data-aos-delay="150">
+        <div class="card border rounded-4 p-4 bg-white shadow-sm position-relative overflow-hidden" data-aos="fade-up" data-aos-delay="150">
+          <div class="card-top-accent"></div>
           <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3 pb-2 border-bottom">
             <h4 class="h6 fw-bold text-dark mb-0">
               <i class="fa fa-google text-danger me-1"></i> What Our Clients Say in Thane & Mumbai
@@ -134,54 +138,78 @@
           </div>
           <div class="row g-3">
             <div class="col-md-6 col-12">
-              <div class="p-3 bg-light rounded-3 h-100 d-flex flex-column justify-content-between border">
+              <div class="review-testimonial-card h-100 d-flex flex-column justify-content-between">
                 <div>
                   <div class="d-flex align-items-center justify-content-between mb-2">
                     <span class="gold-stars small"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
-                    <span class="badge bg-success-subtle text-success border-0 px-2 py-0.5 rounded-pill small"><i class="fa fa-check-circle me-1"></i> Verified</span>
+                    <span class="badge bg-success-subtle text-success border-0 px-2 py-0.5 rounded-pill small"><i class="fa fa-check-circle me-1"></i> Verified Google Review</span>
                   </div>
                   <p class="small text-muted mb-2 fst-italic">"Outstanding service for our housing society intercom and CCTV setup. The wiring across 4 wings was done cleanly and on schedule."</p>
                 </div>
-                <strong class="d-block small text-dark mt-2 border-top pt-2">— Prem Kunj CHS, Panchpakhadi</strong>
+                <div class="review-author-strip d-flex align-items-center gap-2 mt-2 pt-2 border-top">
+                  <div class="author-avatar bg-red">PK</div>
+                  <div>
+                    <strong class="d-block small text-dark">Prem Kunj CHS</strong>
+                    <span class="author-loc small text-muted"><i class="fa fa-map-marker text-danger me-1"></i> Panchpakhadi, Thane</span>
+                  </div>
+                </div>
               </div>
             </div>
 
             <div class="col-md-6 col-12">
-              <div class="p-3 bg-light rounded-3 h-100 d-flex flex-column justify-content-between border">
+              <div class="review-testimonial-card h-100 d-flex flex-column justify-content-between">
                 <div>
                   <div class="d-flex align-items-center justify-content-between mb-2">
                     <span class="gold-stars small"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
-                    <span class="badge bg-success-subtle text-success border-0 px-2 py-0.5 rounded-pill small"><i class="fa fa-check-circle me-1"></i> Verified</span>
+                    <span class="badge bg-success-subtle text-success border-0 px-2 py-0.5 rounded-pill small"><i class="fa fa-check-circle me-1"></i> Verified Google Review</span>
                   </div>
                   <p class="small text-muted mb-2 fst-italic">"Replaced failing camera wiring with fiber optic and resolved all lift camera blind spots. Very professional team in Thane."</p>
                 </div>
-                <strong class="d-block small text-dark mt-2 border-top pt-2">— High-Rise Society Committee, Ghodbunder Rd</strong>
+                <div class="review-author-strip d-flex align-items-center gap-2 mt-2 pt-2 border-top">
+                  <div class="author-avatar bg-navy">HR</div>
+                  <div>
+                    <strong class="d-block small text-dark">High-Rise Society Committee</strong>
+                    <span class="author-loc small text-muted"><i class="fa fa-map-marker text-danger me-1"></i> Ghodbunder Rd, Thane</span>
+                  </div>
+                </div>
               </div>
             </div>
 
             <div class="col-md-6 col-12">
-              <div class="p-3 bg-light rounded-3 h-100 d-flex flex-column justify-content-between border">
+              <div class="review-testimonial-card h-100 d-flex flex-column justify-content-between">
                 <div>
                   <div class="d-flex align-items-center justify-content-between mb-2">
                     <span class="gold-stars small"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
-                    <span class="badge bg-success-subtle text-success border-0 px-2 py-0.5 rounded-pill small"><i class="fa fa-check-circle me-1"></i> Verified</span>
+                    <span class="badge bg-success-subtle text-success border-0 px-2 py-0.5 rounded-pill small"><i class="fa fa-check-circle me-1"></i> Verified Google Review</span>
                   </div>
                   <p class="small text-muted mb-2 fst-italic">"Sunrise Communication has managed our society CCTV AMC for 3+ years. Breakdown response within 24 hours is reliably honored."</p>
                 </div>
-                <strong class="d-block small text-dark mt-2 border-top pt-2">— Neelkanth Valley CHS, Charai</strong>
+                <div class="review-author-strip d-flex align-items-center gap-2 mt-2 pt-2 border-top">
+                  <div class="author-avatar bg-emerald">NV</div>
+                  <div>
+                    <strong class="d-block small text-dark">Neelkanth Valley CHS</strong>
+                    <span class="author-loc small text-muted"><i class="fa fa-map-marker text-danger me-1"></i> Charai, Thane West</span>
+                  </div>
+                </div>
               </div>
             </div>
 
             <div class="col-md-6 col-12">
-              <div class="p-3 bg-light rounded-3 h-100 d-flex flex-column justify-content-between border">
+              <div class="review-testimonial-card h-100 d-flex flex-column justify-content-between">
                 <div>
                   <div class="d-flex align-items-center justify-content-between mb-2">
                     <span class="gold-stars small"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
-                    <span class="badge bg-success-subtle text-success border-0 px-2 py-0.5 rounded-pill small"><i class="fa fa-check-circle me-1"></i> Verified</span>
+                    <span class="badge bg-success-subtle text-success border-0 px-2 py-0.5 rounded-pill small"><i class="fa fa-check-circle me-1"></i> Verified Google Review</span>
                   </div>
                   <p class="small text-muted mb-2 fst-italic">"Implemented a 16-door biometric access control and IP surveillance system. Highly knowledgeable engineers with neat cable dressing."</p>
                 </div>
-                <strong class="d-block small text-dark mt-2 border-top pt-2">— Commercial Tech Park, Wagle Estate</strong>
+                <div class="review-author-strip d-flex align-items-center gap-2 mt-2 pt-2 border-top">
+                  <div class="author-avatar bg-amber">CT</div>
+                  <div>
+                    <strong class="d-block small text-dark">Commercial Tech Park</strong>
+                    <span class="author-loc small text-muted"><i class="fa fa-map-marker text-danger me-1"></i> Wagle Estate, Thane</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
