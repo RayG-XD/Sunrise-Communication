@@ -89,7 +89,7 @@ export class CctvCalculatorComponent implements OnInit, OnDestroy {
 
     // FPS multiplier relative to 15fps baseline
     const fpsMultiplier = this.fps() / 15;
-    // Audio overhead ~0.064 Mbps
+    // Audio overhead ~0.064 Mbps (64 kbps G.711 / PCM audio codec standard)
     const audioOverhead = this.audioRecording() ? 0.064 : 0;
 
     const calculated = res.baseBitrateMbps * cod.factor * fpsMultiplier + audioOverhead;
@@ -106,8 +106,9 @@ export class CctvCalculatorComponent implements OnInit, OnDestroy {
       this.recordingMode() === 'motion'
         ? Math.min(12, this.recordingHoursPerDay())
         : this.recordingHoursPerDay();
-    // Formula: (Bitrate in Mbps * 3600 seconds * hours) / (8 bits/byte * 1024 MB/GB)
-    const gb = (bitrate * 3600 * hours) / (8 * 1024);
+    // Industrial CCTV Storage Formula (Decimal GB matching HDD manufacturer standard):
+    // (Bitrate in Mbps * 3600 seconds * hours) / (8 bits/byte * 1000 MB/GB)
+    const gb = (bitrate * 3600 * hours) / (8 * 1000);
     return Number(gb.toFixed(2));
   });
 
@@ -122,89 +123,154 @@ export class CctvCalculatorComponent implements OnInit, OnDestroy {
   recommendedHddConfig = computed(() => {
     const reqTb = this.totalStorageRequiredTb();
 
+    // Accounts for ~9% filesystem format overhead in NVRs (ext4 / HikFS / DHFS):
     if (reqTb <= 1.8) {
       return {
         label: '1x 2TB Surveillance Drive (WD Purple / Seagate SkyHawk)',
         main: '1x 2TB Surveillance Drive',
-        detail: 'WD Purple / Seagate SkyHawk (24/7 AllFrame)',
+        detail: 'WD Purple / Seagate SkyHawk (24/7 AllFrame, ~1.8TB usable)',
         rawTb: 2,
+        baysNeeded: 1,
       };
     }
-    if (reqTb <= 3.8) {
+    if (reqTb <= 3.6) {
       return {
         label: '1x 4TB Surveillance Drive (WD Purple / Seagate SkyHawk)',
         main: '1x 4TB Surveillance Drive',
-        detail: 'WD Purple / Seagate SkyHawk (24/7 AllFrame)',
+        detail: 'WD Purple / Seagate SkyHawk (24/7 AllFrame, ~3.6TB usable)',
         rawTb: 4,
+        baysNeeded: 1,
       };
     }
-    if (reqTb <= 5.8) {
+    if (reqTb <= 5.4) {
       return {
         label: '1x 6TB Surveillance Drive (WD Purple / Seagate SkyHawk)',
         main: '1x 6TB Surveillance Drive',
-        detail: 'WD Purple / Seagate SkyHawk (24/7 AllFrame)',
+        detail: 'WD Purple / Seagate SkyHawk (24/7 AllFrame, ~5.4TB usable)',
         rawTb: 6,
+        baysNeeded: 1,
       };
     }
-    if (reqTb <= 7.8) {
+    if (reqTb <= 7.2) {
       return {
         label: '1x 8TB Surveillance Drive (WD Purple / Seagate SkyHawk)',
         main: '1x 8TB Surveillance Drive',
-        detail: 'WD Purple / Seagate SkyHawk (24/7 AllFrame)',
+        detail: 'WD Purple / Seagate SkyHawk (24/7 AllFrame, ~7.2TB usable)',
         rawTb: 8,
+        baysNeeded: 1,
       };
     }
-    if (reqTb <= 11.5) {
+    if (reqTb <= 9.0) {
+      return {
+        label: '1x 10TB Surveillance Drive (WD Purple / Seagate SkyHawk AI)',
+        main: '1x 10TB Surveillance Drive',
+        detail: 'WD Purple / SkyHawk AI (High-Workload, ~9.1TB usable)',
+        rawTb: 10,
+        baysNeeded: 1,
+      };
+    }
+    if (reqTb <= 10.9) {
       return {
         label: '2x 6TB or 1x 12TB Surveillance HDD Setup',
         main: '2x 6TB or 1x 12TB Surveillance HDD',
-        detail: 'WD Purple / Seagate SkyHawk Multi-Bay Setup',
+        detail: 'WD Purple / Seagate SkyHawk Multi-Bay Setup (~10.9TB usable)',
         rawTb: 12,
+        baysNeeded: 2,
       };
     }
-    if (reqTb <= 15.5) {
+    if (reqTb <= 14.5) {
       return {
         label: '2x 8TB or 1x 16TB Enterprise Surveillance Setup',
         main: '2x 8TB or 1x 16TB Enterprise Storage',
-        detail: 'WD Purple Pro / SkyHawk AI Enterprise Array',
+        detail: 'WD Purple Pro / SkyHawk AI Array (~14.5TB usable)',
         rawTb: 16,
+        baysNeeded: 2,
       };
     }
-    if (reqTb <= 23.5) {
+    if (reqTb <= 18.0) {
+      return {
+        label: '2x 10TB or 1x 20TB Enterprise Surveillance Setup',
+        main: '2x 10TB or 1x 20TB Enterprise Storage',
+        detail: 'WD Purple Pro / SkyHawk AI High-Capacity (~18.1TB usable)',
+        rawTb: 20,
+        baysNeeded: 2,
+      };
+    }
+    if (reqTb <= 21.8) {
       return {
         label: '3x 8TB or 2x 12TB Multi-SATA Surveillance Setup',
         main: '3x 8TB or 2x 12TB Storage Array',
-        detail: 'Multi-SATA NVR Array with RAID-ready Tolerance',
+        detail: 'Multi-SATA NVR Array with RAID tolerance (~21.8TB usable)',
         rawTb: 24,
+        baysNeeded: 4,
+      };
+    }
+    if (reqTb <= 29.0) {
+      return {
+        label: '4x 8TB or 2x 16TB High-Capacity Array',
+        main: '4x 8TB or 2x 16TB High-Capacity Array',
+        detail: '4-Bay Enterprise NVR Array (~29.1TB usable)',
+        rawTb: 32,
+        baysNeeded: 4,
       };
     }
     return {
-      label: `4x 8TB or 2x 16TB High-Capacity Array (${Math.ceil(reqTb)} TB required)`,
-      main: `4x 8TB or 2x 16TB High-Capacity Array`,
-      detail: `Heavy Enterprise Setup (~${Math.ceil(reqTb)} TB Total Required)`,
+      label: `Enterprise Multi-Bay Storage Array (~${Math.ceil(reqTb)} TB required)`,
+      main: `Enterprise Multi-Bay Storage Array`,
+      detail: `Heavy Enterprise Setup (~${Math.ceil(reqTb)} TB Total Required with RAID)`,
       rawTb: Math.ceil(reqTb),
+      baysNeeded: 8,
     };
   });
 
   recommendedNvr = computed(() => {
     const cams = this.cameraCount();
+    const hdd = this.recommendedHddConfig();
+    const bays = hdd.baysNeeded;
+
     if (cams <= 4) {
+      if (bays > 1) {
+        return {
+          model: '8-Channel 4K H.265+ NVR (2 SATA Bays up to 16TB)',
+          main: '8-Channel 4K Multi-Bay NVR',
+          detail: '2 SATA Bays up to 16TB • Required to house multi-drive storage retention',
+          bandwidth: '80–160 Mbps',
+        };
+      }
       return {
-        model: '4-Channel 4K PoE NVR (1 SATA Bay)',
+        model: '4-Channel 4K PoE NVR (1 SATA Bay up to 10TB)',
         main: '4-Channel 4K PoE NVR',
-        detail: '1 SATA Bay up to 8TB • 40–80 Mbps Bandwidth',
+        detail: '1 SATA Bay up to 10TB • 40–80 Mbps Bandwidth',
         bandwidth: '40–80 Mbps',
       };
     }
+
     if (cams <= 8) {
+      if (bays >= 4) {
+        return {
+          model: '16-Channel 4K Enterprise NVR (4 SATA Bays up to 32TB)',
+          main: '16-Channel 4-Bay Enterprise NVR',
+          detail: '4 SATA Bays up to 32TB • Required for large multi-drive array',
+          bandwidth: '160–256 Mbps',
+        };
+      }
       return {
-        model: '8-Channel 4K H.265+ NVR (1–2 SATA Bays)',
+        model: '8-Channel 4K H.265+ NVR (1–2 SATA Bays up to 16TB)',
         main: '8-Channel 4K H.265+ NVR',
         detail: '1–2 SATA Bays up to 16TB • 80–160 Mbps Bandwidth',
         bandwidth: '80–160 Mbps',
       };
     }
+
     if (cams <= 16) {
+      if (bays >= 4) {
+        return {
+          model: '16-Channel 4K Enterprise NVR (4 SATA Bays up to 32TB)',
+          main: '16-Channel 4-Bay Enterprise NVR',
+          detail: '4 SATA Bays up to 32TB • 160–256 Mbps Bandwidth',
+          bandwidth: '160–256 Mbps',
+        };
+      }
       return {
         model: '16-Channel 4K H.265+ NVR (2 SATA Bays up to 16TB)',
         main: '16-Channel 4K H.265+ NVR',
@@ -212,7 +278,16 @@ export class CctvCalculatorComponent implements OnInit, OnDestroy {
         bandwidth: '160–256 Mbps',
       };
     }
+
     if (cams <= 32) {
+      if (bays >= 8) {
+        return {
+          model: '32-Channel 4K Enterprise NVR (8 SATA Bays / RAID up to 64TB)',
+          main: '32-Channel 8-Bay Enterprise RAID NVR',
+          detail: '8 SATA Bays / RAID • 384+ Mbps Bandwidth',
+          bandwidth: '384+ Mbps',
+        };
+      }
       return {
         model: '32-Channel 4K Enterprise NVR (4 SATA Bays up to 32TB)',
         main: '32-Channel 4K Enterprise NVR',
@@ -220,6 +295,7 @@ export class CctvCalculatorComponent implements OnInit, OnDestroy {
         bandwidth: '256–384 Mbps',
       };
     }
+
     return {
       model: '64-Channel Multi-Drive High-Capacity NVR (8 SATA Bays / RAID)',
       main: '64-Channel Multi-Drive NVR',
@@ -232,36 +308,43 @@ export class CctvCalculatorComponent implements OnInit, OnDestroy {
     const cams = this.cameraCount();
     if (cams <= 4) {
       return {
-        label: '4-Port 10/100M PoE Switch + 2 Uplink Ports (65W)',
-        main: '4-Port 10/100M PoE Switch',
-        detail: '2 Uplink Ports • 65W Power Budget',
+        label: '4-Port 10/100M PoE Switch + 2 Uplink Ports (65W Budget)',
+        main: '4-Port PoE Switch (65W)',
+        detail: '4 PoE Ports + 2 Uplink Ports • 65W Power Budget (802.3af/at)',
       };
     }
     if (cams <= 8) {
       return {
-        label: '8-Port 10/100M PoE Switch + 2 Gigabit Uplink (120W)',
-        main: '8-Port Fast Ethernet PoE Switch',
-        detail: '2 Gigabit Uplink Ports • 120W Power Budget',
+        label: '8-Port 10/100M PoE Switch + 2 Gigabit Uplink Ports (120W Budget)',
+        main: '8-Port PoE Switch (120W)',
+        detail: '8 PoE Ports + 2 Gigabit Uplink Ports • 120W Power Budget',
       };
     }
     if (cams <= 16) {
       return {
-        label: '16-Port Gigabit PoE Switch + 2 SFP Optical Uplink (250W)',
-        main: '16-Port Gigabit PoE Switch',
-        detail: '2 SFP Optical Fiber Uplinks • 250W Budget',
+        label: '16-Port Gigabit PoE Switch + 2 SFP Optical Uplinks (250W Budget)',
+        main: '16-Port Gigabit PoE Switch (250W)',
+        detail: '16 Gigabit PoE Ports + 2 SFP Optical Fiber Uplinks • 250W Budget',
       };
     }
     if (cams <= 24) {
       return {
-        label: '24-Port Managed Gigabit PoE Switch + 4 SFP (370W)',
-        main: '24-Port Managed Gigabit PoE Switch',
-        detail: '4 SFP Optical Uplinks • 370W Budget',
+        label: '24-Port Managed Gigabit PoE Switch + 4 SFP (370W Budget)',
+        main: '24-Port Managed Gigabit PoE Switch (370W)',
+        detail: '24 Gigabit PoE Ports + 4 SFP Optical Uplinks • 370W Budget',
+      };
+    }
+    if (cams <= 32) {
+      return {
+        label: '32-Channel PoE Setup: 2x 16-Port Gigabit PoE Switches (500W Total Budget)',
+        main: 'Dual 16-Port Gigabit PoE Setup (500W)',
+        detail: '2x 16-Port Gigabit PoE Switches with Optical Uplink • 500W Budget',
       };
     }
     return {
-      label: 'Multiple Cascaded 24-Port Gigabit Managed PoE Switches with Fiber Uplink',
-      main: 'Dual 24-Port Managed Gigabit PoE Setup',
-      detail: 'Cascaded Optical Uplinks • 500W+ Redundant Budget',
+      label: 'Cascaded Enterprise PoE Setup: Multiple 24-Port Managed Gigabit PoE Switches (750W+ Redundant Budget)',
+      main: 'Cascaded Managed PoE Setup (750W+)',
+      detail: 'Cascaded Optical Uplinks • 750W+ Redundant Budget',
     };
   });
 
