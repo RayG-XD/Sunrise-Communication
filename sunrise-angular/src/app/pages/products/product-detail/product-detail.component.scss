@@ -494,11 +494,23 @@
 
 /* WhatsApp CTA Card */
 .whatsapp-cta-card {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(135deg, #010c3a 0%, #002d5b 100%);
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 22px 24px;
   color: #ffffff;
   box-shadow: 0 8px 24px rgba(1, 12, 58, 0.12);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #df0303 0%, #25d366 100%);
+  }
 
   .whatsapp-cta-inner {
     display: flex;

@@ -1,7 +1,19 @@
 .society-audit-form-wrapper {
+  position: relative;
+  overflow: hidden;
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
   box-shadow: 0 10px 30px rgba(1, 12, 58, 0.05);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #df0303 0%, #010c3a 100%);
+  }
 
   .form-control, .form-select {
     background-color: #f8fafc;
@@ -97,7 +109,7 @@
 }
 
 .audit-whatsapp-btn {
-  background: #25d366;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
   color: #ffffff;
   border: none;
   height: 46px;
@@ -113,8 +125,8 @@
   box-shadow: 0 4px 14px rgba(37, 211, 102, 0.28);
 
   &:hover {
-    background: #1eb954;
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.38);
+    background: linear-gradient(135deg, #20ba59 0%, #0e7064 100%);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
     transform: translateY(-2px);
     color: #ffffff;
   }

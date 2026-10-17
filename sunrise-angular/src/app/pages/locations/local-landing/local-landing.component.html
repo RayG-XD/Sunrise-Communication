@@ -49,18 +49,19 @@
         </div>
 
         <div class="col-lg-4 col-md-12">
-          <div class="local-quick-contact-card p-4 rounded-4 shadow bg-dark text-white text-center">
+          <div class="local-quick-contact-card p-4 rounded-4 shadow text-white text-center position-relative overflow-hidden">
+            <div class="card-top-accent"></div>
             <div class="gold-stars justify-content-center fs-5 mb-2">
               <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
             </div>
             <h3 class="h5 text-white mb-2">Need a Fast Site Audit in {{ loc.regionName }}?</h3>
             <p class="text-light small mb-3">Our field technicians can conduct an on-site survey and prepare an itemized BOQ within hours.</p>
             
-            <a [href]="whatsappDirectUrl()" target="_blank" rel="noopener noreferrer" class="btn btn-success w-100 fw-bold py-2 mb-2 d-flex align-items-center justify-content-center gap-2">
+            <a [href]="whatsappDirectUrl()" target="_blank" rel="noopener noreferrer" class="local-whatsapp-btn w-100 mb-2">
               <i class="fa fa-whatsapp fs-5"></i> Chat on WhatsApp
             </a>
             
-            <a [href]="'tel:' + siteData.contact.primaryPhone" class="btn btn-outline-light w-100 py-2 d-flex align-items-center justify-content-center gap-2">
+            <a [href]="'tel:' + siteData.contact.primaryPhone" class="local-call-btn w-100">
               <i class="fa fa-phone"></i> Call: {{ siteData.contact.primaryPhone }}
             </a>
 
@@ -107,7 +108,8 @@
   <!-- Local Case Study Showcase -->
   <section class="local-casestudy-section py-5 bg-white">
     <div class="auto-container">
-      <div class="casestudy-card p-4 p-md-5 rounded-4 shadow-sm border bg-light">
+      <div class="casestudy-card p-4 p-md-5 rounded-4 shadow-sm border bg-light position-relative overflow-hidden">
+        <div class="card-top-accent"></div>
         <div class="row g-4 align-items-center">
           
           <div class="col-lg-7 col-md-12">

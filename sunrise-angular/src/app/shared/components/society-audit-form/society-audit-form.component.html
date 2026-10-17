@@ -158,9 +158,9 @@
       <!-- Success & Error Alerts -->
       @if(successMessage()) {
         <div class="col-12 mt-3">
-          <div class="alert alert-success d-flex flex-column align-items-center gap-2 p-3 text-center">
+          <div class="alert alert-success d-flex flex-column align-items-center gap-2 p-3 text-center rounded-3">
             <div><strong><i class="fa fa-check-circle"></i> {{ successMessage() }}</strong></div>
-            <a [href]="getWhatsAppLeadUrl(lastSubmittedSummary())" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-success">
+            <a [href]="getWhatsAppLeadUrl(lastSubmittedSummary())" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-success rounded-pill px-3 py-1.5 fw-semibold">
               <i class="fa fa-whatsapp"></i> Also Forward Audit Copy to WhatsApp
             </a>
           </div>
@@ -169,9 +169,9 @@
 
       @if(errorMessage()) {
         <div class="col-12 mt-3">
-          <div class="alert alert-danger d-flex flex-column align-items-center gap-2 p-3 text-center">
+          <div class="alert alert-danger d-flex flex-column align-items-center gap-2 p-3 text-center rounded-3">
             <div><strong><i class="fa fa-exclamation-triangle"></i> {{ errorMessage() }}</strong></div>
-            <button type="button" (click)="sendDirectWhatsApp()" class="btn btn-sm btn-success">
+            <button type="button" (click)="sendDirectWhatsApp()" class="btn btn-sm btn-success rounded-pill px-3 py-1.5 fw-semibold shadow-sm">
               <i class="fa fa-whatsapp"></i> Click to Send Request on WhatsApp
             </button>
           </div>

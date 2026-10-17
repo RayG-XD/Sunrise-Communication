@@ -19,8 +19,9 @@
     <div class="row g-4">
       @for (guide of guides(); track guide.slug) {
         <div class="col-lg-6 col-md-6 col-12">
-          <div class="guide-card p-4 rounded-4 bg-white border shadow-sm h-100 d-flex flex-column transition-all">
-            
+          <div class="guide-card p-4 rounded-4 bg-white border shadow-sm h-100 d-flex flex-column transition-all position-relative overflow-hidden">
+            <div class="card-top-accent"></div>
+
             <div class="card-meta d-flex justify-content-between align-items-center mb-3">
               <span class="badge bg-danger text-white rounded-pill px-3 py-1">{{ guide.category }}</span>
               <span class="text-muted small"><i class="fa fa-clock-o me-1"></i> {{ guide.readTime }}</span>
@@ -39,8 +40,8 @@
               <small class="text-secondary">{{ guide.keyTakeaways[0] }}</small>
             </div>
 
-            <a [routerLink]="['/guides', guide.slug]" class="btn guide-action-btn w-100 fw-bold py-2 mt-auto">
-              Read Complete Guide <i class="fa fa-arrow-right ms-1"></i>
+            <a [routerLink]="['/guides', guide.slug]" class="guide-action-btn w-100 mt-auto">
+              <span>Read Complete Guide</span> <i class="fa fa-arrow-right ms-1"></i>
             </a>
 
           </div>
@@ -49,7 +50,8 @@
     </div>
 
     <!-- Housing Society Committee Consultation & Tender Support Strip -->
-    <div class="guides-committee-support-strip mt-5 p-4 p-md-5 rounded-4 text-white shadow-sm" style="background: linear-gradient(135deg, #010c3a 0%, #002d5b 100%); border: 1px solid rgba(255, 255, 255, 0.1);">
+    <div class="guides-committee-support-strip mt-5 p-4 p-md-5 rounded-4 text-white shadow-sm position-relative overflow-hidden" style="background: linear-gradient(135deg, #010c3a 0%, #002d5b 100%); border: 1px solid rgba(255, 255, 255, 0.1);">
+      <div class="card-top-accent"></div>
       <div class="row align-items-center g-4">
         <div class="col-lg-8 col-md-12">
           <span class="badge bg-warning text-dark px-3 py-1 rounded-pill mb-2 fw-bold">COMMITTEE TENDER & AGM SUPPORT</span>
@@ -60,10 +62,10 @@
         </div>
         <div class="col-lg-4 col-md-12 text-lg-end">
           <div class="d-flex flex-column flex-sm-row flex-lg-column gap-2 justify-content-lg-end">
-            <a routerLink="/contact" [queryParams]="{mode: 'society'}" class="btn btn-danger fw-bold py-2 px-3 rounded-pill shadow-sm">
+            <a routerLink="/contact" [queryParams]="{mode: 'society'}" class="btn-committee-audit">
               <i class="fa fa-calendar-check-o me-1"></i> Book Free Committee Audit
             </a>
-            <a routerLink="/tools/cctv-storage-calculator" class="btn btn-outline-light py-2 px-3 rounded-pill">
+            <a routerLink="/tools/cctv-storage-calculator" class="btn-calc-tool">
               <i class="fa fa-calculator me-1"></i> Launch Sizing Calculator
             </a>
           </div>

@@ -91,7 +91,7 @@
               <div class="d-flex align-items-center gap-2 flex-wrap">
                 <span class="badge bg-light text-dark border px-2 py-1 small"><i class="fa fa-check text-success me-1"></i> CP Plus / Hikvision Certified</span>
                 <span class="badge bg-light text-dark border px-2 py-1 small"><i class="fa fa-check text-success me-1"></i> Matrix Intercom Specialist</span>
-                <a [href]="whatsappShareUrl()" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-danger fw-bold ms-auto">
+                <a [href]="whatsappShareUrl()" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-danger fw-bold ms-auto rounded-pill px-3 py-1.5">
                   <i class="fa fa-whatsapp me-1"></i> Consult Tanaji Dada
                 </a>
               </div>
@@ -105,16 +105,17 @@
           <div class="guide-sidebar sticky-top" style="top: 100px;">
             
             <!-- Quick Consultation CTA -->
-            <div class="sidebar-card p-4 rounded-4 shadow bg-dark text-white text-center mb-4">
-              <span class="badge bg-warning text-dark px-3 py-1 rounded-pill mb-2">Technical Consultation</span>
+            <div class="sidebar-card p-4 rounded-4 shadow text-white text-center mb-4 position-relative overflow-hidden">
+              <div class="card-top-accent"></div>
+              <span class="badge bg-warning text-dark px-3 py-1 rounded-pill mb-2 fw-bold">Technical Consultation</span>
               <h4 class="h5 text-white mb-2">Need Turnkey Guidance for Your Society?</h4>
               <p class="text-white-50 small mb-3">Our certified engineers can present technical solutions at your society Managing Committee meeting.</p>
               
-              <a [href]="whatsappShareUrl()" target="_blank" rel="noopener noreferrer" class="btn btn-success w-100 fw-bold py-2 mb-2 d-flex align-items-center justify-content-center gap-2">
+              <a [href]="whatsappShareUrl()" target="_blank" rel="noopener noreferrer" class="sidebar-whatsapp-btn w-100 mb-2">
                 <i class="fa fa-whatsapp fs-5"></i> Consult on WhatsApp
               </a>
 
-              <a routerLink="/contact" class="btn btn-outline-light w-100 py-2">
+              <a routerLink="/contact" class="sidebar-audit-btn w-100">
                 Book Site Inspection
               </a>
             </div>

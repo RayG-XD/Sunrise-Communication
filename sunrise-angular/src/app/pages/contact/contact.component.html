@@ -47,34 +47,34 @@
                 Facing sudden security camera blackout, NVR disk failure, or society intercom line silence?
               </p>
               <div class="d-grid gap-2">
-                <a routerLink="/tools/system-health-diagnostics" class="btn btn-sm btn-outline-danger fw-bold text-start d-flex align-items-center justify-content-between">
+                <a routerLink="/tools/system-health-diagnostics" class="btn btn-sm btn-outline-danger fw-bold text-start d-flex align-items-center justify-content-between rounded-pill py-2 px-3">
                   <span><i class="fa fa-stethoscope me-1"></i> 60-Sec Fault Diagnostic Wizard</span>
                   <i class="fa fa-arrow-right"></i>
                 </a>
-                <a [href]="emergencyWhatsAppUrl" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-success fw-bold d-flex align-items-center justify-content-center gap-1">
+                <a [href]="emergencyWhatsAppUrl" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-success fw-bold d-flex align-items-center justify-content-center gap-1 rounded-pill py-2 shadow-sm">
                   <i class="fa fa-whatsapp"></i> Priority WhatsApp Dispatch
                 </a>
               </div>
             </div>
 
             <!-- Google Reputation & Review Link -->
-            <div class="google-contact-card my-3 p-3 bg-light rounded border">
+            <div class="google-contact-card my-3 p-3 bg-light rounded-4 border">
               <div class="gold-stars d-inline-flex gap-1 mb-1">
                 <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
               </div>
               <strong class="d-block text-dark">5.0 / 5.0 Stars (93+ Reviews)</strong>
               <div class="d-flex gap-2 mt-2 flex-wrap">
-                <a [href]="siteData.gbp.mapsUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">
+                <a [href]="siteData.gbp.mapsUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm rounded-pill px-3 py-1.5 fw-semibold">
                   <i class="fa fa-map-marker"></i> Get Directions
                 </a>
-                <a routerLink="/review" class="btn btn-outline-danger btn-sm">
+                <a routerLink="/review" class="btn btn-outline-danger btn-sm rounded-pill px-3 py-1.5 fw-semibold">
                   <i class="fa fa-google"></i> Review Us
                 </a>
               </div>
             </div>
 
             <!-- Society Audit & Accounting Compliance Badge -->
-            <div class="society-audit-compliance-card mb-3 p-3 bg-white rounded border shadow-sm">
+            <div class="society-audit-compliance-card mb-3 p-3 bg-white rounded-4 border shadow-sm">
               <span class="badge bg-danger-subtle text-danger mb-2 small fw-bold">
                 <i class="fa fa-shield me-1"></i> SOCIETY AUDIT COMPLIANT
               </span>
@@ -85,7 +85,7 @@
               </ul>
             </div>
 
-            <a href="#contact-forms" class="btn btn-danger w-100 fw-bold py-2 mb-3 d-flex align-items-center justify-content-center gap-2 shadow-sm">
+            <a href="#contact-forms" class="btn btn-danger w-100 fw-bold py-2.5 mb-3 d-flex align-items-center justify-content-center gap-2 shadow-sm rounded-pill">
               <i class="fa fa-calendar-check-o"></i> Book Technical Site Audit / Send Inquiry &darr;
             </a>
 
@@ -118,10 +118,10 @@
                 </div>
               </div>
               <div class="d-flex gap-2">
-                <a [href]="siteData.gbp.mapsUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline-danger btn-sm py-1 px-2 fw-semibold" style="font-size: 12px;">
+                <a [href]="siteData.gbp.mapsUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline-danger btn-sm py-1.5 px-3 fw-semibold rounded-pill" style="font-size: 12px;">
                   <i class="fa fa-location-arrow me-1"></i> Directions
                 </a>
-                <a [href]="'tel:' + siteData.contact.primaryPhone" class="btn btn-dark btn-sm py-1 px-2 fw-semibold" style="font-size: 12px;">
+                <a [href]="'tel:' + siteData.contact.primaryPhone" class="btn btn-dark btn-sm py-1.5 px-3 fw-semibold rounded-pill" style="font-size: 12px;">
                   <i class="fa fa-phone me-1"></i> Call HQ
                 </a>
               </div>
@@ -241,10 +241,10 @@
                 
                 @if(successMessage()) {
                   <div class="col-lg-12 col-md-12 col-sm-12 form-group text-center mt-3">
-                    <div class="alert alert-success d-flex flex-column align-items-center gap-2 p-3">
+                    <div class="alert alert-success d-flex flex-column align-items-center gap-2 p-3 rounded-3">
                       <div><strong><i class="fa fa-check-circle"></i> {{ successMessage() }}</strong></div>
                       @if(lastSubmittedData()) {
-                        <a [href]="getWhatsAppUrl(lastSubmittedData())" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-success mt-1">
+                        <a [href]="getWhatsAppUrl(lastSubmittedData())" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-success mt-1 rounded-pill px-3 py-1.5 fw-semibold">
                           <i class="fa fa-whatsapp"></i> Also Send this Copy to WhatsApp for Instant Reply
                         </a>
                       }
@@ -254,9 +254,9 @@
 
                 @if(errorMessage()) {
                   <div class="col-lg-12 col-md-12 col-sm-12 form-group text-center mt-3">
-                    <div class="alert alert-danger d-flex flex-column align-items-center gap-2 p-3">
+                    <div class="alert alert-danger d-flex flex-column align-items-center gap-2 p-3 rounded-3">
                       <div><strong><i class="fa fa-exclamation-triangle"></i> {{ errorMessage() }}</strong></div>
-                      <button type="button" (click)="sendDirectWhatsApp()" class="btn btn-sm btn-success mt-1">
+                      <button type="button" (click)="sendDirectWhatsApp()" class="btn btn-sm btn-success mt-1 rounded-pill px-3 py-1.5 fw-semibold shadow-sm">
                         <i class="fa fa-whatsapp"></i> Click to Send via WhatsApp Instead
                       </button>
                     </div>

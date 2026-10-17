@@ -3,23 +3,42 @@
 }
 
 .guide-card {
+  position: relative;
+  overflow: hidden;
   border-color: #e2e8f0;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  .card-top-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #df0303 0%, #010c3a 100%);
+    opacity: 0.8;
+    transition: all 0.25s ease;
+  }
 
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 16px 32px rgba(1, 12, 58, 0.08);
     border-color: rgba(223, 3, 3, 0.3);
 
+    .card-top-accent {
+      height: 4px;
+      opacity: 1;
+    }
+
     .guide-title-link {
       color: #df0303;
     }
 
     .guide-action-btn {
-      background: #df0303;
-      border-color: #df0303;
+      background: linear-gradient(135deg, #df0303 0%, #b80202 100%);
+      border-color: transparent;
       color: #ffffff;
-      box-shadow: 0 4px 14px rgba(223, 3, 3, 0.25);
+      box-shadow: 0 6px 20px rgba(223, 3, 3, 0.3);
+      transform: translateY(-1px);
     }
   }
 
@@ -40,16 +59,86 @@
     border: 1.5px solid #010c3a;
     color: #010c3a;
     background: transparent;
-    border-radius: 10px;
-    font-size: 13.5px;
+    height: 44px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
     transition: all 0.25s ease;
 
     &:hover {
-      background: #df0303;
-      border-color: #df0303;
+      background: linear-gradient(135deg, #df0303 0%, #b80202 100%);
+      border-color: transparent;
       color: #ffffff;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 14px rgba(223, 3, 3, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(223, 3, 3, 0.3);
+    }
+  }
+}
+
+.guides-committee-support-strip {
+  position: relative;
+  overflow: hidden;
+
+  .card-top-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #f59e0b 0%, #df0303 50%, #38bdf8 100%);
+  }
+
+  .btn-committee-audit {
+    background: linear-gradient(135deg, #df0303 0%, #b80202 100%);
+    color: #ffffff;
+    border: none;
+    height: 46px;
+    padding: 0 24px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(223, 3, 3, 0.3);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &:hover {
+      background: linear-gradient(135deg, #ef0d0d 0%, #c50404 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(223, 3, 3, 0.45);
+      color: #ffffff;
+    }
+  }
+
+  .btn-calc-tool {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    height: 46px;
+    padding: 0 24px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: #ffffff;
+      transform: translateY(-2px);
+      color: #ffffff;
     }
   }
 }

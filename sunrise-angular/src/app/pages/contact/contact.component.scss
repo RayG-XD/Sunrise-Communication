@@ -10,12 +10,24 @@
 
   .info-column {
     .inner-column {
+      position: relative;
+      overflow: hidden;
       background: #ffffff;
       border: 1px solid #e2e8f0;
       border-radius: 20px;
       padding: 32px 28px;
       box-shadow: 0 4px 20px rgba(1, 12, 58, 0.04);
       height: 100%;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #df0303 0%, #010c3a 100%);
+      }
 
       .title-box {
         background: transparent !important;
@@ -169,8 +181,21 @@
       height: 100%;
 
       .map-card-wrapper {
+        position: relative;
+        overflow: hidden;
         border-color: #e2e8f0;
         transition: box-shadow 0.3s ease;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: linear-gradient(90deg, #df0303 0%, #010c3a 100%);
+          z-index: 2;
+        }
 
         &:hover {
           box-shadow: 0 12px 32px rgba(1, 12, 58, 0.08) !important;
