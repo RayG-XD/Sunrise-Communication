@@ -362,3 +362,86 @@
     }
   }
 }
+
+.workmanship-standards-section {
+  .standard-card {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    border-color: #e2e8f0;
+
+    .card-top-accent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #df0303 0%, #010c3a 100%);
+      opacity: 0.8;
+      transition: height 0.3s ease, opacity 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(1, 12, 58, 0.08) !important;
+      border-color: rgba(223, 3, 3, 0.3) !important;
+
+      .card-top-accent {
+        height: 4px;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.team-section {
+  .founder-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+    .card-top-accent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #df0303 0%, #010c3a 100%);
+    }
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(1, 12, 58, 0.1) !important;
+      border-color: rgba(223, 3, 3, 0.3) !important;
+    }
+  }
+}
+
+.vendor-compliance-section {
+  .compliance-card {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    border-color: #e2e8f0;
+
+    .card-top-accent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #df0303 0%, #010c3a 100%);
+      opacity: 0.8;
+      transition: height 0.3s ease, opacity 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateY(-4px);
+      background-color: #ffffff !important;
+      box-shadow: 0 14px 30px rgba(1, 12, 58, 0.08) !important;
+      border-color: rgba(223, 3, 3, 0.3) !important;
+
+      .card-top-accent {
+        height: 4px;
+        opacity: 1;
+      }
+    }
+  }
+}
+

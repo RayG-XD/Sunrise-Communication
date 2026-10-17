@@ -7,6 +7,16 @@
   position: relative;
   overflow: hidden;
 
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #df0303 0%, #010c3a 100%);
+  }
+
   @media (max-width: 767px) {
     padding: 22px 16px;
     border-radius: 16px;
@@ -568,27 +578,29 @@
     align-items: center;
     gap: 8px;
     font-size: 13.5px;
-    font-weight: 600;
-    height: 44px;
-    padding: 0 18px;
-    border-radius: 8px;
-    border: 1px solid #df0303;
+    font-weight: 700;
+    height: 46px;
+    padding: 0 22px;
+    border-radius: 50px;
+    border: 1.5px solid #df0303;
     color: #df0303;
     background: #ffffff;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     white-space: nowrap;
 
     i {
       font-size: 15px;
       color: #df0303;
+      transition: color 0.2s ease;
     }
 
     &:hover {
-      background: #df0303;
+      background: linear-gradient(135deg, #df0303 0%, #b80202 100%);
       border-color: #df0303;
       color: #ffffff;
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(223, 3, 3, 0.3);
 
       i {
         color: #ffffff;
@@ -607,20 +619,21 @@
     gap: 8px;
     font-size: 13.5px;
     font-weight: 600;
-    height: 44px;
-    padding: 0 18px;
-    border-radius: 8px;
-    border: 1px solid #cbd5e1;
+    height: 46px;
+    padding: 0 20px;
+    border-radius: 50px;
+    border: 1.5px solid #cbd5e1;
     color: #010c3a;
     background: #ffffff;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 
     &:hover {
       background: #010c3a;
       border-color: #010c3a;
       color: #ffffff;
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(1, 12, 58, 0.15);
     }
 
     &.share-blueprint-btn {
@@ -652,26 +665,27 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #25d366;
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
     color: #ffffff;
-    font-size: 13.5px;
+    font-size: 14px;
     font-weight: 700;
-    height: 44px;
-    padding: 0 22px;
-    border-radius: 8px;
+    height: 46px;
+    padding: 0 24px;
+    border-radius: 50px;
     text-decoration: none;
-    transition: all 0.25s ease;
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    border: none;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.32);
 
     i {
-      font-size: 16px;
+      font-size: 17px;
     }
 
     &:hover {
-      background: #1eb954;
+      background: linear-gradient(135deg, #20ba5a 0%, #0d7367 100%);
       color: #ffffff;
       transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4);
+      box-shadow: 0 8px 22px rgba(37, 211, 102, 0.45);
     }
 
     @media (max-width: 767px) {

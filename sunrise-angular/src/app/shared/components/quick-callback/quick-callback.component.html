@@ -99,29 +99,27 @@
           <span class="small text-muted">25+ Years Experience • Direct Engineer Callback</span>
         </div>
 
-        <div class="btn-group-action d-flex gap-2">
+        <div class="btn-group-action d-flex gap-3 flex-wrap">
           <a
             [href]="getWhatsAppDirectUrl()"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn btn-outline-success btn-whatsapp-direct"
+            class="btn-whatsapp-direct"
             title="Chat directly on WhatsApp"
           >
-            <i class="fa fa-whatsapp"></i> Chat on WhatsApp
+            <i class="fa fa-whatsapp"></i> <span>Chat on WhatsApp</span>
           </a>
 
           <button
             type="submit"
-            class="theme-btn btn-style-one btn-submit-callback"
+            class="btn-submit-callback"
             [disabled]="isSubmitting()"
           >
-            <span class="txt">
-              @if (isSubmitting()) {
-                <i class="fa fa-spinner fa-spin me-1"></i> Submitting...
-              } @else {
-                <i class="fa fa-phone me-1"></i> Request Technical Callback
-              }
-            </span>
+            @if (isSubmitting()) {
+              <i class="fa fa-spinner fa-spin me-1"></i> <span>Submitting...</span>
+            } @else {
+              <i class="fa fa-phone me-1"></i> <span>Request Technical Callback</span>
+            }
           </button>
         </div>
       </div>
