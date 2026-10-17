@@ -16,11 +16,23 @@
 /* Service Detail Content */
 .service-detail {
   .inner-box {
+    position: relative;
+    overflow: hidden;
     background: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 20px;
     padding: 32px;
     box-shadow: 0 4px 20px rgba(1, 12, 58, 0.04);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #df0303 0%, #010c3a 100%);
+    }
 
     .image {
       border-radius: 14px;
@@ -300,9 +312,21 @@
 
       /* Brochure Widget */
       &.broucher-widget {
+        position: relative;
+        overflow: hidden;
         background: linear-gradient(135deg, #010c3a 0%, #0d1b54 100%);
         border: 1px solid rgba(255, 255, 255, 0.1);
         color: #ffffff;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 3.5px;
+          background: linear-gradient(90deg, #25d366 0%, #df0303 100%);
+        }
 
         .sidebar-title {
           border-bottom-color: rgba(255, 255, 255, 0.15);

@@ -361,10 +361,12 @@
   background: #ffffff;
 
   .oem-partner-card {
+    position: relative;
+    overflow: hidden;
     background: #f8fafc;
     border: 1px solid #e2e8f0;
     border-radius: 14px;
-    padding: 20px 14px;
+    padding: 22px 14px 18px;
     text-align: center;
     height: 100%;
     display: flex;
@@ -372,6 +374,18 @@
     justify-content: space-between;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #df0303 0%, #010c3a 100%);
+      opacity: 0.75;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
     .oem-icon-circle {
       width: 44px;
@@ -394,6 +408,11 @@
       transform: translateY(-4px);
       box-shadow: 0 14px 28px rgba(1, 12, 58, 0.08);
       border-color: rgba(223, 3, 3, 0.3);
+
+      &::before {
+        opacity: 1;
+        height: 4px;
+      }
 
       .oem-icon-circle {
         background: #df0303;
@@ -583,15 +602,17 @@
     }
 
     .promo-action-btn {
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-size: 12.5px;
+      height: 38px;
+      padding: 0 18px;
+      border-radius: 30px;
+      font-size: 13px;
       font-weight: 600;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
-      transition: all 0.2s ease;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       white-space: nowrap;
 
       &.btn-blue {
@@ -603,6 +624,8 @@
           background: #010c3a;
           color: #ffffff;
           border-color: #010c3a;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(1, 12, 58, 0.18);
         }
       }
 
@@ -615,6 +638,8 @@
           background: #df0303;
           color: #ffffff;
           border-color: #df0303;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(223, 3, 3, 0.25);
         }
       }
     }
@@ -844,8 +869,8 @@
       right: 0;
       height: 3px;
       background: linear-gradient(90deg, #df0303 0%, #010c3a 100%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      opacity: 0.85;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     &:hover {
@@ -855,6 +880,7 @@
 
       &::before {
         opacity: 1;
+        height: 4px;
       }
     }
 

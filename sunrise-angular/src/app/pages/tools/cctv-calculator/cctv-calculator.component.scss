@@ -51,6 +51,20 @@
 }
 
 /* Header Introduction & Presets */
+.calc-intro-card {
+  position: relative;
+  overflow: hidden;
+
+  .card-top-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #df0303 0%, #010c3a 100%);
+  }
+}
+
 .presets-container {
   .presets-label {
     font-size: 0.82rem;
@@ -777,8 +791,12 @@
     transition: all 0.3s ease;
 
     &.open {
-      border-color: #010c3a;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border-color: #df0303;
+      box-shadow: 0 4px 16px rgba(223, 3, 3, 0.08);
+
+      .faq-question-btn {
+        color: #df0303;
+      }
     }
 
     .faq-question-btn {

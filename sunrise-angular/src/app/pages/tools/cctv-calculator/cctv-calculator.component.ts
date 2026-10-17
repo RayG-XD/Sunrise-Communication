@@ -6,6 +6,7 @@ import { SeoService } from '../../../core/services/seo.service';
 import { ProposalGeneratorService } from '../../../core/services/proposal-generator.service';
 import { InquiryService } from '../../../core/services/inquiry.service';
 import { SITE_DATA } from '../../../core/constants/site-data';
+import { PageTitleComponent } from '../../../shared/components/page-title.component';
 
 export type ResolutionOption = '1080p' | '3mp' | '4mp' | '5mp' | '8mp';
 export type CodecOption = 'h264' | 'h265' | 'h265plus';
@@ -14,7 +15,7 @@ export type RecordingMode = 'continuous' | 'motion';
 @Component({
   selector: 'app-cctv-calculator',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, PageTitleComponent],
   templateUrl: './cctv-calculator.component.html',
   styleUrl: './cctv-calculator.component.scss',
 })
