@@ -1,6 +1,17 @@
 .local-hero-banner {
+  position: relative;
   background: linear-gradient(135deg, #010c3a 0%, #06154d 60%, #0a1f68 100%);
   padding: 80px 0 50px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #df0303 0%, #ff4757 50%, #010c3a 100%);
+  }
 }
 
 .max-w-750 {
@@ -163,6 +174,41 @@
     justify-content: center;
     font-size: 22px;
     transition: all 0.25s ease;
+  }
+
+  .local-service-explore-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 36px;
+    padding: 0 16px;
+    border-radius: 30px;
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    color: #010c3a;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    align-self: flex-start;
+
+    i {
+      color: #df0303;
+      transition: transform 0.2s ease;
+    }
+
+    &:hover {
+      background: #df0303;
+      border-color: #df0303;
+      color: #ffffff;
+      transform: translateX(2px);
+      box-shadow: 0 4px 12px rgba(223, 3, 3, 0.25);
+
+      i {
+        color: #ffffff;
+        transform: translateX(4px);
+      }
+    }
   }
 }
 
