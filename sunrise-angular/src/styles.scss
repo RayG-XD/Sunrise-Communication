@@ -474,6 +474,18 @@ body.mobile-menu-visible {
   }
 }
 
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(223, 3, 3, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(223, 3, 3, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(223, 3, 3, 0);
+  }
+}
+
 /* Global Hero Slider High-Contrast Text Overrides */
 .main-slider {
   .content-boxed {

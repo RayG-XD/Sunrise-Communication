@@ -357,7 +357,7 @@ export class ProposalGeneratorService {
   <div class="no-print-toolbar">
     <div><strong>Sunrise Communication — Engineering Document Viewer</strong></div>
     <div>
-      <button class="btn btn-primary" onclick="window.print()">🖨️ Print / Save as PDF</button>
+      <button class="btn btn-primary" onclick="window.print()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 5px;"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>Print / Save as PDF</button>
       <button class="btn btn-secondary" onclick="window.close()">Close</button>
     </div>
   </div>
@@ -527,7 +527,7 @@ export class ProposalGeneratorService {
     <div class="qr-verification-strip">
       <div class="qr-text-side">
         <strong style="color: #010c3a; font-size: 11.5px; display: block; margin-bottom: 2px;">
-          🔗 Digital Verification & Live Recalculation
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -1px; margin-right: 4px;"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>Digital Verification & Live Recalculation
         </strong>
         <span style="font-size: 10.5px; color: #64748b; line-height: 1.35; display: block;">
           Scan the QR code with any smartphone camera to inspect, adjust, or verify this technical sizing specification live on the Sunrise Communication portal:
@@ -876,7 +876,7 @@ export class ProposalGeneratorService {
   <div class="no-print-toolbar">
     <div><strong>Sunrise Communication — Engineering Document Viewer</strong></div>
     <div>
-      <button class="btn btn-primary" onclick="window.print()">🖨️ Print / Save as PDF</button>
+      <button class="btn btn-primary" onclick="window.print()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 5px;"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>Print / Save as PDF</button>
       <button class="btn btn-secondary" onclick="window.close()">Close</button>
     </div>
   </div>
@@ -1008,7 +1008,7 @@ export class ProposalGeneratorService {
     <div class="qr-verification-strip">
       <div class="qr-text-side">
         <strong style="color: #010c3a; font-size: 11.5px; display: block; margin-bottom: 2px;">
-          🔗 Digital Verification & Live Blueprint
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -1px; margin-right: 4px;"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>Digital Verification & Live Blueprint
         </strong>
         <span style="font-size: 10.5px; color: #64748b; line-height: 1.35; display: block;">
           Scan the QR code with any smartphone camera to inspect, adjust, or verify this technical specification live on the Sunrise Communication portal:

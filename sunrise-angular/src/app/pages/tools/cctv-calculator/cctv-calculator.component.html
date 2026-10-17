@@ -34,22 +34,22 @@
         <button type="button" class="preset-pill-btn" 
                 [class.active]="activePreset() === 'society'"
                 (click)="setPreset('society')">
-          <span class="preset-emoji">🏢</span> Housing Society (16 Cams / 30 Days)
+          <i class="fa fa-building-o text-danger me-1.5"></i> Housing Society (16 Cams / 30 Days)
         </button>
         <button type="button" class="preset-pill-btn" 
                 [class.active]="activePreset() === 'office'"
                 (click)="setPreset('office')">
-          <span class="preset-emoji">💼</span> Corporate Office (8 Cams / 30 Days)
+          <i class="fa fa-briefcase text-primary me-1.5"></i> Corporate Office (8 Cams / 30 Days)
         </button>
         <button type="button" class="preset-pill-btn" 
                 [class.active]="activePreset() === 'warehouse'"
                 (click)="setPreset('warehouse')">
-          <span class="preset-emoji">🏭</span> Industrial Warehouse (24 Cams / 45 Days)
+          <i class="fa fa-industry text-warning me-1.5"></i> Industrial Warehouse (24 Cams / 45 Days)
         </button>
         <button type="button" class="preset-pill-btn" 
                 [class.active]="activePreset() === 'retail'"
                 (click)="setPreset('retail')">
-          <span class="preset-emoji">🏪</span> Retail Shop (4 Cams / 15 Days)
+          <i class="fa fa-shopping-cart text-success me-1.5"></i> Retail Shop (4 Cams / 15 Days)
         </button>
       </div>
     </div>

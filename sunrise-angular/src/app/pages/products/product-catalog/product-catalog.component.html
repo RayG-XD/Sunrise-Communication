@@ -132,14 +132,15 @@
 
       <!-- Mobile Filter Toggle Button -->
       <div class="mobile-filter-bar d-lg-none mb-4">
-        <button class="theme-btn btn-style-one filter-toggle-btn" (click)="toggleMobileFilter()">
-          <span class="txt">
-            <i class="fa fa-filter"></i>
-            {{ isMobileFilterOpen() ? 'Hide Filters' : 'Filter Products' }}
-          </span>
+        <button class="mobile-filter-toggle-pill" (click)="toggleMobileFilter()">
+          <i class="fa fa-sliders"></i>
+          <span>{{ isMobileFilterOpen() ? 'Hide Filters' : 'Filter Products' }}</span>
+          @if (activeFilterCount() > 0) {
+            <span class="active-count-badge">{{ activeFilterCount() }}</span>
+          }
         </button>
         <span class="results-count-text">
-          Showing {{ filteredProducts().length }} of {{ productService.products().length }} products
+          Showing <strong>{{ filteredProducts().length }}</strong> of {{ productService.products().length }}
         </span>
       </div>
 

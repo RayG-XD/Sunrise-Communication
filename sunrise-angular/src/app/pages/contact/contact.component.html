@@ -38,7 +38,10 @@
                 <span class="badge bg-danger text-white fw-bold">
                   <i class="fa fa-ambulance me-1"></i> EMERGENCY BREAKDOWN HOTLINE
                 </span>
-                <span class="text-danger fw-bold small"><i class="fa fa-clock-o"></i> 4-Hr AMC Dispatch</span>
+                <span class="emergency-dispatch-tag text-danger fw-bold small d-inline-flex align-items-center">
+                  <span class="pulse-ring-dot me-1.5"></span>
+                  <i class="fa fa-clock-o me-1"></i> 4-Hr AMC Dispatch
+                </span>
               </div>
               <p class="small text-dark mb-2">
                 Facing sudden security camera blackout, NVR disk failure, or society intercom line silence?
@@ -227,12 +230,12 @@
                   }
                 </div>
 
-                <div class="col-lg-12 col-md-12 col-sm-12 form-group text-center d-flex justify-content-center gap-3 flex-wrap">
-                  <button class="theme-btn btn-style-four" type="submit" [disabled]="isSubmitting()">
-                    <span class="txt"><i class="fa fa-envelope-o me-1"></i> {{ isSubmitting() ? 'Sending...' : 'Submit Inquiry' }}</span>
+                <div class="col-lg-12 col-md-12 col-sm-12 form-group contact-form-actions">
+                  <button class="contact-submit-btn" type="submit" [disabled]="isSubmitting()">
+                    <i class="fa fa-envelope-o"></i> <span>{{ isSubmitting() ? 'Sending...' : 'Submit Inquiry' }}</span>
                   </button>
-                  <button class="btn btn-success px-4 py-2 fw-bold d-inline-flex align-items-center gap-2" type="button" (click)="sendDirectWhatsApp()">
-                    <i class="fa fa-whatsapp fs-5"></i> <span>Send via WhatsApp</span>
+                  <button class="contact-whatsapp-btn" type="button" (click)="sendDirectWhatsApp()">
+                    <i class="fa fa-whatsapp"></i> <span>Send via WhatsApp</span>
                   </button>
                 </div>
                 

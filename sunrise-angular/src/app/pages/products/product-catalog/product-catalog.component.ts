@@ -58,6 +58,16 @@ export class ProductCatalogComponent implements OnInit, OnDestroy {
   selectedBrands = signal<Set<string>>(new Set());
   isMobileFilterOpen = signal<boolean>(false);
 
+  // Computed total active filters count
+  activeFilterCount = computed<number>(() => {
+    let count = 0;
+    if (this.searchQuery().trim()) count++;
+    count += this.selectedCategories().size;
+    count += this.selectedSubCategories().size;
+    count += this.selectedBrands().size;
+    return count;
+  });
+
   // Explicit landing mode signal — true only on fresh load with no query params or explicit back button
   isLandingPageMode = signal<boolean>(true);
 
