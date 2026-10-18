@@ -22,6 +22,50 @@
           </p>
         </div>
 
+        <!-- Landing Quick Search & Brand Filter Bar -->
+        <div class="landing-search-filter-card mb-5 p-3 rounded-4 bg-white border shadow-sm max-w-800 mx-auto">
+          <div class="landing-search-input-group d-flex align-items-center gap-2">
+            <i class="fa fa-search text-danger fs-5 ps-2"></i>
+            <input 
+              type="text" 
+              class="form-control border-0 shadow-none ps-1" 
+              placeholder="Search cameras, NVRs, EPABX, or model numbers (e.g. 4K, CP Plus, Matrix)..." 
+              [value]="searchQuery()" 
+              (input)="onSearchInput($event)"
+              (keydown.enter)="onLandingSearchEnter()"
+            />
+            @if (searchQuery()) {
+              <button type="button" class="btn btn-sm btn-link text-muted" (click)="clearSearch()" aria-label="Clear search input">
+                <i class="fa fa-times"></i>
+              </button>
+            }
+            <button type="button" class="btn btn-danger px-4 rounded-pill fw-semibold" (click)="onLandingSearchEnter()">
+              Search
+            </button>
+          </div>
+          <div class="landing-brand-pills-row d-flex align-items-center flex-wrap gap-2 mt-3 pt-2 border-top">
+            <span class="brand-pills-label small text-muted fw-semibold">
+              <i class="fa fa-tag me-1"></i> Popular OEM Brands:
+            </span>
+            @for (brand of popularBrands(); track brand) {
+              <button 
+                type="button" 
+                class="brand-pill-btn" 
+                (click)="selectBrandFromLanding(brand)"
+              >
+                {{ brand }}
+              </button>
+            }
+            <button 
+              type="button" 
+              class="brand-pill-btn btn-browse-all" 
+              (click)="viewAllProductsFromLanding()"
+            >
+              <i class="fa fa-th-large me-1"></i> View All Models ({{ productService.products().length }})
+            </button>
+          </div>
+        </div>
+
         <!-- Loading State -->
         @if (productService.loading()) {
           <div class="loading-container text-center py-5">

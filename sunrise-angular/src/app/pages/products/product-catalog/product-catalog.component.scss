@@ -898,3 +898,65 @@
     background: linear-gradient(90deg, #df0303 0%, #010c3a 100%);
   }
 }
+
+/* Landing Quick Search & Brand Filter Bar */
+.landing-search-filter-card {
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 25px -5px rgba(1, 12, 58, 0.06), 0 8px 10px -6px rgba(1, 12, 58, 0.04);
+  transition: all 0.3s ease;
+
+  &:hover, &:focus-within {
+    border-color: #fca5a5;
+    box-shadow: 0 14px 30px -4px rgba(223, 3, 3, 0.1), 0 8px 12px -6px rgba(1, 12, 58, 0.05);
+  }
+
+  .landing-search-input-group {
+    input {
+      font-size: 15px;
+      color: #1e293b;
+
+      &::placeholder {
+        color: #94a3b8;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .landing-brand-pills-row {
+    .brand-pills-label {
+      color: #64748b;
+    }
+
+    .brand-pill-btn {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      color: #334155;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: #fee2e2;
+        border-color: #fca5a5;
+        color: #df0303;
+        transform: translateY(-1px);
+      }
+    }
+
+    .btn-browse-all {
+      background: #eff6ff;
+      border-color: #bfdbfe;
+      color: #1d4ed8;
+
+      &:hover {
+        background: #dbeafe;
+        border-color: #93c5fd;
+        color: #1e40af;
+      }
+    }
+  }
+}
+

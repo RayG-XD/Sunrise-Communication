@@ -106,18 +106,19 @@ export class ProductCatalogComponent implements OnInit, OnDestroy {
     return list;
   });
 
-  // Dynamic Brands list available for currently selected categories
+  // Popular OEM Brands for Quick Filter Bar
+  popularBrands = computed<string[]>(() => {
+    return ['CP Plus', 'Hikvision', 'Dahua', 'Matrix Comsec', 'eSSL Security'];
+  });
+
+  // Dynamic Brands list available for currently selected categories (or all brands if no category selected)
   availableBrandsForSelectedCategories = computed<string[]>(() => {
     const products = this.productService.products();
     const activeCats = this.selectedCategories();
 
-    if (activeCats.size === 0) {
-      return [];
-    }
-
     const brandSet = new Set<string>();
     for (const p of products) {
-      if (activeCats.has(p.category)) {
+      if (activeCats.size === 0 || activeCats.has(p.category)) {
         brandSet.add(p.brand);
       }
     }
@@ -176,31 +177,35 @@ export class ProductCatalogComponent implements OnInit, OnDestroy {
     if (activeCats.size === 1) {
       return Array.from(activeCats)[0];
     }
-    return '';
+    if (activeCats.size > 1) {
+      return `${activeCats.size} Selected Categories`;
+    }
+    if (this.selectedBrands().size > 0) {
+      return `${Array.from(this.selectedBrands()).join(', ')} Hardware`;
+    }
+    if (this.searchQuery().trim()) {
+      return `Results for "${this.searchQuery().trim()}"`;
+    }
+    return 'All Enterprise Hardware Models';
   });
 
   // Active Category Description computed signal
   activeCategoryDescription = computed(() => {
-    const catName = this.activeCategoryName();
-    if (catName) {
-      const match = this.productService.products().find((p) => p.category === catName);
+    const activeCats = this.selectedCategories();
+    if (activeCats.size === 1) {
+      const match = this.productService.products().find((p) => p.category === Array.from(activeCats)[0]);
       return match?.category_description || '';
     }
-    return '';
+    return 'Certified enterprise surveillance, telecom EPABX, and biometric security systems deployed across Thane & Mumbai MMR.';
   });
 
-  // Filtered products computed signal:
-  // If selectedCategories() is empty, show 0 products as requested!
+  // Filtered products computed signal
   filteredProducts = computed(() => {
     const products = this.productService.products();
     const query = this.searchQuery().trim().toLowerCase();
     const cats = this.selectedCategories();
     const subCats = this.selectedSubCategories();
     const brands = this.selectedBrands();
-
-    if (cats.size === 0) {
-      return [];
-    }
 
     return products.filter((p) => {
       const matchesSearch =
@@ -211,7 +216,7 @@ export class ProductCatalogComponent implements OnInit, OnDestroy {
         p.category.toLowerCase().includes(query) ||
         p.short_description.toLowerCase().includes(query);
 
-      const matchesCat = cats.has(p.category);
+      const matchesCat = cats.size === 0 || cats.has(p.category);
       const matchesSubCat = subCats.size === 0 || subCats.has(p.sub_category);
       const matchesBrand = brands.size === 0 || brands.has(p.brand);
 
@@ -308,6 +313,28 @@ export class ProductCatalogComponent implements OnInit, OnDestroy {
   selectCategoryFromLanding(categoryName: string): void {
     this.isLandingPageMode.set(false);
     this.selectedCategories.set(new Set([categoryName]));
+    this.syncQueryParams();
+  }
+
+  selectBrandFromLanding(brand: string): void {
+    this.isLandingPageMode.set(false);
+    this.selectedCategories.set(new Set());
+    this.selectedSubCategories.set(new Set());
+    this.selectedBrands.set(new Set([brand]));
+    this.syncQueryParams();
+  }
+
+  viewAllProductsFromLanding(): void {
+    this.isLandingPageMode.set(false);
+    this.selectedCategories.set(new Set());
+    this.selectedSubCategories.set(new Set());
+    this.selectedBrands.set(new Set());
+    this.searchQuery.set('');
+    this.syncQueryParams();
+  }
+
+  onLandingSearchEnter(): void {
+    this.isLandingPageMode.set(false);
     this.syncQueryParams();
   }
 

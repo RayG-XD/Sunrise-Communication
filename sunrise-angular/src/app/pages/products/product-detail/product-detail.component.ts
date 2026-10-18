@@ -58,6 +58,50 @@ export class ProductDetailComponent implements OnInit {
     return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   });
 
+  isCopied = signal<boolean>(false);
+
+  isCameraOrNvr = computed(() => {
+    const prod = this.product();
+    if (!prod) return false;
+    const cat = (prod.category_slug || prod.category || '').toLowerCase();
+    return cat.includes('camera') || cat.includes('cctv') || cat.includes('nvr') || cat.includes('video');
+  });
+
+  committeeShareUrl = computed(() => {
+    const prod = this.product();
+    if (!prod) return '';
+    let currentUrl = `${this.siteData.contact.website}/products/${prod.category_slug}/${prod.slug}`;
+    if (isPlatformBrowser(this.platformId) && this.document.location?.href) {
+      currentUrl = this.document.location.href;
+    }
+    const text = [
+      `*PROPOSAL / HARDWARE SPECIFICATION FOR COMMITTEE REVIEW*`,
+      `📦 *Model:* ${prod.name}`,
+      `🏷️ *Brand:* ${prod.brand} | SKU: ${prod.model_number || 'N/A'}`,
+      `📋 *Technical Specs:* ${currentUrl}`,
+      `🏢 *Integrator:* Sunrise Communication (Thane & Mumbai MMR)`
+    ].join('\n');
+    return `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+  });
+
+  copyProductLink(): void {
+    const prod = this.product();
+    if (!prod) return;
+    let currentUrl = `${this.siteData.contact.website}/products/${prod.category_slug}/${prod.slug}`;
+    if (isPlatformBrowser(this.platformId) && this.document.location?.href) {
+      currentUrl = this.document.location.href;
+    }
+    if (navigator?.clipboard) {
+      navigator.clipboard.writeText(currentUrl).then(() => {
+        this.isCopied.set(true);
+        setTimeout(() => this.isCopied.set(false), 2500);
+      });
+    } else {
+      this.isCopied.set(true);
+      setTimeout(() => this.isCopied.set(false), 2500);
+    }
+  }
+
   onWhatsappClick(): void {
     const prod = this.product();
     if (!prod) return;

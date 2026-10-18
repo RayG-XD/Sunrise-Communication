@@ -162,6 +162,8 @@ export class SystemDiagnosticsComponent {
     return this.currentSystem().symptoms.find(sym => sym.id === this.selectedSymptomId()) || this.currentSystem().symptoms[0];
   });
 
+  isReportCopied = signal<boolean>(false);
+
   selectSystem(systemId: string): void {
     this.selectedSystemId.set(systemId);
     const firstSymptom = this.currentSystem().symptoms[0];
@@ -172,6 +174,44 @@ export class SystemDiagnosticsComponent {
 
   selectSymptom(symptomId: string): void {
     this.selectedSymptomId.set(symptomId);
+  }
+
+  resetDiagnostic(): void {
+    this.selectedSystemId.set('cctv');
+    this.selectedSymptomId.set('cctv_hdd_beep');
+  }
+
+  copyDiagnosticReport(): void {
+    const sys = this.currentSystem().name;
+    const sym = this.currentSymptom();
+    const reportText = [
+      `🚨 SECURITY SYSTEM FAULT DIAGNOSTIC REPORT`,
+      `⚙️ System: ${sys}`,
+      `⚠️ Symptom: ${sym.label}`,
+      `🛡️ Severity Risk: ${sym.severity} Priority`,
+      ``,
+      `🔍 Probable Technical Root Cause:`,
+      `${sym.probableCause}`,
+      ``,
+      `🔧 Recommended Engineering Action:`,
+      `${sym.recommendedAction}`,
+      ``,
+      `🛡️ Long-Term Preventive Protection:`,
+      `${sym.preventiveAdvice}`,
+      ``,
+      `🏢 Sunrise Communication — Field Engineering Dispatch (Thane & Mumbai)`,
+      `📞 Emergency Hotline: ${this.siteData.contact.primaryPhone}`
+    ].join('\n');
+
+    if (navigator?.clipboard) {
+      navigator.clipboard.writeText(reportText).then(() => {
+        this.isReportCopied.set(true);
+        setTimeout(() => this.isReportCopied.set(false), 2500);
+      });
+    } else {
+      this.isReportCopied.set(true);
+      setTimeout(() => this.isReportCopied.set(false), 2500);
+    }
   }
 
   getWhatsAppTriageUrl(): string {

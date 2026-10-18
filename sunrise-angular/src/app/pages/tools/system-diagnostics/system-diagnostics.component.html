@@ -53,9 +53,14 @@
 
     <!-- Step 2: Symptom Selection Cards -->
     <div class="step-card mb-4">
-      <div class="step-indicator">
-        <span class="step-num">Step 2</span>
-        <span class="step-title">Select Observed Technical Symptom</span>
+      <div class="step-indicator d-flex align-items-center justify-content-between flex-wrap gap-2">
+        <div class="d-flex align-items-center gap-2">
+          <span class="step-num">Step 2</span>
+          <span class="step-title">Select Observed Technical Symptom</span>
+        </div>
+        <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 reset-triage-btn" (click)="resetDiagnostic()">
+          <i class="fa fa-refresh me-1"></i> Reset Diagnostics
+        </button>
       </div>
       <div class="symptoms-grid">
         @for (symptom of currentSystem().symptoms; track symptom.id) {
@@ -80,8 +85,13 @@
     <!-- Step 3: Instant Diagnostic Assessment & Engineering Analysis -->
     <div class="diagnosis-result-card mb-5">
       <div class="result-header">
-        <div class="result-badge">
-          <i class="fa fa-stethoscope"></i> Technical Assessment
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+          <div class="result-badge">
+            <i class="fa fa-stethoscope"></i> Technical Assessment
+          </div>
+          <button type="button" class="btn-diagnose-another" (click)="resetDiagnostic()">
+            <i class="fa fa-refresh me-1"></i> Diagnose Another Issue
+          </button>
         </div>
         <div class="result-title-row">
           <h3 class="result-heading">{{ currentSymptom().label }}</h3>
@@ -140,10 +150,14 @@
               <p class="triage-callout-text">
                 Speak directly with our senior hardware specialist for immediate triage, spare replacement, or an on-site diagnostic inspection across Thane, Mulund & Mumbai MMR.
               </p>
-              <div class="d-flex flex-wrap gap-2 mt-3">
+              <div class="d-flex flex-wrap gap-2 align-items-center mt-3">
                 <a [href]="getWhatsAppTriageUrl()" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
                   <i class="fa fa-whatsapp me-2"></i> WhatsApp Diagnostic Report
                 </a>
+                <button type="button" class="btn-copy-report" [class.copied]="isReportCopied()" (click)="copyDiagnosticReport()">
+                  <i class="fa" [class.fa-check]="isReportCopied()" [class.fa-copy]="!isReportCopied()"></i>
+                  {{ isReportCopied() ? 'Report Copied!' : 'Copy Summary' }}
+                </button>
                 <a [href]="'tel:' + siteData.contact.primaryPhone" class="btn btn-phone">
                   <i class="fa fa-phone me-2"></i> Call: {{ siteData.contact.primaryPhone }}
                 </a>
