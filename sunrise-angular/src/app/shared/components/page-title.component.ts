@@ -13,12 +13,18 @@ import { RouterLink } from '@angular/router';
         <div class="page-title-inner">
           <div class="title-meta-badge">
             <span class="badge-dot"></span>
-            <span>Enterprise Security & Telecom Solutions</span>
+            <span>{{ badgeText() }}</span>
           </div>
           <h1>{{ title() }}</h1>
+          @if (subtitle()) {
+            <p class="title-subtitle">{{ subtitle() }}</p>
+          }
           <nav aria-label="breadcrumb">
             <ul class="bread-crumb clearfix">
               <li><a routerLink="/"><i class="fa fa-home"></i> Home</a></li>
+              @if (parentBreadcrumb()) {
+                <li><a [routerLink]="parentBreadcrumbUrl() || '/'">{{ parentBreadcrumb() }}</a></li>
+              }
               <li class="active">{{ breadcrumb() }}</li>
             </ul>
           </nav>
@@ -113,6 +119,14 @@ import { RouterLink } from '@angular/router';
         text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
       }
 
+      .title-subtitle {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 14.5px;
+        line-height: 1.5;
+        margin: 0 0 16px 0;
+        max-width: 720px;
+      }
+
       .bread-crumb {
         display: inline-flex;
         align-items: center;
@@ -163,5 +177,9 @@ import { RouterLink } from '@angular/router';
 export class PageTitleComponent {
   title = input.required<string>();
   breadcrumb = input.required<string>();
+  parentBreadcrumb = input<string>('');
+  parentBreadcrumbUrl = input<string>('');
+  badgeText = input<string>('Enterprise Security & Telecom Solutions');
+  subtitle = input<string>('');
   bgImage = input<string>('');
 }
