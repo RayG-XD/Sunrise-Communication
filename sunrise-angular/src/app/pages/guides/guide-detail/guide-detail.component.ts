@@ -35,10 +35,35 @@ export class GuideDetailComponent implements OnInit {
     return `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
   });
 
+  isCopied = signal<boolean>(false);
+
   otherGuides = computed(() => {
     const currentSlug = this.slug();
     return Object.values(TECHNICAL_GUIDES_DATA).filter((item) => item.slug !== currentSlug);
   });
+
+  committeeShareUrl = computed(() => {
+    const g = this.guide();
+    if (!g) return '';
+    const pageUrl = `${this.siteData.contact.website}/guides/${g.slug}`;
+    const text = `Important Technical Guide for Society Committee: "${g.title}" - Read here: ${pageUrl}`;
+    return `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+  });
+
+  cleanHeading(heading: string): string {
+    return heading.replace(/^\d+\.\s*/, '');
+  }
+
+  copyGuideLink(): void {
+    if (isPlatformBrowser(this.platformId) && navigator.clipboard) {
+      const g = this.guide();
+      const url = g ? `${this.siteData.contact.website}/guides/${g.slug}` : window.location.href;
+      navigator.clipboard.writeText(url).then(() => {
+        this.isCopied.set(true);
+        setTimeout(() => this.isCopied.set(false), 2500);
+      });
+    }
+  }
 
   constructor() {
     effect(() => {

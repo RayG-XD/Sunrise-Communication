@@ -565,7 +565,7 @@ export class SeoService {
       guide.metaKeywords,
       pageUrl,
       'article',
-      `${SITE_DATA.contact.website}/assets/images/background/10.jpg`
+      `${SITE_DATA.contact.website}/assets/images/background/about-banner.jpg`
     );
 
     const localBusinessNode = this.getBaseLocalBusinessNode();

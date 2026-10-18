@@ -192,6 +192,16 @@
       transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
+    .quote-watermark {
+      position: absolute;
+      right: 18px;
+      bottom: 40px;
+      font-size: 38px;
+      color: rgba(1, 12, 58, 0.05);
+      pointer-events: none;
+      transition: all 0.28s ease;
+    }
+
     &:hover {
       background-color: #ffffff;
       border-color: rgba(223, 3, 3, 0.35);
@@ -201,6 +211,11 @@
       &::before {
         opacity: 1;
         height: 4px;
+      }
+
+      .quote-watermark {
+        color: rgba(223, 3, 3, 0.08);
+        transform: scale(1.1) rotate(-5deg);
       }
     }
 

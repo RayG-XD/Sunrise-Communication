@@ -3,7 +3,7 @@
   breadcrumb="CCTV Storage Calculator" 
   badgeText="Live Engineering Sizing Engine"
   subtitle="Calculate exact Terabytes (TB), recording retention days, and network bandwidth for 1080p to 4K surveillance cameras with H.265+ compression."
-  bgImage="assets/images/background/7.jpg">
+  bgImage="assets/images/background/about-banner.jpg">
 </app-page-title>
 
 <!-- Calculator Main Section -->
@@ -205,8 +205,8 @@
                   [ngModel]="recordingMode()"
                   (ngModelChange)="recordingMode.set($event)"
                 >
-                  <option value="continuous">24/7 Continuous Recording (Standard)</option>
-                  <option value="motion">Motion Triggered (~12h Active Recording)</option>
+                  <option value="continuous">24/7 Continuous (Standard)</option>
+                  <option value="motion">Motion Triggered (~12h Active)</option>
                 </select>
               </div>
 

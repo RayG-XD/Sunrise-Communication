@@ -70,6 +70,11 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'tools/boq-estimator',
+    redirectTo: 'tools/security-system-estimator',
+    pathMatch: 'full'
+  },
+  {
     path: 'tools/system-health-diagnostics',
     loadComponent: () => import('./pages/tools/system-diagnostics/system-diagnostics.component').then(m => m.SystemDiagnosticsComponent),
     title: 'Security System Health & Fault Diagnostics | Sunrise Communication'
@@ -132,6 +137,20 @@ export const routes: Routes = [
     path: 'review',
     loadComponent: () => import('./pages/review/review.component').then(m => m.ReviewComponent),
     title: 'Review Sunrise Communication on Google | 5-Star Customer Feedback'
+  },
+  {
+    path: 'reviews',
+    redirectTo: 'review',
+    pathMatch: 'full'
+  },
+  {
+    path: 'locations',
+    redirectTo: 'services',
+    pathMatch: 'full'
+  },
+  {
+    path: 'location/:slug',
+    redirectTo: (route) => `/locations/${route.params['slug']}`
   },
   {
     path: 'contact',

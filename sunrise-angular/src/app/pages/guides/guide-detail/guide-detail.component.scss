@@ -170,24 +170,88 @@
   border-radius: 12px;
 }
 
+.article-share-strip {
+  border-color: #e2e8f0;
+  box-shadow: 0 2px 8px rgba(1, 12, 58, 0.03);
+
+  .share-pill-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &.share-whatsapp {
+      background: #25d366;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(37, 211, 102, 0.25);
+
+      &:hover {
+        background: #1ebc57;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
+      }
+    }
+
+    &.share-copy {
+      background: #f1f5f9;
+      color: #010c3a;
+      border: 1px solid #cbd5e1;
+
+      &:hover {
+        background: #e2e8f0;
+        transform: translateY(-1px);
+      }
+    }
+  }
+}
+
 .key-takeaways-card {
-  background: #eff6ff !important;
-  border: 1px solid #bfdbfe !important;
+  background: #fff8f8 !important;
+  border: 1px solid #fecaca !important;
   border-radius: 14px;
 
-  h4 {
-    color: #1e40af !important;
+  .takeaways-accent-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #df0303 0%, #ff4757 100%);
   }
 
-  i.fa-arrow-right {
-    color: #2563eb !important;
+  h4 {
+    color: #991b1b !important;
   }
+}
+
+.section-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #010c3a 0%, #0d1b54 100%);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  box-shadow: 0 3px 10px rgba(1, 12, 58, 0.18);
+  border: 1px solid rgba(223, 3, 3, 0.4);
+  flex-shrink: 0;
 }
 
 .checklist-box {
   background: #f8fafc;
   border: 1px solid #e2e8f0;
-  border-radius: 12px;
+  border-radius: 14px;
 
   li {
     i {
