@@ -2,18 +2,23 @@
   <!-- Header Top -->
   <div class="header-top">
     <div class="auto-container">
-      <ul class="top-left-info">
-        <li>
-          <a [href]="'tel:' + siteData.contact.secondaryPhone">
-            <i class="fa fa-phone text-danger"></i> Call: {{ siteData.contact.secondaryPhone }}
-          </a>
-        </li>
-        <li>
-          <a [href]="'mailto:' + siteData.contact.email">
-            <i class="fa fa-envelope text-danger"></i> {{ siteData.contact.email }}
-          </a>
-        </li>
-      </ul>
+        <ul class="top-left-info">
+          <li>
+            <a [href]="'tel:' + siteData.contact.secondaryPhone">
+              <i class="fa fa-phone text-danger"></i> Call: {{ siteData.contact.secondaryPhone }}
+            </a>
+          </li>
+          <li>
+            <a [href]="'mailto:' + siteData.contact.email">
+              <i class="fa fa-envelope text-danger"></i> {{ siteData.contact.email }}
+            </a>
+          </li>
+          <li class="d-none d-xl-inline-flex">
+            <span class="top-hours-badge">
+              <i class="fa fa-clock-o text-warning me-1"></i> {{ siteData.contact.workingHours }}
+            </span>
+          </li>
+        </ul>
 
       <div class="top-right-bar">
         <ul class="social-links">
@@ -61,8 +66,10 @@
                     <li routerLinkActive="current"><a routerLink="/services/biometric-access-control" (click)="closeAllMenus()"><i class="fa fa-lock text-danger me-2"></i> Biometric & Access Control</a></li>
                     <li routerLinkActive="current"><a routerLink="/services/structured-networking-cabling" (click)="closeAllMenus()"><i class="fa fa-sitemap text-danger me-2"></i> Security & Telecom Cabling</a></li>
                     <li routerLinkActive="current"><a routerLink="/services/security-system-amc-contracts" (click)="closeAllMenus()"><i class="fa fa-shield text-danger me-2"></i> Security System AMC Contracts</a></li>
-                    <li routerLinkActive="current"><a routerLink="/tools/cctv-storage-calculator" (click)="closeAllMenus()"><i class="fa fa-calculator text-warning me-2"></i> CCTV Storage Calculator</a></li>
-                    <li routerLinkActive="current"><a routerLink="/tools/security-system-estimator" (click)="closeAllMenus()"><i class="fa fa-sliders text-warning me-2"></i> System Requirement Estimator</a></li>
+                    <li class="dropdown-header-divider"><span>SIZING & DIAGNOSTIC TOOLS</span></li>
+                    <li routerLinkActive="current"><a routerLink="/tools/cctv-storage-calculator" (click)="closeAllMenus()" class="d-flex align-items-center justify-content-between"><span><i class="fa fa-calculator text-warning me-2"></i> CCTV Storage Calculator</span> <span class="badge bg-danger-subtle text-danger border border-danger-subtle ms-2 px-1.5 py-0.5 rounded-pill font-mono">LIVE</span></a></li>
+                    <li routerLinkActive="current"><a routerLink="/tools/security-system-estimator" (click)="closeAllMenus()" class="d-flex align-items-center justify-content-between"><span><i class="fa fa-sliders text-warning me-2"></i> Requirement Estimator</span> <span class="badge bg-primary-subtle text-primary border border-primary-subtle ms-2 px-1.5 py-0.5 rounded-pill font-mono">BOQ</span></a></li>
+                    <li routerLinkActive="current"><a routerLink="/tools/system-health-diagnostics" (click)="closeAllMenus()" class="d-flex align-items-center justify-content-between"><span><i class="fa fa-stethoscope text-warning me-2"></i> System Fault Diagnostics</span> <span class="badge bg-success-subtle text-success border border-success-subtle ms-2 px-1.5 py-0.5 rounded-pill font-mono">TRIAGE</span></a></li>
                   </ul>
                 </li>
                 <li routerLinkActive="current"><a routerLink="/guides">Guides</a></li>
@@ -117,6 +124,7 @@
                 <li routerLinkActive="current"><a routerLink="/services/security-system-amc-contracts" (click)="closeAllMenus()"><i class="fa fa-shield text-danger me-2"></i> Security System AMC Contracts</a></li>
                 <li routerLinkActive="current"><a routerLink="/tools/cctv-storage-calculator" (click)="closeAllMenus()"><i class="fa fa-calculator text-warning me-2"></i> CCTV Storage Calculator</a></li>
                 <li routerLinkActive="current"><a routerLink="/tools/security-system-estimator" (click)="closeAllMenus()"><i class="fa fa-sliders text-warning me-2"></i> System Requirement Estimator</a></li>
+                <li routerLinkActive="current"><a routerLink="/tools/system-health-diagnostics" (click)="closeAllMenus()"><i class="fa fa-stethoscope text-warning me-2"></i> System Health Diagnostics</a></li>
               </ul>
             </li>
             <li routerLinkActive="current"><a routerLink="/guides" (click)="closeAllMenus()">Guides</a></li>

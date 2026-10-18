@@ -8,16 +8,16 @@
 
   <!-- Step Navigation Pills -->
   <div class="steps-progress-bar">
-    <button class="step-pill" [class.active]="currentStep() === 1" (click)="goToStep(1)">
+    <button type="button" class="step-pill" [class.active]="currentStep() === 1" (click)="goToStep(1)">
       <span class="step-num">1</span> Premise Type
     </button>
-    <button class="step-pill" [class.active]="currentStep() === 2" (click)="goToStep(2)">
+    <button type="button" class="step-pill" [class.active]="currentStep() === 2" (click)="goToStep(2)">
       <span class="step-num">2</span> Services
     </button>
-    <button class="step-pill" [class.active]="currentStep() === 3" (click)="goToStep(3)">
+    <button type="button" class="step-pill" [class.active]="currentStep() === 3" (click)="goToStep(3)">
       <span class="step-num">3</span> Scope Details
     </button>
-    <button class="step-pill" [class.active]="currentStep() === 4" (click)="goToStep(4)">
+    <button type="button" class="step-pill" [class.active]="currentStep() === 4" (click)="goToStep(4)">
       <span class="step-num">4</span> Estimate & Quote
     </button>
   </div>
@@ -85,7 +85,7 @@
             <label><i class="fa fa-map-marker"></i> Location / Pincode:</label>
             <input type="text" [ngModel]="premiseLocation()" (ngModelChange)="premiseLocation.set($event)" class="form-control form-control-sm" placeholder="e.g. Charai Thane, Vashi, Andheri" />
           </div>
-          <button class="estimator-next-btn" (click)="goToStep(2)">
+          <button type="button" class="estimator-next-btn" (click)="goToStep(2)">
             <span>Next: Select Services</span> <i class="fa fa-arrow-right ms-2"></i>
           </button>
         </div>
@@ -167,10 +167,10 @@
         </div>
 
         <div class="step-footer mt-4 d-flex justify-content-between align-items-center">
-          <button class="estimator-back-btn" (click)="goToStep(1)">
+          <button type="button" class="estimator-back-btn" (click)="goToStep(1)">
             <i class="fa fa-arrow-left me-2"></i> <span>Back</span>
           </button>
-          <button class="estimator-next-btn" (click)="goToStep(3)">
+          <button type="button" class="estimator-next-btn" (click)="goToStep(3)">
             <span>Next: Scope & Numbers</span> <i class="fa fa-arrow-right ms-2"></i>
           </button>
         </div>
@@ -266,10 +266,10 @@
         </div>
 
         <div class="step-footer mt-4 d-flex justify-content-between align-items-center">
-          <button class="estimator-back-btn" (click)="goToStep(2)">
+          <button type="button" class="estimator-back-btn" (click)="goToStep(2)">
             <i class="fa fa-arrow-left me-2"></i> <span>Back</span>
           </button>
-          <button class="estimator-next-btn" (click)="goToStep(4)">
+          <button type="button" class="estimator-next-btn" (click)="goToStep(4)">
             <span>Generate Architecture</span> <i class="fa fa-arrow-right ms-2"></i>
           </button>
         </div>

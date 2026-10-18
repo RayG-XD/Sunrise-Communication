@@ -211,6 +211,80 @@
     }
   }
 
+  .footer-compliance-strip {
+    position: relative;
+    z-index: 2;
+    margin: 30px 0;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+    .compliance-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 6px 8px;
+      border-radius: 8px;
+      transition: all 0.25s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .compliance-icon-wrap {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        flex-shrink: 0;
+
+        &.icon-shield {
+          background: rgba(223, 3, 3, 0.18);
+          color: #ff4d4f;
+          border: 1px solid rgba(223, 3, 3, 0.3);
+        }
+
+        &.icon-certificate {
+          background: rgba(234, 179, 8, 0.18);
+          color: #fbbf24;
+          border: 1px solid rgba(234, 179, 8, 0.3);
+        }
+
+        &.icon-bank {
+          background: rgba(56, 189, 248, 0.18);
+          color: #38bdf8;
+          border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        &.icon-doc {
+          background: rgba(34, 197, 94, 0.18);
+          color: #4ade80;
+          border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+      }
+
+      .compliance-title {
+        display: block;
+        color: #ffffff;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1.25;
+      }
+
+      .compliance-sub {
+        display: block;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 11px;
+      }
+    }
+  }
+
   .footer-bottom {
     position: relative;
     z-index: 2;

@@ -50,6 +50,15 @@ export class ProductCardComponent {
   }
 
   /**
+   * Returns top priority specification (e.g. Resolution, Channels, Capacity)
+   */
+  get primarySpec(): { key: string; value: string } | undefined {
+    const specs = this.product().specs;
+    if (!specs || specs.length === 0) return undefined;
+    return specs.find(s => ['Resolution', 'Channels', 'Capacity', 'Lines / Capacity', 'User Capacity'].includes(s.key)) || specs[0];
+  }
+
+  /**
    * Helper to return icon class based on category
    */
   getCategoryIcon(categorySlug: string): string {
@@ -72,3 +81,4 @@ export class ProductCardComponent {
     return 'fa fa-cubes';
   }
 }
+

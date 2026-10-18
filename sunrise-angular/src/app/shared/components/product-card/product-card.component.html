@@ -1,21 +1,23 @@
 <div class="product-card-inner" data-aos="fade-up">
   <!-- Card Header & Media Area -->
-  <a [routerLink]="['/products', product().category_slug, product().slug]" class="card-media-link">
+  <a [routerLink]="['/products', product().category_slug, product().slug]" class="card-media-link" [attr.aria-label]="'View details for ' + product().name">
     <div class="card-media-wrapper">
       @if (product().image_url) {
         <div class="product-image-box">
           <img [ngSrc]="product().image_url" [alt]="product().name" width="300" height="180" priority />
         </div>
       } @else {
-        <!-- CSS Gradient Placeholder -->
+        <!-- High-Tech Engineering Placeholder -->
         <div class="product-css-placeholder" [class]="'cat-' + product().category_slug">
           <div class="tech-grid-overlay"></div>
           <span class="oem-chip"><i class="fa fa-shield"></i> Genuine OEM</span>
           <div class="lens-glow-target">
+            <div class="reticle-ring"></div>
             <div class="icon-circle">
               <i [class]="getCategoryIcon(product().category_slug)"></i>
             </div>
           </div>
+          <span class="category-floating-tag">{{ product().sub_category || product().category }}</span>
         </div>
       }
     </div>
@@ -24,23 +26,42 @@
   <!-- Card Body Content -->
   <div class="card-body-content">
     <div class="brand-row">
-      <span class="brand-badge-pill">{{ product().brand }}</span>
+      <span class="brand-badge-pill" [class]="'brand-' + (product().brand.toLowerCase().replace(' ', ''))">
+        {{ product().brand }}
+      </span>
 
       @if (product().model_number) {
-        <span class="model-number-badge">{{ product().model_number }}</span>
+        <span class="model-number-badge" [title]="product().model_number">
+          <i class="fa fa-barcode me-1 text-muted"></i>{{ product().model_number }}
+        </span>
       }
     </div>
 
     <h3 class="product-title">
-      <a [routerLink]="['/products', product().category_slug, product().slug]">
+      <a [routerLink]="['/products', product().category_slug, product().slug]" [title]="product().name">
         {{ product().name }}
       </a>
     </h3>
 
+    <!-- Key Spec Preview Badge -->
+    @if (primarySpec; as spec) {
+      <div class="card-spec-preview">
+        <span class="spec-label"><i class="fa fa-microchip text-danger me-1"></i>{{ spec.key }}:</span>
+        <span class="spec-value">{{ spec.value }}</span>
+      </div>
+    }
+
+    <!-- Turnkey Services Pills -->
+    <div class="card-services-row">
+      <span class="service-tag"><i class="fa fa-check text-success"></i> Sales</span>
+      <span class="service-tag"><i class="fa fa-wrench text-danger"></i> Install</span>
+      <span class="service-tag"><i class="fa fa-shield text-primary"></i> AMC</span>
+    </div>
+
     <!-- Action Link & Quick WhatsApp Quote -->
     <div class="card-action-bar">
       <a [routerLink]="['/products', product().category_slug, product().slug]" class="view-details-link">
-        Details <i class="fa fa-angle-right"></i>
+        Specs & Details <i class="fa fa-angle-right"></i>
       </a>
       <a
         [href]="getWhatsappUrl()"
@@ -51,7 +72,7 @@
         title="Inquire on WhatsApp"
         aria-label="Inquire on WhatsApp"
       >
-        <i class="fa fa-whatsapp"></i> Quick Quote
+        <i class="fa fa-whatsapp"></i> Quote
       </a>
     </div>
   </div>

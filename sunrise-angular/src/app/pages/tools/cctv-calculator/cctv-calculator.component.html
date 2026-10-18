@@ -431,6 +431,7 @@
       <div class="faq-accordion-container max-w-850 mx-auto">
         <div class="faq-item" [class.open]="activeFaqIndex() === 0">
           <button
+            type="button"
             class="faq-question-btn"
             (click)="toggleFaq(0)"
             [attr.aria-expanded]="activeFaqIndex() === 0"
@@ -457,6 +458,7 @@
 
         <div class="faq-item" [class.open]="activeFaqIndex() === 1">
           <button
+            type="button"
             class="faq-question-btn"
             (click)="toggleFaq(1)"
             [attr.aria-expanded]="activeFaqIndex() === 1"
@@ -487,6 +489,7 @@
 
         <div class="faq-item" [class.open]="activeFaqIndex() === 2">
           <button
+            type="button"
             class="faq-question-btn"
             (click)="toggleFaq(2)"
             [attr.aria-expanded]="activeFaqIndex() === 2"
@@ -514,6 +517,7 @@
 
         <div class="faq-item" [class.open]="activeFaqIndex() === 3">
           <button
+            type="button"
             class="faq-question-btn"
             (click)="toggleFaq(3)"
             [attr.aria-expanded]="activeFaqIndex() === 3"

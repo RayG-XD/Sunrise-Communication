@@ -46,9 +46,9 @@
                       <i [class]="cat.iconClass"></i>
                     </div>
                     <span class="counts-badge">
-                      {{ cat.productCount }} {{ cat.productCount === 1 ? 'Product' : 'Products' }}
+                      <i class="fa fa-check-circle text-danger me-1"></i>{{ cat.productCount }} {{ cat.productCount === 1 ? 'Model' : 'Models' }}
                       @if (cat.subCategoryCount > 0) {
-                        • {{ cat.subCategoryCount }} Sub-Cats
+                        <span class="subcat-divider">•</span> {{ cat.subCategoryCount }} Types
                       }
                     </span>
                   </div>
@@ -62,7 +62,7 @@
 
                   <div class="card-footer-action">
                     <span class="explore-btn">
-                      Explore Catalog <i class="fa fa-arrow-right ms-1"></i>
+                      Explore {{ cat.name }} <i class="fa fa-arrow-right ms-1"></i>
                     </span>
                   </div>
                 </div>
@@ -120,19 +120,19 @@
     @else {
       <!-- Top Action Navigation Bar -->
       <div class="stage2-top-bar mb-3">
-        <button class="back-to-categories-btn" (click)="returnToCategoryLanding()">
-          <i class="fa fa-arrow-left"></i> Back to All Categories
+        <button type="button" class="back-to-categories-btn" (click)="returnToCategoryLanding()">
+          <i class="fa fa-arrow-left me-1"></i> Back to All Categories
         </button>
 
-        <div class="results-count-summary d-none d-md-block">
-          Showing <strong>{{ filteredProducts().length }}</strong> of
-          <strong>{{ productService.products().length }}</strong> products
+        <div class="results-count-summary d-none d-md-flex align-items-center gap-2">
+          <span class="live-dot"></span>
+          <span>Showing <strong>{{ filteredProducts().length }}</strong> of <strong>{{ productService.products().length }}</strong> enterprise products</span>
         </div>
       </div>
 
       <!-- Mobile Filter Toggle Button -->
       <div class="mobile-filter-bar d-lg-none mb-4">
-        <button class="mobile-filter-toggle-pill" (click)="toggleMobileFilter()">
+        <button type="button" class="mobile-filter-toggle-pill" (click)="toggleMobileFilter()">
           <i class="fa fa-sliders"></i>
           <span>{{ isMobileFilterOpen() ? 'Hide Filters' : 'Filter Products' }}</span>
           @if (activeFilterCount() > 0) {
@@ -159,7 +159,7 @@
                 selectedBrands().size > 0 ||
                 searchQuery()
               ) {
-                <button class="clear-all-btn" (click)="clearAllFiltersInDetailMode()">
+                <button type="button" class="clear-all-btn" (click)="clearAllFiltersInDetailMode()">
                   Clear All
                 </button>
               }
@@ -177,7 +177,7 @@
                   class="form-control"
                 />
                 @if (searchQuery()) {
-                  <button class="clear-search-icon" (click)="clearSearch()">×</button>
+                  <button type="button" class="clear-search-icon" (click)="clearSearch()">×</button>
                 } @else {
                   <i class="fa fa-search search-icon"></i>
                 }
@@ -197,25 +197,25 @@
                   @if (searchQuery()) {
                     <span class="chip-item">
                       "{{ searchQuery() }}"
-                      <button (click)="clearSearch()">×</button>
+                      <button type="button" (click)="clearSearch()">×</button>
                     </span>
                   }
                   @for (cat of selectedCategories(); track cat) {
                     <span class="chip-item">
                       {{ cat }}
-                      <button (click)="removeCategoryFilter(cat)">×</button>
+                      <button type="button" (click)="removeCategoryFilter(cat)">×</button>
                     </span>
                   }
                   @for (subCat of selectedSubCategories(); track subCat) {
                     <span class="chip-item chip-subcat">
                       {{ subCat }}
-                      <button (click)="removeSubCategoryFilter(subCat)">×</button>
+                      <button type="button" (click)="removeSubCategoryFilter(subCat)">×</button>
                     </span>
                   }
                   @for (brand of selectedBrands(); track brand) {
                     <span class="chip-item">
                       {{ brand }}
-                      <button (click)="removeBrandFilter(brand)">×</button>
+                      <button type="button" (click)="removeBrandFilter(brand)">×</button>
                     </span>
                   }
                 </div>
@@ -306,10 +306,22 @@
           <!-- Active Category Banner & Description -->
           @if (activeCategoryName()) {
             <div class="category-description-card">
-              <h2 class="active-category-title">{{ activeCategoryName() }}</h2>
-              @if (activeCategoryDescription()) {
-                <p class="active-category-desc">{{ activeCategoryDescription() }}</p>
-              }
+              <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                <div>
+                  <span class="badge bg-danger text-white px-2.5 py-1 rounded-pill small mb-1">
+                    <i class="fa fa-folder-open me-1"></i> CATEGORY CATALOG
+                  </span>
+                  <h2 class="active-category-title mb-1">{{ activeCategoryName() }}</h2>
+                  @if (activeCategoryDescription()) {
+                    <p class="active-category-desc mb-0">{{ activeCategoryDescription() }}</p>
+                  }
+                </div>
+                <div class="d-none d-sm-block text-end">
+                  <span class="badge bg-white text-dark px-3 py-2 rounded-pill fw-semibold shadow-sm border">
+                    <i class="fa fa-shield text-danger me-1"></i> OEM Warranty Backed
+                  </span>
+                </div>
+              </div>
             </div>
           }
 
@@ -344,7 +356,7 @@
                   Please check one or more categories from the sidebar filter on the left to browse
                   available products and models.
                 </p>
-                <button class="theme-btn btn-style-one" (click)="returnToCategoryLanding()">
+                <button type="button" class="theme-btn btn-style-one" (click)="returnToCategoryLanding()">
                   <span class="txt"
                     ><i class="fa fa-arrow-left"></i> View All Category Overview</span
                   >
@@ -358,19 +370,23 @@
                 <div class="subcategory-group-section mb-4">
                   <!-- Group Heading Bar -->
                   <div class="group-header-bar">
-                    <h3 class="group-title">
-                      <span class="group-heading-badge">{{ group.subCategory }}</span>
-                      <span class="group-count-pill">({{ group.count }})</span>
-                    </h3>
+                    <div class="group-title-wrap">
+                      <span class="group-badge-icon"><i class="fa fa-cubes"></i></span>
+                      <h3 class="group-title mb-0">
+                        <span class="group-heading-text">{{ group.subCategory }}</span>
+                      </h3>
+                      <span class="group-count-pill">{{ group.count }} {{ group.count === 1 ? 'Model' : 'Models' }}</span>
+                    </div>
 
                     @if (group.products.length > 2) {
                       <button
+                        type="button"
                         class="show-all-toggle-btn"
                         (click)="toggleShowAllGroup(group.subCategory)"
                       >
-                        {{ isGroupExpanded(group.subCategory) ? 'SHOW LESS' : 'SHOW ALL' }}
+                        {{ isGroupExpanded(group.subCategory) ? 'Show Less' : 'Show All (' + group.count + ')' }}
                         <i
-                          class="fa"
+                          class="fa ms-1"
                           [class.fa-angle-down]="!isGroupExpanded(group.subCategory)"
                           [class.fa-angle-up]="isGroupExpanded(group.subCategory)"
                         ></i>
@@ -379,14 +395,14 @@
                   </div>
 
                   <!-- Products Grid under this Sub-Group -->
-                  <div class="row clearfix">
+                  <div class="row clearfix g-3">
                     @let visibleProducts =
                       isGroupExpanded(group.subCategory)
                         ? group.products
                         : group.products.slice(0, 2);
 
                     @for (product of visibleProducts; track product.id) {
-                      <div class="col-lg-4 col-md-6 col-sm-12 product-grid-item mb-3">
+                      <div class="col-lg-4 col-md-6 col-sm-12 product-grid-item">
                         <app-product-card [product]="product"></app-product-card>
                       </div>
                     }
@@ -406,7 +422,7 @@
                   Try clearing your sub-category, brand, or search filters to see products in the
                   selected category.
                 </p>
-                <button class="theme-btn btn-style-one" (click)="clearAllFiltersInDetailMode()">
+                <button type="button" class="theme-btn btn-style-one" (click)="clearAllFiltersInDetailMode()">
                   <span class="txt">Reset Filters</span>
                 </button>
               </div>

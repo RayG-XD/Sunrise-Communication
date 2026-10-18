@@ -298,7 +298,7 @@
         <div class="faq-accordion-container">
           @for (faq of cluster.faqs; track faq.question; let i = $index) {
             <div class="faq-item" [class.open]="activeFaqIndex() === i">
-              <button class="faq-question-btn" (click)="toggleFaq(i)">
+              <button type="button" class="faq-question-btn" (click)="toggleFaq(i)">
                 <span>{{ faq.question }}</span>
                 <i class="fa" [class.fa-plus]="activeFaqIndex() !== i" [class.fa-minus]="activeFaqIndex() === i"></i>
               </button>

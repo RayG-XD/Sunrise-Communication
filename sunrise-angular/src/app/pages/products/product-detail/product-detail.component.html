@@ -1,31 +1,44 @@
 @if (product(); as prod) {
   <section class="page-title product-detail-banner">
     <div class="auto-container">
-      <h1>{{ prod.name }}</h1>
-      <ul class="bread-crumb clearfix">
-        <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="/products">Products</a></li>
-        <li>
-          <a [routerLink]="['/products']" [queryParams]="{ category: prod.category }">
-            {{ prod.category }}
-          </a>
-        </li>
-        @if (prod.sub_category) {
-          <li>
-            <a [routerLink]="['/products']" [queryParams]="{ category: prod.category, sub_category: prod.sub_category }">
-              {{ prod.sub_category }}
-            </a>
-          </li>
-        }
-        <li class="active">{{ prod.model_number || prod.name }}</li>
-      </ul>
+      <div class="banner-content-wrap">
+        <span class="badge bg-danger text-white px-3 py-1 rounded-pill mb-2">
+          <i class="fa fa-shield me-1"></i> ENTERPRISE HARDWARE SPECIFICATION
+        </span>
+        <h1>{{ prod.name }}</h1>
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mt-2">
+          <ul class="bread-crumb clearfix mb-0">
+            <li><a routerLink="/"><i class="fa fa-home me-1"></i>Home</a></li>
+            <li><a routerLink="/products">Products</a></li>
+            <li>
+              <a [routerLink]="['/products']" [queryParams]="{ category: prod.category }">
+                {{ prod.category }}
+              </a>
+            </li>
+            @if (prod.sub_category) {
+              <li>
+                <a [routerLink]="['/products']" [queryParams]="{ category: prod.category, sub_category: prod.sub_category }">
+                  {{ prod.sub_category }}
+                </a>
+              </li>
+            }
+            <li class="active">{{ prod.model_number || prod.name }}</li>
+          </ul>
+
+          @if (prod.model_number) {
+            <span class="banner-sku-badge">
+              <i class="fa fa-barcode me-1 text-danger"></i> SKU: <strong>{{ prod.model_number }}</strong>
+            </span>
+          }
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Detail Content Section -->
   <section class="product-detail-section">
     <div class="auto-container">
-      <div class="row clearfix">
+      <div class="row clearfix g-4">
         
         <!-- Left Column: Product Image Preview -->
         <div class="col-lg-6 col-md-12 col-sm-12 media-column">
@@ -74,13 +87,45 @@
               }
             </div>
 
+            <!-- Enterprise Trust & Handover 4-Pillar Grid -->
+            <div class="enterprise-trust-grid mt-3">
+              <div class="trust-item">
+                <i class="fa fa-shield text-danger"></i>
+                <div>
+                  <strong>Genuine OEM</strong>
+                  <span class="d-block text-muted small">Sealed Manufacturer Box</span>
+                </div>
+              </div>
+              <div class="trust-item">
+                <i class="fa fa-wrench text-warning"></i>
+                <div>
+                  <strong>Turnkey Install</strong>
+                  <span class="d-block text-muted small">Trained Field Technicians</span>
+                </div>
+              </div>
+              <div class="trust-item">
+                <i class="fa fa-refresh text-primary"></i>
+                <div>
+                  <strong>AMC Ready</strong>
+                  <span class="d-block text-muted small">Comprehensive & Non-Comp</span>
+                </div>
+              </div>
+              <div class="trust-item">
+                <i class="fa fa-truck text-success"></i>
+                <div>
+                  <strong>Thane MMR Stock</strong>
+                  <span class="d-block text-muted small">Quick Dispatch & Survey</span>
+                </div>
+              </div>
+            </div>
+
             <!-- Service Badges Highlight Strip -->
-            <div class="services-offered-strip">
+            <div class="services-offered-strip mt-3">
               <span class="strip-label"><i class="fa fa-cogs"></i> Sunrise Services:</span>
               <div class="services-pills">
                 @for (service of prod.services_offered; track service) {
                   <span class="service-pill">
-                    <i class="fa fa-check"></i> {{ service }}
+                    <i class="fa fa-check text-success"></i> {{ service }}
                   </span>
                 }
               </div>
@@ -94,15 +139,18 @@
           <div class="info-container-inner">
             
             <!-- Category & Brand Header Bar -->
-            <div class="meta-header-bar">
+            <div class="meta-header-bar mb-3">
               <span class="category-context-badge">
-                <i class="fa fa-folder-open"></i> {{ prod.category }} &rsaquo; {{ prod.sub_category }}
+                <i class="fa fa-folder-open text-danger me-1"></i> {{ prod.category }} &rsaquo; {{ prod.sub_category }}
               </span>
               @if (prod.brand_logo_url) {
                 <img [src]="prod.brand_logo_url" [alt]="prod.brand" class="brand-logo-detail" />
               } @else {
                 <span class="brand-badge-detail">{{ prod.brand }}</span>
               }
+              <span class="stock-status-pill in-stock">
+                <span class="stock-pulse"></span> Ready for Installation
+              </span>
             </div>
 
             <!-- Product Title -->
@@ -113,29 +161,41 @@
 
             <!-- Technical Specifications Table (Centered & Structured) -->
             <div class="specs-table-wrapper">
-              <h3 class="specs-section-title">
-                <i class="fa fa-list-alt"></i> Technical Specifications
-              </h3>
-              <table class="table specs-table">
+              <div class="specs-header-row">
+                <h3 class="specs-section-title mb-0">
+                  <i class="fa fa-list-alt text-danger me-2"></i> Technical Specifications
+                </h3>
+                <span class="oem-spec-label"><i class="fa fa-check-circle text-success me-1"></i> Verified Specs</span>
+              </div>
+              <table class="table specs-table mb-2">
                 <tbody>
                   @for (spec of prod.specs; track spec.key) {
                     <tr>
-                      <th scope="row" class="spec-key-col">{{ spec.key }}</th>
+                      <th scope="row" class="spec-key-col">
+                        <span class="spec-dot"></span> {{ spec.key }}
+                      </th>
                       <td class="spec-val-col">{{ spec.value }}</td>
                     </tr>
                   }
                 </tbody>
               </table>
+              <div class="specs-footer-note">
+                <i class="fa fa-info-circle text-muted me-1"></i>
+                Official industrial specification. Full turnkey commissioning, wiring conduit layout & testing supplied across Thane & Mumbai MMR.
+              </div>
             </div>
 
             <!-- WhatsApp Lead Generation Primary CTA -->
-            <div class="whatsapp-cta-card">
+            <div class="whatsapp-cta-card mt-4">
               <div class="whatsapp-cta-inner">
                 <div class="cta-text-content">
+                  <span class="badge bg-success-subtle text-success px-2.5 py-1 rounded-pill small fw-bold mb-1">
+                    <i class="fa fa-whatsapp"></i> DIRECT ENGINEER QUOTE
+                  </span>
                   <h4>Inquire For Sales, Installation & AMC</h4>
-                  <p>Get pricing, site survey, and technical assistance directly from Sunrise Communication experts.</p>
+                  <p>Get bulk pricing, society AGM proposals, and site inspection directly from Sunrise Communication senior engineers.</p>
                 </div>
-                <div class="d-flex flex-wrap gap-2 align-items-center">
+                <div class="d-flex flex-wrap gap-2 align-items-center mt-3">
                   <a 
                     [href]="whatsappUrl()" 
                     (click)="onWhatsappClick()"
