@@ -2,7 +2,9 @@
 
   <!-- Hero Title Banner -->
   <section class="page-title local-hero-banner">
-    <div class="auto-container">
+    <div class="tech-pattern-grid" aria-hidden="true"></div>
+    <div class="tech-glow-accent" aria-hidden="true"></div>
+    <div class="auto-container position-relative" style="z-index: 2;">
       <div class="rating-pill-badge mb-2">
         <span class="gold-stars me-1">
           <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
@@ -12,11 +14,13 @@
       <h1>{{ loc.heroTitle }}</h1>
       <p class="hero-lead-text text-white-50 max-w-750 mx-auto mt-2">{{ loc.heroSubtitle }}</p>
       
-      <ul class="bread-crumb clearfix mt-3">
-        <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="/services">Service Areas</a></li>
-        <li class="active">{{ loc.regionName }}</li>
-      </ul>
+      <nav aria-label="breadcrumb" class="d-inline-block mt-3">
+        <ul class="bread-crumb clearfix">
+          <li><a routerLink="/"><i class="fa fa-home"></i> Home</a></li>
+          <li><a routerLink="/services">Service Areas</a></li>
+          <li class="active">{{ loc.regionName }}</li>
+        </ul>
+      </nav>
     </div>
   </section>
 

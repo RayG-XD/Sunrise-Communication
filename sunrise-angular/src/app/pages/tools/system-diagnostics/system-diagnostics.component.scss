@@ -540,6 +540,14 @@
       border-radius: 16px;
       padding: 1.5rem;
       box-shadow: 0 4px 14px rgba(1, 12, 58, 0.04);
+      width: 100%;
+      box-sizing: border-box;
+
+      .row {
+        > [class*='col-'] {
+          min-width: 0;
+        }
+      }
 
       .lead-box-title {
         font-size: 1.15rem;
@@ -555,11 +563,17 @@
       }
 
       .diag-input {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
         font-size: 0.88rem;
         border-radius: 10px;
         border: 1.5px solid #cbd5e1;
         padding: 10px 14px;
         transition: all 0.2s ease;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
 
         &:focus {
           border-color: #df0303;

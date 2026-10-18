@@ -1,29 +1,33 @@
 @if (product(); as prod) {
   <section class="page-title product-detail-banner">
-    <div class="auto-container">
+    <div class="tech-pattern-grid" aria-hidden="true"></div>
+    <div class="tech-glow-accent" aria-hidden="true"></div>
+    <div class="auto-container position-relative" style="z-index: 2;">
       <div class="banner-content-wrap">
         <span class="badge bg-danger text-white px-3 py-1 rounded-pill mb-2">
           <i class="fa fa-shield me-1"></i> ENTERPRISE HARDWARE SPECIFICATION
         </span>
         <h1>{{ prod.name }}</h1>
         <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mt-2">
-          <ul class="bread-crumb clearfix mb-0">
-            <li><a routerLink="/"><i class="fa fa-home me-1"></i>Home</a></li>
-            <li><a routerLink="/products">Products</a></li>
-            <li>
-              <a [routerLink]="['/products']" [queryParams]="{ category: prod.category }">
-                {{ prod.category }}
-              </a>
-            </li>
-            @if (prod.sub_category) {
+          <nav aria-label="breadcrumb">
+            <ul class="bread-crumb clearfix mb-0">
+              <li><a routerLink="/"><i class="fa fa-home me-1"></i>Home</a></li>
+              <li><a routerLink="/products">Products</a></li>
               <li>
-                <a [routerLink]="['/products']" [queryParams]="{ category: prod.category, sub_category: prod.sub_category }">
-                  {{ prod.sub_category }}
+                <a [routerLink]="['/products']" [queryParams]="{ category: prod.category }">
+                  {{ prod.category }}
                 </a>
               </li>
-            }
-            <li class="active">{{ prod.model_number || prod.name }}</li>
-          </ul>
+              @if (prod.sub_category) {
+                <li>
+                  <a [routerLink]="['/products']" [queryParams]="{ category: prod.category, sub_category: prod.sub_category }">
+                    {{ prod.sub_category }}
+                  </a>
+                </li>
+              }
+              <li class="active">{{ prod.model_number || prod.name }}</li>
+            </ul>
+          </nav>
 
           @if (prod.model_number) {
             <span class="banner-sku-badge">

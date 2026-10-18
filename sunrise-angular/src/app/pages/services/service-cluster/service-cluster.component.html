@@ -2,13 +2,21 @@
   
   <!-- Hero Breadcrumb Banner -->
   <section class="page-title service-cluster-banner">
-    <div class="auto-container">
+    <div class="tech-pattern-grid" aria-hidden="true"></div>
+    <div class="tech-glow-accent" aria-hidden="true"></div>
+    <div class="auto-container position-relative" style="z-index: 2;">
+      <div class="title-meta-badge">
+        <span class="badge-dot"></span>
+        <span>Certified Turnkey Integrator • Thane & Mumbai MMR</span>
+      </div>
       <h1>{{ cluster.heroTitle }}</h1>
-      <ul class="bread-crumb clearfix">
-        <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="/services">Services</a></li>
-        <li class="active">{{ cluster.name }}</li>
-      </ul>
+      <nav aria-label="breadcrumb">
+        <ul class="bread-crumb clearfix">
+          <li><a routerLink="/"><i class="fa fa-home"></i> Home</a></li>
+          <li><a routerLink="/services">Services</a></li>
+          <li class="active">{{ cluster.name }}</li>
+        </ul>
+      </nav>
     </div>
   </section>
 
