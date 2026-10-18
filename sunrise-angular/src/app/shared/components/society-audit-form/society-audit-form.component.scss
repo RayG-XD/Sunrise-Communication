@@ -18,7 +18,8 @@
   .form-control, .form-select {
     background-color: #f8fafc;
     border: 1.5px solid #e2e8f0;
-    border-radius: 8px;
+    border-radius: 12px;
+    height: 46px;
     font-size: 13.5px;
     color: #010c3a;
     transition: all 0.2s ease;
@@ -26,7 +27,7 @@
     &:focus {
       background-color: #ffffff;
       border-color: #df0303;
-      box-shadow: 0 0 0 0.2rem rgba(223, 3, 3, 0.12);
+      box-shadow: 0 0 0 3px rgba(223, 3, 3, 0.12);
     }
   }
 }

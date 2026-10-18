@@ -29,13 +29,14 @@
 
             <!-- Showcase Navigation & Indicators -->
             <div class="showcase-controls">
-              <button class="nav-btn prev-btn" (click)="prevSlide()" aria-label="Previous Slide">
+              <button type="button" class="nav-btn prev-btn" (click)="prevSlide()" aria-label="Previous Slide">
                 <i class="fa fa-arrow-left"></i>
               </button>
 
               <div class="indicators">
                 @for (slide of slides; track $index) {
                   <button 
+                    type="button"
                     class="dot" 
                     [class.active]="$index === activeIndex()"
                     (click)="setActiveSlide($index)"
@@ -44,7 +45,7 @@
                 }
               </div>
 
-              <button class="nav-btn next-btn" (click)="nextSlide()" aria-label="Next Slide">
+              <button type="button" class="nav-btn next-btn" (click)="nextSlide()" aria-label="Next Slide">
                 <i class="fa fa-arrow-right"></i>
               </button>
             </div>

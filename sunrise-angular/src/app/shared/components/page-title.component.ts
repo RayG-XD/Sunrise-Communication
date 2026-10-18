@@ -6,7 +6,7 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink],
   template: `
-    <section class="page-title">
+    <section class="page-title" [style.backgroundImage]="bgImage() ? 'linear-gradient(135deg, rgba(1, 12, 58, 0.93) 0%, rgba(6, 21, 77, 0.88) 60%, rgba(10, 31, 104, 0.84) 100%), url(' + bgImage() + ')' : null">
       <div class="tech-pattern-grid" aria-hidden="true"></div>
       <div class="tech-glow-accent" aria-hidden="true"></div>
       <div class="auto-container">
@@ -30,7 +30,9 @@ import { RouterLink } from '@angular/router';
     .page-title {
       position: relative;
       background: linear-gradient(135deg, #010c3a 0%, #06154d 60%, #0a1f68 100%);
-      padding: 64px 0 48px;
+      background-size: cover;
+      background-position: center;
+      padding: 68px 0 52px;
       overflow: hidden;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 

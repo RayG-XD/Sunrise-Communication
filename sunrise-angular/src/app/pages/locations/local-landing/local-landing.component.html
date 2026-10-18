@@ -174,7 +174,7 @@
       <div class="faq-accordion-container max-w-850 mx-auto">
         @for (faq of loc.localFaqs; track faq.question; let i = $index) {
           <div class="faq-item" [class.open]="activeFaqIndex() === i">
-            <button class="faq-question-btn" (click)="toggleFaq(i)">
+            <button type="button" class="faq-question-btn" (click)="toggleFaq(i)">
               <span>{{ faq.question }}</span>
               <i class="fa" [class.fa-plus]="activeFaqIndex() !== i" [class.fa-minus]="activeFaqIndex() === i"></i>
             </button>
