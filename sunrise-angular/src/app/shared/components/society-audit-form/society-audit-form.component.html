@@ -11,8 +11,8 @@
 
       <!-- 1. Society / Organization Name -->
       <div class="col-md-6 col-12">
-        <label class="form-label fw-bold text-dark small mb-1">Society / Corporate Name *</label>
-        <input type="text" formControlName="societyName" class="form-control" 
+        <label for="audit-societyName" class="form-label fw-bold text-dark small mb-1">Society / Corporate Name *</label>
+        <input id="audit-societyName" type="text" formControlName="societyName" class="form-control"
                placeholder="e.g. Gokul Horizon CHS / Amar Industrial Park"
                [class.is-invalid]="auditForm.get('societyName')?.invalid && auditForm.get('societyName')?.touched">
         @if(auditForm.get('societyName')?.invalid && auditForm.get('societyName')?.touched) {
@@ -22,8 +22,8 @@
 
       <!-- 2. Locality / Ward -->
       <div class="col-md-6 col-12">
-        <label class="form-label fw-bold text-dark small mb-1">Locality in Thane / Mumbai MMR *</label>
-        <select formControlName="locality" class="form-select">
+        <label for="audit-locality" class="form-label fw-bold text-dark small mb-1">Locality in Thane / Mumbai MMR *</label>
+        <select id="audit-locality" formControlName="locality" class="form-select">
           <option value="" disabled>Select Locality / MMR Area *</option>
           <optgroup label="Thane District">
             <option value="Charai, Thane (West)">Charai, Thane (West)</option>
@@ -54,19 +54,19 @@
 
       <!-- 3. Scale: Flat Count & Wing Count -->
       <div class="col-md-3 col-6">
-        <label class="form-label fw-bold text-dark small mb-1">Total Flats / Units *</label>
-        <input type="number" formControlName="flatCount" class="form-control" min="1" max="2000" placeholder="e.g. 48">
+        <label for="audit-flatCount" class="form-label fw-bold text-dark small mb-1">Total Flats / Units *</label>
+        <input id="audit-flatCount" type="number" formControlName="flatCount" class="form-control" min="1" max="2000" placeholder="e.g. 48">
       </div>
 
       <div class="col-md-3 col-6">
-        <label class="form-label fw-bold text-dark small mb-1">Total Wings *</label>
-        <input type="number" formControlName="wingCount" class="form-control" min="1" max="20" placeholder="e.g. 2">
+        <label for="audit-wingCount" class="form-label fw-bold text-dark small mb-1">Total Wings *</label>
+        <input id="audit-wingCount" type="number" formControlName="wingCount" class="form-control" min="1" max="20" placeholder="e.g. 2">
       </div>
 
       <!-- 4. Project Type & Preferred Time Slot -->
       <div class="col-md-3 col-6">
-        <label class="form-label fw-bold text-dark small mb-1">Project Scope</label>
-        <select formControlName="projectType" class="form-select">
+        <label for="audit-projectType" class="form-label fw-bold text-dark small mb-1">Project Scope</label>
+        <select id="audit-projectType" formControlName="projectType" class="form-select">
           <option value="New Turnkey Installation">New Turnkey Setup</option>
           <option value="Rewiring / Upgradation">Rewiring / Upgrade</option>
           <option value="AMC / Breakdown Service">AMC Maintenance</option>
@@ -74,8 +74,8 @@
       </div>
 
       <div class="col-md-3 col-6">
-        <label class="form-label fw-bold text-dark small mb-1">Preferred Time</label>
-        <select formControlName="preferredTime" class="form-select">
+        <label for="audit-preferredTime" class="form-label fw-bold text-dark small mb-1">Preferred Time</label>
+        <select id="audit-preferredTime" formControlName="preferredTime" class="form-select">
           <option value="Morning (10 AM – 1 PM)">Morning (10AM–1PM)</option>
           <option value="Afternoon (2 PM – 5 PM)">Afternoon (2PM–5PM)</option>
           <option value="Evening (5 PM – 8 PM)">Evening (5PM–8PM)</option>
@@ -118,14 +118,14 @@
 
       <!-- 6. Contact Details -->
       <div class="col-md-4 col-12">
-        <label class="form-label fw-bold text-dark small mb-1">Contact Person Name *</label>
-        <input type="text" formControlName="contactPerson" class="form-control" placeholder="e.g. Mr. Rajesh Sharma"
+        <label for="audit-contactPerson" class="form-label fw-bold text-dark small mb-1">Contact Person Name *</label>
+        <input id="audit-contactPerson" type="text" formControlName="contactPerson" class="form-control" placeholder="e.g. Mr. Rajesh Sharma"
                [class.is-invalid]="auditForm.get('contactPerson')?.invalid && auditForm.get('contactPerson')?.touched">
       </div>
 
       <div class="col-md-4 col-6">
-        <label class="form-label fw-bold text-dark small mb-1">Role / Designation *</label>
-        <select formControlName="designation" class="form-select">
+        <label for="audit-designation" class="form-label fw-bold text-dark small mb-1">Role / Designation *</label>
+        <select id="audit-designation" formControlName="designation" class="form-select">
           <option value="Society Secretary">Society Secretary</option>
           <option value="Society Chairman">Society Chairman</option>
           <option value="Society Treasurer">Society Treasurer</option>
@@ -136,8 +136,8 @@
       </div>
 
       <div class="col-md-4 col-6">
-        <label class="form-label fw-bold text-dark small mb-1">Direct Mobile Number *</label>
-        <input type="tel" formControlName="phone" class="form-control" placeholder="e.g. 9323848622"
+        <label for="audit-phone" class="form-label fw-bold text-dark small mb-1">Direct Mobile Number *</label>
+        <input id="audit-phone" type="tel" formControlName="phone" class="form-control" placeholder="e.g. 9323848622"
                [class.is-invalid]="auditForm.get('phone')?.invalid && auditForm.get('phone')?.touched">
       </div>
 
